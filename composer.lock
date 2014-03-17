@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5effa7eb600030db49219c8bc8001680",
+    "hash": "64108301c94d38844dd22fd220ded23d",
     "packages": [
         {
             "name": "ajbdev/authorizenet-php-api",
@@ -974,12 +974,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "c4103172903de83563790d42ea203e3758fe9794"
+                "reference": "9b8bbbcf50620f7c8af9c7588d9fe29247c2fa42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/c4103172903de83563790d42ea203e3758fe9794",
-                "reference": "c4103172903de83563790d42ea203e3758fe9794",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/9b8bbbcf50620f7c8af9c7588d9fe29247c2fa42",
+                "reference": "9b8bbbcf50620f7c8af9c7588d9fe29247c2fa42",
                 "shasum": ""
             },
             "require": {
@@ -1034,7 +1034,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-03-14 17:10:00"
+            "time": "2014-03-16 19:14:47"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -2942,27 +2942,27 @@
         },
         {
             "name": "paypal/sdk-core-php",
-            "version": "v2.4.0",
+            "version": "V1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paypal/sdk-core-php.git",
-                "reference": "bbfb55474f0424188f2b3d6bf695fa0ae791ecd1"
+                "reference": "06588e5017a6c983168a3bd8e7093d7068974cd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paypal/sdk-core-php/zipball/bbfb55474f0424188f2b3d6bf695fa0ae791ecd1",
-                "reference": "bbfb55474f0424188f2b3d6bf695fa0ae791ecd1",
+                "url": "https://api.github.com/repos/paypal/sdk-core-php/zipball/06588e5017a6c983168a3bd8e7093d7068974cd0",
+                "reference": "06588e5017a6c983168a3bd8e7093d7068974cd0",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
-                "php": ">=5.3.0"
+                "php": ">=5.2.0"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "PayPal": "lib/"
-                }
+                "classmap": [
+                    "lib"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -2981,7 +2981,7 @@
                 "php",
                 "sdk"
             ],
-            "time": "2013-05-21 06:45:20"
+            "time": "2013-03-06 13:21:44"
         },
         {
             "name": "payum/payum",
@@ -6081,12 +6081,7 @@
         }
     ],
     "aliases": [
-        {
-            "alias": "1.2.0",
-            "alias_normalized": "1.2.0.0",
-            "version": "2.4.0.0",
-            "package": "paypal/sdk-core-php"
-        }
+
     ],
     "minimum-stability": "stable",
     "stability-flags": {

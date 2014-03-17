@@ -24,15 +24,7 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sylius\Bundle\PaymentsBundle\Model\PaymentInterface;
 
-require_once '..\paypal\adaptivepayments-sdk-php\lib\services\AdaptivePayments\AdaptivePayments.php';
-require_once '..\paypal\adaptivepayments-sdk-php\lib\services\AdaptivePayments\AdaptivePaymentsService.php';
-
-use PayRequest;
-use Receiver;
-use ReceiverList;
-use RequestEnvelope;
-use AdaptivePayments;
-use AdaptivePaymentsService;
+require_once '..\src\Tresepic\BoprBundle\test_paypal\SimpleSamples\ChainedPay.php';
 
 class PurchaseStep extends CheckoutStep
 {
@@ -45,51 +37,11 @@ class PurchaseStep extends CheckoutStep
         
         $order->setState(PaymentInterface::STATE_NEW);
         
-        $payRequest = new PayRequest();
+        $total = $order->getTotal()/100;
+        $cancelUrl = $this->generateUrl('sylius_cart_summary', array(), true);
+        $returnUrl = $this->generateUrl('sylius_checkout_forward', array('stepName' => $this->getName()), true);
         
-        $receiver = array();
-        $receiver[0] = new Receiver();
-        $receiver[0]->amount = $order->getTotal()*0.80;
-        $receiver[0]->email = "marca@marca.com";
-        	
-        $receiver[1] = new Receiver();
-        $receiver[1]->amount = $order->getTotal();
-        $receiver[1]->email = "alan@puertorico.com";
-        $receiver[1]->primary = "true";
-        
-        $receiverList = new ReceiverList($receiver);
-        $payRequest->receiverList = $receiverList;
-        
-        $requestEnvelope = new RequestEnvelope("en_US");
-        $payRequest->requestEnvelope = $requestEnvelope;
-        $payRequest->actionType = "PAY";
-        $payRequest->cancelUrl = $this->generateUrl('sylius_cart_summary', array(), true);
-        $payRequest->returnUrl = $this->generateUrl('sylius_checkout_forward', array('stepName' => $this->getName()));
-        $payRequest->currencyCode = "USD";
-        //->ipnNotificationUrl = "http://replaceIpnUrl.com";
-        
-        $sdkConfig = array(
-        		"mode" => "sandbox",
-        		"acct1.UserName" => "dbzgoku86-facilitator_api1.gmail.com",
-        		"acct1.Password" => "1394735275",
-        		"acct1.Signature" => "AiJMLFrOPiAi6XQQ9A47BCesyg75A7EYmV60WX.-BYrWC9cK11hr3eqe",
-        		"acct1.AppId" => "APP-80W284485P519543T"
-        );
-        
-        //define('PP_CONFIG_PATH', '..\paypal\sdk-core-php\tests');
-        $adaptivePaymentsService = new AdaptivePaymentsService($sdkConfig);
-        try {
-        	/* wrap API method calls on the service object with a try catch */
-        	$payResponse = $adaptivePaymentsService->Pay($payRequest);
-        } catch(\Exception $ex) {
-        	echo $ex->getMessage();
-        	throw $ex;
-        	//exit;
-        }
-        
-        
-        $payKey = $payResponse->payKey;
-        $payPalURL = 'https://www.sandbox.paypal.com/webscr&cmd=' . '_ap-payment&paykey=' . $payKey;
+        $payPalURL = getPaypalUrl($total, $cancelUrl, $returnUrl);
         
         /*$captureToken = $this->getTokenFactory()->createCaptureToken(
             $order->getPayment()->getMethod()->getGateway(),

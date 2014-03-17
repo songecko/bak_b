@@ -21,9 +21,9 @@ class Configuration
 	{
 		$config = array(
 				// Signature Credential
-				"acct1.UserName" => "jb-us-seller_api1.paypal.com",
-				"acct1.Password" => "WX4WTU3S8MY44S7F",
-				"acct1.Signature" => "AFcWxV21C7fd0v3bYYYRCpSSRl31A7yDhhsPUU2XhtMoZXsWHFxu-RWy",
+				"acct1.UserName" => "dbzgoku86-facilitator_api1.gmail.com",
+				"acct1.Password" => "1394735275",
+				"acct1.Signature" => "AiJMLFrOPiAi6XQQ9A47BCesyg75A7EYmV60WX.-BYrWC9cK11hr3eqe",
 				"acct1.AppId" => "APP-80W284485P519543T"
 
 				// Sample Certificate Credential
@@ -35,6 +35,11 @@ class Configuration
 				);
 
 		return array_merge($config, self::getConfig());;
+	}
+	
+	public static function getSignatureConfig()
+	{
+		return self::getAcctAndConfig();
 	}
 
 }
