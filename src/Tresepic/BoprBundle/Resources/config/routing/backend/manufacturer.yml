@@ -1,0 +1,34 @@
+tresepic_bopr_backend_manufacturer_index:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: bopr.controller.manufacturer:indexAction
+        _sylius:
+            template: TresepicBoprBundle:Backend/Manufacturer:index.html.twig
+            paginate: 100
+            
+tresepic_bopr_backend_manufacturer_create:
+    pattern: /new
+    methods: [GET, POST]
+    defaults:
+        _controller: bopr.controller.manufacturer:createAction
+        _sylius:
+            template: TresepicBoprBundle:Backend/Manufacturer:create.html.twig
+            redirect: tresepic_bopr_backend_manufacturer_update
+
+tresepic_bopr_backend_manufacturer_update:
+    pattern: /{id}/edit
+    methods: [GET, PUT, POST]
+    defaults:
+        _controller: bopr.controller.manufacturer:updateAction
+        _sylius:
+            template: TresepicBoprBundle:Backend/Manufacturer:update.html.twig
+            redirect: tresepic_bopr_backend_manufacturer_update
+
+tresepic_bopr_backend_manufacturer_delete:
+    pattern: /{id}
+    methods: [DELETE]
+    defaults:
+        _controller: bopr.controller.manufacturer:deleteAction
+        _sylius:
+            redirect: tresepic_bopr_backend_manufacturer_index

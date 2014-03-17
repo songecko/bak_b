@@ -1,0 +1,25 @@
+{% extends 'SyliusWebBundle:Backend:layout.html.twig' %}
+
+{% from 'SyliusResourceBundle:Macros:actions.html.twig' import update %}
+
+{% block topbar %}
+<ol class="breadcrumb">
+    <li>{{ 'sylius.breadcrumb.assortment'|trans }}</li>
+    <li><a href="{{ path('tresepic_bopr_backend_manufacturer_index') }}">{{ 'bopr.backend.breadcrumb.manufacturer.index'|trans }}</a></li>
+    <li>{{ 'sylius.breadcrumb.edit'|trans }}</li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1><i class="glyphicon glyphicon-pencil"></i> {{ 'bopr.backend.manufacturer.update_header'|trans|raw }}</h1>
+</div>
+
+{{ form_errors(form) }}
+
+<form action="{{ path('tresepic_bopr_backend_manufacturer_update', {'id': manufacturer.id}) }}" method="post" class="form-horizontal" {{ form_enctype(form) }} novalidate>
+    <input type="hidden" name="_method" value="PUT">
+	{% include 'TresepicBoprBundle:Backend/Manufacturer:_form.html.twig' %}
+    {{ update() }}
+</form>
+{% endblock %}

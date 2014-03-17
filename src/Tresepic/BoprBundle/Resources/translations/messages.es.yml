@@ -1,0 +1,23 @@
+bopr.backend:
+    edit:             "Editar"
+    create:           "Crear"
+    delete:           "Eliminar"
+    no_results:       "Sin resultados"
+    
+    alert:
+        success:      "Exito"
+        info:         "Información"
+        error:        "Error"
+        warning:      "Advertencia"
+  
+    breadcrumb:
+        manufacturer.index:   "Marcas"
+        
+    manufacturer:
+        label: "Marca"
+        index_header:  "Marcas"
+        update_header: "Editar marca"
+        create_header: "Nueva marca"
+        name: "Nombre"
+        email: "Email"
+        paypal: "Paypal"

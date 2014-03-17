@@ -1,0 +1,13 @@
+Tresepic\BoprBundle\Entity\Product:
+    type: entity
+    table: sylius_product
+    
+    manyToOne:
+        manufacturer:
+            targetEntity: Manufacturer
+            inversedBy: products
+            joinColumn:
+                name: manufacturer_id
+                referencedColumnName: id
+                onDelete: CASCADE
+    lifecycleCallbacks: {  }

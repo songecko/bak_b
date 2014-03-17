@@ -1,0 +1,8 @@
+parameters:
+    sylius.menu_builder.backend.class: Tresepic\BoprBundle\Menu\BackendMenuBuilder
+
+services:
+    bopr.form.type.manufacturer:
+        class: Tresepic\BoprBundle\Form\Type\ManufacturerType
+        tags:
+            - { name: form.type, alias: bopr_manufacturer }

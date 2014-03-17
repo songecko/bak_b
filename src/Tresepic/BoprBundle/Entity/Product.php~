@@ -1,0 +1,86 @@
+<?php
+
+namespace Tresepic\BoprBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Sylius\Bundle\ProductBundle\Model\Product as BaseProduct;
+
+/**
+ * Product
+ */
+class Product extends BaseProduct
+{
+    /**
+     * @var \Tresepic\BoprBundle\Entity\Manufacturer
+     */
+    private $manufacturer;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    protected $properties;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->properties = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set manufacturer
+     *
+     * @param \Tresepic\BoprBundle\Entity\Manufacturer $manufacturer
+     * @return Product
+     */
+    public function setManufacturer(\Tresepic\BoprBundle\Entity\Manufacturer $manufacturer = null)
+    {
+        $this->manufacturer = $manufacturer;
+
+        return $this;
+    }
+
+    /**
+     * Get manufacturer
+     *
+     * @return \Tresepic\BoprBundle\Entity\Manufacturer 
+     */
+    public function getManufacturer()
+    {
+        return $this->manufacturer;
+    }
+
+    /**
+     * Add properties
+     *
+     * @param \Sylius\Bundle\ProductBundle\Model\ProductProperty $properties
+     * @return Product
+     */
+    public function addProperty(\Sylius\Bundle\ProductBundle\Model\ProductPropertyInterface $properties)
+    {
+        $this->properties[] = $properties;
+
+        return $this;
+    }
+
+    /**
+     * Remove properties
+     *
+     * @param \Sylius\Bundle\ProductBundle\Model\ProductProperty $properties
+     */
+    public function removeProperty(\Sylius\Bundle\ProductBundle\Model\ProductPropertyInterface $properties)
+    {
+        $this->properties->removeElement($properties);
+    }
+
+    /**
+     * Get properties
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getProperties()
+    {
+        return $this->properties;
+    }
+}

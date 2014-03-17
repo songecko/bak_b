@@ -1,0 +1,40 @@
+PPAPIService: Request: requestEnvelope.errorLanguage=en_US&actionType=PAY&cancelUrl=http%3A%2F%2Flocalhost%2Fbopr%2Fweb%2Fapp_dev.php%2Fcart&currencyCode=USD&receiverList.receiver(0).amount=10000&receiverList.receiver(0).email=marca%40marca.com&receiverList.receiver(1).amount=12500&receiverList.receiver(1).email=alan%40puertorico.com&receiverList.receiver(1).primary=true&returnUrl=%2Fbopr%2Fweb%2Fapp_dev.php%2Fcheckout%2Fpurchase%2Fforward
+PPHttpConnection: Adding header X-PAYPAL-SECURITY-USERID: dbzgoku86-facilitator_api1.gmail.com
+PPHttpConnection: Adding header X-PAYPAL-SECURITY-PASSWORD: 1394735275
+PPHttpConnection: Adding header X-PAYPAL-SECURITY-SIGNATURE: AiJMLFrOPiAi6XQQ9A47BCesyg75A7EYmV60WX.-BYrWC9cK11hr3eqe
+PPHttpConnection: Adding header X-PAYPAL-REQUEST-DATA-FORMAT: NV
+PPHttpConnection: Adding header X-PAYPAL-RESPONSE-DATA-FORMAT: NV
+PPHttpConnection: Adding header X-PAYPAL-DEVICE-IPADDRESS: ::1
+PPHttpConnection: Adding header X-PAYPAL-REQUEST-SOURCE: adaptivepayments-php-sdk-2.5.106
+PPHttpConnection: Adding header X-PAYPAL-APPLICATION-ID: APP-80W284485P519543T
+PPHttpConnection: Got 404 response from server. Retrying
+PPAPIService: Request: requestEnvelope.errorLanguage=en_US&actionType=PAY&cancelUrl=http%3A%2F%2Flocalhost%2Fbopr%2Fweb%2Fapp_dev.php%2Fcart&currencyCode=USD&receiverList.receiver(0).amount=10000&receiverList.receiver(0).email=marca%40marca.com&receiverList.receiver(1).amount=12500&receiverList.receiver(1).email=alan%40puertorico.com&receiverList.receiver(1).primary=true&returnUrl=%2Fbopr%2Fweb%2Fapp_dev.php%2Fcheckout%2Fpurchase%2Fforward
+PPHttpConnection: Adding header X-PAYPAL-SECURITY-USERID: dbzgoku86-facilitator_api1.gmail.com
+PPHttpConnection: Adding header X-PAYPAL-SECURITY-PASSWORD: 1394735275
+PPHttpConnection: Adding header X-PAYPAL-SECURITY-SIGNATURE: AiJMLFrOPiAi6XQQ9A47BCesyg75A7EYmV60WX.-BYrWC9cK11hr3eqe
+PPHttpConnection: Adding header X-PAYPAL-REQUEST-DATA-FORMAT: NV
+PPHttpConnection: Adding header X-PAYPAL-RESPONSE-DATA-FORMAT: NV
+PPHttpConnection: Adding header X-PAYPAL-DEVICE-IPADDRESS: ::1
+PPHttpConnection: Adding header X-PAYPAL-REQUEST-SOURCE: adaptivepayments-php-sdk-2.5.106
+PPHttpConnection: Adding header X-PAYPAL-APPLICATION-ID: APP-80W284485P519543T
+PPAPIService: Response: responseEnvelope.timestamp=2014-03-14T13%3A02%3A06.523-07%3A00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=7ca1dbe9d309c&responseEnvelope.build=9898581&error(0).errorId=580028&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=The+URL+%2Fbopr%2Fweb%2Fapp_dev.php%2Fcheckout%2Fpurchase%2Fforward+is+malformed&error(0).parameter(0)=%2Fbopr%2Fweb%2Fapp_dev.php%2Fcheckout%2Fpurchase%2Fforward
+PPAPIService: Request: requestEnvelope.errorLanguage=en_US&actionType=PAY&cancelUrl=http%3A%2F%2Flocalhost%2Fbopr%2Fweb%2Fapp_dev.php%2Fcart&currencyCode=USD&receiverList.receiver(0).amount=10000&receiverList.receiver(0).email=marca%40marca.com&receiverList.receiver(1).amount=12500&receiverList.receiver(1).email=alan%40puertorico.com&receiverList.receiver(1).primary=true&returnUrl=%2Fbopr%2Fweb%2Fapp_dev.php%2Fcheckout%2Fpurchase%2Fforward
+PPHttpConnection: Adding header X-PAYPAL-SECURITY-USERID: dbzgoku86-facilitator_api1.gmail.com
+PPHttpConnection: Adding header X-PAYPAL-SECURITY-PASSWORD: 1394735275
+PPHttpConnection: Adding header X-PAYPAL-SECURITY-SIGNATURE: AiJMLFrOPiAi6XQQ9A47BCesyg75A7EYmV60WX.-BYrWC9cK11hr3eqe
+PPHttpConnection: Adding header X-PAYPAL-REQUEST-DATA-FORMAT: NV
+PPHttpConnection: Adding header X-PAYPAL-RESPONSE-DATA-FORMAT: NV
+PPHttpConnection: Adding header X-PAYPAL-DEVICE-IPADDRESS: ::1
+PPHttpConnection: Adding header X-PAYPAL-REQUEST-SOURCE: adaptivepayments-php-sdk-2.5.106
+PPHttpConnection: Adding header X-PAYPAL-APPLICATION-ID: APP-80W284485P519543T
+PPAPIService: Response: responseEnvelope.timestamp=2014-03-14T13%3A04%3A18.278-07%3A00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=592b37a52c3ee&responseEnvelope.build=9898581&error(0).errorId=580028&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=The+URL+%2Fbopr%2Fweb%2Fapp_dev.php%2Fcheckout%2Fpurchase%2Fforward+is+malformed&error(0).parameter(0)=%2Fbopr%2Fweb%2Fapp_dev.php%2Fcheckout%2Fpurchase%2Fforward
+PPAPIService: Request: requestEnvelope.errorLanguage=en_US&actionType=PAY&cancelUrl=http%3A%2F%2Flocalhost%2Fbopr%2Fweb%2Fapp_dev.php%2Fcart&currencyCode=USD&receiverList.receiver(0).amount=10000&receiverList.receiver(0).email=marca%40marca.com&receiverList.receiver(1).amount=12500&receiverList.receiver(1).email=alan%40puertorico.com&receiverList.receiver(1).primary=true&returnUrl=%2Fbopr%2Fweb%2Fapp_dev.php%2Fcheckout%2Fpurchase%2Fforward
+PPHttpConnection: Adding header X-PAYPAL-SECURITY-USERID: dbzgoku86-facilitator_api1.gmail.com
+PPHttpConnection: Adding header X-PAYPAL-SECURITY-PASSWORD: 1394735275
+PPHttpConnection: Adding header X-PAYPAL-SECURITY-SIGNATURE: AiJMLFrOPiAi6XQQ9A47BCesyg75A7EYmV60WX.-BYrWC9cK11hr3eqe
+PPHttpConnection: Adding header X-PAYPAL-REQUEST-DATA-FORMAT: NV
+PPHttpConnection: Adding header X-PAYPAL-RESPONSE-DATA-FORMAT: NV
+PPHttpConnection: Adding header X-PAYPAL-DEVICE-IPADDRESS: ::1
+PPHttpConnection: Adding header X-PAYPAL-REQUEST-SOURCE: adaptivepayments-php-sdk-2.5.106
+PPHttpConnection: Adding header X-PAYPAL-APPLICATION-ID: APP-80W284485P519543T
+PPAPIService: Response: responseEnvelope.timestamp=2014-03-14T13%3A07%3A24.050-07%3A00&responseEnvelope.ack=Failure&responseEnvelope.correlationId=bee3f8137e726&responseEnvelope.build=9898581&error(0).errorId=580028&error(0).domain=PLATFORM&error(0).subdomain=Application&error(0).severity=Error&error(0).category=Application&error(0).message=The+URL+%2Fbopr%2Fweb%2Fapp_dev.php%2Fcheckout%2Fpurchase%2Fforward+is+malformed&error(0).parameter(0)=%2Fbopr%2Fweb%2Fapp_dev.php%2Fcheckout%2Fpurchase%2Fforward
