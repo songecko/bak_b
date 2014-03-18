@@ -58,24 +58,25 @@ class PurchaseStep extends CheckoutStep
      */
     public function forwardAction(ProcessContextInterface $context)
     {
-        $token = $this->getHttpRequestVerifier()->verify($this->getRequest());
+        /*$token = $this->getHttpRequestVerifier()->verify($this->getRequest());
         //$this->getHttpRequestVerifier()->invalidate($token);
 
         $status = new StatusRequest($token);
-        $this->getPayum()->getPayment($token->getPaymentName())->execute($status);
+        $this->getPayum()->getPayment($token->getPaymentName())->execute($status);*/
 
         /** @var OrderInterface $order */
-        $order = $status->getModel();
+        /*$order = $status->getModel();
 
         if (!$order instanceof OrderInterface) {
             throw new \RuntimeException(sprintf('Expected order to be set as model but it is %s', get_class($order)));
-        }
+        }*/
+        
+    	$order = $this->getCurrentCart();
 
         $payment = $order->getPayment();
         $previousState = $order->getPayment()->getState();
-        //$status->markSuccess();
         $payment->setState(PaymentInterface::STATE_COMPLETED);
-//var_dump($status->getStatus());die;
+        
         if ($previousState !== $payment->getState()) {
             $this->dispatchEvent(
                 SyliusPaymentEvents::PRE_STATE_CHANGE,
@@ -98,7 +99,7 @@ class PurchaseStep extends CheckoutStep
         if ($event->hasResponse()) {
             return $event->getResponse();
         }
-
+    	
         return $this->complete();
     }
 
