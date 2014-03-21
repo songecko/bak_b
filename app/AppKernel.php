@@ -80,6 +80,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new Payum\Bundle\PayumBundle\PayumBundle(),
         	new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
+        	new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
         	new Tresepic\BoprBundle\TresepicBoprBundle(),
         );
 

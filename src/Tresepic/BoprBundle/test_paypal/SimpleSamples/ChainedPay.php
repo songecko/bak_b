@@ -4,17 +4,20 @@ require_once('..\src\Tresepic\BoprBundle\test_paypal\PPBootStrap.php');
 require_once('..\src\Tresepic\BoprBundle\test_paypal\Common\Constants.php');
 define("DEFAULT_SELECT", "- Select -");
 
-function getPaypalUrl($amount, $cancelUrl, $returnUrl)
+function getPaypalUrl($manufacturers, $prices, $fee, $total, $cancelUrl, $returnUrl)
 {
 	$receiver = array();
 	$receiver[0] = new Receiver();
-	$receiver[0]->amount = $amount*0.80;
-	$receiver[0]->email = "marca@marca.com";
- 
-	$receiver[1] = new Receiver();
-	$receiver[1]->amount = $amount;
-	$receiver[1]->email = "alan@puertorico.com";
-	$receiver[1]->primary = "true";
+	$receiver[0]->amount = $total;
+	$receiver[0]->email = "alan@puertorico.com";
+	$receiver[0]->primary = "true";
+	
+	for($i=1;$i<=count($manufacturers);$i++)
+	{
+		$receiver[$i] = new Receiver();
+		$receiver[$i]->amount = $prices[$i]*$fee;
+		$receiver[$i]->email = $manufacturers[$i];		
+	}
 
 	$receiverList = new ReceiverList($receiver);
 	

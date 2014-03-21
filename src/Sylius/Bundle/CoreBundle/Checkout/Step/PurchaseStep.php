@@ -40,9 +40,27 @@ class PurchaseStep extends CheckoutStep
         $total = $order->getTotal()/100;
         $cancelUrl = $this->generateUrl('sylius_cart_summary', array(), true);
         $returnUrl = $this->generateUrl('sylius_checkout_forward', array('stepName' => $this->getName()), true);
+        $fee = $this->container->getParameter("tresepic.paypal.fee");
         
-        $payPalURL = getPaypalUrl($total, $cancelUrl, $returnUrl);
+        $manufacturers = array();
+        $prices = array();
+        $i = 0;
         
+        foreach($order->getItems() as $item)
+        {
+        	if(in_array($item->getProduct()->getManufacturer()->getEmail(), $manufacturers))
+        	{
+        		$prices[$i] += $item->getProduct()->getPrice()/100;
+        	}
+        	else
+        	{
+        		$i++;
+        		$prices[$i] = $item->getProduct()->getPrice()/100;
+        		$manufacturers[$i] = $item->getProduct()->getManufacturer()->getEmail();
+        	}
+        }
+        
+        $payPalURL = getPaypalUrl($manufacturers, $prices, $fee, $total, $cancelUrl, $returnUrl);
         /*$captureToken = $this->getTokenFactory()->createCaptureToken(
             $order->getPayment()->getMethod()->getGateway(),
             $order,
