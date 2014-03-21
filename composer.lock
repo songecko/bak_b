@@ -974,12 +974,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "9b8bbbcf50620f7c8af9c7588d9fe29247c2fa42"
+                "reference": "f8e9255eedc91bc53195de288c9fe640719b2817"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/9b8bbbcf50620f7c8af9c7588d9fe29247c2fa42",
-                "reference": "9b8bbbcf50620f7c8af9c7588d9fe29247c2fa42",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/f8e9255eedc91bc53195de288c9fe640719b2817",
+                "reference": "f8e9255eedc91bc53195de288c9fe640719b2817",
                 "shasum": ""
             },
             "require": {
@@ -1034,7 +1034,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-03-16 19:14:47"
+            "time": "2014-03-18 08:55:34"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -2241,16 +2241,16 @@
         },
         {
             "name": "knplabs/knp-snappy",
-            "version": "0.1.2",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/snappy.git",
-                "reference": "1f56b336f8e158b57dcfce007234363cbb54192b"
+                "reference": "4bc7af878a003a2c1ef3c4d8b08851537cb07486"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/snappy/zipball/1f56b336f8e158b57dcfce007234363cbb54192b",
-                "reference": "1f56b336f8e158b57dcfce007234363cbb54192b",
+                "url": "https://api.github.com/repos/KnpLabs/snappy/zipball/4bc7af878a003a2c1ef3c4d8b08851537cb07486",
+                "reference": "4bc7af878a003a2c1ef3c4d8b08851537cb07486",
                 "shasum": ""
             },
             "require": {
@@ -2262,6 +2262,11 @@
                 "symfony/process": "Process Component of Symfony2."
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Knp\\Snappy": "src/"
@@ -2291,7 +2296,7 @@
                 "thumbnail",
                 "wkhtmltopdf"
             ],
-            "time": "2013-09-06 14:16:50"
+            "time": "2014-03-20 15:05:12"
         },
         {
             "name": "knplabs/knp-snappy-bundle",
@@ -2300,12 +2305,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpSnappyBundle.git",
-                "reference": "3021f58f20fd38a928f5fa056d6885c475af1372"
+                "reference": "9927cd482cd496d49a58cd153c4a09d9062b8276"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpSnappyBundle/zipball/3021f58f20fd38a928f5fa056d6885c475af1372",
-                "reference": "3021f58f20fd38a928f5fa056d6885c475af1372",
+                "url": "https://api.github.com/repos/KnpLabs/KnpSnappyBundle/zipball/9927cd482cd496d49a58cd153c4a09d9062b8276",
+                "reference": "9927cd482cd496d49a58cd153c4a09d9062b8276",
                 "shasum": ""
             },
             "require": {
@@ -2314,6 +2319,11 @@
                 "symfony/framework-bundle": ">=2.0.0"
             },
             "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Knp\\Bundle\\SnappyBundle": ""
@@ -2342,7 +2352,7 @@
                 "pdf",
                 "snappy"
             ],
-            "time": "2014-03-05 16:00:16"
+            "time": "2014-03-20 16:17:22"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -4298,17 +4308,17 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72"
+                "reference": "98e197da54df1f966dd5e8a4992135703569c987"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
-                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/98e197da54df1f966dd5e8a4992135703569c987",
+                "reference": "98e197da54df1f966dd5e8a4992135703569c987",
                 "shasum": ""
             },
             "require": {
@@ -4342,7 +4352,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:58"
+            "time": "2013-10-04 10:06:38"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -5590,12 +5600,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "42ddd6e40da1d7db28b3c2be9b859fcd907579df"
+                "reference": "5f3b795d37488439fc08ca6c7b33ec8fb28f643d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/42ddd6e40da1d7db28b3c2be9b859fcd907579df",
-                "reference": "42ddd6e40da1d7db28b3c2be9b859fcd907579df",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/5f3b795d37488439fc08ca6c7b33ec8fb28f643d",
+                "reference": "5f3b795d37488439fc08ca6c7b33ec8fb28f643d",
                 "shasum": ""
             },
             "require": {
@@ -5655,7 +5665,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2014-03-11 17:11:28"
+            "time": "2014-03-19 14:23:26"
         },
         {
             "name": "phpspec/prophecy",

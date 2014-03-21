@@ -24,3 +24,12 @@ bin/phpcrodm.php
 bin/jackalope
 bin/phpunit
 vendor/*
+
+# eclipse
+.externalToolBuilders
+.settings
+.buildpath
+.project
+
+#Others
+.DS_Store
