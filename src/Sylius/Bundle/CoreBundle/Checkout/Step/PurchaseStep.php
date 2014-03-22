@@ -24,7 +24,7 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Sylius\Bundle\PaymentsBundle\Model\PaymentInterface;
 
-require_once '..\src\Tresepic\BoprBundle\test_paypal\SimpleSamples\ChainedPay.php';
+require_once dirname(__FILE__).'/../../../../../Tresepic/BoprBundle/test_paypal/SimpleSamples/ChainedPay.php';
 
 class PurchaseStep extends CheckoutStep
 {
