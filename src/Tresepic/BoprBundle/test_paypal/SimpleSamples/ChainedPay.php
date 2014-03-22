@@ -15,7 +15,7 @@ function getPaypalUrl($manufacturers, $prices, $fee, $total, $cancelUrl, $return
 	for($i=1;$i<=count($manufacturers);$i++)
 	{
 		$receiver[$i] = new Receiver();
-		$receiver[$i]->amount = $prices[$i]*$fee;
+		$receiver[$i]->amount = round($prices[$i]*$fee, 2);
 		$receiver[$i]->email = $manufacturers[$i];		
 	}
 
