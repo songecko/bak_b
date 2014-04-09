@@ -1,11 +1,49 @@
 {% extends 'SyliusWebBundle:Frontend:layout.html.twig' %}
 
 {% block content %}
-<div class="jumbotron">
-    <h1>{{ 'sylius.homepage.splash.headline'|trans }}</h1>
-    <p class="lead">{{ 'sylius.homepage.splash.subheadline'|trans }}</p>
-</div>
-
-{{ render(url('sylius_partial_product_latest', {'limit': 9, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
-
+	<div class="static1">
+		<div class="top">
+			<div class="left">
+			</div>
+			<div class="middle">
+			</div>
+			<div class="right">
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="left">
+			</div>
+			<div class="middle">
+				<div class="top">
+				</div>
+				<div class="bottom">
+				</div>
+			</div>
+			<div class="right">
+			</div>
+		</div>
+	</div>
+<!-- <div class="jumbotron">
+    <h1>-->{#{ 'hola'|trans }}</h1>
+    <p class="lead">{{ 'sylius.homepage.splash.subheadline'|trans }#}<!-- </p>
+</div>-->
+	<div class="featuredProducts">
+		<img src="{{ asset('bundles/tresepicbopr/images/featured-products.png') }}" />
+	</div>
+	<div class="products">
+		{{ render(url('sylius_partial_product_latest', {'limit': 4, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
+		<img src="{{ asset('bundles/tresepicbopr/images/separator.png') }}" />
+	</div>
+	<div class="static2">
+		<div class="left">
+		</div>
+		<div class="right">
+			<div class="left">
+			</div>
+			<div class="middle">
+			</div>
+			<div class="right">
+			</div>
+		</div>
+	</div>
 {% endblock %}
