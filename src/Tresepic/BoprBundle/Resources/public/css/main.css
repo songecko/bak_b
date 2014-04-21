@@ -15,6 +15,20 @@ li {
 	list-style: none;
 }
 
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.clearfix { display: inline-table; }
+/* Hides from IE-mac \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* End hide from IE-mac */
+
 .container {
 	margin: 0 auto;
 	width: 1168px;
@@ -137,7 +151,45 @@ header .navMenu li.custom {
 }
 */
 #content {
-	height: 2127px;
+}
+
+#content .breadcrumb {
+	height: 20px;
+}
+
+#content .breadcrumb li {
+	float: left;
+	margin-right: 5px;
+}
+
+#content .sidebar {
+	float: left;
+	margin-top: 28px;
+	width: 260px;
+}
+
+#content .sidebar li {
+	border: 1px solid #dfdfdf;
+	height: 44px;
+	width: 260px;
+}
+
+#content .sidebar li a {
+	color: #000000;
+	line-height: 44px;
+	margin-left: 15px;
+}
+
+#content .sidebar .children li {
+	border: 1px solid #dfdfdf;
+	height: 44px;
+	width: 260px;
+}
+
+#content .sidebar .children li a {
+	color: #000000;
+	line-height: 44px;
+	margin-left: 30px;
 }
 
 #content .static1 {
@@ -209,12 +261,142 @@ header .navMenu li.custom {
 	width: 375px;
 }
 
+#content .productList {
+	float: right;
+	margin-top: 20px;
+	width: 858px;
+}
+
+#content .productList .static1 {
+	background-color: #dfdfdf;
+	height: 320px;
+}
+
+#content .productList .paginator {
+	height: 57px;
+	margin-top: 15px;
+}
+/*
+#content .productList .paginator img {
+	position: absolute;
+}
+
+#content .productList .paginator .sortBy {
+	float: left;
+	height: 57px;
+	text-align: center;
+	width: 195px;
+}
+
+#content .productList .paginator .sortBy p {
+	float: left;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+#content .productList .paginator .sortBy select {
+	float: left;
+	margin-top: 19px;
+	margin-left: 5px;
+}
+
+#content .productList .paginator .show {
+	float: left;
+	height: 57px;
+	margin-left: 60px;
+	text-align: center;
+	width: 185px;
+}
+
+#content .productList .paginator .show p {
+	float: left;
+	margin-top: 20px;
+}
+#content .productList .paginator .show select {
+	float: left;
+	margin-top: 19px;
+	margin-left: 5px;
+}
+
+#content .productList .paginator .page {
+	float: left;
+	height: 57px;
+	margin-left: 60px;
+	text-align: center;
+	width: 185px;
+}
+
+#content .productList .paginator .page p {
+	float: left;
+	margin-top: 20px;
+}
+
+#content .productList .paginator .view {
+	float: left;
+	height: 57px;
+	margin-left: 30px;
+	text-align: center;
+	width: 143px;
+}
+
+#content .productList .paginator .view p {
+	float: left;
+	margin-top: 20px;
+}*/
+
+#content .productList .paginator .pagination {
+	position:absolute;
+	margin-top: 14px;
+	margin-left: 265px;
+}
+
+#content .pagination li {
+	list-style: none;
+	float: left;
+	background-color: #f4f4f4;
+	line-height: 30px;
+	margin: 0 3px;
+	width: 35px;
+	text-align: center;
+}
+
+#content .pagination li a {
+	color: #000000;
+}
+
+#content .pagination .active {
+	background-color: #81705a;
+}
+
+#content .pagination .active a {
+	color: #ffffff;
+}
+
+#content .pagination .prev {
+	width: auto;
+}
+
+#content .pagination .next {
+	width: auto;
+}
+
+#content .productList .items {
+	height: 40px;
+}
+
+#content .productList .items p {
+	line-height: 65px;
+	text-align: center;
+}
+
 #content .featuredProducts {
 	margin-top: 52px;
 }
-
+/*
+#content .productList .products {
+	margin-top: 28px;
+}
+*/
 #content .products {
-	height: 520px;
 	margin-top: 28px;
 }
 
@@ -222,7 +404,14 @@ header .navMenu li.custom {
 	float: left;
 	height: 440px;
 	margin-bottom: 38px;
-	margin-left: 33.6px;
+	margin-left: 53.6px;
+	width: 250px;
+}
+
+#content .products .articleWithoutMargin {
+	float: left;
+	height: 440px;
+	margin-bottom: 38px;
 	width: 250px;
 }
 
@@ -231,7 +420,13 @@ header .navMenu li.custom {
 	height: 295px;
 	width: 250px;
 }
-
+/*
+#content .productList .products .article img {
+	background-color: #dfdfdf;
+	height: 340px;
+	width: 250px;
+}
+*/
 #content .products .article p {
 	margin-top: 15px;
 	text-align: center;
@@ -291,6 +486,16 @@ header .navMenu li.custom {
 	height: 402px;
 	margin-left: 19.6px;
 	width: 220px;
+}
+
+#content .productList .paginatorFooter {
+	height: 157px;
+}
+
+#content .productList .paginatorFooter .pagination {
+	position: absolute;
+	margin-top: 50px;
+	margin-left: 265px;
 }
 
 footer {

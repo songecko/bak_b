@@ -30,9 +30,9 @@
 	<div class="featuredProducts">
 		<img src="{{ asset('bundles/tresepicbopr/images/featured-products.png') }}" />
 	</div>
-	<div class="products">
+	<div class="products clearfix">
 		{{ render(url('sylius_partial_product_latest', {'limit': 4, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
-		<img src="{{ asset('bundles/tresepicbopr/images/separator.png') }}" />
+		<img style="margin-bottom: 25px;" src="{{ asset('bundles/tresepicbopr/images/separator.png') }}" />
 	</div>
 	<div class="static2">
 		<div class="left">

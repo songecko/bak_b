@@ -28,4 +28,15 @@ class ComponentController extends Controller
     		'cart' => $cart
     	));
     }
+    
+    public function sideMenuAction()
+    {
+    	$repository = $this->get('sylius.repository.taxon');
+    	
+    	$taxons = $repository->findByLevel(1);
+    	
+    	return $this->render('SyliusWebBundle:Frontend/Component:_sideMenu.html.twig', array(
+    			'taxons' => $taxons
+    	));
+    }
 }
