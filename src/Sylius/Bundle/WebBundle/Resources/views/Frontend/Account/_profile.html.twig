@@ -5,8 +5,10 @@
     <div class="col-md-7">{{ 'sylius.account.home.outline'|trans }} </div>
     <div class="col-md-5">
         <strong>{{ app.user.lastName|upper }} {{ app.user.firstName }}</strong><br><br>
-        {{ 'sylius.account.home.id'|trans }} {{ app.user.id }} <br>
-        {{ 'sylius.account.home.email'|trans }} {{ app.user.email }}<br>
+        ID Usuario: {{ app.user.id }} <br>
+        Email: {{ app.user.email }}<br>
         {{ 'sylius.account.home.since'|trans }} {{ app.user.createdAt|date() }}
     </div>
 </div>
+<br>
+<br>

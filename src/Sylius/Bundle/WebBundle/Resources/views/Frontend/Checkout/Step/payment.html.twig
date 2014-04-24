@@ -12,9 +12,12 @@
 {{ form_errors(form) }}
 
 {{ form_label(form.paymentMethod) }}
-<fieldset>
+<br>
+<br>
+<fieldset style="border: none;">
     {% for paymentMethodForm in form.paymentMethod %}
         {{ form_row(paymentMethodForm) }}
+        <br>
     {% endfor %}
 </fieldset>
 
@@ -22,8 +25,10 @@
 
 <div class="form-actions">
     <a href="{{ path('sylius_checkout_display', {'stepName': context.previousStep.name}) }}" class="btn btn-lg"><i class="icon-chevron-left"></i> {{ 'sylius.checkout.back'|trans }}</a> &nbsp;
-    <button type="submit" class="btn btn-primary btn-lg">{{ 'sylius.checkout.forward'|trans }} <i class="icon-chevron-right"></i></button>
+    <button type="submit" class="buttonForm">{{ 'sylius.checkout.forward'|trans }}</button>
 </div>
 
 </form>
+<br>
+<br>
 {% endblock %}

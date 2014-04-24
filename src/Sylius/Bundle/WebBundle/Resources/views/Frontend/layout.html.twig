@@ -19,8 +19,6 @@
             <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" type="text/css" /> -->
             <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" type="text/css" /> -->
             {% stylesheets output='css/frontend.css' filter='cssrewrite'
-                '@SyliusWebBundle/Resources/assets/css/frontend.css'
-                '@SyliusWebBundle/Resources/assets/css/blueimp-gallery.css'
                 'bundles/tresepicbopr/css/main.css'
             %}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
@@ -36,17 +34,7 @@
     	<!--  <div class="container"> -->
         {% block header %}
         	<div id="topMenu">
-				<div class="container">
-					<div class="language">
-						Your Language: <select><option>English</option></select>
-					</div>
-					<ul class="menu">
-						<li class="myAccount"><a href="#">My Account</a></li>
-						<li class="myWishlist"><a href="#">My Wishlist</a></li>
-						<li class="myCart"><a href="{{ path('sylius_cart_summary') }}">My Cart</a></li>
-						<li class="checkout"><a href="#">Checkout</a></li>				
-					</ul>
-				</div>
+        		{{ render(controller('SyliusWebBundle:Frontend/Component:topMenu')) }}
 			</div>
 			<div class="container">
 				<header>
@@ -190,13 +178,13 @@
 					</div>
 				</div>
 				<div class="info3">
-					<div class="newsletter">
+					<!--  <div class="newsletter">
 						<form type="POST" action="">
 							<span>NEWSLETTER:</span> 
 							<input type="text" value="Enter email adress..." /> 
 							<button type="submit">SUBMIT</button>
 						</form>
-					</div>
+					</div>-->
 					<div class="connected">
 						<span>GET CONNECTED:</span>
 						<div class="social">
@@ -218,7 +206,7 @@
 						<li>Contact Us</li>
 					</ul>
 					<div class="copyright">
-						<p>Copyright &copy; 2008 - {{ 'now'|date('Y') }} <span>Zootemplate.com</span> All rights reserved<p>
+						<p>Copyright &copy;{{ 'now'|date('Y') }} <span>brandsofpuertorico.com</span> All rights reserved<p>
 					</div>
 				</div>
 			</div>

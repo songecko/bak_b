@@ -2,20 +2,22 @@
 
 {% block content %}
 <div class="page-header">
-    <h1>Registration <small>Create an account in store</small></h1>
+    <h1>Registrarse</h1>
 </div>
 
+<br>
+
 <form action="{{ path('fos_user_registration_register') }}" method="post" class="form-horizontal" novalidate>
-    <fieldset class="well">
+    <fieldset style="border: none;">
         {% for field in form %}
             {{ form_row(field) }}
         {% endfor %}
     </fieldset>
+    <br>
     <div class="form-actions clearfix">
-        <div class="pull-right">
-            {{ render(url('hwi_oauth_connect')) }}
-        </div>
-        <button type="submit" class="btn btn-success btn-lg"><i class="icon-user"></i> Register</button>
+        <button type="submit" class="buttonForm">ENVIAR</button>
     </div>
 </form>
+<br>
+<br>
 {% endblock %}

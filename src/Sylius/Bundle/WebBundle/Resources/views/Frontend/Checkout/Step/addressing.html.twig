@@ -20,11 +20,12 @@
 
 {{ form_errors(form) }}
 
-<fieldset>
+<fieldset style="border: none;">
     <div class="row">
         <div class="col-md-6 address-container">
             <div class="well">
                 <h4>{{ 'sylius.checkout.finalize.order.shipping_address'|trans }}</h4>
+                <br>
                 {% include 'SyliusWebBundle:Frontend/Address:_form.html.twig' with {'form': form.shippingAddress} %}
                 {{ form_row(form.differentBillingAddress, {'attr': {'class': 'sylius-different-billing-address-trigger'}}) }}
             </div>
@@ -40,10 +41,14 @@
 
 {{ form_widget(form._token) }}
 
+<br>
+
 <div class="form-actions">
     <a href="{{ path('sylius_cart_summary') }}" class="btn btn-lg"><i class="icon-chevron-left"></i> {{ 'sylius.checkout.back'|trans }}</a> &nbsp;
-    <button type="submit" class="btn btn-primary btn-lg">{{ 'sylius.checkout.forward'|trans }} <i class="icon-chevron-right"></i></button>
+    <button type="submit" class="buttonForm">{{ 'sylius.checkout.forward'|trans }} <i class="icon-chevron-right"></i></button>
 </div>
 
 </form>
+<br>
+<br>
 {% endblock %}

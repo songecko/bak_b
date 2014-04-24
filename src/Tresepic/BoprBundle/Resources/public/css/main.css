@@ -388,6 +388,64 @@ header .navMenu li.custom {
 	text-align: center;
 }
 
+#content .productShow {
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+
+#content .productShow .product {
+	float: left;
+	width: 870px;
+}
+
+#content .productShow img {
+	float: left;
+}
+
+#content .productShow .description {
+	float: left;
+	margin-left: 45px;
+}
+
+#content .productShow .description .name {
+	font-size: 20pt;
+}
+
+#content .productShow .description .price {
+	color: #e12929;
+	font-size: 18pt;
+	margin-top: 25px;
+	margin-bottom: 20px;
+}
+
+#content .productShow .description form select {
+	height: 30px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+#content .productShow .description form input {
+	height: 30px;
+	width: 30px;
+}
+
+#content .productShow .description .addToCart {
+	background-color: #ffffff;
+	border: 2px solid #e50f0f;
+	color: #e50f0f;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	height: 40px;
+	width: 140px;
+}
+
+#content .productShow .static1 {
+	background-color: #dfdfdf;
+	float: right;
+	height: 560px;
+	width: 250px;
+}
+
 #content .featuredProducts {
 	margin-top: 52px;
 }
@@ -496,6 +554,40 @@ header .navMenu li.custom {
 	position: absolute;
 	margin-top: 50px;
 	margin-left: 265px;
+}
+
+#content .cart {
+	margin-bottom: 50px;
+}
+
+#content .cart .saveCart {
+	background-color: #2e9afe;
+	border: 2px solid #0101df;
+	color: #ffffff;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	height: 25px;
+	width: 80px;
+}
+
+#content .cart .finalizeCart {
+	background-color: #74df00;
+	border: 2px solid #298a08;
+	color: #ffffff;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	height: 25px;
+	width: 80px;
+}
+
+#content .cart .removeCart {
+	background-color: #ff0000;
+	border: 2px solid #df0101;
+	color: #ffffff;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	height: 25px;
+	width: 80px;
 }
 
 footer {
@@ -665,4 +757,19 @@ footer .info4 .copyright {
 
 footer .info4 .copyright span {
 	color: #ffffff;
+}
+
+#content .buttonForm {
+	background-color: #2e9afe;
+	border: 2px solid #0101df;
+	color: #ffffff;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	height: 25px;
+	width: 80px;
+}
+
+#content .address > div {
+	float: left;
+	margin-right: 200px;
 }

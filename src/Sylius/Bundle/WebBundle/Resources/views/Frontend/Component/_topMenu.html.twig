@@ -1,0 +1,18 @@
+<div class="container">
+	<!--  <div class="language">
+		Your Language: <select><option>English</option></select>
+	</div>-->
+	<ul class="menu">
+		{% if app.user %}
+			<li class="myWishlist"><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+			<li class="myAccount"><a href="{{ path('sylius_account_homepage') }}">My Account</a></li>
+		{% else %}
+			<li class="myAccount"><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+			<li class="myWishlist"><a href="{{ path('fos_user_registration_register') }}">Registrarse</a></li>
+		{% endif %}
+		<li class="myCart"><a href="{{ path('sylius_cart_summary') }}">My Cart</a></li>
+		{% if(not cart.isEmpty) %}
+			<li class="checkout"><a href="{{ path('sylius_checkout_start') }}">Checkout</a></li>
+		{% endif %}				
+	</ul>
+</div>

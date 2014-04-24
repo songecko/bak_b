@@ -7,6 +7,16 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ComponentController extends Controller
 {
+	public function topMenuAction()
+	{
+		$provider = $this->get('sylius.cart_provider');
+		$cart = $provider->getCart();
+		
+		return $this->render('SyliusWebBundle:Frontend/Component:_topMenu.html.twig', array(
+				'cart' => $cart
+		));
+	}
+	
     public function menuAction()
     {
     	$repository = $this->get('sylius.repository.taxon');

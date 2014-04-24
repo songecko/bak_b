@@ -1,2 +1,2 @@
 <p>Shopping Cart:</p>
-<p><span>({{ cart.getTotalItems }})</span> Cart Subtotal: <span>${{ (cart.getTotal)/100|number_format(2) }}</span>
+<p><span>({{ cart.getTotalItems }})</span> Cart Subtotal: <span>{{ cart.getTotal|sylius_price }}</span>
