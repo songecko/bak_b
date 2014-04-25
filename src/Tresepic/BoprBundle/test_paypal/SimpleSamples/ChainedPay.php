@@ -1,7 +1,7 @@
 <?php
 
-require_once('..\src\Tresepic\BoprBundle\test_paypal\PPBootStrap.php');
-require_once('..\src\Tresepic\BoprBundle\test_paypal\Common\Constants.php');
+require_once dirname(__FILE__).'/../PPBootStrap.php';
+require_once dirname(__FILE__).'/../Common/Constants.php';
 define("DEFAULT_SELECT", "- Select -");
 
 function getPaypalUrl($manufacturers, $fee, $total, $cancelUrl, $returnUrl)
