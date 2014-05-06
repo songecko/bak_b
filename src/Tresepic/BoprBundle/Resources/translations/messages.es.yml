@@ -19,5 +19,4 @@ bopr.backend:
         update_header: "Editar marca"
         create_header: "Nueva marca"
         name: "Nombre"
-        email: "Email"
-        paypal: "Paypal"
+        email: "Email Paypal"

@@ -10,7 +10,6 @@
             <th class="id">{{ sylius_resource_sort('id', '#id') }}</th>
             <th class="info">{{ sylius_resource_sort('name', 'bopr.backend.manufacturer.name'|trans) }}</th>
             <th class="info">{{ sylius_resource_sort('email', 'bopr.backend.manufacturer.email'|trans) }}</th>
-            <th class="info">{{ sylius_resource_sort('paypal_id', 'bopr.backend.manufacturer.paypal'|trans) }}</th>
             <th></th>
         </tr>
     </thead>
@@ -25,9 +24,6 @@
             </td>
             <td class="info">
             	{{ manufacturer.email }}
-            </td>
-            <td class="info">
-            	{{ manufacturer.paypalId }}
             </td>
             <td class="center-text">
                 {{ buttons.edit(path('tresepic_bopr_backend_manufacturer_update', {'id': manufacturer.id})) }}

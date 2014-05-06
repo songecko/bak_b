@@ -596,14 +596,13 @@ footer {
 }
 
 .containerFooter {
-	margin-left: 92px;
+	margin: 0 auto;
 	width: 1168px;
-	position: absolute;
+	padding-top: 41px;
 }
 
 footer .info1 {
 	height: 59px;
-	margin-top: 41px;
 }
 
 footer .info1 .delivery {

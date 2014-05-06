@@ -12,7 +12,6 @@ class Manufacturer
     private $id;
     private $name;
     private $email;
-    private $paypalId;
     private $createdAt;
     private $updatedAt;
     private $products;
@@ -44,18 +43,6 @@ class Manufacturer
     public function getEmail()
     {
         return $this->email;
-    }
-
-    public function setPaypalId($paypalId)
-    {
-        $this->paypalId = $paypalId;
-
-        return $this;
-    }
-
-    public function getPaypalId()
-    {
-        return $this->paypalId;
     }
 
     public function __construct()

@@ -17,11 +17,7 @@ class ManufacturerType extends AbstractType
         ))
         ->add('email', 'text', array(
         		'required' => true,
-        		'label'    => 'Email'
-        ))
-        ->add('paypal_id', 'text', array(
-        		'required' => true,
-        		'label'    => 'Paypal'
+        		'label'    => 'Email Paypal'
         ));
     }
 
