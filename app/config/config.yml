@@ -208,3 +208,4 @@ sylius_resource:
             driver: doctrine/orm
             classes:
                 model: Tresepic\BoprBundle\Entity\Manufacturer
+                controller: Tresepic\BoprBundle\Controller\Backend\ManufacturerController
