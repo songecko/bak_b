@@ -209,3 +209,9 @@ sylius_resource:
             classes:
                 model: Tresepic\BoprBundle\Entity\Manufacturer
                 controller: Tresepic\BoprBundle\Controller\Backend\ManufacturerController
+                
+mobile_detect:
+    redirect:
+        mobile: ~
+        tablet: ~
+    switch_device_view: ~

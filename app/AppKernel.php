@@ -81,6 +81,7 @@ class AppKernel extends Kernel
             new Payum\Bundle\PayumBundle\PayumBundle(),
         	new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
         	new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
+        	new SunCat\MobileDetectBundle\MobileDetectBundle(),
         	new Tresepic\BoprBundle\TresepicBoprBundle(),
         );
 

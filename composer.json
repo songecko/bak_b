@@ -52,7 +52,8 @@
         "symfony-cmf/content-bundle":           "1.0.*",
         "symfony-cmf/routing-bundle":           "1.1.*",
         "symfony-cmf/menu-bundle":              "1.0.*",
-        "raulfraile/ladybug-bundle" :           "dev-master"
+        "raulfraile/ladybug-bundle" :           "dev-master",
+        "suncat/mobile-detect-bundle": "0.9.*"
     },
     "require-dev": {
         "behat/behat":                       "2.4.*@stable",

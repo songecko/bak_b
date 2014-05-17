@@ -10,13 +10,13 @@
         <meta charset="UTF-8">
         <meta name="description" content="{{ settings.meta_description|default('sylius.meta.frontend_description'|trans) }}">
         <meta name="keywords" content="{{ settings.meta_keywords|default('sylius.meta.frontend_keywords'|trans) }}">
-
+		
         <link href='http://fonts.googleapis.com/css?family=Raleway:500,700,100,400' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
         {# stylesheets... #}
         {% block stylesheets %}
-            <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" type="text/css" /> -->
+            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type="text/css" />
             <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" type="text/css" /> -->
             {% stylesheets output='css/frontend.css' filter='cssrewrite'
                 'bundles/tresepicbopr/css/main.css'
@@ -34,6 +34,24 @@
     	<!--  <div class="container"> -->
         {% block header %}
         	<div id="topMenu">
+        		{#% if (is_mobile()) %}
+        			<nav class="navbar" role="navigation">
+						<div class="navbar-header">
+    						<button type="button" class="navbar-toggle" data-toggle="collapse"
+            						data-target=".navbar-ex1-collapse">
+      							<span class="icon-bar"></span>
+      							<span class="icon-bar"></span>
+      							<span class="icon-bar"></span>
+    						</button>
+  						</div>
+  						<div class="collapse navbar-collapse navbar-ex1-collapse">
+							<ul class="nav navbar-nav">
+								{{ render(controller('SyliusWebBundle:Frontend/Component:menu')) }}
+							</ul>
+						</div>
+					</nav>
+				{% endif %#}
+        		<a href="{{ path('sylius_homepage') }}" title="{{ 'sylius.logo'|trans }}"><img class="logoMobile" src="{{ asset('bundles/tresepicbopr/images/logo-mobile.png') }}" /></a>
         		{{ render(controller('SyliusWebBundle:Frontend/Component:topMenu')) }}
 			</div>
 			<div class="container">
@@ -45,7 +63,7 @@
 					<ul class="navMenu">
 						{{ render(controller('SyliusWebBundle:Frontend/Component:menu')) }}
 					</ul>
-					<img src="{{ asset('bundles/tresepicbopr/images/separator.png') }}" />
+					<img class="separator" src="{{ asset('bundles/tresepicbopr/images/separator.png') }}" />
 				</header>
             <!--  
             <div class="masthead pull-right">
@@ -116,6 +134,7 @@
 		</div>
         {% block footer %}
         <footer>
+        <div class="container">
 			<div class="containerFooter">
 				<div class="info1">
 					<div class="delivery">
@@ -210,6 +229,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		</footer>
             <!-- <div class="footer">
                 <p class="text-muted">
@@ -223,7 +243,7 @@
         {# javascripts... #}
         {% block javascripts %}
             <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-            <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         {% javascripts output='assets/compiled/frontend.js'
             '@SyliusWebBundle/Resources/assets/js/jquery.blueimp-gallery.min.js'
             '@SyliusWebBundle/Resources/assets/js/confirm-modal.js'

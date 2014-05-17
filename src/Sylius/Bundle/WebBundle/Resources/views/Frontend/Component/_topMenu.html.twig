@@ -15,4 +15,17 @@
 			<li class="checkout"><a href="{{ path('sylius_checkout_start') }}">Checkout</a></li>
 		{% endif %}				
 	</ul>
+	<ul class="menuMobile">
+		{% if app.user %}
+			<li class="myWishlist"><a href="{{ path('fos_user_security_logout') }}"></a></li>
+			<li class="myAccount"><a href="{{ path('sylius_account_homepage') }}"></a></li>
+		{% else %}
+			<li class="myAccount"><a href="{{ path('fos_user_security_login') }}"></a></li>
+			<li class="myWishlist"><a href="{{ path('fos_user_registration_register') }}"></a></li>
+		{% endif %}
+		<li class="myCart"><a href="{{ path('sylius_cart_summary') }}"></a></li>
+		{% if(not cart.isEmpty) %}
+			<li class="checkout"><a href="{{ path('sylius_checkout_start') }}"></a></li>
+		{% endif %}				
+	</ul>
 </div>
