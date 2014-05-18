@@ -3,7 +3,7 @@
 {% block content %}
 	<div class="static1 container-fluid">
 		<div class="top row">
-		{% if not(is_mobile()) %}
+		{#% if not(is_mobile()) %}
 			<div class="left col-md-2">
 				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/lululifestyle.png') }}">
 			</div>
@@ -13,14 +13,14 @@
 			<div class="right col-md-2">
 				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/artonico.png') }}">
 			</div>
-		{% else %}
+		{% else %#}
 			<div class="col-md-12">
 				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/angiedenisselifestyle.png') }}">
 			</div>
-		{% endif %}
+		{#% endif %#}
 		</div>
 		<div class="bottom row">
-		{% if not(is_mobile()) %}
+		{#% if not(is_mobile()) %}
 			<div class="left col-md-4">
 				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/origami_lifestyle.png') }}">
 			</div>
@@ -35,14 +35,14 @@
 			<div class="right col-md-4">
 				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/suxesslifestyle.png') }}">
 			</div>
-		{% else %}
+		{% else %#}
 			<div class="col-md-6">
 				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/sugarlablifestyle.png') }}">
 			</div>
 			<div class="col-md-6">
 				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/cafecastanerlifestyle.png') }}">
 			</div>
-		{% endif %}
+		{#% endif %#}
 		</div>
 	</div>
 <!-- <div class="jumbotron">
