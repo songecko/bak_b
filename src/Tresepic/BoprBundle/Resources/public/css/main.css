@@ -826,6 +826,10 @@ and (max-width:767px) {
 		margin-top: 20px;
 	}
 	
+	content .productList .items p {
+		line-height: 40px;
+	}
+	
 	#content .productList .paginatorFooter .pagination {
 		margin-left: 0;
 	}
@@ -850,18 +854,21 @@ and (max-width:767px) {
 		float: none;
 		margin: 0 auto;
 		width: 100%;
+		background: url(../images/delivery-icon.png) no-repeat 25px 19px;
 	}
 	
 	footer .info1 .phone {
 		float: none;
 		margin: 12px auto 0 auto;
 		width: 100%;
+		background: url(../images/phone-icon.png) no-repeat 25px 15px;
 	}
 	
 	footer .info1 .guarantee {
 		float: none;
 		margin: 12px auto 0 auto;
 		width: 100%;
+		background: #ffffff url(../images/guarantee-icon.png) no-repeat 25px 15px;
 	}
 	
 	footer .info4 .menuFooter {
