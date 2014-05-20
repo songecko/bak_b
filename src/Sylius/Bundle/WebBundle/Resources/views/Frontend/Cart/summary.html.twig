@@ -40,12 +40,12 @@
 	</table>
 	
 	<div class="well">
-	    <button type="submit" class="saveCart">GUARDAR</button>
+	    <button type="submit" class="btn btn-primary btn-lg">GUARDAR</button>
 	    <br>
 	    <br>
-	    <div class="pull-right">
-	    <a href="{{ path('sylius_checkout_start') }}" class="finalizeCart">FINALIZAR COMPRA</a>
-	    <a href="{{ path('sylius_cart_clear') }}" class="removeCart">VACIAR CARRITO</a>
+	    <div>
+	    <a href="{{ path('sylius_checkout_start') }}" class="btn btn-success btn-lg">FINALIZAR COMPRA</a>
+	    <a href="{{ path('sylius_cart_clear') }}" class="btn btn-danger btn-lg">VACIAR CARRITO</a>
 	    </div>
 	</div>
 	{{ form_widget(form._token) }}

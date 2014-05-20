@@ -8,7 +8,6 @@
 	{% block breadcrums %}
 		<ol class="breadcrumb">
 			<li>Home</li>
-			<li>/</li>
 			<li>{{ taxon.name }}</li>
 		</ol>
 	{% endblock %}
@@ -23,33 +22,43 @@
 	{#{ knp_menu_render('sylius.frontend.taxonomies', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }#}
 	{% endblock %}
 	
-	<div class="productList">
-		<div class="static1">
-		</div>
-		<div class="paginator">
-			{{ pagination(products) }}
-			<img src="{{ asset('bundles/tresepicbopr/images/separator-page.png') }}" />
-			<!--  <div class="sortBy">
-				<p>Sort by: </p><select><option>Position</option></select>
+	<div class="productList row">
+		<div class="col-md-12 col-xs-12">
+			<div class="row">
+				<div class="static1 col-md-12">
+				</div>
 			</div>
-			<div class="show">
-				<p>Show: </p><select><option>10</option></select><p>per page</p>
+			<div class="row">
+				<div class="paginator col-md-12 col-xs-12">
+					{{ pagination(products) }}
+					<!--<img src="{#{ asset('bundles/tresepicbopr/images/separator-page.png') }#}" / > -->
+					<!--  <div class="sortBy">
+						<p>Sort by: </p><select><option>Position</option></select>
+					</div>
+					<div class="show">
+						<p>Show: </p><select><option>10</option></select><p>per page</p>
+					</div>
+					<div class="page">
+						<p>Page: </p>
+					</div>
+					<div class="view">
+						<p>View as: </p>
+					</div>-->
+				</div>
 			</div>
-			<div class="page">
-				<p>Page: </p>
+			<div class="row">
+				<div class="items col-md-12 col-xs-12">
+					<p>Items 1 to {{ products.getCurrentPageResults|length }} of {{ taxon.getProducts|length }} total in the {{ taxon.name }} shop</p>
+				</div>
 			</div>
-			<div class="view">
-				<p>View as: </p>
-			</div>-->
-		</div>
-		<div class="items">
-			<p>Items 1 to {{ products.getCurrentPageResults|length }} of {{ taxon.getProducts|length }} total in the {{ taxon.name }} shop</p>
-		</div>
-		<div class="products clearfix">
-			{{ list(products) }}
-		</div>
-		<div class="paginatorFooter">
-			{{ pagination(products) }}
+			<div class="products clearfix row">
+				{{ list(products) }}
+			</div>
+			<div class="row">
+				<div class="paginatorFooter col-md-12 col-xs-12">
+					{{ pagination(products) }}
+				</div>
+			</div>
 		</div>
 	</div>
 
