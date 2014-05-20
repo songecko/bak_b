@@ -826,7 +826,7 @@ and (max-width:767px) {
 		margin-top: 20px;
 	}
 	
-	content .productList .items p {
+	#content .productList .items p {
 		line-height: 40px;
 	}
 	
