@@ -838,6 +838,10 @@ and (max-width:767px) {
 		display: none;
 	}
 	
+	footer {
+		height: 720px
+	}
+	
 	footer .info1 {
 		width: 100%;
 	}
@@ -845,16 +849,19 @@ and (max-width:767px) {
 	footer .info1 .delivery {
 		float: none;
 		margin: 0 auto;
+		width: 100%;
 	}
 	
 	footer .info1 .phone {
 		float: none;
 		margin: 12px auto 0 auto;
+		width: 100%;
 	}
 	
 	footer .info1 .guarantee {
 		float: none;
 		margin: 12px auto 0 auto;
+		width: 100%;
 	}
 	
 	footer .info4 .menuFooter {
@@ -907,6 +914,10 @@ and (min-width : 1200px) {
 	border: none;
 }
 
+.navbar a {
+	color: #ffffff;;
+}
+
 .navbar-header .navbar-toggle {
 	height: 71px;
 	width: 71px;
@@ -920,4 +931,8 @@ and (min-width : 1200px) {
 	background-color: white;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.form-control {
+	padding: 0 6px;
 }
