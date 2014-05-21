@@ -15,20 +15,22 @@
 	
 	<form action="{{ path('sylius_cart_save') }}" method="post" novalidate>
 	<table class="table" style="width: 100%;">
-	    <thead>
-	        <tr>
-	            <th>#</th>
-	            <th style="text-align: left;">{{ 'sylius.cart.summary.product'|trans }}</th>
-	            <th style="text-align: left;">{{ 'sylius.cart.summary.quantity'|trans }}</th>
-	            <th></th>
-	            <th style="text-align: left;">{{ 'sylius.cart.summary.unit_price'|trans }}</th>
-	            <th style="text-align: right;">Subtotal</th>
-	        </tr>
-	    </thead>
-	    <tbody>
-	        {% for item in cart.items %}
-	            {% include 'SyliusWebBundle:Frontend/Cart:_item.html.twig' %}
-	        {% endfor %}
+		{% if not(is_mobile()) %}
+		<thead>
+			<tr>
+				<th>#</th>
+				<th style="text-align: left;">{{ 'sylius.cart.summary.product'|trans }}</th>
+				<th style="text-align: left;">{{ 'sylius.cart.summary.quantity'|trans }}</th>
+				<th></th>
+				<th style="text-align: left;">{{ 'sylius.cart.summary.unit_price'|trans }}</th>
+				<th style="text-align: right;">Subtotal</th>
+			</tr>
+		</thead>
+		{% endif %}
+		<tbody>
+			{% for item in cart.items %}
+	    		{% include 'SyliusWebBundle:Frontend/Cart:_item.html.twig' %}
+	    	{% endfor %}
 	    </tbody>
 	    <tfoot>
 	        <tr>

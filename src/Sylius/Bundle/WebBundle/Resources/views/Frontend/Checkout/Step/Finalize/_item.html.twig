@@ -1,4 +1,5 @@
 {% set product = item.product %}
+{% if not(is_mobile()) %}
 <tr>
     <td>{{ loop.index }}</td>
     <td>
@@ -16,3 +17,25 @@
         </span>
     </td>
 </tr>
+{% else %}
+<tr>
+	<th>#</th>
+    <td>{{ loop.index }}</td>
+</tr>
+<tr>
+	<th>{{ 'sylius.checkout.finalize.product.name'|trans }}</th>
+    <td>{{ include('SyliusWebBundle:Frontend/Product:_variant.html.twig', {'variant': item.variant}) }}</td>
+</tr>
+<tr>
+	<th>{{ 'sylius.checkout.finalize.order_item.quantity'|trans }}</th>
+    <td>{{ item.quantity }}</td>
+</tr>
+<tr>
+	<th>{{ 'sylius.checkout.finalize.order_item.unit_price'|trans }}</th>
+    <td>{{ item.unitPrice|sylius_price }}</td>
+</tr>
+<tr>
+	<th>Subtotal</th>
+    <td>{{ item.total|sylius_price }}</td>
+</tr>
+{% endif %}
