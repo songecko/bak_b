@@ -116,8 +116,8 @@ li {
 }
 
 header {
-	height: 155px;
 	margin-top: 10px;
+	margin-bottom: 20px;
 }
 
 header .logo {
@@ -899,13 +899,115 @@ and (max-width:767px) {
  
 /* iPads (portrait and landscape) ----------- */
 @media screen
-and (min-width : 768px) {
-	.logoMobile {
+and (min-width : 768px)
+and (max-width : 991px) {
+	#topMenu {
+		background-color: #81705a;
+		height: 71px;
+		margin-bottom: 20px;
+	}
+	
+	#topMenu .menu {
 		display: none;
 	}
 	
 	#topMenu .menuMobile {
+		margin-left: 10px;
+	}
+	
+	#topMenu .logoMobile {
+		display: block;
+		float: right;
+	}
+	
+	header {
 		display: none;
+	}
+	
+	#content .sidebar {
+		display: none;
+	}
+	
+	#content .productList {
+		float: none;
+		width: initial;
+	}
+	
+	#content .productList .paginator {
+		margin-top: 0;
+	}
+	
+	#content .pagination li {
+		margin: 0;
+		width: 25px;
+	}
+	
+	#content .productList .paginator .pagination {
+		margin-left: 0;
+	}
+	
+	#content .productList .paginator img {
+		display: none;
+	}
+	
+	#content .productList .items {
+		margin-top: 20px;
+	}
+	
+	#content .productList .items p {
+		line-height: 40px;
+	}
+	
+	#content .productList .paginatorFooter .pagination {
+		margin-left: 0;
+	}
+	
+	#content .productList .static1 {
+		display: none;
+	}
+	
+	#content .productShow .static1 {
+		display: none;
+	}
+	
+	footer {
+		height: 720px
+	}
+	
+	footer .info1 {
+		width: 100%;
+	}
+	
+	footer .info1 .delivery {
+		float: none;
+		margin: 0 auto;
+		width: 100%;
+		background: url(../images/delivery-icon.png) no-repeat 25px 19px;
+		padding-left: 25px;
+	}
+	
+	footer .info1 .phone {
+		float: none;
+		margin: 12px auto 0 auto;
+		width: 100%;
+		background: url(../images/phone-icon.png) no-repeat 25px 15px;
+		padding-left: 35px;
+	}
+	
+	footer .info1 .guarantee {
+		float: none;
+		margin: 12px auto 0 auto;
+		width: 100%;
+		background: #ffffff url(../images/guarantee-icon.png) no-repeat 25px 15px;
+		padding-left: 45px;
+	}
+	
+	footer .info4 .menuFooter {
+		margin-left: 0;
+	}
+	
+	footer .info4 .copyright {
+		float: left;
 	}
 }
  
