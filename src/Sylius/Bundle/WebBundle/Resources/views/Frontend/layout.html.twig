@@ -197,25 +197,47 @@
 						</div>
 					</div>
 				</div>
-				<div class="info3">
-					<!--  <div class="newsletter">
-						<form type="POST" action="">
-							<span>NEWSLETTER:</span> 
-							<input type="text" value="Enter email adress..." /> 
-							<button type="submit">SUBMIT</button>
-						</form>
-					</div>-->
-					<div class="connected">
-						<span>GET CONNECTED:</span>
-						<div class="social">
-							<img src="{{ asset ('bundles/tresepicbopr/images/in-icon.png') }}" />
-							<img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" />
-							<img src="{{ asset ('bundles/tresepicbopr/images/twitter-icon.png') }}" />
-							<img src="{{ asset ('bundles/tresepicbopr/images/flicker-icon.png') }}" />
-							<img src="{{ asset ('bundles/tresepicbopr/images/pinterest-icon.png') }}" />
+				{% if (is_device('iPhone')) %}
+					<div class="info3Iphone">
+						<!--  <div class="newsletter">
+							<form type="POST" action="">
+								<span>NEWSLETTER:</span> 
+								<input type="text" value="Enter email adress..." /> 
+								<button type="submit">SUBMIT</button>
+							</form>
+						</div>-->
+						<div class="connectedIphone">
+							<span>GET CONNECTED:</span>
+							<div class="socialIphone">
+								<img src="{{ asset ('bundles/tresepicbopr/images/in-icon.png') }}" />
+								<img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" />
+								<img src="{{ asset ('bundles/tresepicbopr/images/twitter-icon.png') }}" />
+								<img src="{{ asset ('bundles/tresepicbopr/images/flicker-icon.png') }}" />
+								<img src="{{ asset ('bundles/tresepicbopr/images/pinterest-icon.png') }}" />
+							</div>
 						</div>
 					</div>
-				</div>
+				{% else %}
+					<div class="info3">
+						<!--  <div class="newsletter">
+							<form type="POST" action="">
+								<span>NEWSLETTER:</span> 
+								<input type="text" value="Enter email adress..." /> 
+								<button type="submit">SUBMIT</button>
+							</form>
+						</div>-->
+						<div class="connected">
+							<span>GET CONNECTED:</span>
+							<div class="social">
+								<img src="{{ asset ('bundles/tresepicbopr/images/in-icon.png') }}" />
+								<img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" />
+								<img src="{{ asset ('bundles/tresepicbopr/images/twitter-icon.png') }}" />
+								<img src="{{ asset ('bundles/tresepicbopr/images/flicker-icon.png') }}" />
+								<img src="{{ asset ('bundles/tresepicbopr/images/pinterest-icon.png') }}" />
+							</div>
+						</div>
+					</div>
+				{% endif %}
 				<div class="info4">
 					<ul class="menuFooter">
 						<li>Site Map</li>

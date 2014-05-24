@@ -683,6 +683,10 @@ footer .info3 {
 	height: 96px;
 }
 
+footer .info3Iphone {
+	height: 70px;
+}
+
 footer .info3 .newsletter {
 	float: left;
 	height: 56px;
@@ -715,10 +719,20 @@ footer .info3 .connected {
 	width: 345px;
 }
 
+footer .info3Iphone .connectedIphone {
+	margin-top: 60px;
+	margin-left: 70px;
+}
+
 footer .info3 .connected span {
 	color: #ffffff;
 	float: left;
 	margin: 22px auto;
+}
+
+footer .info3Iphone .connectedIphone span {
+	color: #ffffff;
+	float: none;
 }
 
 footer .info3 .connected .social {
@@ -855,6 +869,7 @@ and (max-width:767px) {
 		margin: 0 auto;
 		width: 100%;
 		background: url(../images/delivery-icon.png) no-repeat 25px 19px;
+		padding-left: 25px;
 	}
 	
 	footer .info1 .phone {
@@ -862,6 +877,7 @@ and (max-width:767px) {
 		margin: 12px auto 0 auto;
 		width: 100%;
 		background: url(../images/phone-icon.png) no-repeat 25px 15px;
+		padding-left: 35px;
 	}
 	
 	footer .info1 .guarantee {
@@ -869,6 +885,7 @@ and (max-width:767px) {
 		margin: 12px auto 0 auto;
 		width: 100%;
 		background: #ffffff url(../images/guarantee-icon.png) no-repeat 25px 15px;
+		padding-left: 45px;
 	}
 	
 	footer .info4 .menuFooter {
