@@ -11,8 +11,8 @@
 	{% endblock %}
 	<div class="productShow clearfix">
 	    <div class="product">
-	    	<img class="img-responsive{% if (is_mobile()) %} {{ 'col-xs-5' }} {% endif %}" src="{{ product.image ? product.image.path|imagine_filter('sylius_400x400') : 'http://placehold.it/400x400' }}" alt="{{ product.name }}" />
-			<div class="description{% if (is_mobile()) %} {{ 'col-xs-5' }} {% endif %}">
+	    	<img class="img-responsive{% if ((is_mobile()) and not(is_device('iPhone'))) %} {{ 'col-xs-5' }} {% endif %}" src="{{ product.image ? product.image.path|imagine_filter('sylius_400x400') : 'http://placehold.it/400x400' }}" alt="{{ product.name }}" />
+			<div class="description{% if ((is_mobile()) and not(is_device('iPhone'))) %} {{ 'col-xs-5' }} {% endif %}">
 			    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix form-horizontal">
 			    <div class="name">{{ product.name }}</div>
 			    <div class="manufacturer">{{ product.getManufacturer }}</div>

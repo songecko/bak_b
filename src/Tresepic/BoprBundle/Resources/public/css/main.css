@@ -95,7 +95,7 @@ li {
 	font-size: 14px;
 	color: #f3f1f0;
 	background: url(../images/checkout-icon.png) no-repeat 5px 1px;
-	padding: 0 10px 0 28px;
+	padding: 0 5px 0 25px;
 }
 
 #topMenu .menuMobile li.myAccount a {
@@ -506,6 +506,10 @@ header .navMenu li.custom {
 	width: 140px;
 }
 
+#content .products .articleMobile img {
+	width: 100%;
+}
+
 #content .products .articleMobile p {
 	margin-top: 15px;
 	text-align: center;
@@ -784,6 +788,14 @@ footer .info4 .copyright span {
 	margin-right: 200px;
 }
 
+@media screen
+and (max-width:350px) {
+	#topMenu .menuMobile li a {
+		background: url(../images/checkout-icon.png) no-repeat 2px 1px;
+		padding: 0 0 0 20px;
+	}
+}
+
 /* Smartphones (portrait and landscape) ----------- */
 @media screen
 and (max-width:767px) {
@@ -901,27 +913,16 @@ and (max-width:767px) {
 @media screen
 and (min-width : 768px)
 and (max-width : 991px) {
-	#topMenu {
-		background-color: #81705a;
-		height: 71px;
-		margin-bottom: 20px;
-	}
-	
-	#topMenu .menu {
+	.logoMobile {
 		display: none;
 	}
 	
 	#topMenu .menuMobile {
-		margin-left: 10px;
-	}
-	
-	#topMenu .logoMobile {
-		display: block;
-		float: right;
-	}
-	
-	header {
 		display: none;
+	}
+	
+	nav {
+		display: none
 	}
 	
 	#content .sidebar {
@@ -1013,13 +1014,38 @@ and (max-width : 991px) {
  
 /* Desktops and laptops ----------- */
 @media screen
-and (min-width : 992px) {
+and (min-width : 992px)
+and (max-width : 1199px) {
 	.logoMobile {
 		display: none;
 	}
 	
 	#topMenu .menuMobile {
 		display: none;
+	}
+	
+	nav {
+		display: none
+	}
+	
+	#content .sidebar {
+		display: none;
+	}
+	
+	#content .productList .static1 {
+		display: none;
+	}
+	
+	#content .productShow .static1 {
+		display: none;
+	}
+	
+	footer .info1 .delivery {
+		margin-left: 90px;
+	}
+	
+	footer .info1 .phone {
+		margin-left: 30px;
 	}
 }
 
@@ -1032,8 +1058,19 @@ and (min-width : 1200px) {
 	#topMenu .menuMobile {
 		display: none;
 	}
+	
+	nav {
+		display: none
+	}
+	
+	footer .info1 .delivery {
+		margin-left: 190px;
+	}
+	
+	footer .info1 .phone {
+		margin-left: 63px;
+	}
 }
-
 .navbar {
 	background-color: #000000;
 	float: left;
