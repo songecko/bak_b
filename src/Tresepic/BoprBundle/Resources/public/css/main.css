@@ -470,7 +470,7 @@ header .navMenu li.custom {
 }
 */
 #content .products {
-	margin-top: 28px;
+	margin-top: 40px;
 }
 
 #content .products .article {
@@ -661,7 +661,6 @@ footer .info1 .guarantee p {
 
 footer .info2 {
 	height: 165px;
-	margin-top: 65px;
 }
 
 footer .info2 .store span {
@@ -794,6 +793,22 @@ and (max-width:350px) {
 		background: url(../images/checkout-icon.png) no-repeat 2px 1px;
 		padding: 0 0 0 20px;
 	}
+	
+	footer .info4 .menuFooter {
+    	margin-left: 60px !important;
+	}
+	
+	.static2ColR {
+		padding-right: 0;
+	}
+	
+	.static2ColL {
+		padding-left: 0;
+	}
+	
+	.static2Img {
+		height: 158px !important;
+	}
 }
 
 /* Smartphones (portrait and landscape) ----------- */
@@ -907,6 +922,18 @@ and (max-width:767px) {
 	footer .info4 .copyright {
 		float: left;
 	}
+	
+	.static2ColR {
+		padding-right: 0;
+	}
+	
+	.static2ColL {
+		padding-left: 0;
+	}
+	
+	.static2Img {
+		height: 181px;
+	}
 }
  
 /* iPads (portrait and landscape) ----------- */
@@ -971,6 +998,10 @@ and (max-width : 991px) {
 		display: none;
 	}
 	
+	.quantityCart {
+		width: 20%;
+	}
+	
 	footer {
 		height: 720px
 	}
@@ -1010,6 +1041,22 @@ and (max-width : 991px) {
 	footer .info4 .copyright {
 		float: left;
 	}
+	
+	.static2ColR {
+		padding-right: 0;
+	}
+	
+	.static2ColL {
+		padding-left: 0;
+	}
+	
+	.static2Img {
+		height: 400px;
+	}
+	
+	.static1Img {
+		width: 100%;
+	}
 }
  
 /* Desktops and laptops ----------- */
@@ -1036,8 +1083,8 @@ and (max-width : 1199px) {
 		display: none;
 	}
 	
-	#content .productShow .static1 {
-		display: none;
+	.quantityCart {
+		width: 20%;
 	}
 	
 	footer .info1 .delivery {
@@ -1046,6 +1093,27 @@ and (max-width : 1199px) {
 	
 	footer .info1 .phone {
 		margin-left: 30px;
+	}
+	
+	footer .info4 .menuFooter {
+		margin-left: 140px;
+	}
+	
+	.static2Img {
+		width: 100%;
+		height: 530px;
+	}
+	
+	.static2ImgTop {
+		width: 100%;
+	}
+	
+	.static2ImgBottom {
+		height: 530px;
+	}
+	
+	.static1Img {
+		width: 93%;
 	}
 }
 
@@ -1063,12 +1131,34 @@ and (min-width : 1200px) {
 		display: none
 	}
 	
+	.quantityCart {
+		width: 20%;
+	}
+	
 	footer .info1 .delivery {
 		margin-left: 190px;
 	}
 	
 	footer .info1 .phone {
 		margin-left: 63px;
+	}
+	
+	.static1TopImg {
+		width: 680px;
+		height: 500px;
+		margin-left: 25px;
+	}
+	
+	.static1BottomImg {
+		width: 326px;
+		height: 220px;
+		margin-left: 25px;
+	}
+	
+	.static2Img {
+		width: 200px;
+		height: 400px;
+		margin-left: 20px;
 	}
 }
 .navbar {

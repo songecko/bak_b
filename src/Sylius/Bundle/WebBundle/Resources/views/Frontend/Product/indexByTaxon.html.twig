@@ -7,7 +7,7 @@
 {% block content %}
 	{% block breadcrums %}
 		<ol class="breadcrumb">
-			<li>Home</li>
+			<li><a href="{{ path('sylius_homepage') }}">Home</a></li>
 			<li>{{ taxon.name }}</li>
 		</ol>
 	{% endblock %}
@@ -24,10 +24,10 @@
 	
 	<div class="productList row">
 		<div class="col-md-12 col-xs-12">
-			<div class="row">
+			<!-- <div class="row">
 				<div class="static1 col-md-12">
 				</div>
-			</div>
+			</div>-->
 			<div class="row">
 				<div class="paginator col-md-12 col-xs-12">
 					{{ pagination(products) }}
@@ -46,11 +46,11 @@
 					</div>-->
 				</div>
 			</div>
-			<div class="row">
+			{#<div class="row">
 				<div class="items col-md-12 col-xs-12">
 					<p>Items 1 to {{ products.getCurrentPageResults|length }} of {{ taxon.getProducts|length }} total in the {{ taxon.name }} shop</p>
 				</div>
-			</div>
+			</div>#}
 			<div class="products clearfix row">
 				{{ list(products) }}
 			</div>

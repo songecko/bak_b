@@ -5,12 +5,12 @@
 {% block content %}
 	{% block breadcrums %}
 		<ol class="breadcrumb">
-			<li>Home</li>
+			<li><a href="{{ path('sylius_homepage') }}">Home</a></li>
 			<li>{{ product.name }}</li>
 		</ol>
 	{% endblock %}
 	<div class="productShow clearfix">
-	    <div class="product">
+	    <div class="product col-md-9">
 	    	<img class="img-responsive{% if ((is_mobile()) and not(is_device('iPhone'))) %} {{ 'col-xs-5' }} {% endif %}" src="{{ product.image ? product.image.path|imagine_filter('sylius_400x400') : 'http://placehold.it/400x400' }}" alt="{{ product.name }}" />
 			<div class="description{% if ((is_mobile()) and not(is_device('iPhone'))) %} {{ 'col-xs-5' }} {% endif %}">
 			    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix form-horizontal">
@@ -78,18 +78,21 @@
 		        {% endif %}
 				</form>
 			</div>
+			<div class="col-md-12 col-xs-12" style="margin-top: 50px;">
+			    <ul class="nav nav-tabs">
+				    <li class="active">
+				    <a style="background-color: #81705a; color: #ffffff;">Product description</a>
+				    </li>
+				    <!--  <li><a href="#">...</a></li>
+				    <li><a href="#">...</a></li>-->
+				</ul>
+				<br>
+				<p>{{ product.description }}</p>
+			</div>
 		</div>
-		<div class="static1">
+		
+		<div class="static1 col-md-3">
 		</div>
-		<div class="col-md-12 col-xs-12" style="margin-top: 50px;">
-		    <ul class="nav nav-tabs">
-			    <li class="active">
-			    <a style="background-color: #81705a; color: #ffffff;">Product description</a>
-			    </li>
-			    <!--  <li><a href="#">...</a></li>
-			    <li><a href="#">...</a></li>-->
-			</ul>
-			<p>{{ product.description }}</p>
-		</div>
+		
 	</div>
 {% endblock %}

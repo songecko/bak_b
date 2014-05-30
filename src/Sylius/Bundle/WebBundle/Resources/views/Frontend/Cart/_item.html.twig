@@ -9,7 +9,7 @@
         {{ form_row(form.items[loop.index0].quantity, {'label': false}) }}
     </td>
     <td class="col-md-1">
-        <a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn btn-danger">Borrar</a>
+        <a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn btn-danger">Delete</a>
     </td>
     <td class="col-md-1">
         {{ item.unitPrice|sylius_price }}
@@ -29,7 +29,7 @@
 </tr>
 <tr>
 	<th class="col-xs-6">{{ 'sylius.cart.summary.quantity'|trans }}</th>
-    <td class="col-xs-6">{{ form_row(form.items[loop.index0].quantity, {'label': false}) }}</td>
+    <td class="col-xs-6">{{ form_row(form.items[loop.index0].quantity, {'attr': {'class': 'quantityCart'}, 'label': false}) }}</td>
 </tr>
 <tr>
 	<th class="col-xs-6"></th>
