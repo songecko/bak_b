@@ -10,9 +10,9 @@
 		</ol>
 	{% endblock %}
 	<div class="productShow clearfix">
-	    <div class="product col-md-9">
-	    	<img class="img-responsive{% if ((is_mobile()) and not(is_device('iPhone'))) %} {{ 'col-xs-5' }} {% endif %}" src="{{ product.image ? product.image.path|imagine_filter('sylius_400x400') : 'http://placehold.it/400x400' }}" alt="{{ product.name }}" />
-			<div class="description{% if ((is_mobile()) and not(is_device('iPhone'))) %} {{ 'col-xs-5' }} {% endif %}">
+	    <div class="product col-md-9 col-xs-12">
+	    	<img class="img-responsive col-md-6" src="{{ product.image ? product.image.path|imagine_filter('sylius_400x400') : 'http://placehold.it/400x400' }}" alt="{{ product.name }}" />
+			<div class="description col-md-6">
 			    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix form-horizontal">
 			    <div class="name">{{ product.name }}</div>
 			    <div class="manufacturer">{{ product.getManufacturer }}</div>

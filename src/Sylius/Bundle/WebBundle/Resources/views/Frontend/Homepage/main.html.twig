@@ -54,9 +54,9 @@
 	</div>
 	<div class="products clearfix row">
 		{% if not(is_mobile()) %}
-			{{ render(url('sylius_partial_product_latest', {'limit': 4, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
+			{{ render(url('sylius_partial_product_random', {'limit': 4, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
 		{% else %}
-			{{ render(url('sylius_partial_product_latest', {'limit': 2, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
+			{{ render(url('sylius_partial_product_random', {'limit': 2, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
 		{% endif %}
 		<img class="separator img-responsive container" style="margin-bottom: 25px;" src="{{ asset('bundles/tresepicbopr/images/separator.png') }}" />
 	</div>

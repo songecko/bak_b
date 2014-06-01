@@ -143,7 +143,7 @@ header .shoppingCart p {
 
 header .navMenu {
 	float: left;
-	margin-top: 18px;
+	margin-top: 30px;
 	margin-bottom: 5px;
 }
 
@@ -419,7 +419,6 @@ header .navMenu li.custom {
 
 #content .productShow .description {
 	float: left;
-	margin-left: 45px;
 }
 
 #content .productShow .description .name {
@@ -440,7 +439,7 @@ header .navMenu li.custom {
 }
 
 #content .productShow .description .quantity {
-	width: 40%;
+	width: 30%;
 }
 
 #content .productShow .description .addToCart {
@@ -1115,6 +1114,10 @@ and (max-width : 1199px) {
 	.static1Img {
 		width: 93%;
 	}
+	
+	#content .productShow .description .quantity {
+		width: 20%;
+	}
 }
 
 @media screen
@@ -1159,6 +1162,10 @@ and (min-width : 1200px) {
 		width: 200px;
 		height: 400px;
 		margin-left: 20px;
+	}
+	
+	#content .productShow .description .quantity {
+		width: 20%;
 	}
 }
 .navbar {

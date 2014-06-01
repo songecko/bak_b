@@ -14,6 +14,7 @@ namespace Sylius\Bundle\CoreBundle\Repository;
 use Sylius\Bundle\CoreBundle\Model\ProductInterface;
 use Sylius\Bundle\TaxonomiesBundle\Model\TaxonInterface;
 use Sylius\Bundle\VariableProductBundle\Doctrine\ORM\VariableProductRepository;
+use Proxies\__CG__\Tresepic\BoprBundle\Entity\Product;
 
 /**
  * Product repository.
@@ -126,5 +127,32 @@ class ProductRepository extends VariableProductRepository
     public function findLatest($limit = 10)
     {
         return $this->findBy(array(), array('createdAt' => 'desc'), $limit);
+    }
+    
+    /**
+     * Find random added products.
+     *
+     * @param integer $limit
+     *
+     * @return ProductInterface[]
+     */
+    public function findRandom($limit = 10)
+    {
+    	// @todo Realizar DQL function random http://stackoverflow.com/questions/17463188/selecting-random-db-entry-in-symfony2-getting-an-error
+    	//return $this->findBy(array(), array('RAND()' => 'desc'), $limit);
+    	$em = $this->getEntityManager();
+		$max = $em->createQuery('
+			SELECT MAX(q.id) FROM TresepicBoprBundle:Product q
+		')
+		->getSingleScalarResult();
+
+		return $em->createQuery('
+			SELECT q FROM TresepicBoprBundle:Product q
+			WHERE q.id >= :rand
+			ORDER BY q.id ASC
+		')
+		->setParameter('rand',rand(0,$max))
+		->setMaxResults($limit)
+		->getResult();
     }
 }
