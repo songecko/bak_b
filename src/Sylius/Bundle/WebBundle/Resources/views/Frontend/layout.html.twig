@@ -12,6 +12,8 @@
         <meta name="keywords" content="{{ settings.meta_keywords|default('sylius.meta.frontend_keywords'|trans) }}">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		
+		<link rel="shortcut icon" href="{{ asset('bundles/tresepicbopr/images/favicon.ico') }}" type="image/x-icon">
+		<link rel="icon" href="{{ asset('bundles/tresepicbopr/images/favicon.ico') }}" type="image/x-icon">
         <link href='http://fonts.googleapis.com/css?family=Raleway:500,700,100,400' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
@@ -149,7 +151,7 @@
 					</div>
 				</div>-->
 				<div class="info2">
-					<div class="store col-md-3 col-xs-6">
+					<div class="store col-md-6" style="display: none;">
 						<div class="title">
 							<p>SHOP BY</p>
 						</div>
@@ -159,33 +161,45 @@
 							<p>Products</p>
 						</div>
 					</div>
-					<div class="store col-md-3 col-xs-6">
+					<div class="store col-md-4 col-xs-6">
 						<div class="title">
 							<p>SHOPPING INFO</p>
 						</div>
 						<div class="content">
-							<p>Delivery</p>
-							<p>Returns</p>
-							<p>Customer Service</p>
+							<p><a href="mailto: info@brandsofpuertorico.com">Delivery</a></p>
+							<p><a href="mailto: info@brandsofpuertorico.com">Returns</a></p>
+							<p><a href="mailto: info@brandsofpuertorico.com">Customer Service</a></p>
 						</div>
 					</div>
-					<div class="store col-md-3 hidden-xs hidden-sm">
+					<div class="store col-md-4 col-xs-6">
 						<div class="title">
 							<p>WHAT'S IN STORE</p>
 						</div>
 						<div class="content">
-							<p>My Account</p>
-							<p>My Order</p>
-							<p>Shopping Cart</p>
-							<p>Contact Us</p>
+							<p>
+							{% if app.user %}
+								<a href="{{ path('sylius_account_homepage') }}">My Account</a>
+							{% else %}
+								<a href="{{ path('fos_user_security_login') }}">My Account</a>
+							{% endif %}
+							</p>
+							<p>
+							{% if app.user %}
+								<a href="{{ path('sylius_account_homepage') }}">My Order</a>
+							{% else %}
+								<a href="{{ path('fos_user_security_login') }}">My Order</a>
+							{% endif %}
+							</p>
+							<p><a href="{{ path('sylius_cart_summary') }}">Shopping Cart</a></p>
+							<p><a href="mailto: info@brandsofpuertorico.com">Contact Us</a></p>
 						</div>
 					</div>
-					<div class="store col-md-3 hidden-xs hidden-sm">
+					<div class="store col-md-4 hidden-xs hidden-sm">
 						<div class="title">
 							<p>HQ TRESEPIC</p>
 						</div>
 						<div class="content">
-							<span>Brands or Puerto Rico</span>
+							<span>Brands of Puerto Rico</span>
 							<p>Ave. Ponce de Leon, Cobian's Plaza Suite 104-A San Juan, Puerto Rico 00901</p>
 							<p>787-545-4545 info@brandsofpuertorico.com</p>
 						</div>
@@ -204,8 +218,8 @@
 							<span>GET CONNECTED:</span>
 							<div class="socialIphone">
 								<img src="{{ asset ('bundles/tresepicbopr/images/in-icon.png') }}" />
-								<img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" />
-								<img src="{{ asset ('bundles/tresepicbopr/images/twitter-icon.png') }}" />
+								<a href="https://www.facebook.com/brandsofpuertorico"><img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" /></a>
+								<a href="https://twitter.com/BrandsofPR"><img src="{{ asset ('bundles/tresepicbopr/images/twitter-icon.png') }}" /></a>
 								<img src="{{ asset ('bundles/tresepicbopr/images/flicker-icon.png') }}" />
 								<img src="{{ asset ('bundles/tresepicbopr/images/pinterest-icon.png') }}" />
 							</div>
@@ -224,8 +238,8 @@
 							<span>GET CONNECTED:</span>
 							<div class="social">
 								<img src="{{ asset ('bundles/tresepicbopr/images/in-icon.png') }}" />
-								<img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" />
-								<img src="{{ asset ('bundles/tresepicbopr/images/twitter-icon.png') }}" />
+								<a href="https://www.facebook.com/brandsofpuertorico"><img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" /></a>
+								<a href="https://twitter.com/BrandsofPR"><img src="{{ asset ('bundles/tresepicbopr/images/twitter-icon.png') }}" /></a>
 								<img src="{{ asset ('bundles/tresepicbopr/images/flicker-icon.png') }}" />
 								<img src="{{ asset ('bundles/tresepicbopr/images/pinterest-icon.png') }}" />
 							</div>
