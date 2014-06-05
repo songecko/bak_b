@@ -49,4 +49,17 @@ class ComponentController extends Controller
     			'taxons' => $taxons
     	));
     }
+    
+    public function bannerProductShowAction($id)
+    {
+    	$repository = $this->get('sylius.repository.product');
+    	 
+    	$product = $repository->find($id);
+    	
+    	$taxon = $product->getTaxons()->first();
+    	
+    	return $this->render('SyliusWebBundle:Frontend/Component:_bannerProductShow.html.twig', array(
+    			'taxon' => $taxon
+    	));
+    }
 }

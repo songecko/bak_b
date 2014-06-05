@@ -1,0 +1,11 @@
+{% if(taxon.name == 'Gourmet') %}
+	<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/Dibu_lifestyle.png') }}">
+{% elseif(taxon.name == 'Art & Literature') %}
+	<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/Lifestyle-6.png') }}">
+{% elseif(taxon.name == 'Health & Beauty') %}
+	<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/postales_detailbanner.png') }}">
+{% elseif(taxon.name == 'Accesories') %}
+	<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/coqueterias_detailbanner.png') }}">
+{% elseif(taxon.name == 'Apparel') %}
+	<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/Detailbanner_apparel.png') }}">
+{% endif %}
