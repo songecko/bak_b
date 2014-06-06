@@ -752,9 +752,14 @@ footer .info4 {
 	height: 65px;
 }
 
+footer .info4 a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
 footer .info4 .menuFooter {
 	height: 20px;
-	margin-left: 265px;
+	margin-left: 400px;
 }
 
 footer .info4 .menuFooter li {
@@ -1100,7 +1105,7 @@ and (max-width : 1199px) {
 	}
 	
 	footer .info4 .menuFooter {
-		margin-left: 140px;
+		margin-left: 300px;
 	}
 	
 	.static2Img {
