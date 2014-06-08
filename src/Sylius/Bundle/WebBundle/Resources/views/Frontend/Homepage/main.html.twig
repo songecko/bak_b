@@ -8,14 +8,66 @@
 				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/lulu_lifestyle.png') }}">
 			</div>
 			<div class="middle col-md-8">
-				<img class="img-responsive static1TopImg" src="{{ asset('bundles/tresepicbopr/images/angiedenisselifestyle.png') }}">
+				<div id="carouselBanner" class="carousel slide" data-ride="carousel">
+	  				<!-- Indicators -->
+				  	<ol class="carousel-indicators">
+				    	<li data-target="#carouselBanner" data-slide-to="0" class="active"></li>
+				    	<li data-target="#carouselBanner" data-slide-to="1"></li>
+				    	<li data-target="#carouselBanner" data-slide-to="2"></li>
+				  	</ol>
+  					<!-- Wrapper for slides -->
+  					<div class="carousel-inner">
+    					<div class="item active">
+      						<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/angiedenisselifestyle.png') }}">
+    					</div>
+    					<div class="item">
+      						<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/suxess.png') }}">
+    					</div>
+    					<div class="item">
+      						<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/coa.png') }}">
+    					</div>
+  					</div>
+  					<!-- Controls -->
+  					<a class="left carousel-control" href="#carouselBanner" data-slide="prev">
+    					<span class="glyphicon glyphicon-chevron-left"></span>
+  					</a>
+  					<a class="right carousel-control" href="#carouselBanner" data-slide="next">
+    					<span class="glyphicon glyphicon-chevron-right"></span>
+  					</a>
+				</div>
 			</div>
 			<div class="right col-md-2">
 				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/artonico.png') }}">
 			</div>
 		{% else %}
 			<div class="col-xs-12">
-				<img class="img-responsive static1Img" src="{{ asset('bundles/tresepicbopr/images/angiedenisselifestyle.png') }}">
+				<div id="carouselBanner" class="carousel mobile slide" data-ride="carousel">
+	  				<!-- Indicators -->
+				  	<ol class="carousel-indicators">
+				    	<li data-target="#carouselBanner" data-slide-to="0" class="active"></li>
+				    	<li data-target="#carouselBanner" data-slide-to="1"></li>
+				    	<li data-target="#carouselBanner" data-slide-to="2"></li>
+				  	</ol>
+  					<!-- Wrapper for slides -->
+  					<div class="carousel-inner">
+    					<div class="item active">
+      						<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/angiedenisselifestyle.png') }}">
+    					</div>
+    					<div class="item">
+      						<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/suxess.png') }}">
+    					</div>
+    					<div class="item">
+      						<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/coa.png') }}">
+    					</div>
+  					</div>
+  					<!-- Controls -->
+  					<a class="left carousel-control" href="#carouselBanner" data-slide="prev">
+    					<span class="glyphicon glyphicon-chevron-left"></span>
+  					</a>
+  					<a class="right carousel-control" href="#carouselBanner" data-slide="next">
+    					<span class="glyphicon glyphicon-chevron-right"></span>
+  					</a>
+				</div>
 			</div>
 		{% endif %}
 		</div>
@@ -40,7 +92,7 @@
 				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/lollipopcases2.png') }}">
 			</div>
 			<div class="col-xs-6">
-				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/origami_lifestyle2.png') }}">
+				<img class="img-responsive pull-right" src="{{ asset('bundles/tresepicbopr/images/origami_lifestyle2.png') }}">
 			</div>
 		{% endif %}
 		</div>
@@ -52,11 +104,11 @@
 	<div class="featuredProducts">
 		<img class="separator img-responsive" src="{{ asset('bundles/tresepicbopr/images/featured-products.png') }}" />
 	</div>
-	<div class="products clearfix row">
+	<div class="products clearfix">
 		{% if not(is_mobile()) %}
-			{{ render(url('sylius_partial_product_random', {'limit': 4, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
+			{{ render(url('sylius_partial_product_random', {'limit': 12, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
 		{% else %}
-			{{ render(url('sylius_partial_product_random', {'limit': 2, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
+			{{ render(url('sylius_partial_product_random', {'limit': 6, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
 		{% endif %}
 		<img class="separator img-responsive container" style="margin-bottom: 25px;" src="{{ asset('bundles/tresepicbopr/images/separator.png') }}" />
 	</div>
