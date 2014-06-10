@@ -9,5 +9,5 @@
 {% elseif(taxon.name == 'Apparel') %}
 	<a href="{{ url('sylius_product_show', {'slug': 'coqui-bifold-wallet'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/Detailbanner_apparel.png') }}"></a>
 {% elseif(taxon.name == 'Jewelry') %}
-	<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/cafepomarrosabanner.png') }}">
+	<a href="{{ url('sylius_product_show', {'slug': 'cafe-pomarrosa-gold'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/cafepomarrosabanner.png') }}"></a>
 {% endif %}
