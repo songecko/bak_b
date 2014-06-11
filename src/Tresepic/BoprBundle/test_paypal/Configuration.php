@@ -7,7 +7,7 @@ class Configuration
 		$config = array(
 				// values: 'sandbox' for testing
 				//		   'live' for production
-				"mode" => "sandbox"
+				"mode" => "live"
 
 				// These values are defaulted in SDK. If you want to override default values, uncomment it and add your value.
 				// "http.ConnectionTimeOut" => "5000",
@@ -21,10 +21,10 @@ class Configuration
 	{
 		$config = array(
 				// Signature Credential
-				"acct1.UserName" => "dbzgoku86-facilitator_api1.gmail.com",
-				"acct1.Password" => "1394735275",
-				"acct1.Signature" => "AiJMLFrOPiAi6XQQ9A47BCesyg75A7EYmV60WX.-BYrWC9cK11hr3eqe",
-				"acct1.AppId" => "APP-80W284485P519543T"
+				"acct1.UserName" => "alanmikahil.taveras_api1.gmail.com",
+				"acct1.Password" => "PEXZJM7USR3NZXGT",
+				"acct1.Signature" => "AYTUa-LzsSeFj5zL0higt4tJs9WCAlKSJx0QDfW4qYsl27msKTfco9QX",
+				"acct1.AppId" => "APP-8BS22550LF039064Y"
 
 				// Sample Certificate Credential
 				// "acct1.UserName" => "certuser_biz_api1.paypal.com",

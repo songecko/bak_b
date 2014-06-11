@@ -9,7 +9,7 @@ function getPaypalUrl($manufacturers, $fee, $total, $cancelUrl, $returnUrl)
 	$receiver = array();
 	$receiver[0] = new Receiver();
 	$receiver[0]->amount = $total;
-	$receiver[0]->email = "alan@puertorico.com";
+	$receiver[0]->email = "alanmikahil.taveras@gmail.com";
 	$receiver[0]->primary = "true";
 	
 	$i=1;
@@ -43,6 +43,11 @@ function getPaypalUrl($manufacturers, $fee, $total, $cancelUrl, $returnUrl)
 		require_once '../Common/Error.php';
 		exit;
 	}
+	
+	/*echo '<pre>';
+	print_r($response);
+	echo '</pre>';
+	die;*/
 	
 	$payKey = $response->payKey;
 	$payPalURL = PAYPAL_REDIRECT_URL . '_ap-payment&paykey=' . $payKey;
