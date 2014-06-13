@@ -70,19 +70,9 @@ class ComponentController extends Controller
     	$product = $repository->find($id);
     	 
     	$taxons = $product->getTaxons();
-    	
-    	$repository = $this->get('sylius.repository.taxon');
-    	
-    	foreach($taxons as $taxon)
-    	{
-    		if($taxon->getLevel() == 1)
-    		{
-    			$father = $taxon;
-    		}
-    	}
     	 
     	return $this->render('SyliusWebBundle:Frontend/Component:_breadcrumbProductShow.html.twig', array(
-    			'father' => $father
+    			'taxons' => $taxons
     	));
     }
 }
