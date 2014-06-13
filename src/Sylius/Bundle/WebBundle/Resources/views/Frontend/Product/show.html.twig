@@ -6,6 +6,7 @@
 	{% block breadcrums %}
 		<ol class="breadcrumb">
 			<li><a href="{{ path('sylius_homepage') }}">Home</a></li>
+			{{ render(controller('SyliusWebBundle:Frontend/Component:breadcrumbProductShow', {'id': product.id})) }}
 			<li>{{ product.name }}</li>
 		</ol>
 	{% endblock %}

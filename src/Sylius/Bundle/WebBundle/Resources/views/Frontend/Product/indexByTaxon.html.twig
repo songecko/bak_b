@@ -8,6 +8,11 @@
 	{% block breadcrums %}
 		<ol class="breadcrumb">
 			<li><a href="{{ path('sylius_homepage') }}">Home</a></li>
+			{% if(taxon.parent.level != 0) %}
+				{% if(taxon.parent) %}
+					<li><a href="{{ path('sylius_product_index_by_taxon', {'permalink': taxon.parent.permalink }) }}">{{ taxon.parent.name }}</a></li>
+				{% endif %}
+			{% endif %}
 			<li>{{ taxon.name }}</li>
 		</ol>
 	{% endblock %}

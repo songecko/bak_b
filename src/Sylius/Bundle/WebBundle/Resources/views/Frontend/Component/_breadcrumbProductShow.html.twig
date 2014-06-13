@@ -1,0 +1,6 @@
+<li><a href="{{ path('sylius_product_index_by_taxon', {'permalink': father.permalink }) }}">{{ father.name }}</a></li>	
+	{% if(father.getChildren.isEmpty == false) %}
+		{% for children in father.getChildren %}
+			<li><a href="{{ path('sylius_product_index_by_taxon', {'permalink': children.permalink }) }}">{{ children.name }}</a></li>
+		{% endfor %}
+	{% endif %}

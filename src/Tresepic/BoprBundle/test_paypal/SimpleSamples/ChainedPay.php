@@ -50,7 +50,7 @@ function getPaypalUrl($manufacturers, $fee, $total, $cancelUrl, $returnUrl)
 	die;*/
 	
 	$payKey = $response->payKey;
-	$payPalURL = PAYPAL_REDIRECT_URL . '_ap-payment&paykey=' . $payKey;
+	$payPalURL = PAYPAL_REDIRECT_URL . '_ap-payment&paykey=' . $payKey . '&senderOptions.referrerCode=' . BN_CODE;
 	
 	return $payPalURL;
 }
