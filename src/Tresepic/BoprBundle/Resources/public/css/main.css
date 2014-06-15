@@ -647,34 +647,12 @@ header .navMenu li.custom {
 	margin-bottom: 50px;
 }
 
-#content .cart .saveCart {
-	background-color: #2e9afe;
-	border: 2px solid #0101df;
-	color: #ffffff;
-	font-family: 'Lato', sans-serif;
-	font-weight: 700;
-	height: 25px;
-	width: 80px;
+#content .cart .cartSave {
+	background-color: #81705A;
 }
 
-#content .cart .finalizeCart {
-	background-color: #74df00;
-	border: 2px solid #298a08;
-	color: #ffffff;
-	font-family: 'Lato', sans-serif;
-	font-weight: 700;
-	height: 25px;
-	width: 80px;
-}
-
-#content .cart .removeCart {
-	background-color: #ff0000;
-	border: 2px solid #df0101;
-	color: #ffffff;
-	font-family: 'Lato', sans-serif;
-	font-weight: 700;
-	height: 25px;
-	width: 80px;
+#content .cart .cartClear {
+	background-color: #81705A;
 }
 
 footer {
@@ -900,6 +878,10 @@ and (max-width:350px) {
 	
 	.static2Img {
 		height: 158px !important;
+	}
+	
+	.cart .cartCheckout {
+		margin-top: 15px;	
 	}
 }
 

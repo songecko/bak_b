@@ -1,13 +1,13 @@
 {% if(taxon.name == 'Gourmet') %}
-	<a href="{{ url('sylius_product_show', {'slug': 'our-holy-father-white-necklace'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/Dibu_lifestyle.png') }}"></a>
+	<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/categories-jewelry/made-with-love-by-di-bu'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/Dibu_lifestyle.png') }}"></a>
 {% elseif(taxon.name == 'Art & Literature') %}
 	<a href="{{ url('sylius_product_show', {'slug': 'feel-good-grey'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/Lifestyle-6.png') }}"></a>
 {% elseif(taxon.name == 'Health & Beauty') %}
-	<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/postales_detailbanner.png') }}">
+	<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/gourmet/cafe-pomarrosa'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/postales_detailbanner.png') }}"></a>
 {% elseif(taxon.name == 'Accesories') %}
 	<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/lindamami_bopr.png') }}">
 {% elseif(taxon.name == 'Apparel') %}
-	<a href="{{ url('sylius_product_show', {'slug': 'coqui-bifold-wallet'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/Detailbanner_apparel.png') }}"></a>
+	<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/categories-accesories/purple-swan'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/Detailbanner_apparel.png') }}"></a>
 {% elseif(taxon.name == 'Jewelry') %}
-	<a href="{{ url('sylius_product_show', {'slug': 'cafe-pomarrosa-gold'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/cafepomarrosabanner.png') }}"></a>
+	<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/gourmet/cafe-pomarrosa'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/cafepomarrosabanner.png') }}"></a>
 {% endif %}

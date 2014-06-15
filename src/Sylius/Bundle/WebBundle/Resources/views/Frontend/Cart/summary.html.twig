@@ -42,11 +42,9 @@
 	</table>
 	
 	<div class="well">
-	    <button type="submit" class="btn btn-danger btn-lg">{{ 'sylius.cart.summary.save'|trans }}</button>
-	    <div>
-	    <a href="{{ path('sylius_checkout_start') }}" class="btn btn-danger btn-lg" style="margin-top: 25px;">{{ 'sylius.cart.summary.checkout'|trans }}</a>
-	    <a href="{{ path('sylius_cart_clear') }}" class="btn btn-danger btn-lg" style="margin-top: 25px;">{{ 'sylius.cart.summary.clear'|trans }}</a>
-	    </div>
+	    <button type="submit" class="btn btn-danger btn-lg cartSave">{{ 'sylius.cart.summary.save'|trans }}</button>
+	    <a href="{{ path('sylius_cart_clear') }}" class="btn btn-danger btn-lg cartClear">{{ 'sylius.cart.summary.clear'|trans }}</a>
+	    <a href="{{ path('sylius_checkout_start') }}" class="btn btn-danger btn-lg cartCheckout">{{ 'sylius.cart.summary.checkout'|trans }}</a>
 	</div>
 	{{ form_widget(form._token) }}
 	</form>
