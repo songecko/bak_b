@@ -649,10 +649,16 @@ header .navMenu li.custom {
 
 #content .cart .cartSave {
 	background-color: #81705A;
+	border-color: #81705A;
 }
 
 #content .cart .cartClear {
 	background-color: #81705A;
+	border-color: #81705A;
+}
+
+#content .cart .cartCheckout {
+	width: 195px;	
 }
 
 footer {
