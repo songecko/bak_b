@@ -6,15 +6,15 @@
     <p><span>{{ product.price|sylius_price }}</span></p>
     {% if(product.masterVariant.onHand > 0) %}
 	    {% if product.hasVariants %}
-	    	<a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p><button class="addToCart">ADD TO CART</button></p></a>
+	    	<a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p style="min-height: 44px"><button class="addToCart">ADD TO CART</button></p></a>
 	    {% else %}
 	    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post">
 	    	<input type="hidden" id="sylius_cart_item_quantity" name="sylius_cart_item[quantity]" value="1">
-	    	<p><button type="submit" class="addToCart">ADD TO CART</button></p>
+	    	<p style="min-height: 44px"><button type="submit" class="addToCart">ADD TO CART</button></p>
 	    </form>
 	    {% endif %}
 	{% else %}
-		<p><span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span></p>
+		<p style="min-height: 44px"><span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span></p>
 	{% endif %}
     <a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p><button class="viewProduct">View Product</button></p></a>
 </div>
@@ -26,15 +26,15 @@
     <p><span>{{ product.price|sylius_price }}</span></p>
     {% if(product.masterVariant.onHand > 0) %}
 	    {% if product.hasVariants %}
-	    	<a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p><button class="addToCart">ADD TO CART</button></p></a>
+	    	<a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p style="min-height: 44px"><button class="addToCart">ADD TO CART</button></p></a>
 	    {% else %}
 	    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post">
 	    	<input type="hidden" id="sylius_cart_item_quantity" name="sylius_cart_item[quantity]" value="1">
-	    	<p><button type="submit" class="addToCart">ADD TO CART</button></p>
+	    	<p style="min-height: 44px"><button type="submit" class="addToCart">ADD TO CART</button></p>
 	    </form>
 	    {% endif %}
 	{% else %}
-		<p><span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span></p>
+		<p style="min-height: 44px"><span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span></p>
 	{% endif %}
     <a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p><button class="viewProduct">View Product</button></p></a>
 </div>
