@@ -4,7 +4,15 @@
     <p class="title">{{ product.name|truncate(18) }}</p>
     <p style="font-size: 12px;">{{ product.getManufacturer }}</p>
     <p><span>{{ product.price|sylius_price }}</span></p>
-    <a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p><button class="addToCart">ADD TO CART</button></p></a>
+    {% if product.hasVariants %}
+    	<a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p><button class="addToCart">ADD TO CART</button></p></a>
+    {% else %}
+    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post">
+    	<input type="hidden" id="sylius_cart_item_quantity" name="sylius_cart_item[quantity]" value="1">
+    	<p><button type="submit" class="addToCart">ADD TO CART</button></p>
+    </form>
+    {% endif %}
+    <a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p><button class="viewProduct">View Product</button></p></a>
 </div>
 {% else %}
 <div class="articleMobile col-xs-6"">
@@ -12,6 +20,14 @@
     <p class="title">{{ product.name|truncate(18) }}</p>
     <p style="font-size: 12px;">{{ product.getManufacturer }}</p>
     <p><span>{{ product.price|sylius_price }}</span></p>
-    <a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p><button class="addToCart">ADD TO CART</button></p></a>
+    {% if product.hasVariants %}
+    	<a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p><button class="addToCart">ADD TO CART</button></p></a>
+    {% else %}
+    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post">
+    	<input type="hidden" id="sylius_cart_item_quantity" name="sylius_cart_item[quantity]" value="1">
+    	<p><button type="submit" class="addToCart">ADD TO CART</button></p>
+    </form>
+    {% endif %}
+    <a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p><button class="viewProduct">View Product</button></p></a>
 </div>
 {% endif %}

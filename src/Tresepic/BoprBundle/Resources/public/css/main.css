@@ -572,6 +572,27 @@ header .navMenu li.custom {
 	width: 140px;
 }
 
+#content .products .article .viewProduct {
+	background-color: #ffffff;
+	border: 2px solid #0404B4;
+	color: #0404B4;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	height: 40px;
+	width: 140px;
+}
+
+#content .viewProduct {
+	-webkit-transition: .3s;
+	transition: .3s;
+}
+
+#content .viewProduct:hover {
+	color: #FFFFFF !important;
+	background: #0404B4 !important;
+	
+}
+
 #content .products .articleMobile img {
 	width: 100%;
 }
@@ -595,6 +616,16 @@ header .navMenu li.custom {
 	background-color: #ffffff;
 	border: 2px solid #e50f0f;
 	color: #e50f0f;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	height: 40px;
+	width: 140px;
+}
+
+#content .products .articleMobile .viewProduct {
+	background-color: #ffffff;
+	border: 2px solid #0404B4;
+	color: #0404B4;
 	font-family: 'Lato', sans-serif;
 	font-weight: 700;
 	height: 40px;
