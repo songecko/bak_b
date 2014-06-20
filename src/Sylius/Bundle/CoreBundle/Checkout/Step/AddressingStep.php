@@ -65,6 +65,15 @@ class AddressingStep extends CheckoutStep
 
     protected function renderStep(ProcessContextInterface $context, OrderInterface $order, FormInterface $form)
     {
+    	if($this->getRequest()->isXmlHttpRequest())
+    	{
+    		return $this->render('SyliusWebBundle:Frontend/Checkout/Step:addressingAjax.html.twig', array(
+    				'order'   => $order,
+    				'form'    => $form->createView(),
+    				'context' => $context
+    		));
+    	}
+    	
         return $this->render('SyliusWebBundle:Frontend/Checkout/Step:addressing.html.twig', array(
             'order'   => $order,
             'form'    => $form->createView(),
