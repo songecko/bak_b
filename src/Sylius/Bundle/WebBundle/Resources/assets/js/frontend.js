@@ -16,7 +16,7 @@ var checkoutSubmitHandler = function (ev)
         url: $(this).attr('action'),
         data: $(this).serialize(),
         success: function (data) 
-        { 	
+        {
         	$('#collapse'+step).collapse('hide');  	
         	if(data.indexOf('formStep1') >= 0)
         	{
