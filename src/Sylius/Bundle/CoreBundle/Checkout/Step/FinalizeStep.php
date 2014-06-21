@@ -30,7 +30,7 @@ class FinalizeStep extends CheckoutStep
     {
         $order = $this->getCurrentCart();
         $this->dispatchCheckoutEvent(SyliusCheckoutEvents::FINALIZE_INITIALIZE, $order);
-
+        
         return $this->renderStep($context, $order);
     }
 
@@ -39,9 +39,13 @@ class FinalizeStep extends CheckoutStep
      */
     public function forwardAction(ProcessContextInterface $context)
     {
+    	$request = $this->getRequest();
+    	
         $order = $this->getCurrentCart();
         $this->dispatchCheckoutEvent(SyliusCheckoutEvents::FINALIZE_INITIALIZE, $order);
 
+        $order->setTotal(($order->getTotal())+($request->getSession()->get('priceCalculator')));
+        
         $order->setUser($this->getUser());
 
         $this->completeOrder($order);

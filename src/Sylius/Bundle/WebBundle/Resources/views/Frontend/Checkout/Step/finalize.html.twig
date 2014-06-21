@@ -41,18 +41,20 @@
             <td colspan="100%">
             <p><strong>{{ 'sylius.checkout.finalize.order.shipping_charges'|trans }}</strong></p>
             <ul>
-            {% for adjustment in order.shippingAdjustments %}
+            {#% for adjustment in order.shippingAdjustments %}
                 <li>{{ adjustment.description }} {{ adjustment.amount|sylius_price }} </li>
             {% else %}
                 <li><span class="label label-info">{{ 'sylius.checkout.finalize.order.no_shipping_charges'|trans }}</span></li>
-            {% endfor %}
+            {% endfor %#}
+            	<li>USPS Shipping {{ app.request.session.get('priceCalculator')|sylius_price }}</li>
             </ul>
             </td>
         </tr>
         <tr style="background-color: #f1f1f1;">
             <td colspan="6">
                 <span class="pull-right">
-                <strong>Total</strong>: {{ order.total|sylius_price }}
+                {% set total = order.total + app.request.session.get('priceCalculator') %}
+                <strong>Total</strong>: {{ total|sylius_price }}
                 </span>
             </td>
         </tr>

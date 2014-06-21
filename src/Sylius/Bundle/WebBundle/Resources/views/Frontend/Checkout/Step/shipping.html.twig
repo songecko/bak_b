@@ -1,20 +1,31 @@
 {% block content %}
 
-{{ form_errors(form) }}
+{#{ form_errors(form) }#}
 
 <form id="formStep2" method="post" action="{{ path('sylius_checkout_forward', {'stepName': context.currentStep.name}) }}" class="form-horizontal" novalidate>
 
 <fieldset>
-{% for shipment in order.shipments %}
+{#% for shipment in order.shipments %}
 
 {% set shipmentForm = form.shipments[loop.index0] %}
 
 {{ form_row(shipmentForm.method) }}
 
-{% endfor %}
+{% endfor %#}
+<div class="form-group">
+	<label class="control-label col-lg-2 required">Método de envío</label>
+	<div class="col-lg-10">
+		<div id="sylius_checkout_shipping_shipments_0_method">
+			<div>
+				<span class="pull-right text-muted">{{ app.request.session.get('priceCalculator')|sylius_price }}</span>
+				<label>USPS Shipping</label>
+			</div>
+		</div>
+	</div>
+</div>
 </fieldset>
 
-{{ form_widget(form._token) }}
+{#{ form_widget(form._token) }#}
 
 <div class="form-actions">
     {#}<a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="btn btn-lg"><i class="icon-chevron-left"></i> {{ 'sylius.checkout.back'|trans }}</a> &nbsp;{#}

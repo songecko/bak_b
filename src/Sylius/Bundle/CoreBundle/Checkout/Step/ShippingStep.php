@@ -17,6 +17,8 @@ use Sylius\Bundle\CoreBundle\Model\OrderInterface;
 use Sylius\Bundle\FlowBundle\Process\Context\ProcessContextInterface;
 use Symfony\Component\Form\FormInterface;
 
+require_once dirname(__FILE__).'/../../../../../Tresepic/BoprBundle/usps/PriceCalculator.php';
+
 /**
  * The shipping step of checkout.
  *
@@ -38,15 +40,20 @@ class ShippingStep extends CheckoutStep
     public function displayAction(ProcessContextInterface $context)
     {
         $order = $this->getCurrentCart();
-        $this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_INITIALIZE, $order);
+        //$this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_INITIALIZE, $order);
 
-        $form = $this->createCheckoutShippingForm($order);
+        //$form = $this->createCheckoutShippingForm($order);
 
-        if (null === $this->zone) {
+        /*if (null === $this->zone) {
             return $this->proceed($context->getPreviousStep()->getName());
-        }
-
-        return $this->renderStep($context, $order, $form);
+        }*/
+        
+        $priceCalculator = USPSParcelRate(10, '59759');
+        
+        $session = $this->get('session');
+        $session->set('priceCalculator', $priceCalculator*100);
+        
+        return $this->renderStep($context, $order/*, $form*/);
     }
 
     /**
@@ -57,34 +64,35 @@ class ShippingStep extends CheckoutStep
         $request = $this->getRequest();
 
         $order = $this->getCurrentCart();
-        $this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_INITIALIZE, $order);
+        //$this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_INITIALIZE, $order);
 
-        $form = $this->createCheckoutShippingForm($order);
+        //$form = $this->createCheckoutShippingForm($order);
 
-        if ($request->isMethod('POST') && $form->submit($request)->isValid()) {
+        /*if ($request->isMethod('POST') && $form->submit($request)->isValid()) {
             $this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_PRE_COMPLETE, $order);
-
+  */
+            
             $this->getManager()->persist($order);
             $this->getManager()->flush();
 
-            $this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_COMPLETE, $order);
+    //        $this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_COMPLETE, $order);
 
             return $this->complete();
-        }
+      //  }
 
-        return $this->renderStep($context, $order, $form);
+        //return $this->renderStep($context, $order/*, $form*/);
     }
 
-    protected function renderStep(ProcessContextInterface $context, OrderInterface $order, FormInterface $form)
+    protected function renderStep(ProcessContextInterface $context, OrderInterface $order/*, FormInterface $form*/)
     {
         return $this->render('SyliusWebBundle:Frontend/Checkout/Step:shipping.html.twig', array(
             'order'   => $order,
-            'form'    => $form->createView(),
+            //'form'    => $form->createView(),
             'context' => $context,
         ));
     }
 
-    protected function createCheckoutShippingForm(OrderInterface $order)
+    /*protected function createCheckoutShippingForm(OrderInterface $order)
     {
         $this->zone = $this->getZoneMatcher()->match($order->getShippingAddress());
 
@@ -95,5 +103,5 @@ class ShippingStep extends CheckoutStep
         return $this->createForm('sylius_checkout_shipping', $order, array(
             'criteria' => array('zone' => $this->zone)
         ));
-    }
+    }*/
 }
