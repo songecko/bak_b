@@ -47,8 +47,18 @@ class ShippingStep extends CheckoutStep
         /*if (null === $this->zone) {
             return $this->proceed($context->getPreviousStep()->getName());
         }*/
+		
+        $country = $order->getShippingAddress()->getCountry()->getName();
+        $postCode = $order->getShippingAddress()->getPostcode();
         
-        $priceCalculator = USPSParcelRate(10, '59759');
+        $totalWeight = 0;
+        
+        foreach($order->getItems() as $item)
+        {
+        	$totalWeight += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getWeight());
+        }
+        
+        $priceCalculator = USPSParcelRate($totalWeight, 'REGULAR', $postCode, $country);
         
         $session = $this->get('session');
         $session->set('priceCalculator', $priceCalculator*100);
