@@ -153,7 +153,7 @@ function USPSParcelRate($weight, $pack_size, $dest_zip, $country) {
 	// parameters to post
 	curl_setopt($ch, CURLOPT_POST, 1);
 
-	if($country=='United States')
+	if($country=='United States' || $country=='Puerto Rico')
 	{
 		$data = "API=RateV4&XML=
 				<RateV4Request USERID=\"$userName\">
