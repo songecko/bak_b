@@ -40,4 +40,4 @@ parameters:
 
     sylius.inventory.backorders_enabled: true
     sylius.inventory.tracking_enabled: true
-    tresepic.paypal.fee: 0.80
+    tresepic.paypal.fee: 0.90

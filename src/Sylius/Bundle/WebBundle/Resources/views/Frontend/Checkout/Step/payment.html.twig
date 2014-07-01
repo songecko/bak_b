@@ -9,7 +9,8 @@
 <br>
 <fieldset style="border: none;">
     {% for paymentMethodForm in form.paymentMethod %}
-        {{ form_row(paymentMethodForm) }}
+    	<label for="sylius_checkout_payment_paymentMethod_6" class="control-label col-lg-2 required"><img src="{{ asset('bundles/tresepicbopr/images/paypal.png') }}"></label>
+        {{ form_widget(paymentMethodForm) }}
         <br>
     {% endfor %}
 </fieldset>
