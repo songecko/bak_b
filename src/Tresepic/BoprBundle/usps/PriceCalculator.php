@@ -134,12 +134,12 @@ function xml2array($contents, $get_attributes=1, $priority = 'tag') {
 	return($xml_array);
 }
 
-function USPSParcelRate($weight, $pack_size, $dest_zip, $country) {
+function USPSParcelRate($weight, $pack_size, $dest_zip, $country, $width, $length, $height) {
 
 	// ========== CHANGE THESE VALUES TO MATCH YOUR OWN ===========
 
 	$userName = '004BRAND3771'; // Your USPS Username
-	$orig_zip = '59759';
+	$orig_zip = '00901';
 	// =============== DON'T CHANGE BELOW THIS LINE ===============
 
 	$url = "http://Production.ShippingAPIs.com/ShippingAPI.dll";
@@ -158,12 +158,17 @@ function USPSParcelRate($weight, $pack_size, $dest_zip, $country) {
 		$data = "API=RateV4&XML=
 				<RateV4Request USERID=\"$userName\">
 					<Package ID=\"1ST\">
-						<Service>ALL</Service>
-						<FirstClassMailType>PARCEL</FirstClassMailType>
+						<Service>PRIORITY MAIL EXPRESS</Service>
 						<ZipOrigination>$orig_zip</ZipOrigination>
 						<ZipDestination>$dest_zip</ZipDestination>
-						<Pounds>$weight</Pounds><Ounces>0</Ounces><Container/>
+						<Pounds>$weight</Pounds>
+						<Ounces>0</Ounces>
+						<Container/>
 						<Size>$pack_size</Size>
+						<Width>$width</Width>
+			          	<Length>$length</Length>
+			          	<Height>$height</Height>
+			          	<Girth></Girth>
 						<Machinable>FALSE</Machinable>
 					</Package>
 	 			</RateV4Request>";
@@ -177,7 +182,7 @@ function USPSParcelRate($weight, $pack_size, $dest_zip, $country) {
 		/* Customized For getting Service name and Price as array*/
 		$new_xml = xml2array($data);
 		$Services = $new_xml['RateV4Response']['Package']['Postage'];
-		$rate = 0; $n=1;
+		/*$rate = 0; $n=1;
 		foreach($Services as $service)
 		{
 			if(isset($service['Rate']))
@@ -187,7 +192,8 @@ function USPSParcelRate($weight, $pack_size, $dest_zip, $country) {
 				if($rate>$service['Rate'])
 					$rate=$service['Rate'];
 			}
-		}
+		}*/
+		$rate=$Services['Rate'];
 	}
 	else
 	{
@@ -197,7 +203,7 @@ function USPSParcelRate($weight, $pack_size, $dest_zip, $country) {
 					<Package ID=\"1ST\">
 						<Pounds>$weight</Pounds>
 						<Ounces>0</Ounces>
-						<Machinable>FALSE</Machinable>
+						<Machinable>False</Machinable>
 						<MailType>All</MailType>
 						<GXG>
 							<POBoxFlag>N</POBoxFlag>
@@ -207,11 +213,10 @@ function USPSParcelRate($weight, $pack_size, $dest_zip, $country) {
 	          			<Country>$country</Country>
 	          			<Container>RECTANGULAR</Container>
 	          			<Size>$pack_size</Size>
-	          			<Width>10</Width>
-	          			<Length>10</Length>
-	          			<Height>11</Height>
-	          			<Girth></Girth>
-	          			<CommercialFlag>Y</CommercialFlag>
+	          			<Width>$width</Width>
+			          	<Length>$length</Length>
+			          	<Height>$height</Height>
+			          	<Girth></Girth>
 	          		</Package>
 		 		</IntlRateV2Request>";
 		
