@@ -134,7 +134,7 @@ function xml2array($contents, $get_attributes=1, $priority = 'tag') {
 	return($xml_array);
 }
 
-function USPSParcelRate($weight, $pack_size, $dest_zip, $country, $width, $length, $height) {
+function USPSParcelRate($pounds, $ounces, $pack_size, $dest_zip, $country, $width, $length, $height) {
 
 	// ========== CHANGE THESE VALUES TO MATCH YOUR OWN ===========
 
@@ -158,10 +158,10 @@ function USPSParcelRate($weight, $pack_size, $dest_zip, $country, $width, $lengt
 		$data = "API=RateV4&XML=
 				<RateV4Request USERID=\"$userName\">
 					<Package ID=\"1ST\">
-						<Service>PRIORITY MAIL EXPRESS</Service>
+						<Service>PRIORITY CPP</Service>
 						<ZipOrigination>$orig_zip</ZipOrigination>
 						<ZipDestination>$dest_zip</ZipDestination>
-						<Pounds>$weight</Pounds>
+						<Pounds>$pounds</Pounds>
 						<Ounces>0</Ounces>
 						<Container/>
 						<Size>$pack_size</Size>
@@ -199,12 +199,11 @@ function USPSParcelRate($weight, $pack_size, $dest_zip, $country, $width, $lengt
 	{
 		$data = "API=IntlRateV2&XML=
 				<IntlRateV2Request USERID=\"$userName\">
-					<Revision>2</Revision>
 					<Package ID=\"1ST\">
-						<Pounds>$weight</Pounds>
-						<Ounces>0</Ounces>
+						<Pounds>0</Pounds>
+						<Ounces>$ounces</Ounces>
 						<Machinable>False</Machinable>
-						<MailType>All</MailType>
+						<MailType>FlatRate</MailType>
 						<GXG>
 							<POBoxFlag>N</POBoxFlag>
 	               			<GiftFlag>N</GiftFlag>

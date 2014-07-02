@@ -51,20 +51,22 @@ class ShippingStep extends CheckoutStep
         $country = $order->getShippingAddress()->getCountry()->getName();
         $postCode = $order->getShippingAddress()->getPostcode();
         
-        $totalWeight = 0;
+        $totalPounds = 0;
         $totalWidth = 0;
         $totalLength = 0;
         $totalHeight = 0;
         
         foreach($order->getItems() as $item)
         {
-        	$totalWeight += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getWeight());
+        	$totalPounds += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getWeight());
         	$totalWidth += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getWidth());
         	$totalLength += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getDepth());
         	$totalHeight += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getHeight());
         }
-                
-        $priceCalculator = USPSParcelRate($totalWeight, 'REGULAR', $postCode, $country, $totalWidth, $totalLength, $totalHeight);
+        
+        $totalOunces = $totalPounds*16;
+        
+        $priceCalculator = USPSParcelRate($totalPounds, $totalOunces, 'REGULAR', $postCode, $country, $totalWidth, $totalLength, $totalHeight);
         
         $session = $this->get('session');
         $session->set('priceCalculator', $priceCalculator*100);
