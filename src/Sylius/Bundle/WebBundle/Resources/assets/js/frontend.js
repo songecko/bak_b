@@ -17,7 +17,11 @@ var checkoutSubmitHandler = function (ev)
         data: $(this).serialize(),
         success: function (data) 
         {
-        	$('#collapse'+step).collapse('hide');  	
+        	if(data.indexOf('has-error') <= 0)
+        	{
+        		$('#collapse'+step).collapse('hide');        		
+        	}
+        	
         	if(data.indexOf('formStep1') >= 0)
         	{
         		step = 1;        		
@@ -36,7 +40,11 @@ var checkoutSubmitHandler = function (ev)
         	}
         	
         	$('#collapse'+step+' .panel-body').html(data);
-        	$('#collapse'+step).collapse('show');
+
+        	if(data.indexOf('has-error') <= 0)
+        	{
+        		$('#collapse'+step).collapse('show');       		
+        	}
         	
         	
         	$('#formStep'+step).submit(checkoutSubmitHandler);
