@@ -126,14 +126,18 @@ header .logo {
 
 header .shoppingCart {
 	color: #010101;
-	background: url(../images/cart.png) no-repeat;
 	float: right;
-	height: 48px;
 	margin: 20px 65px 0 0;
 	padding: 10px 0 0 50px;
 }
 
-header .shoppingCart span {
+header .shoppingCart img {
+	position: absolute;
+	left: 925px;
+	top: 70px;
+}
+
+header .shoppingCart span a {
 	color: #6d8eb2;
 }
 

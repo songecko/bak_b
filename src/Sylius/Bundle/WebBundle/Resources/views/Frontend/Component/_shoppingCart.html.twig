@@ -1,2 +1,7 @@
-<p>Shopping Cart:</p>
-<p><span><a href="{{ path('sylius_cart_summary') }}">({{ cart.getTotalItems }})</a></span> Cart Subtotal: <span><a href="{{ path('sylius_cart_summary') }}">{{ cart.getTotal|sylius_price }}</a></span>
+<a href="{{ path('sylius_cart_summary') }}">
+	<img src="{{ asset('bundles/tresepicbopr/images/cart.png') }}">
+</a>
+<div>
+	<p>Shopping Cart:</p>
+	<p><span><a href="{{ path('sylius_cart_summary') }}">({{ cart.getTotalItems }})</a></span> Cart Subtotal: <span><a href="{{ path('sylius_cart_summary') }}">{{ cart.getTotal|sylius_price }}</a></span></p>
+</div>
