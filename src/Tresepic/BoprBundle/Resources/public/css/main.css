@@ -125,23 +125,27 @@ header .logo {
 }
 
 header .shoppingCart {
-	color: #010101;
 	float: right;
 	margin: 20px 65px 0 0;
 	padding: 10px 0 0 50px;
 }
 
-header .shoppingCart img {
-	position: absolute;
-	left: 925px;
-	top: 70px;
+header .shoppingCart .image {
+	float: left;
+	margin-right: 18px;
+	margin-top: -7px;
 }
 
-header .shoppingCart span a {
+header .shoppingCart .description {
+	color: #010101;
+	float: right;
+}
+
+header .shoppingCart .description span a {
 	color: #6d8eb2;
 }
 
-header .shoppingCart p {
+header .shoppingCart .description p {
 	margin: 0;
 }
 
