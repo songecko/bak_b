@@ -126,6 +126,7 @@ header .logo {
 
 header .shoppingCart {
 	float: right;
+	height: 48px;
 	margin: 20px 65px 0 0;
 	padding: 10px 0 0 50px;
 }
