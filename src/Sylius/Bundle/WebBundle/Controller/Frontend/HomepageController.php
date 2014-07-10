@@ -34,9 +34,8 @@ class HomepageController extends Controller
 		
 		$MailChimp = new MailChimp('fa45ac5e1dbe50997a0b2f475f6400d1-us7');
 		$result = $MailChimp->call('lists/subscribe', array(
-				'id'                => 'b1234346',
-				'email'             => array('email'=>'davy@example.com'),
-				'merge_vars'        => array('FNAME'=>'Davy', 'LNAME'=>'Jones'),
+				'id'                => 'd53b936801',
+				'email'             => array('email'=>'prueba@bopr.com'),
 				'double_optin'      => false,
 				'update_existing'   => true,
 				'replace_interests' => false,
