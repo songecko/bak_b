@@ -65,6 +65,16 @@ var checkoutSubmitHandler = function (ev)
         $('.sylius-different-billing-address-trigger').click(function() {
             $('#sylius-billing-address-container').toggleClass('hidden');
         });
+        
+        $.cookieCuttr({
+        	cookieDiscreetLink: true,
+        	cookieDiscreetPosition: "topright",
+        	cookiePolicyLink: "/bopr/web/app_dev.php?showFullMessage=true",
+        });
+        
+        if ((jQuery.cookie('cc_cookie_accept') == "cc_cookie_accept") || (jQuery.cookie('cc_cookie_decline') == "cc_cookie_decline")) {
+        	$('.cc-cookies').hide();
+        }
 
     });
 

@@ -23,6 +23,7 @@
             <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" type="text/css" /> -->
             {% stylesheets output='css/frontend.css' filter='cssrewrite'
                 'bundles/tresepicbopr/css/main.css'
+                'bundles/tresepicbopr/css/cookiecuttr.css'
             %}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
@@ -34,6 +35,14 @@
         <![endif]-->
     </head>
     <body>
+	    {% if(app.request.get('showFullMessage')) %}
+		    <div class="cc-cookies">
+		    	We use cookies, just to track visits to our website, we store no personal details. 
+		    	<a href="#accept" class="cc-cookie-accept">ACCEPT COOKIES</a>  
+		    	<a href="#decline" class="cc-cookie-decline">DECLINE COOKIES</a> 
+		    	<a href="http://www.allaboutcookies.org/" title="Visit All about cookies (External link)">What are cookies?</a>
+		    </div>
+		{% endif %}
     	<!--  <div class="container"> -->
         {% block header %}
         	<div id="topMenu">
@@ -275,6 +284,8 @@
         {% javascripts output='assets/compiled/frontend.js'
             '@SyliusWebBundle/Resources/assets/js/jquery.blueimp-gallery.min.js'
             '@SyliusWebBundle/Resources/assets/js/confirm-modal.js'
+            'bundles/tresepicbopr/js/jquery.cookie.js'
+            'bundles/tresepicbopr/js/jquery.cookiecuttr.js'
             '@SyliusWebBundle/Resources/assets/js/frontend.js'
         %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
