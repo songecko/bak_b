@@ -69,7 +69,7 @@ var checkoutSubmitHandler = function (ev)
         $.cookieCuttr({
         	cookieDiscreetLink: true,
         	cookieDiscreetPosition: "topright",
-        	cookiePolicyLink: "/bopr/web/app_dev.php?showFullMessage=true",
+        	cookiePolicyLink: "/?showFullMessage=true",
         });
         
         if ((jQuery.cookie('cc_cookie_accept') == "cc_cookie_accept") || (jQuery.cookie('cc_cookie_decline') == "cc_cookie_decline")) {
