@@ -50,7 +50,7 @@ class HomepageController extends Controller
     	);
     	
     	$flash = 'error';
-    	$message = 'Email invalido';
+    	$message = 'Invalid email';
     	
     	if($errors->count() == 0)
     	{
@@ -65,7 +65,7 @@ class HomepageController extends Controller
 	    	));
 	    	
 	    	$flash = 'success';
-	    	$message = 'Suscripcion correcta';
+	    	$message = 'Confirmed subscription';
     	}
     	
     	$request->getSession()->getFlashBag()->add(
