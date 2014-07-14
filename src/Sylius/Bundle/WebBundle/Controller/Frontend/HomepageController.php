@@ -49,10 +49,13 @@ class HomepageController extends Controller
     			$emailConstraint
     	);
     	
+    	$flash = 'error';
+    	$message = 'Email invalido';
+    	
     	if($errors->count() == 0)
     	{
 	    	$mailChimp = new MailChimp('fa45ac5e1dbe50997a0b2f475f6400d1-us7');
-	    	$result = $mailChimp->call('lists/subscribe', array(
+	    	$mailChimp->call('lists/subscribe', array(
 	    			'id'                => 'd53b936801',
 	    			'email'             => array('email'=>$email),
 	    			'double_optin'      => false,
@@ -60,10 +63,16 @@ class HomepageController extends Controller
 	    			'replace_interests' => false,
 	    			'send_welcome'      => false,
 	    	));
+	    	
+	    	$flash = 'success';
+	    	$message = 'Suscripcion correcta';
     	}
     	
-    	return $this->render('SyliusWebBundle:Frontend/Homepage:newsletter.html.twig', array(
-    		'errors' => $errors
-    	));
+    	$request->getSession()->getFlashBag()->add(
+	    		$flash,
+            	$message
+    	);
+    	
+    	return $this->redirect($this->generateUrl('sylius_homepage'));
     }
 }
