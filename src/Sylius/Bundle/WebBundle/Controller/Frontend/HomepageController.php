@@ -14,6 +14,7 @@ namespace Sylius\Bundle\WebBundle\Controller\Frontend;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Drewm\MailChimp;
+use Symfony\Component\Validator\Constraints\Email as EmailConstraint;
 
 /**
  * Frontend homepage controller.
@@ -29,19 +30,40 @@ class HomepageController extends Controller
      */
     public function mainAction()
     {
-    	/*$MailChimp = new MailChimp('fa45ac5e1dbe50997a0b2f475f6400d1-us7');
-		print_r($MailChimp->call('lists/list'));die;
-		
-		$MailChimp = new MailChimp('fa45ac5e1dbe50997a0b2f475f6400d1-us7');
-		$result = $MailChimp->call('lists/subscribe', array(
-				'id'                => 'd53b936801',
-				'email'             => array('email'=>'prueba@bopr.com'),
-				'double_optin'      => false,
-				'update_existing'   => true,
-				'replace_interests' => false,
-				'send_welcome'      => false,
-		));
-		print_r($result);die;*/
         return $this->render('SyliusWebBundle:Frontend/Homepage:main.html.twig');
+    }
+    
+    public function newsletterAction()
+    {
+    	$request = $this->getRequest();
+    	
+    	$newsletter = $request->get('newsletter');
+    	
+    	$email = $newsletter['email'];
+    	
+    	$emailConstraint = new EmailConstraint();
+    	$emailConstraint->message = 'Email invalido';
+    	
+    	$errors = $this->get('validator')->validateValue(
+    			$email,
+    			$emailConstraint
+    	);
+    	
+    	if($errors->count() == 0)
+    	{
+	    	$mailChimp = new MailChimp('fa45ac5e1dbe50997a0b2f475f6400d1-us7');
+	    	$result = $mailChimp->call('lists/subscribe', array(
+	    			'id'                => 'd53b936801',
+	    			'email'             => array('email'=>$email),
+	    			'double_optin'      => false,
+	    			'update_existing'   => true,
+	    			'replace_interests' => false,
+	    			'send_welcome'      => false,
+	    	));
+    	}
+    	
+    	return $this->render('SyliusWebBundle:Frontend/Homepage:newsletter.html.twig', array(
+    		'errors' => $errors
+    	));
     }
 }

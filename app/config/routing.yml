@@ -49,4 +49,9 @@ google_login:
 tresepic_bopr_backend:
     resource: @TresepicBoprBundle/Resources/config/routing/backend/manufacturer.yml
     prefix: /administration/manufacturer
+
+sylius_newsletter:
+    pattern: /newsletter
+    defaults: { _controller: sylius.controller.frontend.homepage:newsletterAction }
+    methods:  [POST]
     

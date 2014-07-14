@@ -709,6 +709,28 @@ footer {
 	padding-top: 41px;
 }
 
+footer .info1 .newsletter {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+footer .info1 .newsletter input {
+	background-color: #e4e1dc;
+	font-size: 13px;
+	height: 32px;
+	width: 245px;
+}
+
+footer .info1 .newsletter button {
+	background-color: #ffffff;
+	height: 31px;
+	width: 87px;
+}
+
+footer .info1 .newsletter form span {
+	color: #ffffff;
+}
+
 footer .info1 .delivery {
 	border: 1px solid #ffffff;
 	background: url(../images/delivery-icon.png) no-repeat 35px 19px;
@@ -787,33 +809,6 @@ footer .info3 {
 
 footer .info3Iphone {
 	height: 70px;
-}
-
-footer .info3 .newsletter {
-	float: left;
-	height: 56px;
-	margin: 21px auto;
-	width: 470px;
-}
-
-footer .info3 .newsletter form {
-	margin: 20px auto;
-}
-
-footer .info3 .newsletter input {
-	background-color: #e4e1dc;
-	height: 32px;
-	width: 245px;
-}
-
-footer .info3 .newsletter button {
-	background-color: #ffffff;
-	height: 35px;
-	width: 87px;
-}
-
-footer .info3 .newsletter form span {
-	color: #ffffff;
 }
 
 footer .info3 .connected {

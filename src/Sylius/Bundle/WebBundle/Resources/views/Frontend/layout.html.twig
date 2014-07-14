@@ -148,6 +148,15 @@
         <footer>
         <div class="container">
 			<div class="containerFooter">
+				<div class="info1">
+					<div class="newsletter col-md-12">
+						<form method="post" action="{{ path('sylius_newsletter') }}">
+							<span>NEWSLETTER:</span> 
+							<input type="text" name="newsletter[email]" value="Enter email adress..." /> 
+							<button type="submit">SUBMIT</button>
+						</form>
+					</div>
+				</div>
 				<!-- <div class="info1 clearfix">
 					<div class="delivery">
 						<p>Free delivery worldwide</p>
@@ -216,13 +225,6 @@
 				</div>
 				{% if (is_device('iPhone')) %}
 					<div class="info3Iphone">
-						<!--  <div class="newsletter">
-							<form type="POST" action="">
-								<span>NEWSLETTER:</span> 
-								<input type="text" value="Enter email adress..." /> 
-								<button type="submit">SUBMIT</button>
-							</form>
-						</div>-->
 						<div class="connectedIphone">
 							<span>GET CONNECTED:</span>
 							<div class="socialIphone">
