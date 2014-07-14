@@ -113,7 +113,6 @@ swiftmailer:
     host:      %sylius.mailer.host%
     username:  %sylius.mailer.user%
     password:  %sylius.mailer.password%
-    spool:     { type: memory }
 
 liip_doctrine_cache:
     namespaces:
