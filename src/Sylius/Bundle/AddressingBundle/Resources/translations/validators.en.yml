@@ -15,7 +15,7 @@ sylius:
             min_length: Last name must be at least 2 characters long|Last name must be at least 2 characters long.
             not_blank: Please enter last name.
         postcode:
-            max_length: Postcode must not be longer than 255 characters|Postcode must not be longer than 255 characters.
+            max_length: Postcode must not be longer than 5 characters|Postcode must not be longer than 5 characters.
             min_length: Postcode must be at least 2 characters long|Postcode must be at least 2 characters long.
             not_blank: Please enter postcode.
         province:
