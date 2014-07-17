@@ -9,10 +9,9 @@
 <br>
 <fieldset style="border: none;">
     {% for paymentMethodForm in form.paymentMethod %}
-    	<label for="sylius_checkout_payment_paymentMethod_6"><img src="{{ asset('bundles/tresepicbopr/images/paypal.png') }}"></label>
+    	<label for="sylius_checkout_payment_paymentMethod_6"><img src="{{ asset('bundles/tresepicbopr/images/paypal2.png') }}"></label>
         {{ form_widget(paymentMethodForm) }}
-        <br>
-        <br>
+        <p>*Payments with credit cards can be summited through the paypal system without having a Paypal account or being a member of Paypal. Visa, Mastercard and other major credit cards are accepted.</p>
     {% endfor %}
 </fieldset>
 
