@@ -1210,6 +1210,10 @@ and (max-width : 1199px) {
 		display: none;
 	}
 	
+	#content #carouselBanner img {
+		width: 100%;
+	}
+	
 	#content #carouselProducts .carousel-control.left{
 		left: -40px;
 	}
