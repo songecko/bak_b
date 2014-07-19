@@ -13,6 +13,10 @@ class ProductType extends BaseProductType
     	parent::buildForm($builder, $options);
     	
         $builder
+        ->add('position', 'integer', array(
+        		'required' => true,
+        		'label'    => 'Orden'
+        ))
         ->add('manufacturer', 'entity', array(
         		'class'    => 'TresepicBoprBundle:Manufacturer',
         		'required' => true,

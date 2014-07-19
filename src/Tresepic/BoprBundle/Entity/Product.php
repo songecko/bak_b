@@ -11,6 +11,7 @@ use Sylius\Bundle\CoreBundle\Model\Product as BaseProduct;
 class Product extends BaseProduct
 {
     private $manufacturer;
+    private $position;
     
     public function setManufacturer(\Tresepic\BoprBundle\Entity\Manufacturer $manufacturer = null)
     {
@@ -22,5 +23,17 @@ class Product extends BaseProduct
     public function getManufacturer()
     {
         return $this->manufacturer;
+    }
+    
+    public function setPosition($position)
+    {
+    	$this->position = $position;
+    
+    	return $this;
+    }
+    
+    public function getPosition()
+    {
+    	return $this->position;
     }
 }

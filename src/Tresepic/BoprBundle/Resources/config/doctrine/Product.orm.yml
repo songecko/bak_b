@@ -1,7 +1,10 @@
 Tresepic\BoprBundle\Entity\Product:
     type: entity
     table: sylius_product
-    
+    fields:
+        position:
+            type: integer
+            nullable: true
     manyToOne:
         manufacturer:
             targetEntity: Manufacturer

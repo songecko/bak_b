@@ -20,3 +20,6 @@ bopr.backend:
         create_header: "Nueva marca"
         name: "Nombre"
         email: "Email Paypal"
+        
+    position:
+        label: "Orden"
