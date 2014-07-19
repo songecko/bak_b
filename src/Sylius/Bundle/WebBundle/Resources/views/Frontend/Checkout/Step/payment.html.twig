@@ -2,20 +2,21 @@
 
 <form id="formStep3" method="post" action="{{ path('sylius_checkout_forward', {'stepName': context.currentStep.name}) }}" class="form-horizontal" novalidate>
 
-{{ form_errors(form) }}
+{#{ form_errors(form) }}
 
-{{ form_label(form.paymentMethod) }}
+{{ form_label(form.paymentMethod) }#}
+<label class="control-label col-lg-2 required">Payment Method</label>
 <br>
 <br>
 <fieldset style="border: none;">
-    {% for paymentMethodForm in form.paymentMethod %}
+    {#% for paymentMethodForm in form.paymentMethod %#}
     	<label for="sylius_checkout_payment_paymentMethod_6"><img src="{{ asset('bundles/tresepicbopr/images/paypal2.png') }}"></label>
-        {{ form_widget(paymentMethodForm) }}
+        {#{ form_widget(paymentMethodForm) }#}
         <p>*Payments with credit cards can be summited through the paypal system without having a Paypal account or being a member of Paypal. Visa, Mastercard and other major credit cards are accepted.</p>
-    {% endfor %}
+    {#% endfor %#}
 </fieldset>
 
-{{ form_widget(form._token) }}
+{#{ form_widget(form._token) }#}
 
 <div class="form-actions">
     {#}<a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="btn btn-lg"><i class="icon-chevron-left"></i> {{ 'sylius.checkout.back'|trans }}</a> &nbsp;{#}
