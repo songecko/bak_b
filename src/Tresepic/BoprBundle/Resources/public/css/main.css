@@ -701,6 +701,23 @@ header .navMenu li.custom {
 	width: 195px;	
 }
 
+#content #carouselBrands {
+	margin-bottom: 70px;
+}
+
+#content #carouselBrands .carousel-control.left,
+#content #carouselBrands .carousel-control.right {
+	background: none;
+	width: 50px;
+	color: #000000;
+	left: -60px;
+}
+
+#content #carouselBrands .carousel-control.right {
+	left: auto;
+	right: -60px;	
+}
+
 footer {
 	background-color: #81705a;
 }
