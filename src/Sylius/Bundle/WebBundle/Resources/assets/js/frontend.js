@@ -58,24 +58,30 @@ var checkoutSubmitHandler = function (ev)
     'use strict';
 
     $(document).ready(function() 
-    {
-    	
+    {	
     	$('#formStep1').submit(checkoutSubmitHandler);
 
         $('.sylius-different-billing-address-trigger').click(function() {
             $('#sylius-billing-address-container').toggleClass('hidden');
         });
         
-        $.cookieCuttr({
-        	cookieDiscreetLink: true,
-        	cookieDiscreetPosition: "topright",
-        	cookiePolicyLink: "/?showFullMessage=true",
-        });
+        jQuery.getScript('http://www.geoplugin.net/javascript.gp', function()
+        {
+        	var continent = geoplugin_continentCode();
         
-        if ((jQuery.cookie('cc_cookie_accept') == "cc_cookie_accept") || (jQuery.cookie('cc_cookie_decline') == "cc_cookie_decline")) {
-        	$('.cc-cookies').hide();
-        }
-
+	        if(continent == 'EU')
+	        {
+		        $.cookieCuttr({
+		        	cookieDiscreetLink: true,
+		        	cookieDiscreetPosition: "topright",
+		        	cookiePolicyLink: "/?showFullMessage=true",
+		        });
+	        }
+	        
+	        if ((jQuery.cookie('cc_cookie_accept') == "cc_cookie_accept") || (jQuery.cookie('cc_cookie_decline') == "cc_cookie_decline")) {
+	        	$('.cc-cookies').hide();
+	        }
+    	});
     });
 
 })( jQuery );
