@@ -214,3 +214,20 @@ mobile_detect:
         mobile: ~
         tablet: ~
     switch_device_view: ~
+    
+fos_elastica:
+    clients:
+        default: { host: localhost, port: 9200 }
+    indexes:
+        website:
+            client: default
+            types:
+                product:
+                    mappings:
+                        name: ~
+                        description: ~
+                    persistence:
+                        driver: orm
+                        model: Tresepic\BoprBundle\Entity\Product
+                        provider: ~
+                        finder: ~

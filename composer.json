@@ -53,8 +53,9 @@
         "symfony-cmf/routing-bundle":           "1.1.*",
         "symfony-cmf/menu-bundle":              "1.0.*",
         "raulfraile/ladybug-bundle" :           "dev-master",
-        "suncat/mobile-detect-bundle": "0.9.*",
-        "drewm/mailchimp-api": "dev-master"
+        "suncat/mobile-detect-bundle":          "0.9.*",
+        "drewm/mailchimp-api":                  "dev-master",
+        "friendsofsymfony/elastica-bundle":     "~2.0"
     },
     "require-dev": {
         "behat/behat":                       "2.4.*@stable",

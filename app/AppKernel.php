@@ -82,6 +82,7 @@ class AppKernel extends Kernel
         	new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle(),
         	new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
         	new SunCat\MobileDetectBundle\MobileDetectBundle(),
+        	new FOS\ElasticaBundle\FOSElasticaBundle(),
         	new Tresepic\BoprBundle\TresepicBoprBundle(),
         );
 

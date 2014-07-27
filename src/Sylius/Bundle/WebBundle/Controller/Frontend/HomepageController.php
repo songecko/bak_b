@@ -30,6 +30,17 @@ class HomepageController extends Controller
      */
     public function mainAction()
     {
+    	$finder = $this->container->get('fos_elastica.finder.website.product');
+    	
+    	$products = $finder->find('book');
+    	
+    	/*foreach($productSet as $product)
+    	{
+    		ld($product->getData());
+    	}
+    	die;*/
+    	ldd($products);
+    	
         return $this->render('SyliusWebBundle:Frontend/Homepage:main.html.twig');
     }
     
