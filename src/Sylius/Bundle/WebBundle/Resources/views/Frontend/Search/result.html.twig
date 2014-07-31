@@ -1,0 +1,19 @@
+{% extends 'SyliusWebBundle:Frontend:layout.html.twig' %}
+
+{% import 'SyliusWebBundle:Backend/Macros:alerts.html.twig' as alerts %}
+
+{% block content %}
+	<div class="col-md-12 col-xs-12">
+		<p style="text-align: center;">Resultado: {{ products|length }} productos encontrados</p>
+	</div>
+	<div class="products clearfix row">
+		{% for product in products %}
+			{% include 'SyliusWebBundle:Frontend/Product:_singleBox.html.twig' %}
+		{% endfor %}
+		{% if 0 == products|length %}
+		    <div class="col-md-12">
+		        {{ alerts.info('sylius.product.no_results'|trans) }}
+		    </div>
+		{% endif %}
+	</div>
+{% endblock %}

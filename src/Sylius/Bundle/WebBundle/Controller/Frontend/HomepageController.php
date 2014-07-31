@@ -30,17 +30,6 @@ class HomepageController extends Controller
      */
     public function mainAction()
     {
-    	$finder = $this->container->get('fos_elastica.finder.website.product');
-    	
-    	$products = $finder->find('book');
-    	
-    	/*foreach($productSet as $product)
-    	{
-    		ld($product->getData());
-    	}
-    	die;*/
-    	ldd($products);
-    	
         return $this->render('SyliusWebBundle:Frontend/Homepage:main.html.twig');
     }
     
@@ -105,5 +94,27 @@ Brands of Puerto Rico Team
     	);
     	
     	return $this->redirect($this->generateUrl('sylius_homepage'));
+    }
+    
+    public function searchAction()
+    {
+    	$request = $this->getRequest();
+    	 
+    	$search = $request->get('search');
+    	 
+    	$query = $search['query'];
+    	
+    	$finder = $this->container->get('fos_elastica.finder.website.product');
+    	
+    	$products = $finder->find($query, 100);
+
+    	if(!$query)
+    	{
+    		$products = null;
+    	}
+    	
+    	return $this->render('SyliusWebBundle:Frontend/Search:result.html.twig', array(
+    			'products' => $products
+    	));
     }
 }

@@ -69,6 +69,9 @@
 			<div class="container">
 				<header>
 					<a href="{{ path('sylius_homepage') }}" title="Brands of Puerto Rico"><img class="logo" src="{{ asset('bundles/tresepicbopr/images/logo.png') }}" /></a>
+					<div class="search">
+						{% include 'SyliusWebBundle:Frontend/Search:search.html.twig' %}
+					</div>
 					<div class="shoppingCart">
 						{{ render(controller('SyliusWebBundle:Frontend/Component:shoppingCart')) }}
 					</div>
