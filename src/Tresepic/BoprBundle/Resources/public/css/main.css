@@ -124,6 +124,49 @@ header .logo {
 	float: left;
 }
 
+.search {
+	float: left;
+	margin-top: 30px;
+	margin-left: 200px;
+}
+
+.search input {
+	width: 250px;
+	height: 30px;
+}
+
+.search button {
+	height: 30px;
+	width: 35px;
+	background-color: #81705a;
+	border: none;
+}
+
+.search .glyphicon-search {
+	color: #ffffff;
+}
+
+.searchMobile {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.searchMobile input {
+	width: 90%;
+	height: 30px;
+}
+
+.searchMobile button {
+	height: 30px;
+	width: 8%;
+	background-color: #81705a;
+	border: none;
+}
+
+.searchMobile .glyphicon-search {
+	color: #ffffff;
+}
+
 header .shoppingCart {
 	float: right;
 	height: 48px;
@@ -1092,6 +1135,18 @@ and (max-width : 991px) {
 		display: none
 	}
 	
+	.search {
+		margin-left: 10px;
+	}
+	
+	.search input {
+		width: 150px;
+	}
+	
+	.searchMobile {
+		display: none;
+	}
+	
 	#content .sidebar {
 		display: none;
 	}
@@ -1223,6 +1278,14 @@ and (max-width : 1199px) {
 		display: none
 	}
 	
+	.search {
+		margin-left: 100px;
+	}
+	
+	.searchMobile {
+		display: none;
+	}
+	
 	#content .sidebar {
 		display: none;
 	}
@@ -1293,6 +1356,10 @@ and (min-width : 1200px) {
 	
 	nav {
 		display: none
+	}
+	
+	.searchMobile {
+		display: none;
 	}
 	
 	.quantityCart {

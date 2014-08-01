@@ -101,7 +101,11 @@
                 {% endfor %}
             {% endfor %}
         {% endblock %}
-
+        
+        <div class="searchMobile col-xs-12">
+			{% include 'SyliusWebBundle:Frontend/Search:search.html.twig' %}
+		</div>
+		
         {% block main %}
         <!-- <hr>
         <div class="row">
