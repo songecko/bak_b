@@ -164,6 +164,43 @@
 						</form>
 					</div>
 				</div>
+				<div class="footerSeparador">
+				</div>
+				{% if (is_device('iPhone')) %}
+					<div class="info3Iphone">
+						<div class="connectedIphone">
+							<span>GET CONNECTED:</span>
+							<div class="socialIphone">
+								<a href="http://instagram.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/instagram-icon.png') }}" /></a>
+								<a href="https://www.facebook.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" /></a>
+								<a href="https://twitter.com/BrandsofPR" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/twitter-icon.png') }}" /></a>
+								<a href="http://brandsofpuertorico.wordpress.com/" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/wordpress-icon.png') }}" /></a>
+								<a href="http://www.pinterest.com/bofpuertorico/" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/pinterest-icon.png') }}" /></a>
+							</div>
+						</div>
+					</div>
+				{% else %}
+					<div class="info3Mobile">
+						<div class="connected">
+							<span>GET CONNECTED:</span>
+							<div class="social">
+								<a href="http://instagram.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/instagram-icon.png') }}" /></a>
+								<a href="https://www.facebook.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" /></a>
+								<a href="https://twitter.com/BrandsofPR" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/twitter-icon.png') }}" /></a>
+								<a href="http://brandsofpuertorico.wordpress.com/" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/wordpress-icon.png') }}" /></a>
+								<a href="http://www.pinterest.com/bofpuertorico/" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/pinterest-icon.png') }}" /></a>
+							</div>
+						</div>
+					</div>
+				{% endif %}
+				<div class="registerBrand">
+					<span>REGISTER YOUR BRAND</span>
+					<div class="here">
+						<a href="https://docs.google.com/forms/d/1pq-Q7zzSVltZZvSw9qnF5z7Iq_a1bxnsqvZyhpJoPLo/viewform" target="_blank"><button>HERE</button></a>
+					</div>
+				</div>
+				<div class="footerSeparador">
+				</div>
 				<!-- <div class="info1 clearfix">
 					<div class="delivery">
 						<p>Free delivery worldwide</p>
@@ -230,40 +267,25 @@
 						</div>
 					</div>
 				</div>
-				{% if (is_device('iPhone')) %}
-					<div class="info3Iphone">
-						<div class="connectedIphone">
-							<span>GET CONNECTED:</span>
-							<div class="socialIphone">
-								<a href="http://instagram.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/instagram-icon.png') }}" /></a>
-								<a href="https://www.facebook.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" /></a>
-								<a href="https://twitter.com/BrandsofPR" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/twitter-icon.png') }}" /></a>
-								<a href="http://brandsofpuertorico.wordpress.com/" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/wordpress-icon.png') }}" /></a>
-								<a href="http://www.pinterest.com/bofpuertorico/" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/pinterest-icon.png') }}" /></a>
-							</div>
+				<div class="info3">
+					<!--  <div class="newsletter">
+						<form type="POST" action="">
+							<span>NEWSLETTER:</span> 
+							<input type="text" value="Enter email adress..." /> 
+							<button type="submit">SUBMIT</button>
+						</form>
+					</div>-->
+					<div class="connected">
+						<span>GET CONNECTED:</span>
+						<div class="social">
+							<a href="http://instagram.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/instagram-icon.png') }}" /></a>
+							<a href="https://www.facebook.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" /></a>
+							<a href="https://twitter.com/BrandsofPR" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/twitter-icon.png') }}" /></a>
+							<a href="http://brandsofpuertorico.wordpress.com/" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/wordpress-icon.png') }}" /></a>
+							<a href="http://www.pinterest.com/bofpuertorico/" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/pinterest-icon.png') }}" /></a>
 						</div>
 					</div>
-				{% else %}
-					<div class="info3">
-						<!--  <div class="newsletter">
-							<form type="POST" action="">
-								<span>NEWSLETTER:</span> 
-								<input type="text" value="Enter email adress..." /> 
-								<button type="submit">SUBMIT</button>
-							</form>
-						</div>-->
-						<div class="connected">
-							<span>GET CONNECTED:</span>
-							<div class="social">
-								<a href="http://instagram.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/instagram-icon.png') }}" /></a>
-								<a href="https://www.facebook.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" /></a>
-								<a href="https://twitter.com/BrandsofPR" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/twitter-icon.png') }}" /></a>
-								<a href="http://brandsofpuertorico.wordpress.com/" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/wordpress-icon.png') }}" /></a>
-								<a href="http://www.pinterest.com/bofpuertorico/" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/pinterest-icon.png') }}" /></a>
-							</div>
-						</div>
-					</div>
-				{% endif %}
+				</div>
 				<div class="info4">
 					<ul class="menuFooter">
 						<li><a href="https://docs.google.com/forms/d/1pq-Q7zzSVltZZvSw9qnF5z7Iq_a1bxnsqvZyhpJoPLo/viewform" target="_blank">Brand Registration</a></li>
@@ -277,6 +299,7 @@
 			</div>
 		</div>
 		</footer>
+		<a href="#" class="back-to-top"><img src="{{ asset('bundles/tresepicbopr/images/back-to-top.png') }}" /></a>
             <!-- <div class="footer">
                 <p class="text-muted">
                     &copy; Sylius, 2011 - -->{#{ 'now'|date('Y') }}.

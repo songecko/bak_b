@@ -837,6 +837,7 @@ footer .info1 .guarantee p {
 
 footer .info2 {
 	height: 165px;
+	margin-top: 40px;
 }
 
 footer .info2 a {
@@ -898,6 +899,68 @@ footer .info3 .connected .social {
 	margin-right: 20px;
 }
 
+footer .info3Mobile {
+	height: 30px;
+}
+
+footer .info3Iphone {
+	height: 30px;
+}
+
+footer .info3Mobile .connected {
+	margin: 40px auto;
+	width: 345px;
+}
+
+footer .info3Iphone .connectedIphone {
+	margin-top: 60px;
+	margin-left: 70px;
+}
+
+footer .info3Mobile .connected span {
+	color: #ffffff;
+	float: left;
+	margin: 22px auto;
+}
+
+footer .info3Iphone .connectedIphone span {
+	color: #ffffff;
+	float: none;
+}
+
+footer .info3Mobile .connected .social {
+	float: right;
+	margin-top: 14px;
+	margin-right: 20px;
+}
+
+footer .registerBrand {
+	margin: 40px auto;
+	width: 345px;
+	color: #ffffff;
+}
+
+footer .registerBrand .here {
+	float: right;
+	margin-top: -25px;
+	margin-right: 80px;
+}
+
+footer .registerBrand .here button {
+	color: #81705a;
+	background-color: #ffffff;
+	width: 60px;
+	border: none;
+}
+
+footer .footerSeparador {
+	height:0px;
+    border-top:0px;
+    border-bottom:#000 dotted;
+    border-width: 2px; 
+    border-color:#fff;
+}
+
 footer .info4 {
 	height: 65px;
 }
@@ -947,11 +1010,30 @@ footer .info4 .copyright span {
 	margin-right: 200px;
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 2em;
+    right: 0px;
+    text-decoration: none;
+    color: #000000;
+    font-size: 12px;
+    padding: 1em;
+    display: none;
+}
+
+.back-to-top:hover {    
+    background-color: rgba(135, 135, 135, 0.50);
+}
+
 @media screen
 and (max-width:350px) {
 	#topMenu .menuMobile li a {
 		background: url(../images/checkout-icon.png) no-repeat 2px 1px;
 		padding: 0 0 0 20px;
+	}
+	
+	footer .info3 {
+		display: none;
 	}
 	
 	footer .info4 .menuFooter li {
@@ -1098,6 +1180,10 @@ and (max-width:767px) {
 		padding-left: 45px;
 	}
 	
+	footer .info3 {
+		display: none;
+	}
+	
 	footer .info4 .menuFooter {
 		margin-left: 0;
 	}
@@ -1237,8 +1323,12 @@ and (max-width : 991px) {
 		padding-left: 45px;
 	}
 	
+	footer .info3 {
+		display: none;
+	}
+	
 	footer .info4 .menuFooter {
-		margin-left: 0;
+		margin-left: 190px;
 	}
 	
 	footer .info4 .copyright {
@@ -1318,6 +1408,18 @@ and (max-width : 1199px) {
 		margin-left: 30px;
 	}
 	
+	footer .info3Mobile {
+		display: none;
+	}
+	
+	footer .registerBrand {
+		display: none;
+	}
+	
+	footer .footerSeparador {
+		display: none;
+	}
+	
 	footer .info4 .menuFooter {
 		margin-left: 300px;
 	}
@@ -1372,6 +1474,18 @@ and (min-width : 1200px) {
 	
 	footer .info1 .phone {
 		margin-left: 63px;
+	}
+	
+	footer .info3Mobile {
+		display: none;
+	}
+	
+	footer .registerBrand {
+		display: none;
+	}
+	
+	footer .footerSeparador {
+		display: none;
 	}
 	
 	.static1TopImg {
