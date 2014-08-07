@@ -33,8 +33,8 @@ parameters:
 
     sylius.oauth.amazon.clientid:       <amazon_client_id>
     sylius.oauth.amazon.clientsecret:   <amazon_client_secret>
-    sylius.oauth.facebook.clientid:     <facebook_client_id>
-    sylius.oauth.facebook.clientsecret: <facebook_client_secret>
+    sylius.oauth.facebook.clientid:     347898902027406
+    sylius.oauth.facebook.clientsecret: e0bc65ab681257c667dfc0845c571da7
     sylius.oauth.google.clientid:       <google_client_id>
     sylius.oauth.google.clientsecret:   <google_client_secret>
 
