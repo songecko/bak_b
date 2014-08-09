@@ -404,12 +404,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "12a9b24987890469a4534eac464cdcea1c5bcb94"
+                "reference": "a5be69cc0e1101908be8c5bbda053418ad4e87e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/12a9b24987890469a4534eac464cdcea1c5bcb94",
-                "reference": "12a9b24987890469a4534eac464cdcea1c5bcb94",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/a5be69cc0e1101908be8c5bbda053418ad4e87e4",
+                "reference": "a5be69cc0e1101908be8c5bbda053418ad4e87e4",
                 "shasum": ""
             },
             "require": {
@@ -451,12 +451,6 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
                 },
@@ -467,6 +461,10 @@
                 {
                     "name": "Doctrine Project",
                     "homepage": "http://www.doctrine-project.org/"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Symfony DoctrineBundle",
@@ -477,7 +475,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2014-07-09 09:07:46"
+            "time": "2014-08-08 13:39:51"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -1098,12 +1096,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "1fe261de17abde29d6d461b7a93873d48b0efce7"
+                "reference": "27a84cec3ea4daa32cd6fe308c0847ca9644f588"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/1fe261de17abde29d6d461b7a93873d48b0efce7",
-                "reference": "1fe261de17abde29d6d461b7a93873d48b0efce7",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/27a84cec3ea4daa32cd6fe308c0847ca9644f588",
+                "reference": "27a84cec3ea4daa32cd6fe308c0847ca9644f588",
                 "shasum": ""
             },
             "require": {
@@ -1157,7 +1155,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-08-01 02:49:19"
+            "time": "2014-08-04 23:04:17"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -2309,7 +2307,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -4887,17 +4885,17 @@
         },
         {
             "name": "symfony/expression-language",
-            "version": "v2.5.2",
+            "version": "v2.5.3",
             "target-dir": "Symfony/Component/ExpressionLanguage",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/expression-language.git",
-                "reference": "71f86cfc06ed33ff77def321166ddd958e75a05d"
+                "reference": "17d89d81c425ad50676965a53b2e2113601b85cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/expression-language/zipball/71f86cfc06ed33ff77def321166ddd958e75a05d",
-                "reference": "71f86cfc06ed33ff77def321166ddd958e75a05d",
+                "url": "https://api.github.com/repos/symfony/expression-language/zipball/17d89d81c425ad50676965a53b2e2113601b85cf",
+                "reference": "17d89d81c425ad50676965a53b2e2113601b85cf",
                 "shasum": ""
             },
             "require": {
@@ -4920,19 +4918,17 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Symfony ExpressionLanguage Component",
             "homepage": "http://symfony.com",
-            "time": "2014-04-28 17:44:51"
+            "time": "2014-07-24 17:01:56"
         },
         {
             "name": "symfony/icu",
@@ -6796,6 +6792,7 @@
         "phpspec/phpspec": 20,
         "phpunit/phpunit": 0
     },
+    "prefer-stable": false,
     "platform": {
         "php": ">=5.3.3"
     },

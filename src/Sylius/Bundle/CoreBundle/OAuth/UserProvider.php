@@ -38,7 +38,7 @@ class UserProvider extends FOSUBUserProvider
             } else {
                 $user = $this->userManager->findUserByUsername($response->getNickname());
             }
-
+			
             if ($user) {
                 return $this->updateUserByOAuthUserResponse($user, $response);
             }
@@ -76,16 +76,16 @@ class UserProvider extends FOSUBUserProvider
 
         // if username was not yet set (i.e. by internal call in `setEmail()`), use nickname
         if (!$user->getUsername()) {
-            $user->setUsername($response->getNickname());
+            $user->setUsername($response->getUsername());
         }
 
         // set random password to prevent issue with not nullable field & potential security hole
         $user->setPlainPassword(substr(sha1($response->getAccessToken()), 0, 10));
 
         $user->setEnabled(true);
-
+        
         $this->userManager->updateUser($user);
-
+        
         return $user;
     }
 
