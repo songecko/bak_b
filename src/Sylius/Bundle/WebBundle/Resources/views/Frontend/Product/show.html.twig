@@ -12,7 +12,9 @@
 	{% endblock %}
 	<div class="productShow clearfix">
 	    <div class="product col-md-9 col-xs-12">
-	    	<img class="img-responsive col-md-6" src="{{ product.image ? product.image.path|imagine_filter('sylius_400x400') : 'http://placehold.it/400x400' }}" alt="{{ product.name }}" />
+	    	<div id=gallery>
+	    		<img id="mainImage" class="img-responsive col-md-6" src="{{ product.image ? product.image.path|imagine_filter('sylius_400x400') : 'http://placehold.it/400x400' }}" alt="{{ product.name }}" />
+	    	</div>
 			<div class="description col-md-6">
 			    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix form-horizontal">
 			    <div class="name">{{ product.name }}</div>
@@ -82,6 +84,32 @@
 		        {% endif %}
 				</form>
 			</div>
+			{% if product.images|length > 0 %}
+				<div id="gallery" class="col-md-7 col-xs-7">
+					<br>
+					<div id="carouselImages" class="carousel slide" data-ride="carousel">
+	  					<!-- Wrapper for slides -->
+	  					<div class="carousel-inner">
+	  						<div class="item active">
+					    		{% for image in product.images %}
+					            	<img style="cursor: pointer;" src="{{ image.path|imagine_filter('sylius_90x60') }}" alt="{{ product.name }}" />
+					        		{% if(loop.index%4 == 0 and loop.index < product.images|length) %}
+	    								</div>
+	    								<div class="item">
+	    							{% endif %}
+					    		{% endfor %}
+					    	</div>
+					    </div>
+						<!-- Controls -->
+	  					<a class="left carousel-control" href="#carouselImages" data-slide="prev">
+	    					<span class="glyphicon glyphicon-chevron-left"></span>
+	  					</a>
+	  					<a class="right carousel-control" href="#carouselImages" data-slide="next">
+	    					<span class="glyphicon glyphicon-chevron-right"></span>
+	  					</a>
+					</div>
+				</div>
+			{% endif %}
 			<div class="col-md-12 col-xs-12" style="margin-top: 50px;">
 			    <ul class="nav nav-tabs">
 				    <li class="active">

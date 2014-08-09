@@ -761,6 +761,19 @@ header .navMenu li.custom {
 	right: -60px;	
 }
 
+#content #carouselImages .carousel-control.left,
+#content #carouselImages .carousel-control.right {
+	background: none;
+	width: 50px;
+	color: #000000;
+	left: -60px;
+}
+
+#content #carouselImages .carousel-control.right {
+	left: auto;
+	right: -20px;	
+}
+
 footer {
 	background-color: #81705a;
 }
