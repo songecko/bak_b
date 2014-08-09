@@ -7,7 +7,8 @@
         <strong>{{ app.user.lastName|upper }} {{ app.user.firstName }}</strong><br><br>
         ID Usuario: {{ app.user.id }} <br>
         Email: {{ app.user.email }}<br>
-        {{ 'sylius.account.home.since'|trans }} {{ app.user.createdAt|date() }}
+        {{ 'sylius.account.home.since'|trans }} {{ app.user.createdAt|date() }}<br>
+        <a href="{{ path('sylius_account_order_index') }}">My orders</a>
     </div>
 </div>
 <br>

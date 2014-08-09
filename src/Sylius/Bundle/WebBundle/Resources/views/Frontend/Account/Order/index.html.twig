@@ -19,6 +19,7 @@
             </thead>
             <tbody>
                 {% for order in orders %}
+                	{% if not (order.number == null) %}
                     <tr class="order" id="order-{{ order.number }}">
                         <td>{{ order.createdAt|date }}</td>
                         <td>{{ order.number }}</td>
@@ -42,6 +43,7 @@
                             {{ buttons.show(path('sylius_account_order_show', {'number': order.number}), '', 'order-' ~ order.number ~ '-details') }}
                         </td>
                     </tr>
+                    {% endif %}
                 {% endfor %}
             </tbody>
         </table>
