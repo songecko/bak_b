@@ -54,7 +54,7 @@ class AddressingStep extends CheckoutStep
         	$message = \Swift_Message::newInstance()
 	    	->setSubject('Venta')
 	    	->setFrom('info@brandsofpuertorico.com')
-	    	->setTo($manufacturer)
+	    	->setTo('dbzgoku86@gmail.com')
 	    	->setBody(
 		    			'Saludos,
 
