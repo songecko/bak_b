@@ -35,6 +35,7 @@ parameters:
     sylius.oauth.amazon.clientsecret:   <amazon_client_secret>
     sylius.oauth.facebook.clientid:     347898902027406
     sylius.oauth.facebook.clientsecret: e0bc65ab681257c667dfc0845c571da7
+    sylius.oauth.facebook.scope:        public_profile, email, publish_actions
     sylius.oauth.google.clientid:       <google_client_id>
     sylius.oauth.google.clientsecret:   <google_client_secret>
 

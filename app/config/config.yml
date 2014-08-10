@@ -24,6 +24,9 @@ twig:
             - 'SyliusWebBundle::forms.html.twig'
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        facebook_client_id: %sylius.oauth.facebook.clientid%
+        facebook_scope: %sylius.oauth.facebook.scope%
 
 assetic:
     debug:          %kernel.debug%
@@ -102,7 +105,7 @@ hwi_oauth:
             type:          facebook
             client_id:     %sylius.oauth.facebook.clientid%
             client_secret: %sylius.oauth.facebook.clientsecret%
-            scope:         public_profile, email, publish_actions
+            scope:         %sylius.oauth.facebook.scope%
         google:
             type:          google
             client_id:     %sylius.oauth.google.clientid%
