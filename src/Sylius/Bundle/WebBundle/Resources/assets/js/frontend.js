@@ -106,7 +106,7 @@ var checkoutSubmitHandler = function (ev)
         // Image preload
         var imgSwap = [];
          $("#gallery img").each(function(){
-            imgUrl = this.src.replace('sylius_90x60', 'sylius_400x400');
+            var imgUrl = this.src.replace('sylius_90x60', 'sylius_400x400');
             imgSwap.push(imgUrl);
         });
         $(imgSwap).preload();
