@@ -92,7 +92,7 @@
 	  					<div class="carousel-inner">
 	  						<div class="item active">
 					    		{% for image in product.images %}
-					            	<img style="cursor: pointer;" src="{{ image.path|imagine_filter('sylius_90x60') }}" alt="{{ product.name }}" />
+					            	<img style="cursor: pointer;" src="{{ image.path|imagine_filter('sylius_90x60') }}" data-medium-img="{{ image.path|imagine_filter('sylius_400x400') }}" data-big-img="{{ image.path|imagine_filter('sylius_610x600') }}" alt="{{ product.name }}" />
 					        		{% if(loop.index%4 == 0 and loop.index < product.images|length) %}
 	    								</div>
 	    								<div class="item">

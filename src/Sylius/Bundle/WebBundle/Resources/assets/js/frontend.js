@@ -101,22 +101,11 @@ var checkoutSubmitHandler = function (ev)
         
         // Image swap on hover
         $("#gallery img").click(function(){
-            $('#mainImage').attr('src',$(this).attr('src').replace('sylius_90x60', 'sylius_400x400'));
+            $('#mainImage').attr('src',$(this).attr('data-medium-img'));
+            $('#mainImage').attr('data-zoom-image',$(this).attr('data-big-img'));
         });
-        // Image preload
-        var imgSwap = [];
-         $("#gallery img").each(function(){
-            var imgUrl = this.src.replace('sylius_90x60', 'sylius_400x400');
-            imgSwap.push(imgUrl);
-        });
-        $(imgSwap).preload();
         
         $("#mainImage").elevateZoom();
     });
-    $.fn.preload = function() {
-        this.each(function(){
-            $('<img/>')[0].src = this;
-        });
-    };
 
 })( jQuery );
