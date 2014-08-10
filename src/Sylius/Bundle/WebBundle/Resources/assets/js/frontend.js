@@ -110,6 +110,8 @@ var checkoutSubmitHandler = function (ev)
             imgSwap.push(imgUrl);
         });
         $(imgSwap).preload();
+        
+        $("#mainImage").elevateZoom();
     });
     $.fn.preload = function() {
         this.each(function(){
