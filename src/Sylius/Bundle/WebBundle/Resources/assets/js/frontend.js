@@ -101,8 +101,9 @@ var checkoutSubmitHandler = function (ev)
         
         // Image swap on hover
         $("#gallery img").click(function(){
-            $('#mainImage').attr('src',$(this).attr('data-medium-img'));
-            $('#mainImage').attr('data-zoom-image',$(this).attr('data-big-img'));
+            $('#mainImage').attr('src',$(this).data('mediumImg'));
+            $('#mainImage').data('zoomImage', $(this).data('bigImg'));
+			$("#mainImage").elevateZoom();
         });
         
         $("#mainImage").elevateZoom();
