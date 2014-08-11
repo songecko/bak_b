@@ -106,6 +106,10 @@ hwi_oauth:
             client_id:     %sylius.oauth.facebook.clientid%
             client_secret: %sylius.oauth.facebook.clientsecret%
             scope:         %sylius.oauth.facebook.scope%
+        twitter:
+            type:          twitter
+            client_id:     %sylius.oauth.twitter.clientid%
+            client_secret: %sylius.oauth.twitter.clientsecret%
         google:
             type:          google
             client_id:     %sylius.oauth.google.clientid%

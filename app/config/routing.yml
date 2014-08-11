@@ -47,9 +47,15 @@ amazon_login:
 facebook_login_service:
     pattern: /login/facebook
     
+twitter_login_service:
+    pattern: /login/twitter
+        
 facebook_login:
     pattern: /login/check-facebook
 
+twitter_login:
+    pattern: /login/check-twitter
+    
 google_login:
     pattern: /login/check-google
 

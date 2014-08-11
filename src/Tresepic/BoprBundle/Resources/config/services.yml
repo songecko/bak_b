@@ -6,3 +6,9 @@ services:
         class: Tresepic\BoprBundle\Form\Type\ManufacturerType
         tags:
             - { name: form.type, alias: bopr_manufacturer }
+            
+    bopr.locale_listener:
+        class: Tresepic\BoprBundle\EventListener\LocaleListener
+        arguments: [@service_container, "%kernel.default_locale%"]
+        tags:
+            - { name: kernel.event_subscriber }

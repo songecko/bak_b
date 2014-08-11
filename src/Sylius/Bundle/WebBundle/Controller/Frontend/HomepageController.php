@@ -15,6 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Drewm\MailChimp;
 use Symfony\Component\Validator\Constraints\Email as EmailConstraint;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Frontend homepage controller.
@@ -28,7 +29,7 @@ class HomepageController extends Controller
      *
      * @return Response
      */
-    public function mainAction()
+    public function mainAction(Request $request)
     {
         return $this->render('SyliusWebBundle:Frontend/Homepage:main.html.twig');
     }
