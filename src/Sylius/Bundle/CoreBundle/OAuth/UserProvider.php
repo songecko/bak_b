@@ -72,6 +72,8 @@ class UserProvider extends FOSUBUserProvider
         // set default values taken from OAuth sign-in provider account
         if (null !== $email = $response->getEmail()) {
             $user->setEmail($email);
+        }else {
+        	$user->setEmail(($response->getNickname()?$response->getNickname():$response->getUsername()).'@brandsofpuertorico.com');
         }
 
         // if username was not yet set (i.e. by internal call in `setEmail()`), use nickname

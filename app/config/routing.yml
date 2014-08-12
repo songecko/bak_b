@@ -33,31 +33,24 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /account
 
+#HWIOAuthBundle routes
 hwi_oauth_security:
     resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
-    prefix: /connect
-
+    prefix: /login
+ 
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix: /login
+ 
 hwi_oauth_redirect:
     resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
-    prefix: /login
+    prefix:   /login
 
-amazon_login:
-    pattern: /login/check-amazon
-
-facebook_login_service:
-    pattern: /login/facebook
-    
-twitter_login_service:
-    pattern: /login/twitter
-        
 facebook_login:
     pattern: /login/check-facebook
 
 twitter_login:
     pattern: /login/check-twitter
-    
-google_login:
-    pattern: /login/check-google
 
 tresepic_bopr_backend:
     resource: @TresepicBoprBundle/Resources/config/routing/backend/manufacturer.yml

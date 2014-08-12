@@ -15,7 +15,8 @@
 
 <div class="row">
 	<div class="col-md-12">
-			<div class="fb-login-button" data-max-rows="1" data-scope="{{ facebook_scope }}" data-onlogin="document.location = '{{ path('facebook_login_service') }}';" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
+			<div class="fb-login-button" style="float: left;" data-max-rows="1" data-scope="{{ facebook_scope }}" data-onlogin="document.location = '{{ hwi_oauth_login_url('facebook') }}';" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false"></div>
+			<a href="{{ hwi_oauth_login_url('twitter') }}" style="display: block; float: left; margin-left: 20px;"><img src="{{ asset('bundles/tresepicbopr/images/twitter-login-button.png') }}"></a>
 	</div>
 </div>
 

@@ -24,6 +24,7 @@ class User extends BaseUser implements UserInterface
 {
     protected $amazonId;
     protected $facebookId;
+    protected $twitterId;
     protected $googleId;
     protected $firstName;
     protected $lastName;
@@ -111,6 +112,30 @@ class User extends BaseUser implements UserInterface
         return $this->facebookId;
     }
 
+    /**
+     * Set ID of Twitter account attached to the user
+     *
+     * @param string $twitterId
+     *
+     * @return User
+     */
+    public function setTwitterId($twitterId)
+    {
+    	$this->twitterId = $twitterId;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get ID of Twitter account attached to the user
+     *
+     * @return string|null
+     */
+    public function getTwitterId()
+    {
+    	return $this->twitterId;
+    }
+    
     /**
      * Set ID of Google account attached to the user
      *
@@ -345,6 +370,7 @@ class User extends BaseUser implements UserInterface
     public function setEmailCanonical($emailCanonical)
     {
         parent::setEmailCanonical($emailCanonical);
+        //ldd($emailCanonical);
         $this->setUsernameCanonical($emailCanonical);
 
         return $this;

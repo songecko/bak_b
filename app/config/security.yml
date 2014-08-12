@@ -46,21 +46,21 @@ security:
             oauth:
                 resource_owners:
                     facebook: "/login/check-facebook"
-                    twitter: "/login/check-twitter"
-                login_path:   /connect
-                failure_path: /connect
+                    twitter:  "/login/check-twitter"
+                login_path:   /login
+                failure_path: /login
                 oauth_user_provider:
                     service: sylius.oauth.user_provider
             logout: true
             anonymous: true
-
+                
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
     access_control:
-        - { path: ^/login.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/connect.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+#        - { path: ^/connect.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
