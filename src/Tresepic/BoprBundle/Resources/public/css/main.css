@@ -30,6 +30,19 @@ li {
 .clearfix { display: block; }
 /* End hide from IE-mac */
 
+.shares {
+	margin-bottom: 15px;	
+}
+
+.shares .fb-like {
+	float: left;
+}
+
+.shares .twitter-share-button {
+	float: left;
+	margin-top: 2px;
+	margin-left: 20px;
+}
 
 #topMenu {
 	background-color: #81705a;

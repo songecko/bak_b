@@ -20,6 +20,11 @@
 			    <div class="name">{{ product.name }}</div>
 			    <div class="manufacturer">{{ product.getManufacturer }}</div>
 			    <div class="price">{{ product.price|sylius_price }}</div>
+			    <div class="shares clearfix">
+					<div class="fb-like" data-href="{{ path('sylius_product_show', {'slug': product.slug}) }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+					<a href="https://twitter.com/share" class="twitter-share-button" data-via="twitterapi" data-lang="en">Tweet</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</div>
 			    {% if product.hasVariants %}
 			            {% if product.isVariantSelectionMethodChoice %}
 			            <table class="table table-condensed">
@@ -83,6 +88,7 @@
 			    {% endif %}
 		        {% endif %}
 				</form>
+				
 			</div>
 			{% if product.images|length > 0 %}
 				<div id="gallery" class="col-md-7 col-xs-7">
