@@ -1563,3 +1563,15 @@ and (min-width : 1200px) {
 .form-control {
 	padding: 0 6px;
 }
+
+.oauth .facebookLoginButton {
+	display: block; 
+	float: left; 
+	margin-left: 20px;
+}
+
+.oauth .twitterLoginButton {
+	display: block; 
+	float: left; 
+	margin-left: 20px;
+}
