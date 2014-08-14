@@ -40,6 +40,7 @@ sylius:
       tracking_number: Número de seguimiento
     title: Mi cuenta
   add_to_cart: Añadir al carrito
+  view_product: Ver detalle
   shopping_cart: Carrito de compra
   cart_summary: Sub total de compra
   customer_service: Servicio al cliente
@@ -50,6 +51,8 @@ sylius:
   brand_registration: Registro de marcas
   terms_of_use: Términos de Uso
   contact_us: Contacto
+  my_account: Mi Cuenta
+  my_orders: Mis Compras
   address:
     city: Ciudad
     company: Empresa

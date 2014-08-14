@@ -59,6 +59,8 @@ sylius:
     brand_registration: Brand registration
     terms_of_use: Terms of Use
     contact_us: Contact Us
+    my_account: My Account
+    my_orders: My Order
     address:
         city: City
         company: Company

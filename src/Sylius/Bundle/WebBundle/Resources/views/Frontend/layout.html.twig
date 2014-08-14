@@ -262,16 +262,16 @@
 						<div class="content">
 							<p>
 							{% if app.user %}
-								<a href="{{ path('sylius_account_homepage') }}">My Account</a>
+								<a href="{{ path('sylius_account_homepage') }}">{{ 'sylius.my_account'|trans }}</a>
 							{% else %}
-								<a href="{{ path('fos_user_security_login') }}">My Account</a>
+								<a href="{{ path('fos_user_security_login') }}">{{ 'sylius.my_account'|trans }}</a>
 							{% endif %}
 							</p>
 							<p>
 							{% if app.user %}
-								<a href="{{ path('sylius_account_homepage') }}">My Order</a>
+								<a href="{{ path('sylius_account_homepage') }}">{{ 'sylius.my_orders'|trans }}</a>
 							{% else %}
-								<a href="{{ path('fos_user_security_login') }}">My Order</a>
+								<a href="{{ path('fos_user_security_login') }}">{{ 'sylius.my_orders'|trans }}</a>
 							{% endif %}
 							</p>
 							<p><a href="{{ path('sylius_cart_summary') }}">Shopping Cart</a></p>
