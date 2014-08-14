@@ -10,7 +10,7 @@
 			<li class="myAccount"><a href="{{ path('fos_user_security_login') }}">{{ 'sylius.frontend.menu.main.login'|trans({}, 'menu') }}</a></li>
 			{# <li class="myWishlist"><a href="{{ path('fos_user_registration_register') }}">Register</a></li>  #}
 		{% endif %}
-		<li class="myCart"><a href="{{ path('sylius_cart_summary') }}">My Cart</a></li>
+		<li class="myCart"><a href="{{ path('sylius_cart_summary') }}">{{ 'sylius.frontend.menu.main.mycart'|trans({}, 'menu') }}</a></li>
 		{% if(not cart.isEmpty) %}
 			<li class="checkout"><a href="{{ path('sylius_checkout_start') }}">Checkout</a></li>
 		{% endif %}				

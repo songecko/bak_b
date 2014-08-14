@@ -75,5 +75,6 @@ sylius:
                 account: Mi cuenta
                 administration: Administración
                 cart: 'Ver carrito (%items%) %total%'
+                mycart: Mi carrito
                 login: Ingresar / Registrarse
                 register: Registrarse

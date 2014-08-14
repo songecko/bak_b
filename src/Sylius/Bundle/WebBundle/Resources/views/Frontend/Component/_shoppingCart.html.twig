@@ -4,6 +4,6 @@
 	</a>
 </div>
 <div class="description">
-	<p>Shopping Cart:</p>
-	<p><span><a href="{{ path('sylius_cart_summary') }}">({{ cart.getTotalItems }})</a></span> Cart Subtotal: <span><a href="{{ path('sylius_cart_summary') }}">{{ cart.getTotal|sylius_price }}</a></span></p>
+	<p>{{ 'sylius.shopping_cart'|trans }}:</p>
+	<p><span><a href="{{ path('sylius_cart_summary') }}">({{ cart.getTotalItems }})</a></span> {{ 'sylius.cart_summary'|trans }}: <span><a href="{{ path('sylius_cart_summary') }}">{{ cart.getTotal|sylius_price }}</a></span></p>
 </div>

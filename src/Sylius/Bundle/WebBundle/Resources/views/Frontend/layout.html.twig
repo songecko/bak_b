@@ -182,7 +182,7 @@
 						<form method="post" action="{{ path('sylius_newsletter') }}">
 							<span>NEWSLETTER:</span> 
 							<input type="text" name="newsletter[email]" placeholder="Enter email address..." /> 
-							<button type="submit">SUBMIT</button>
+							<button type="submit">{{ 'sylius.submit'|trans }}</button>
 						</form>
 					</div>
 				</div>
@@ -191,7 +191,7 @@
 				{% if (is_device('iPhone')) %}
 					<div class="info3Iphone">
 						<div class="connectedIphone">
-							<span>GET CONNECTED:</span>
+							<span>{{ 'sylius.get_connected'|trans }}:</span>
 							<div class="socialIphone">
 								<a href="http://instagram.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/instagram-icon.png') }}" /></a>
 								<a href="https://www.facebook.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" /></a>
@@ -204,7 +204,7 @@
 				{% else %}
 					<div class="info3Mobile">
 						<div class="connected">
-							<span>GET CONNECTED:</span>
+							<span>{{ 'sylius.get_connected'|trans }}:</span>
 							<div class="social">
 								<a href="http://instagram.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/instagram-icon.png') }}" /></a>
 								<a href="https://www.facebook.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" /></a>
@@ -247,17 +247,17 @@
 					</div>
 					<div class="store col-md-4 col-xs-6">
 						<div class="title">
-							<p>CUSTOMER SERVICE</p>
+							<p style="text-transform: uppercase;">{{ 'sylius.customer_service'|trans }}</p>
 						</div>
 						<div class="content">
 							<p><a href="mailto: info@brandsofpuertorico.com">Delivery</a></p>
-							<p><a href="mailto: info@brandsofpuertorico.com">Returns</a></p>
-							<p><a href="mailto: info@brandsofpuertorico.com">Customer Service</a></p>
+							<p><a href="mailto: info@brandsofpuertorico.com">{{ 'sylius.returns'|trans }}</a></p>
+							<p><a href="mailto: info@brandsofpuertorico.com">{{ 'sylius.customer_service'|trans }}</a></p>
 						</div>
 					</div>
 					<div class="store col-md-4 col-xs-6">
 						<div class="title">
-							<p>WHAT'S IN STORE</p>
+							<p style="text-transform: uppercase;">{{ 'sylius.whats_in_store'|trans }}</p>
 						</div>
 						<div class="content">
 							<p>
@@ -298,7 +298,7 @@
 						</form>
 					</div>-->
 					<div class="connected">
-						<span>GET CONNECTED:</span>
+						<span>{{ 'sylius.get_connected'|trans }}:</span>
 						<div class="social">
 							<a href="http://instagram.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/instagram-icon.png') }}" /></a>
 							<a href="https://www.facebook.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" /></a>
@@ -310,9 +310,9 @@
 				</div>
 				<div class="info4">
 					<ul class="menuFooter">
-						<li><a href="https://docs.google.com/forms/d/1pq-Q7zzSVltZZvSw9qnF5z7Iq_a1bxnsqvZyhpJoPLo/viewform" target="_blank">Brand Registration</a></li>
-						<li><a href="http://brandsofpuertorico.wordpress.com/2014/07/11/terms-and-conditions/" target="_blank">Terms of Use</a></li>
-						<li><a href="mailto: info@brandsofpuertorico.com">Contact Us</a></li>
+						<li><a href="https://docs.google.com/forms/d/1pq-Q7zzSVltZZvSw9qnF5z7Iq_a1bxnsqvZyhpJoPLo/viewform" target="_blank">{{ 'sylius.brand_registration'|trans }}</a></li>
+						<li><a href="http://brandsofpuertorico.wordpress.com/2014/07/11/terms-and-conditions/" target="_blank">{{ 'sylius.terms_of_use'|trans }}</a></li>
+						<li><a href="mailto: info@brandsofpuertorico.com">{{ 'sylius.contact_us'|trans }}</a></li>
 					</ul>
 					<div class="copyright">
 						<p>Copyright &copy;{{ 'now'|date('Y') }} <span>brandsofpuertorico.com</span> <span class="rights">All rights reserved</span><p>

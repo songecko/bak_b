@@ -3,6 +3,8 @@ email:
         subject: email.order_confirmation.subject
 sylius:
     account:
+        have_account: Have account?
+        new_user: New user
         address:
             action:
                 billing: Set as default billing address
@@ -46,6 +48,17 @@ sylius:
             tracking_number: Tracking number
         title: My account
     add_to_cart: Add to cart
+    view_product: View product
+    shopping_cart: Shopping Cart
+    cart_summary: Cart subtotal
+    customer_service: Customer Service
+    returns: Returns
+    whats_in_store: WHAT'S IN STORE
+    get_connected: GET CONNECTED
+    submit: SUBMIT
+    brand_registration: Brand registration
+    terms_of_use: Terms of Use
+    contact_us: Contact Us
     address:
         city: City
         company: Company
@@ -233,7 +246,7 @@ sylius:
         update_header: Editing country
     create: Create
     created_at: Created at
-    delete: delete
+    delete: Delete
     deleted: Deleted
     edit: edit
     move_up: move up

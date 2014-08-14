@@ -85,7 +85,7 @@
 			            {% if sylius_is_restricted(product) %}
 			            <button disabled="disabled" class="btn btn-success btn-lg btn-block">{{ 'sylius.product_not_available_in_zone'|trans }}</button>
 			            {% else %}
-			                <button type="submit" class="addToCart">ADD TO CART</button>
+			                <button type="submit" class="addToCart">{{ 'sylius.add_to_cart'|trans }}</button>
 			            {% endif %}
 			    {% else %}
 			    	<p><span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span></p>
