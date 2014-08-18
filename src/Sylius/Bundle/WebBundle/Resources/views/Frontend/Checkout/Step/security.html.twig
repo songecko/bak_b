@@ -5,6 +5,15 @@
     <h1>{{ 'sylius.checkout.security.header'|trans|raw }}</h1>
 </div>
 
+<div class="row oauth">
+	<div class="col-md-12">
+		<a href="{{ hwi_oauth_login_url('facebook') }}" class="facebookLoginButton"><img src="{{ asset('bundles/tresepicbopr/images/facebook-login-button-'~app.request.locale~'.png') }}"></a>
+		<a href="{{ hwi_oauth_login_url('twitter') }}" class="twitterLoginButton"><img src="{{ asset('bundles/tresepicbopr/images/twitter-login-button-'~app.request.locale~'.png') }}"></a>
+	</div>
+</div>
+
+<hr>
+
 <div class="row form-vertical">
     <div class="col-md-6 checkout-existing-customer">
         <div class="well">
