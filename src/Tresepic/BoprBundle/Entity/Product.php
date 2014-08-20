@@ -3,6 +3,7 @@
 namespace Tresepic\BoprBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Sylius\Bundle\CoreBundle\Model\Product as BaseProduct;
 
 /**
@@ -10,6 +11,8 @@ use Sylius\Bundle\CoreBundle\Model\Product as BaseProduct;
  */
 class Product extends BaseProduct
 {
+	use ORMBehaviors\Translatable\Translatable;
+	
     private $manufacturer;
     private $position;
     
@@ -35,5 +38,15 @@ class Product extends BaseProduct
     public function getPosition()
     {
     	return $this->position;
+    }
+    
+    public function getDescriptionTranslation($locale)
+    {
+    	if($localizedDescription = $this->translate($locale)->getDescription())
+    	{
+    		return $localizedDescription;
+    	}else {
+    		return $this->getDescription();
+    	} 
     }
 }

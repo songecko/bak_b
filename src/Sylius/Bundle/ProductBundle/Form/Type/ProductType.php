@@ -74,6 +74,19 @@ class ProductType extends AbstractType
                 'required' => false,
                 'label'    => 'sylius.label.product.meta_description'
             ))
+            ->add('translations', 'a2lix_translations', array(
+            	'fields' => array(                      
+					'description' => array(             
+						'field_type' => 'textarea',                 
+						'label' => 'Descripción',                     
+						'locale_options' => array(           
+							'es' => array(
+								'label' => 'Descripción [es]'
+							)
+						)
+					)
+            	)
+            ));
         ;
     }
 

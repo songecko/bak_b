@@ -52,7 +52,9 @@
 		"raulfraile/ladybug-bundle" : "dev-master",
 		"suncat/mobile-detect-bundle" : "0.9.*",
 		"drewm/mailchimp-api" : "dev-master",
-		"friendsofsymfony/elastica-bundle" : "~2.0"
+		"friendsofsymfony/elastica-bundle" : "~2.0",
+		"knplabs/doctrine-behaviors" : "1.*",
+		"a2lix/translation-form-bundle" : "2.*"
 	},
 	"require-dev" : {
 		"behat/behat" : "2.4.*@stable",

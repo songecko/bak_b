@@ -83,6 +83,7 @@ class AppKernel extends Kernel
         	new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
         	new SunCat\MobileDetectBundle\MobileDetectBundle(),
         	new FOS\ElasticaBundle\FOSElasticaBundle(),
+        	new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
         	new Tresepic\BoprBundle\TresepicBoprBundle(),
         );
 

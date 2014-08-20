@@ -1,0 +1,15 @@
+Tresepic\BoprBundle\Entity\ProductTranslation:
+    type: entity
+    table: sylius_product_translation
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        description:
+            type: string
+        locale:
+            type: string
+    lifecycleCallbacks: {  }

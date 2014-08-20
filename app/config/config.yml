@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: sylius.yml }
     - { resource: payum.yml }
+    - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }
 
 framework:
     translator:      { fallback: %sylius.locale% }
@@ -230,3 +231,6 @@ fos_elastica:
                         model: Tresepic\BoprBundle\Entity\Product
                         provider: ~
                         finder: ~
+                        
+a2lix_translation_form:
+    locales: [en, es]
