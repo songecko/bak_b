@@ -17,7 +17,7 @@
 	<div class="productShow clearfix">
 	    <div class="product col-md-9 col-xs-12">
 	    	<div id=gallery>
-	    		<img id="mainImage" class="img-responsive col-md-6" src="{{ product.image ? product.image.path|imagine_filter('sylius_400x400') : 'http://placehold.it/400x400' }}" data-zoom-image="{{ product.image ? product.image.path|imagine_filter('sylius_610x600') : 'http://placehold.it/610x600' }}" alt="{{ product.name }}" />
+	    		<img id="mainImage" class="img-responsive col-md-6" src="{{ product.image ? product.image.path|imagine_filter('sylius_400x400') : 'http://placehold.it/400x400' }}" data-zoom-image="{{ product.image ? product.image.path|imagine_filter('sylius_gallery_big') : 'http://placehold.it/1200x1200' }}" alt="{{ product.name }}" />
 	    	</div>
 			<div class="description col-md-6">
 			    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix form-horizontal">
@@ -102,7 +102,7 @@
 	  					<div class="carousel-inner">
 	  						<div class="item active">
 					    		{% for image in product.images %}
-					            	<img style="cursor: pointer;" src="{{ image.path|imagine_filter('sylius_90x60') }}" data-medium-img="{{ image.path|imagine_filter('sylius_400x400') }}" data-big-img="{{ image.path|imagine_filter('sylius_610x600') }}" alt="{{ product.name }}" />
+					            	<img style="cursor: pointer;" src="{{ image.path|imagine_filter('sylius_90x60') }}" data-medium-img="{{ image.path|imagine_filter('sylius_400x400') }}" data-big-img="{{ image.path|imagine_filter('sylius_gallery_big') }}" alt="{{ product.name }}" />
 					        		{% if(loop.index%4 == 0 and loop.index < product.images|length) %}
 	    								</div>
 	    								<div class="item">
