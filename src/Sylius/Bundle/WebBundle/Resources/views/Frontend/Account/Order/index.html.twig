@@ -2,9 +2,10 @@
 {% extends 'SyliusWebBundle:Frontend/Account:layout.html.twig' %}
 
 {% block content %}
-    <h4>{{ 'sylius.account.order.list'|trans }}</h4>
-
-    <div class="row">
+<div class="row">
+    <div class="col-md-12">
+    	<h4>{{ 'sylius.account.order.list'|trans }}</h4>
+    
         {% if orders is not empty %}
         <table id="orders" class="table">
             <thead>
@@ -48,7 +49,8 @@
             </tbody>
         </table>
         {% else %}
-            <p>{{ 'sylius.account.order.empty'|trans }}</p>
+        <p>{{ 'sylius.account.order.empty'|trans }}</p>
         {% endif %}
     </div>
+</div>
 {% endblock %}
