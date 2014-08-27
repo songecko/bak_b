@@ -8,8 +8,14 @@
         ID Usuario: {{ app.user.id }} <br>
         Email: {{ app.user.email }}<br>
         {{ 'sylius.account.home.since'|trans }} {{ app.user.createdAt|date() }}<br>
-        <a href="{{ path('sylius_account_order_index') }}">My orders</a>
     </div>
+</div>
+<br>
+<br>
+<div class="row">
+	<div class="col-md-12">
+		{{ render(controller('SyliusWebBundle:Frontend/Account/Order:indexOrder')) }}
+	</div>
 </div>
 <br>
 <br>
