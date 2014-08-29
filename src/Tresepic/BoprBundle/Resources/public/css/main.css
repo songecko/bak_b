@@ -1575,3 +1575,60 @@ and (min-width : 1200px) {
 	float: left; 
 	margin-left: 20px;
 }
+
+.doubleBorderBox {
+	box-shadow: 0 0 0 4px #000000, 0 0 0 8px #fff, 0 0 0 14px #000000;
+	padding: 20px;
+}
+
+.doubleBorderBox .mainPicture {
+	width: 100%;
+}
+	
+.doubleBorderBox img {
+	margin: 0 auto;
+	display: block;
+	float: none !important;
+}
+
+.doubleBorderBox p {
+	font-size: 12px;
+	color: #c7c0b9;
+	margin-top: 20px;
+}
+
+.doubleBorderBox .social {
+	text-align: center;
+}
+
+.doubleBorderBox .social a {
+	display: inline-block;
+}
+
+.nav-tabs>li.chentesDescription {
+	float: right;
+	height: 44px;
+}
+
+.nav-tabs>li.chentesDescription a {
+	position: absolute;
+	bottom: 0;
+	padding: 0;
+	margin: 0;
+	right: 0;
+	background: none;
+	border: none;
+}
+
+.nav-tabs>li.chentesDescription .description {
+	position: absolute;
+	width: 240px;
+	bottom: 40px;
+	right: 0;
+	display: none;
+	background: #000000;
+	color: #FFFFFF;
+	font-size: 12px;
+	padding: 10px;
+	z-index: -1;
+}

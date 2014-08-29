@@ -19,9 +19,13 @@ class ComponentController extends Controller
 	
     public function menuAction()
     {
-    	$repository = $this->get('sylius.repository.taxon');
+    	$taxonomyRepository = $this->get('sylius.repository.taxonomy');
     	
-    	$taxons = $repository->findByLevel(1);
+    	$taxonomy = $taxonomyRepository->findOneByName('Categories');
+    	if(!$taxonomy)
+    		throw $this->createNotFoundException();
+    	
+    	$taxons = $taxonomy->getTaxons();
     	
         return $this->render('SyliusWebBundle:Frontend/Component:_menu.html.twig', array(
         	'taxons' => $taxons

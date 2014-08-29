@@ -1,0 +1,158 @@
+{% extends 'SyliusWebBundle:Frontend:layout.html.twig' %}
+
+{% set settings = sylius_settings_all('general') %}
+
+{% block og_title %}<meta property="og:title" content="Masacote" />{% endblock %}
+		
+{% block content %}
+	{% block breadcrums %}
+		<ol class="breadcrumb">
+			<li><a href="{{ path('sylius_homepage') }}">Home</a></li>
+			<li><a href="{{ path('sylius_masacote') }}">Masacote</a></li>
+		</ol>
+	{% endblock %}
+	<div class="productShow clearfix">
+	    <div class="product col-md-9 col-xs-12">
+			{% for product in products %}
+			{% set form = sylius_cart_form({'product': product}) %}
+			<div class="productBox productBox_{{ product.id }}"{{ loop.first?'':' style="display:none;"' }}>
+		    	<div id=gallery>
+		    		<img id="mainImage" class="img-responsive col-md-6" src="{{ product.image ? product.image.path|imagine_filter('sylius_400x400') : 'http://placehold.it/400x400' }}" data-zoom-image="{{ product.image ? product.image.path|imagine_filter('sylius_gallery_big') : 'http://placehold.it/1200x1200' }}" alt="{{ product.name }}" />
+		    	</div>
+				<div class="description col-md-6">
+				    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix form-horizontal">
+				    <div class="name">{{ product.name }}</div>
+				    <div class="manufacturer">{{ product.getManufacturer }}</div>
+				    <div class="price">{{ product.price|sylius_price }}</div>
+				    <div class="shares clearfix">
+						<div class="fb-like" data-href="{{ path('sylius_product_show', {'slug': product.slug}) }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+						<a href="https://twitter.com/share" class="twitter-share-button" data-text="{{ product.name }}" data-lang="{{ app.request.locale }}">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					</div>
+				    {% if product.hasVariants %}
+				            {% if product.isVariantSelectionMethodChoice %}
+				            <table class="table table-condensed">
+				                <thead>
+				                    <tr>
+				                        <th></th>
+				                        <th>{{ 'sylius.variant.price'|trans }}</th>
+				                        <th></th>
+				                    </tr>
+				                </thead>
+				                <tbody>
+				                    {% for variant in product.variants if variant.available %}
+				                    <tr>
+				                        <td>
+				                            {% if variant.presentation is empty %}
+				                            <ul class="unstyled">
+				                                {% for option in variant.options %}
+				                                <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
+				                                {% endfor %}
+				                            </ul>
+				                            {% else %}
+				                                {{ variant.presentation }}
+				                            {% endif %}
+				                        </td>
+				                        <td>
+				                            <span class="label label-success">{{ variant.price|sylius_price }}</span>
+				                        </td>
+				                        <td>
+				                        {% if sylius_inventory_is_available(variant) %}
+				                            {{ form_widget(form.variant[loop.index0]) }}
+				                        {% else %}
+				                            <span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span>
+				                        {% endif %}
+				                        </td>
+				                    </tr>
+				                    {% endfor %}
+				                </tbody>
+				            </table>
+				            {% else %}
+				                <div class="well clearfix">
+				                    {{ form_widget(form.variant) }}
+				                </div>
+				            {% endif %}
+				    {% endif %}
+			        {% if not product.hasVariants and not sylius_inventory_is_available(product.masterVariant) %}
+			            <span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span>
+			        {% else %}
+			        {% if(product.masterVariant.onHand > 0) %}
+				        <div class="quantity">
+				            {{ form_row(form.quantity, {'attr': {'class': 'center-text'}, 'empty_value': '1'}) }}
+				        </div>
+				            <br>
+				            <br>
+				            {% if sylius_is_restricted(product) %}
+				            <button disabled="disabled" class="btn btn-success btn-lg btn-block">{{ 'sylius.product_not_available_in_zone'|trans }}</button>
+				            {% else %}
+				                <button type="submit" class="addToCart">{{ 'sylius.add_to_cart'|trans }}</button>
+				            {% endif %}
+				    {% else %}
+				    	<p><span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span></p>
+				    {% endif %}
+			        {% endif %}
+					</form>
+					
+				</div>
+			
+				<div class="col-md-12 col-xs-12" style="margin-top: 50px;">
+				    <ul class="nav nav-tabs">
+					    <li class="active">
+					    	<a style="background-color: #81705a; color: #ffffff;">Product description</a>
+					    </li>
+					    <li class="chentesDescription">
+					    	<a href="#" class="chenteButton"><img alt="Chente's Description" src="{{ asset('bundles/tresepicbopr/images/chetes_description_box.png') }}"></a>
+					    	<div class="description">
+					    		<p>El éxito es algo que es personal...  en esta vida hay que triunar en lo que uno quiere y no en lo que otros nos digan.  Así piensa Suxess clothing, la línea de fivepanels y snapbacks boricua, diseñada pa que resaltes y tengas algo original y no lo que to’el mundo tiene por ahí.  Consíguelo en BrandsOfPuertoRico.com.</p>
+					    	</div>
+					    </li>
+					    <!--  <li><a href="#">...</a></li>
+					    <li><a href="#">...</a></li>-->
+					</ul>
+					<br>
+					<p>{{ product.getDescriptionTranslation(app.request.locale) }}</p>
+				</div>
+			</div>
+			{% endfor %}
+		
+			<div class="row">
+				<div id="productsList" class="col-md-offset-2 col-md-8 col-xs-12">
+					<div id="carouselProducts" class="carousel slide" data-ride="carousel">
+	  					<!-- Wrapper for slides -->
+	  					<div class="carousel-inner">
+	  						<div class="item active">
+					    		{% for product in products %}
+					            	<img style="cursor: pointer;" src="{{ product.image.path|imagine_filter('sylius_90x60') }}" data-product-id="{{ product.id }}" />
+					        		{% if(loop.index%4 == 0 and loop.index < products|length) %}
+	    								</div>
+	    								<div class="item">
+	    							{% endif %}
+					    		{% endfor %}
+					    	</div>
+					    </div>
+						<!-- Controls -->
+	  					<a class="left carousel-control" href="#carouselProducts" data-slide="prev">
+	    					<span class="glyphicon glyphicon-chevron-left"></span>
+	  					</a>
+	  					<a class="right carousel-control" href="#carouselProducts" data-slide="next">
+	    					<span class="glyphicon glyphicon-chevron-right"></span>
+	  					</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-3">
+			<div class="doubleBorderBox">
+				<img alt="Masacote" class="mainPicture" src="{{ asset('bundles/tresepicbopr/images/masacote.png') }}">
+				<p>Todas las semanas, el comediante Chente Ydrach se sienta a hablar con algún exponente de la comedia en Puerto Rico para discutir su historia particular o simplemente para hablar acerca del estado de la comedia en el país. Todo esto se puede cambiar si la persona entrevistada no es un/a comediante o si no se habla de comedia. En fin, en el podcast escucharás a Chente hablando mielda con otra persona. Gracias, Bye!</p>
+				<div class="social">
+					<a href="#"><img alt="Twitter" src="{{ asset('bundles/tresepicbopr/images/twitter_black.png') }}"></a>
+					<a href="#"><img alt="Rss" src="{{ asset('bundles/tresepicbopr/images/rss_black.png') }}"></a>
+				</div>
+				<a href="#"><img alt="Subscribe to iTunes" src="{{ asset('bundles/tresepicbopr/images/itunes_subscribe.png') }}"></a>
+			</div>
+		</div>
+		
+	</div>
+{% endblock %}

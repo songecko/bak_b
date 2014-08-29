@@ -34,6 +34,21 @@ class HomepageController extends Controller
         return $this->render('SyliusWebBundle:Frontend/Homepage:main.html.twig');
     }
     
+    public function masacoteAction(Request $request)
+    {
+    	$taxonRepository = $this->get('sylius.repository.taxon');
+    	
+    	$taxon = $taxonRepository->findOneByName('Masacote');
+    	if(!$taxon)
+    		throw $this->createNotFoundException();
+    	
+    	$products = $taxon->getProducts();
+    	
+    	return $this->render('SyliusWebBundle:Frontend/Homepage:masacote.html.twig', array(
+    		'products' => $products
+    	));
+    }
+    
     public function newsletterAction()
     {
     	$request = $this->getRequest();

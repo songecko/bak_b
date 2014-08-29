@@ -107,6 +107,23 @@ var checkoutSubmitHandler = function (ev)
         });
         
         $("#mainImage").elevateZoom();
+        
+        $('.chentesDescription .chenteButton').click(function(e)
+        {
+        	e.preventDefault();
+        	
+        	$('.chentesDescription .description').toggle();
+        });
+        
+        // Products change
+        $("#productsList img").click(function(e)
+        {
+        	e.preventDefault();
+        	var productId = $(this).data('productId');
+        	
+            $('.productBox').hide();
+            $('.productBox_'+productId).show();
+        });
     });
 
 })( jQuery );
