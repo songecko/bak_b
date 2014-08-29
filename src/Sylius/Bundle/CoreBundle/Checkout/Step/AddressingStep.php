@@ -32,7 +32,16 @@ class AddressingStep extends CheckoutStep
         $order = $this->getCurrentCart();
         $this->dispatchCheckoutEvent(SyliusCheckoutEvents::ADDRESSING_INITIALIZE, $order);
 
+
+        if (  $this->getUser()->getShippingAddress())
+       		$order->setShippingAddress( $this->getUser()->getShippingAddress());
+        if (  $this->getUser()->getBillingAddress())
+       		 $order->setBillingAddress( $this->getUser()->getBillingAddress());
+        
+        
         $form = $this->createCheckoutAddressingForm($order);
+      
+     
 
         return $this->renderStep($context, $order, $form);
     }
@@ -53,8 +62,15 @@ class AddressingStep extends CheckoutStep
             $this->dispatchCheckoutEvent(SyliusCheckoutEvents::ADDRESSING_PRE_COMPLETE, $order);
 
             $this->getManager()->persist($order);
-            $this->getManager()->flush();
+     
+            $this->getUser()->setShippingAddress($order->getShippingAddress());
+            if ($order->getBillingAddress()) 
+            $this->getUser()->setBillingAddress($order->getBillingAddress());
+            
 
+       
+            $this->getManager()->flush();
+		
             $this->dispatchCheckoutEvent(SyliusCheckoutEvents::ADDRESSING_COMPLETE, $order);
 
             return $this->complete();
