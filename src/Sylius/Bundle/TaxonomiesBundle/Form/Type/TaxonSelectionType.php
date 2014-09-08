@@ -68,11 +68,31 @@ class TaxonSelectionType extends AbstractType
         foreach ($taxonomies as $taxonomy) {
             /* @var $taxonomy Taxonomy*/
             $builder->add($taxonomy->getId(), 'choice', array(
-                'choice_list' => new ObjectChoiceList($this->taxonRepository->getTaxonsAsList($taxonomy)),
+                'choice_list' => new ObjectChoiceList( $this->taxonSubCategorization($this->taxonRepository->getTaxonsAsList($taxonomy)) ),
                 'multiple'    => $options['multiple'],
                 'label'       => /** @Ignore */ $taxonomy->getName()
             ));
         }
+    }
+    
+    
+    private function taxonSubCategorization($taxons ){
+    	 
+    	//level One
+    	$levelOne = array();
+    	foreach ($taxons as  $taxon) {
+    		if ( $taxon->getLevel() == 1)
+    		{
+    			$levelOne[$taxon->getId()] =  $taxon;
+    		}
+    		//subArrray for level 2
+    		if ( $taxon->getLevel() == 2){
+    			unset($levelOne[$taxon->getParent()->getId()] );
+    			$levelOne[$taxon->getParent()->getName()] = array( $taxon);
+    		}
+    	}
+    	return $levelOne;
+    	 
     }
 
     /**
