@@ -85,12 +85,21 @@ class TaxonSelectionType extends AbstractType
     		{
     			$levelOne[$taxon->getId()] =  $taxon;
     		}
+    	}
+    	//level Two
+    	foreach ($taxons as  $taxon) {
     		//subArrray for level 2
     		if ( $taxon->getLevel() == 2){
-    			unset($levelOne[$taxon->getParent()->getId()] );
-    			$levelOne[$taxon->getParent()->getName()] = array( $taxon);
+    			if ( $levelOne[$taxon->getParent()->getId()] ){
+    				unset($levelOne[$taxon->getParent()->getId()] );
+    				$levelOne[$taxon->getParent()->getName()] = array( $taxon);
+    			}
+    			else {
+    				$levelOne[$taxon->getParent()->getName()][] = $taxon;
+    			}
     		}
     	}
+    	
     	return $levelOne;
     	 
     }
