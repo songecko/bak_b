@@ -81,7 +81,6 @@
 				            {{ form_row(form.quantity, {'attr': {'class': 'center-text'}, 'empty_value': '1'}) }}
 				        </div>
 				            <br>
-				            <br>
 				            {% if sylius_is_restricted(product) %}
 				            <button disabled="disabled" class="btn btn-success btn-lg btn-block">{{ 'sylius.product_not_available_in_zone'|trans }}</button>
 				            {% else %}
@@ -142,7 +141,7 @@
 			</div>
 		</div>
 		
-		<div class="col-md-3">
+		<div class="col-md-3 col-xs-12">
 			<div class="doubleBorderBox">
 				<img alt="Masacote" class="mainPicture" src="{{ asset('bundles/tresepicbopr/images/masacote.png') }}">
 				<p>Todas las semanas, el comediante Chente Ydrach se sienta a hablar con algún exponente de la comedia en Puerto Rico para discutir su historia particular o simplemente para hablar acerca del estado de la comedia en el país. Todo esto se puede cambiar si la persona entrevistada no es un/a comediante o si no se habla de comedia. En fin, en el podcast escucharás a Chente hablando mielda con otra persona. Gracias, Bye!</p>
