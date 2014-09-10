@@ -1,7 +1,19 @@
 <div class="container">
-	<!--  <div class="language">
-		Your Language: <select><option>English</option></select>
-	</div>-->
+	<div class="featuredIn hidden-xs">
+		<ul class="clearfix">
+			<li class="featured">Featured in...</li>
+			<li>
+				<a href="#" target="_blank"><img src="{{ asset('bundles/tresepicbopr/images/featured/cnn.png') }}" alt="CNN"></a>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="{{ asset('bundles/tresepicbopr/images/featured/dia.png') }}" alt="El nuevo Dia"></a>
+			</li>
+			<li>
+				<a href="#" target="_blank"><img src="{{ asset('bundles/tresepicbopr/images/featured/efe.png') }}" alt="EFE"></a>
+			</li>
+			<li class="learnMore">Click on logos to learn more</li>
+		</ul>
+	</div>
 	<ul class="menu">
 		{% if app.user %}
 			<li class="myWishlist"><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>

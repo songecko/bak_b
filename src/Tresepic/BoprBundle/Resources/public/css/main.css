@@ -16,20 +16,6 @@ li {
 	list-style: none;
 }
 
-.clearfix:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-}
-.clearfix { display: inline-table; }
-/* Hides from IE-mac \*/
-* html .clearfix { height: 1%; }
-.clearfix { display: block; }
-/* End hide from IE-mac */
-
 .shares {
 	margin-bottom: 15px;	
 }
@@ -46,7 +32,38 @@ li {
 
 #topMenu {
 	background-color: #81705a;
+	height: 51px;
+	padding: 7px 0;
+}
+
+#topMenu .featuredIn {
+	float: left;
 	height: 37px;
+	line-height: 37px;
+}
+
+#topMenu .featuredIn li {
+	float: left;
+	margin-right: 10px;
+}
+
+#topMenu .featuredIn li.featured {
+	font-size: 22px;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	padding-top: 3px;
+	margin-right: 15px;
+}
+
+#topMenu .featuredIn li.learnMore {
+	color: #FFFFFF;
+	width: 110px;
+	line-height: 16px;
+	font-size: 12px;
+	text-transform: uppercase;
+	padding-top: 5px;
+	margin-left: 20px;
+	margin-right: 0;
 }
 
 #topMenu .language {
@@ -61,11 +78,12 @@ li {
 	float: right;
 	line-height: 37px;
 	height: 37px;
+	margin: 0;
 }
 
 #topMenu .menu li {
 	float: left;
-	margin-right: 20px;
+	margin-right: 12px;
 	height: 100%
 }
 
