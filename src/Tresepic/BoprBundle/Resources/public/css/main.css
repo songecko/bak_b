@@ -1224,12 +1224,16 @@ and (max-width:767px) {
 		display: none;
 	}
 	
+	#content #carouselProducts .carousel-control span {
+		left: 30%;
+	}
+	
 	#content #carouselProducts .carousel-control.left{
-		left: -48px;
+		left: -40px;
 	}
 
 	#content #carouselProducts .carousel-control.right {
-		right: -48px;	
+		right: -40px;	
 	}
 	
 	#content .productList {
@@ -1305,6 +1309,10 @@ and (max-width:767px) {
 		margin: 10px 0;
 	}
 	
+	#content .productShow #productsList .item img {
+		width: 50%;
+	}
+	
 	#content .productShow .doubleBorderBox {
 		margin-top: 30px;
 	}
@@ -1319,6 +1327,14 @@ and (max-width:767px) {
 	
 	footer .info1 {
 		width: 100%;
+	}
+	
+	footer .registerBrand {
+		width: 100%;
+	}
+	
+	footer .registerBrand .here {
+		margin-right: 0px;
 	}
 	
 	footer .info1 .delivery {
