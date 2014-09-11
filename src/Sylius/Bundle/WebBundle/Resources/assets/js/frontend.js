@@ -124,6 +124,48 @@ var checkoutSubmitHandler = function (ev)
             $('.productBox').hide();
             $('.productBox_'+productId).show();
         });
+        var sending = false;
+        $(".formAddToCart").submit(function(e)
+        {        	
+        	e.preventDefault();
+        	if(sending == false)
+        	{
+        		var opts = {
+        				  lines: 11, // The number of lines to draw
+        				  length: 5, // The length of each line
+        				  width: 4, // The line thickness
+        				  radius: 3, // The radius of the inner circle
+        				  corners: 1, // Corner roundness (0..1)
+        				  rotate: 42, // The rotation offset
+        				  direction: 1, // 1: clockwise, -1: counterclockwise
+        				  color: '#000', // #rgb or #rrggbb or array of colors
+        				  speed: 1.8, // Rounds per second
+        				  trail: 54, // Afterglow percentage
+        				  shadow: false, // Whether to render a shadow
+        				  hwaccel: false, // Whether to use hardware acceleration
+        				  className: 'spinner', // The CSS class to assign to the spinner
+        				  zIndex: 2e9, // The z-index (defaults to 2000000000)
+        				  top: '50%', // Top position relative to parent
+        				  left: '85%%' // Left position relative to parent
+        				};
+    				var target = $(this).find('p').get(0);
+    				var spinner = new Spinner(opts).spin(target);
+        		sending = true;
+	        	$.ajax({
+	        	  url: $(this).attr("action"),
+	        	  type:"POST",
+	        	  data: $(this).serialize(),
+	        	  success: function(data, textStatus, xhr) {
+	        		  
+	        		  $('.shoppingCart .description .totalProd .totalCant a').html('('+ data.cart.quantity + ')');
+	        		  $('.shoppingCart .description .totalProd .totalPrice a').html(data.cart.total);
+	                  alert(data.status); alert(data.cart.quantity); alert(data.cart.total);
+	                  sending = false;
+	                  spinner.stop();
+	              }
+	        	});
+        	} //cierra if
+        });
     });
 
 })( jQuery );
