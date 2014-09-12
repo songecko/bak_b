@@ -8,7 +8,11 @@ sylius_homepage:
 sylius_masacote:
     pattern: /masacote
     defaults: { _controller: sylius.controller.frontend.homepage:masacoteAction }
-    
+
+sylius_yoapoyoajulia:
+    pattern: /yoapoyoajulia
+    defaults: { _controller: sylius.controller.frontend.homepage:yoapoyoajuliaAction }
+        
 sylius_currency:
     resource: @SyliusWebBundle/Resources/config/routing/frontend/currency.yml
     prefix: /currency

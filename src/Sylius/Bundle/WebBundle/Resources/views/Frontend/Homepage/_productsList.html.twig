@@ -1,0 +1,22 @@
+<div id="carouselProducts" class="carousel slide" data-ride="carousel">
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner">
+		<div class="item active">
+			{% set loopLimit = is_mobile()?2:4 %}
+			{% for product in products %}
+			<img style="cursor: pointer;" src="{{ product.image.path|imagine_filter('sylius_90x60') }}" data-product-id="{{ product.id }}" />
+			{%   if(loop.index%loopLimit == 0 and loop.index < products|length) %}
+		</div>
+		<div class="item">
+			{%   endif %}
+			{% endfor %}
+		</div>
+	</div>
+	<!-- Controls -->
+	<a class="left carousel-control" href="#carouselProducts" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+	</a>
+	<a class="right carousel-control" href="#carouselProducts" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right"></span>
+	</a>
+</div>

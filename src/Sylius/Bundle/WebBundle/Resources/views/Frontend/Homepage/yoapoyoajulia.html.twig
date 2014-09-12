@@ -2,13 +2,13 @@
 
 {% set settings = sylius_settings_all('general') %}
 
-{% block og_title %}<meta property="og:title" content="Masacote" />{% endblock %}
+{% block og_title %}<meta property="og:title" content="#yoapoyoajulia" />{% endblock %}
 		
 {% block content %}
 	{% block breadcrums %}
 		<ol class="breadcrumb">
 			<li><a href="{{ path('sylius_homepage') }}">Home</a></li>
-			<li><a href="{{ path('sylius_masacote') }}">Masacote</a></li>
+			<li><a href="{{ path('sylius_yoapoyoajulia') }}">#yoapoyoajulia</a></li>
 		</ol>
 	{% endblock %}
 	<div class="productShow clearfix">
@@ -104,14 +104,12 @@
 					    <li class="active">
 					    	<a style="background-color: #81705a; color: #ffffff;">Product description</a>
 					    </li>
-					    <li class="chentesDescription">
+					    {#<li class="chentesDescription">
 					    	<a href="#" class="chenteButton"><img alt="Chente's Description" src="{{ asset('bundles/tresepicbopr/images/chetes_description_box.png') }}"></a>
 					    	<div class="description">
 					    		<p>El éxito es algo que es personal...  en esta vida hay que triunar en lo que uno quiere y no en lo que otros nos digan.  Así piensa Suxess clothing, la línea de fivepanels y snapbacks boricua, diseñada pa que resaltes y tengas algo original y no lo que to’el mundo tiene por ahí.  Consíguelo en BrandsOfPuertoRico.com.</p>
 					    	</div>
-					    </li>
-					    <!--  <li><a href="#">...</a></li>
-					    <li><a href="#">...</a></li>-->
+					    </li>#}
 					</ul>
 					<br>
 					<p>{{ product.getDescriptionTranslation(app.request.locale) }}</p>
@@ -126,7 +124,7 @@
 			{% endif %}
 		</div>
 		
-		<div class="col-md-3 col-xs-12">
+		{# <div class="col-md-3 col-xs-12">
 			<div class="doubleBorderBox">
 				<img alt="Masacote" class="mainPicture" src="{{ asset('bundles/tresepicbopr/images/masacote.png') }}">
 				<p>Todas las semanas, el comediante Chente Ydrach se sienta a hablar con algún exponente de la comedia en Puerto Rico para discutir su historia particular o simplemente para hablar acerca del estado de la comedia en el país. Todo esto se puede cambiar si la persona entrevistada no es un/a comediante o si no se habla de comedia. En fin, en el podcast escucharás a Chente hablando mielda con otra persona. Gracias, Bye!</p>
@@ -136,7 +134,7 @@
 				</div>
 				<a href="#"><img alt="Subscribe to iTunes" src="{{ asset('bundles/tresepicbopr/images/itunes_subscribe.png') }}"></a>
 			</div>
-		</div>
+		</div> #}
 		
 	</div>
 {% endblock %}
