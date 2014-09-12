@@ -49,6 +49,21 @@ class HomepageController extends Controller
     	));
     }
     
+    public function yoapoyoajuliaAction(Request $request)
+    {
+    	$taxonRepository = $this->get('sylius.repository.taxon');
+    	 
+    	$taxon = $taxonRepository->findOneByName('#yoapoyoajulia');
+    	if(!$taxon)
+    		throw $this->createNotFoundException();
+    	 
+    	$products = $taxon->getProducts();
+    	 
+    	return $this->render('SyliusWebBundle:Frontend/Homepage:yoapoyoajulia.html.twig', array(
+    			'products' => $products
+    	));
+    }
+    
     public function newsletterAction()
     {
     	$request = $this->getRequest();

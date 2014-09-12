@@ -8,7 +8,7 @@
 	    {% if product.hasVariants %}
 	    	<a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p style="min-height: 44px"><button class="addToCart">{{ 'sylius.add_to_cart'|trans }}</button></p></a>
 	    {% else %}
-	    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post">
+	    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="formAddToCart">
 	    	<input type="hidden" id="sylius_cart_item_quantity" name="sylius_cart_item[quantity]" value="1">
 	    	<p style="min-height: 44px"><button type="submit" class="addToCart">{{ 'sylius.add_to_cart'|trans }}</button></p>
 	    </form>
@@ -28,7 +28,7 @@
 	    {% if product.hasVariants %}
 	    	<a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p style="min-height: 44px"><button class="addToCart">{{ 'sylius.add_to_cart'|trans }}</button></p></a>
 	    {% else %}
-	    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post">
+	    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="formAddToCart">
 	    	<input type="hidden" id="sylius_cart_item_quantity" name="sylius_cart_item[quantity]" value="1">
 	    	<p style="min-height: 44px"><button type="submit" class="addToCart">{{ 'sylius.add_to_cart'|trans }}</button></p>
 	    </form>

@@ -20,6 +20,7 @@ use Sylius\Bundle\CartBundle\SyliusCartEvents;
 use Sylius\Bundle\CartBundle\Event\CartItemEvent;
 use Sylius\Bundle\CartBundle\Event\FlashEvent;
 use Sylius\Bundle\CartBundle\Resolver\ItemResolvingException;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Cart item controller.
@@ -59,16 +60,21 @@ class CartItemController extends Controller
         try {
             $item = $this->getResolver()->resolve($emptyItem, $request);
         } catch (ItemResolvingException $exception) {
-            // Write flash message
-            $eventDispatcher->dispatch(SyliusCartEvents::ITEM_ADD_ERROR, new FlashEvent($exception->getMessage()));
 
-            return $this->redirectAfterAdd($request);
+	        if ($request->isXmlHttpRequest()){        
+	       		return JsonResponse::create(array('status' => 'error','message' => $exception->getMessage()));
+	       	}else{
+	            // Write flash message
+	            $eventDispatcher->dispatch(SyliusCartEvents::ITEM_ADD_ERROR, new FlashEvent($exception->getMessage()));
+	       		return $this->redirectAfterAdd($request);
+	       		
+	       	}
         }
 
         $event = new CartItemEvent($cart, $item);
         $event->isFresh(true);
         $event->isValid(false);
-
+        
         // Update models
         $eventDispatcher->dispatch(SyliusCartEvents::ITEM_ADD_INITIALIZE, $event);
         $eventDispatcher->dispatch(SyliusCartEvents::CART_CHANGE, new GenericEvent($cart));
@@ -76,8 +82,20 @@ class CartItemController extends Controller
 
         // Write flash message
         $eventDispatcher->dispatch(SyliusCartEvents::ITEM_ADD_COMPLETED, new FlashEvent());
-
-        return $this->redirectAfterAdd($request);
+       	if ($request->isXmlHttpRequest())
+       	{        
+       		$totalPrice = $this->get('sylius.twig.money')->formatPrice($cart->getTotal());
+       		return JsonResponse::create(array(
+       			'status' => 'ok',
+       			'cart' => array(
+       				'quantity' => $cart->getTotalItems(),
+       				'total' => $totalPrice
+       			)
+       		));
+       	}else{
+       		return $this->redirectAfterAdd($request);
+       		
+       	}
     }
 
     /**
