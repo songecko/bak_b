@@ -39,7 +39,7 @@
         <![endif]-->
     </head>
     <body>
-    	<script>
+    	<script type="text/javascript">
 	      window.fbAsyncInit = function() {
 	        FB.init({
 	          appId      : '{{ facebook_client_id }}',
@@ -65,52 +65,62 @@
 		    	<a href="http://www.allaboutcookies.org/" title="Visit All about cookies (External link)">What are cookies?</a>
 		    </div>
 		{% endif %}
-    	<!--  <div class="container"> -->
+		
         {% block header %}
-        	<div id="topMenu">
-        		{% if (is_mobile()) %}
-        			<nav class="navbar" role="navigation">
-						<div class="navbar-header">
-    						<button type="button" class="navbar-toggle" data-toggle="collapse"
-            						data-target=".navbar-ex1-collapse">
-      							<span class="icon-bar"></span>
-      							<span class="icon-bar"></span>
-      							<span class="icon-bar"></span>
-    						</button>
-  						</div>
-  						<div class="collapse navbar-collapse navbar-ex1-collapse">
-							<ul class="nav navbar-nav">
-								{{ render(controller('SyliusWebBundle:Frontend/Component:menu')) }}
-							</ul>
-						</div>
-					</nav>
-				{% endif %}
-        		<a href="{{ path('sylius_homepage') }}" title="Brands of Puerto Rico"><img class="logoMobile" src="{{ asset('bundles/tresepicbopr/images/logo-mobile.png') }}" /></a>
-        		{{ render(controller('SyliusWebBundle:Frontend/Component:topMenu')) }}
-			</div>
-			<div class="container">
-				<header>
-					<a href="{{ path('sylius_homepage') }}" title="Brands of Puerto Rico"><img class="logo" src="{{ asset('bundles/tresepicbopr/images/logo.png') }}" /></a>
-					<div class="search">
-						{% include 'SyliusWebBundle:Frontend/Search:search.html.twig' %}
-					</div>
-					<div class="shoppingCart">
-						{{ render(controller('SyliusWebBundle:Frontend/Component:shoppingCart')) }}
-					</div>
-					<ul class="navMenu">
+        <div id="topMenu">
+			<nav class="navbar visible-xs" role="navigation">
+				<div class="navbar-header">
+    				<button type="button" class="navbar-toggle" 
+    					data-toggle="collapse"
+    					data-target=".navbar-ex1-collapse">
+      					<span class="icon-bar"></span>
+      					<span class="icon-bar"></span>
+      					<span class="icon-bar"></span>
+    				</button>
+  				</div>
+  				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav">
 						{{ render(controller('SyliusWebBundle:Frontend/Component:menu')) }}
 					</ul>
-					<img class="separator" src="{{ asset('bundles/tresepicbopr/images/separator.png') }}" />
-				</header>
-            <!--  
-            <div class="masthead pull-right">
-                {#{ knp_menu_render('sylius.frontend.main', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }#}
-            </div>
-            <div class="currency-menu masthead pull-right">
-                {#{ knp_menu_render('sylius.frontend.currency', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }#}
-            </div>
-            -->
-            <!--  <h1 class="logo"><a href="{#{ path('sylius_homepage') }#}" title="{#{ 'sylius.logo'|trans }#}"><span>{#{ 'sylius.logo'|trans }#}</span></a></h1> -->
+				</div>
+			</nav>
+        	<a href="{{ path('sylius_homepage') }}" title="Brands of Puerto Rico"><img class="logoMobile" src="{{ asset('bundles/tresepicbopr/images/logo-mobile.png') }}" /></a>
+        	
+        	{{ render(controller('SyliusWebBundle:Frontend/Component:topMenu')) }}
+		</div>
+		<header>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2">
+						<a href="{{ path('sylius_homepage') }}" title="Brands of Puerto Rico" class="logo">
+							<img src="{{ asset('bundles/tresepicbopr/images/logo.png') }}" class="img-responsive" />
+						</a>
+					</div>
+					<div class="col-md-10">
+						<div class="row topBar">
+							<div class="col-md-8">
+								<div class="search">
+									{% include 'SyliusWebBundle:Frontend/Search:search.html.twig' %}
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="shoppingCart">
+									{{ render(controller('SyliusWebBundle:Frontend/Component:shoppingCart')) }}
+								</div>
+							</div>
+						</div>
+						<div class="row navBar">
+							<div class="col-md-12">
+								<ul class="navMenu">
+									{{ render(controller('SyliusWebBundle:Frontend/Component:menu')) }}
+								</ul>
+							</div>
+						</div>
+						<img class="separator" src="{{ asset('bundles/tresepicbopr/images/separator.png') }}" />
+					</div>
+				</div>
+			</div>
+		</header>
         {% endblock %}
 
         {% block flashes %}
@@ -129,50 +139,14 @@
 		</div>
 		
         {% block main %}
-        <!-- <hr>
-        <div class="row">
-            <div class="col-md-3" id="sidebar">-->
-                {#% block sidebar %}
-                <h4>{{ 'sylius.shop_by'|trans }}</h4><br>
-                {{ knp_menu_render('sylius.frontend.taxonomies', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }}
-                {{ render(url('sylius_partial_product_latest', {'limit': 5, 'template': 'SyliusWebBundle:Frontend/Product:latestSidebar.html.twig'})) }}
-                {{ sonata_block_render({'name': '/cms/blocks/contact'}) }}
-
-                    <h2>Links</h2>
-                    <ul>
-                    {% for child in cmf_children(cmf_find('/cms/pages')) %}
-                        <li>
-                            <a href="{{ path('sylius_page_show', {'id': child.name}) }}">{{ child.title|striptags }}</a>
-                        </li>
-                    {% endfor %}
-                    </ul>
-                {% endblock %#}
-            <!-- </div>
-            <div class="col-md-9"> -->
-            	<div id="content" class="clearfix">
-                {% block content %}
-                {% endblock %}
-                </div>
-        <!-- </div> -->
-        <!-- <hr>
-        <div class="row"> -->
-            {#% for i in 1..3 %}
-                <div class="col-md-4">
-                    {{ sonata_block_render({'name': '/cms/blocks/block-' ~ i}) }}
-                </div>
-            {% endfor %#}
-        <!-- </div> -->
-        <!-- <hr> -->
-        {% endblock %}
-
-        {#% block gallery %#}
-            {# Gallery modal #}
-            {#% include 'SyliusWebBundle::gallery.html.twig' %}
-        {% endblock %#}
-
-        {# Confirmation modal #}
-        {#% include 'SyliusWebBundle::confirm-modal.html.twig' %#}
+		<div id="content" class="clearfix">
+		<div class="container">
+			{% block content %}
+			{% endblock %}
 		</div>
+		</div>
+        {% endblock %}
+        
         {% block footer %}
         <footer>
         <div class="container">
@@ -223,17 +197,6 @@
 				</div>
 				<div class="footerSeparador">
 				</div>
-				<!-- <div class="info1 clearfix">
-					<div class="delivery">
-						<p>Free delivery worldwide</p>
-					</div>
-					<div class="phone">
-						<p>Place order via 1900 - 123468</p>
-					</div>
-					<div class="guarantee">
-						<p>100% Money back guarantee!</p>
-					</div>
-				</div>-->
 				<div class="info2">
 					<div class="store col-md-6" style="display: none;">
 						<div class="title">
@@ -290,13 +253,6 @@
 					</div>
 				</div>
 				<div class="info3">
-					<!--  <div class="newsletter">
-						<form type="POST" action="">
-							<span>NEWSLETTER:</span> 
-							<input type="text" value="Enter email adress..." /> 
-							<button type="submit">SUBMIT</button>
-						</form>
-					</div>-->
 					<div class="connected">
 						<span>{{ 'sylius.get_connected'|trans }}:</span>
 						<div class="social">
@@ -321,15 +277,9 @@
 			</div>
 		</div>
 		</footer>
+		
 		<a href="#" class="back-to-top"><img src="{{ asset('bundles/tresepicbopr/images/back-to-top.png') }}" /></a>
-            <!-- <div class="footer">
-                <p class="text-muted">
-                    &copy; Sylius, 2011 - -->{#{ 'now'|date('Y') }}.
-                </p>
-                {{ knp_menu_render('sylius.frontend.social', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }#}
-            <!-- </div> -->
-        {% endblock %}
-        <!-- </div> -->
+        {% endblock %} {# EOF Footer #}
 
         {# javascripts... #}
         {% block javascripts %}
@@ -339,9 +289,11 @@
             '@SyliusWebBundle/Resources/assets/js/jquery.blueimp-gallery.min.js'
             '@SyliusWebBundle/Resources/assets/js/confirm-modal.js'
             '@SyliusWebBundle/Resources/assets/js/jquery.elevatezoom.js'
-            'bundles/tresepicbopr/js/jquery.cookie.js'
-            'bundles/tresepicbopr/js/jquery.cookiecuttr.js'
+            'bundles/tresepicbopr/js/vendor/jquery.sticky.js'
+            'bundles/tresepicbopr/js/vendor/jquery.cookie.js'
+            'bundles/tresepicbopr/js/vendor/jquery.cookiecuttr.js'
             '@SyliusWebBundle/Resources/assets/js/frontend.js'
+            '@SyliusWebBundle/Resources/assets/js/spin.min.js'
         %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
