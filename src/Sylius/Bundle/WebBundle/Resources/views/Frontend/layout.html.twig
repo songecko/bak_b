@@ -91,19 +91,19 @@
 		<header>
 			<div class="container">
 				<div class="row">
-					<div class="col-md-2">
+					<div class="logoContainer col-md-2 col-sm-2">
 						<a href="{{ path('sylius_homepage') }}" title="Brands of Puerto Rico" class="logo">
 							<img src="{{ asset('bundles/tresepicbopr/images/logo.png') }}" class="img-responsive" />
 						</a>
 					</div>
-					<div class="col-md-10">
+					<div class="menuContainer col-md-10 col-sm-10">
 						<div class="row topBar">
-							<div class="col-md-8">
+							<div class="col-md-7 col-sm-7">
 								<div class="search">
 									{% include 'SyliusWebBundle:Frontend/Search:search.html.twig' %}
 								</div>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-5 col-sm-5">
 								<div class="shoppingCart">
 									{{ render(controller('SyliusWebBundle:Frontend/Component:shoppingCart')) }}
 								</div>
@@ -116,7 +116,6 @@
 								</ul>
 							</div>
 						</div>
-						<img class="separator" src="{{ asset('bundles/tresepicbopr/images/separator.png') }}" />
 					</div>
 				</div>
 			</div>

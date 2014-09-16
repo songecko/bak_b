@@ -80,8 +80,6 @@ class CartItemController extends Controller
         $eventDispatcher->dispatch(SyliusCartEvents::CART_CHANGE, new GenericEvent($cart));
         $eventDispatcher->dispatch(SyliusCartEvents::CART_SAVE_INITIALIZE, $event);
 
-        // Write flash message
-        $eventDispatcher->dispatch(SyliusCartEvents::ITEM_ADD_COMPLETED, new FlashEvent());
        	if ($request->isXmlHttpRequest())
        	{        
        		$totalPrice = $this->get('sylius.twig.money')->formatPrice($cart->getTotal());
@@ -93,8 +91,10 @@ class CartItemController extends Controller
        			)
        		));
        	}else{
-       		return $this->redirectAfterAdd($request);
+       		// Write flash message
+       		$eventDispatcher->dispatch(SyliusCartEvents::ITEM_ADD_COMPLETED, new FlashEvent());
        		
+       		return $this->redirectAfterAdd($request);
        	}
     }
 
