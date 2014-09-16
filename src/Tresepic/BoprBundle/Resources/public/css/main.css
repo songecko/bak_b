@@ -150,6 +150,11 @@ li {
 	margin-right: 0;
 }
 
+.headerStickyWrapper {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
 .is-sticky header {
 	width: 100%;
 	z-index: 9999;
@@ -162,8 +167,6 @@ li {
 }
 
 header {
-	margin-top: 10px;
-	margin-bottom: 20px;
 }
 
 .search {
@@ -856,21 +859,38 @@ footer .info1 .newsletter {
 	margin-bottom: 30px;
 }
 
+footer .info1 .newsletter form {
+	text-align: center;
+	display: inline-block;
+}
+
 footer .info1 .newsletter input {
+	float: left;
 	background-color: #e4e1dc;
 	font-size: 13px;
 	height: 32px;
 	width: 245px;
+	padding: 0 5px;
+	margin-right: 5px;
+	border: 1px solid #a89c8c;
 }
 
 footer .info1 .newsletter button {
+	float: left;
 	background-color: #ffffff;
 	height: 31px;
 	width: 87px;
+	border: none;
+	text-transform: uppercase;
+	font-size: 14px;
+	color: #81705a;
 }
 
 footer .info1 .newsletter form span {
 	color: #ffffff;
+	float: left;
+	line-height: 32px;
+	margin-right: 5px;
 }
 
 footer .info1 .delivery {
@@ -947,16 +967,41 @@ footer .info2 .store .content p {
 }
 
 footer .info3 {
-	height: 96px;
+	margin: 40px 0;
 }
 
 footer .info3Iphone {
 	height: 70px;
 }
 
+footer .info3 .registerYourBrand {
+	display: inline-block;
+	text-align: right;
+}
+
+footer .info3 .registerYourBrand span {
+	text-transform: uppercase;
+	color: #FFFFFF;
+	line-height: 30px;
+	display: block;
+	float: right;
+}
+
+footer .info3 .registerYourBrand a {
+	height: 30px;
+	background: #FFFFFF;
+	color: #81705a;
+	display: block;
+	float: right;
+	line-height: 30px;
+	width: 70px;
+	text-align: center;
+	margin-left: 20px;
+	margin-right: 40px;
+	text-decoration: none;
+}
+
 footer .info3 .connected {
-	margin: 40px auto;
-	width: 345px;
 }
 
 footer .info3Iphone .connectedIphone {
@@ -967,7 +1012,8 @@ footer .info3Iphone .connectedIphone {
 footer .info3 .connected span {
 	color: #ffffff;
 	float: left;
-	margin: 22px auto;
+	line-height: 30px;
+	margin-left: 40px;
 }
 
 footer .info3Iphone .connectedIphone span {
@@ -976,9 +1022,8 @@ footer .info3Iphone .connectedIphone span {
 }
 
 footer .info3 .connected .social {
-	float: right;
-	margin-top: 14px;
-	margin-right: 20px;
+	float: left;
+	margin-left: 20px;
 }
 
 footer .info3Mobile {
@@ -1018,13 +1063,23 @@ footer .info3Mobile .connected .social {
 
 footer .registerBrand {
 	margin: 40px auto;
-	width: 345px;
+	width: 100%;
 	color: #ffffff;
+	text-align: center;
+}
+
+footer .registerBrand > .clearfix {
+	display: inline-block;
+}
+
+footer .registerBrand span {
+	float: left;
 }
 
 footer .registerBrand .here {
-	float: right;
+	float: left;
 	margin-right: 80px;
+	margin-left: 20px;
 }
 
 footer .registerBrand .here button {
@@ -1418,6 +1473,10 @@ and (max-width:350px) {
 		width: 100%;
 		background: #ffffff url(../images/guarantee-icon.png) no-repeat 25px 15px;
 		padding-left: 45px;
+	}
+	
+	footer .info1 .newsletter input {
+		width: 144px;
 	}
 	
 	footer .info3 {

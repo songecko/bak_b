@@ -152,7 +152,7 @@
 			<div class="containerFooter">
 				<div class="info1">
 					<div class="newsletter col-md-12">
-						<form method="post" action="{{ path('sylius_newsletter') }}">
+						<form method="post" action="{{ path('sylius_newsletter') }}" class="clearfix">
 							<span>NEWSLETTER:</span> 
 							<input type="text" name="newsletter[email]" placeholder="Enter email address..." /> 
 							<button type="submit">{{ 'sylius.submit'|trans }}</button>
@@ -189,9 +189,11 @@
 					</div>
 				{% endif %}
 				<div class="registerBrand">
-					<span>REGISTER YOUR BRAND</span>
-					<div class="here">
-						<a href="https://docs.google.com/forms/d/1pq-Q7zzSVltZZvSw9qnF5z7Iq_a1bxnsqvZyhpJoPLo/viewform" target="_blank"><button>HERE</button></a>
+					<div class="clearfix">
+						<span>REGISTER YOUR BRAND</span>
+						<div class="here">
+							<a href="https://docs.google.com/forms/d/1pq-Q7zzSVltZZvSw9qnF5z7Iq_a1bxnsqvZyhpJoPLo/viewform" target="_blank"><button>HERE</button></a>
+						</div>
 					</div>
 				</div>
 				<div class="footerSeparador">
@@ -251,8 +253,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="info3">
-					<div class="connected">
+				<div class="info3 row">
+					<div class="col-md-6 registerYourBrand">
+						<a href="https://docs.google.com/forms/d/1pq-Q7zzSVltZZvSw9qnF5z7Iq_a1bxnsqvZyhpJoPLo/viewform" target="_blank">Here</a>
+						<span>Register your brand</span>
+					</div>
+					<div class="col-md-6 connected">
 						<span>{{ 'sylius.get_connected'|trans }}:</span>
 						<div class="social">
 							<a href="http://instagram.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/instagram-icon.png') }}" /></a>

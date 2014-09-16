@@ -47,7 +47,7 @@ sylius:
   returns: Devoluciones
   whats_in_store: Mi tienda
   get_connected: CONECTATE
-  submit: Ingresar
+  submit: ENVIAR
   brand_registration: Registro de marcas
   terms_of_use: Términos de Uso
   contact_us: Contacto
