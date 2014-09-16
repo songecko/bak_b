@@ -572,3 +572,7 @@ input[type="file"] {
     border-top-color: #333;
     color: #333;
 }
+
+#categorization select.form-control {
+	height: 250px;
+} 
