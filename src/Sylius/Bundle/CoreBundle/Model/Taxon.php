@@ -152,4 +152,15 @@ class Taxon extends BaseTaxon implements ImageInterface, TaxonInterface
     {
         $this->products = $products;
     }
+    
+    public function getTabbedName()
+    {
+    	if($this->getLevel() <= 1)
+    	{
+    		return strtoupper($this->getName());
+    	}else 
+    	{
+    		return str_repeat("-- ", $this->getLevel()-1).$this->getName();
+    	}
+    }
 }
