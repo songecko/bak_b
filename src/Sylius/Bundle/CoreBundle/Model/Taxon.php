@@ -160,7 +160,7 @@ class Taxon extends BaseTaxon implements ImageInterface, TaxonInterface
     		return strtoupper($this->getName());
     	}else 
     	{
-    		return str_repeat("- ", $this->getLevel()-1).$this->getName();
+    		return str_repeat("-- ", $this->getLevel()-1).$this->getName();
     	}
     }
 }
