@@ -13,6 +13,10 @@ namespace Sylius\Bundle\CoreBundle\Repository;
 
 use FOS\UserBundle\Model\UserInterface;
 use Sylius\Bundle\CartBundle\Doctrine\ORM\CartRepository;
+use PHPCR\Query\QOM\OrderingInterface;
+use Sylius\Bundle\CoreBundle\Model\OrderInterface;
+use Sylius\Bundle\PaymentsBundle\Model\PaymentInterface;
+
 
 class OrderRepository extends CartRepository
 {
@@ -230,7 +234,6 @@ class OrderRepository extends CartRepository
     protected function getCollectionQueryBuilder()
     {
         $queryBuilder = parent::getCollectionQueryBuilder();
-
-        return $queryBuilder->andWhere($queryBuilder->expr()->isNotNull('o.completedAt'));
-    }
+        return  $queryBuilder->andWhere('o.paymentState = :paymentState')->setParameter('paymentState', PaymentInterface::STATE_COMPLETED);
+	}
 }
