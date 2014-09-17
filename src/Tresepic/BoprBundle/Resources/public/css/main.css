@@ -51,6 +51,10 @@ li {
 	margin-right: 10px;
 }
 
+#topMenu .featuredIn li img {
+	display: inline;
+}
+	
 #topMenu .featuredIn li.featured {
 	font-size: 22px;
 	text-transform: uppercase;
