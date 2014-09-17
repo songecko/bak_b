@@ -195,7 +195,7 @@ header {
 	width: 40px;
 	height: 40px;
 	background-color: #81705a;
-	border: none;
+	border: 1px solid #81705a;
 }
 
 .search button .glyphicon-search {
@@ -1512,6 +1512,29 @@ and (max-width : 991px) {
 		display: none;
 	}
 	
+	#topMenu .featuredIn li {
+		margin-right: 5px;
+	}
+	
+	#topMenu .featuredIn li.featured {
+		font-size: 14px;
+	}
+	
+	#topMenu .featuredIn li img {
+		display: inline;
+		width: 40px;
+	}
+	
+	#topMenu .featuredIn li.learnMore {
+		margin-left: 5px;
+		font-size: 8px;
+		width: 72px;
+	}
+	
+	#topMenu .menu li {
+		margin-right: 5px;
+	}
+	
 	#topMenu .menuMobile {
 		display: none;
 	}
@@ -1522,19 +1545,37 @@ and (max-width : 991px) {
 	
 	.search {
 		margin-left: 10px;
+		margin-top: 0;
 	}
 	
 	.search input {
 		width: 150px;
+		height: 30px;
+	}
+	
+	.search button {
+		height: 30px;
 	}
 	
 	.searchMobile {
 		display: none;
 	}
 	
+	header .logoContainer {
+		padding-right: 0;
+	}
+	
+	header .shoppingCart {
+		padding-top: 0;
+	}
+	
 	header .shoppingCart .description p {
 		line-height: 20px;
 		font-size: 12px;
+	}
+	
+	header .navMenu {
+		margin-top: 0;
 	}
 	
 	#content .sidebar {
