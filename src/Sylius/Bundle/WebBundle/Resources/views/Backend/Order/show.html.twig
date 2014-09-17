@@ -105,14 +105,16 @@
                 <a href="{{ path('sylius_backend_product_show', {'id': product.id}) }}">
                     <h4 class="name">{{ product.name }}</h4>
                 </a>
-                {% if product.hasOptions %}
                 <ul class="list-unstyled">
                     <li class="sku"><strong>{{ 'sylius.product.sku'|trans }}</strong>: <code>{{ variant.sku|default('SKU') }}</code></li>
-                    {% for option in variant.options %}
+	                {% if product.hasOptions %}
+                    	{% for option in variant.options %}
                     <li><strong>{{ option.presentation }}</strong>: {{ option.value  }}</li>
-                    {% endfor %}
+                    	{% endfor %}
+                    {% else %}
+                    <li><strong>{{ variant.presentation }}</strong>: {{ variant.value  }}</li>
+	                {% endif %}
                 </ul>
-                {% endif %}
             </td>
             <td class="quantity text-center">{{ item.quantity }}</td>
             <td class="unit-price text-center">
