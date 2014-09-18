@@ -51,6 +51,10 @@ li {
 	margin-right: 10px;
 }
 
+#topMenu .featuredIn li img {
+	display: inline;
+}
+	
 #topMenu .featuredIn li.featured {
 	font-size: 22px;
 	text-transform: uppercase;
@@ -195,7 +199,7 @@ header {
 	width: 40px;
 	height: 40px;
 	background-color: #81705a;
-	border: none;
+	border: 1px solid #81705a;
 }
 
 .search button .glyphicon-search {
@@ -1260,6 +1264,116 @@ footer .info4 .copyright span {
 }
 
 
+/*costumer form*/
+
+.mfp-bg{
+	z-index:99999;
+}
+
+.mfp-wrap{
+	z-index:99999;
+}
+
+.costumer-popup{
+	max-width: 460px;
+	margin: 20px auto;
+	width: auto;
+}
+
+#costumerFormPopup .costumerForm {
+	font-family: 'Raleway', sans-serif;
+	background-color:#ffffff;
+	padding: 24px;
+}
+
+.#costumerFormPopup .costumerForm h3{
+	margin: 0;
+	font-size:20px;
+}
+
+#costumerFormPopup .costumerForm .field1, #costumerFormPopup .costumerForm .field2{
+	float:left;
+	width:48%;
+}
+
+#costumerFormPopup .costumerForm .field2{
+	padding-left:4%;
+}
+
+#costumerFormPopup .costumerForm .customInput, #costumerFormPopup .costumerForm .customLabel{
+	float:left;
+	width:100%;
+
+}
+
+#costumerFormPopup .costumerForm .customInput{
+	margin-top: 6px;
+}
+
+#costumerFormPopup .costumerForm .customLabel{	
+	font-size:16px;
+	font-weight: bold;	
+}
+
+#costumerFormPopup .costumerForm  input{
+	height: 40px;
+	border: 1px solid #dfdfdf;
+	font-size: 14px;
+	padding: 0;
+	padding-left: 5px;
+	margin: 0;
+	width: 100%;
+	background-color: #dfdfdf;
+}
+#costumerFormPopup .costumerForm  .field1, #costumerFormPopup .costumerForm  .field2{
+	font-size:22px;
+	margin-top:5px;
+}
+
+#costumerFormPopup .costumerForm .question{
+	width:100%;
+	float:left;
+	margin-top: 6px;
+}
+
+ #costumerFormPopup .costumerForm .question textarea{
+ 	width:100%;
+ 	height:208px;
+	background-color: #dfdfdf;
+	margin-top: 6px;
+ }
+#costumerFormPopup .costumerForm .submitContent{
+	width: 100%;
+	float: left;
+	margin-top: 15px;
+}
+#costumerFormPopup .costumerForm .submitContent button{
+	border: none;
+	float: right;
+}
+#costumerFormPopup .costumerForm .error{
+	border-color: red;	
+}
+
+
+#costumerFormPopup .costumerForm p{
+	float:left;
+	width:60%;
+	margin:0;
+}
+
+#costumerFormPopup .costumerForm .submitContent .button{
+	width: 40%;
+	float: right;
+}
+#costumerFormPopup .costumerForm .button a{
+	float:right;
+}
+
+.vjs-error-display, .vjs-control-bar {
+	display:none;
+}
+
 /*** MEDIA QUERYS ***/
 
 @media screen
@@ -1512,6 +1626,29 @@ and (max-width : 991px) {
 		display: none;
 	}
 	
+	#topMenu .featuredIn li {
+		margin-right: 5px;
+	}
+	
+	#topMenu .featuredIn li.featured {
+		font-size: 14px;
+	}
+	
+	#topMenu .featuredIn li img {
+		display: inline;
+		width: 40px;
+	}
+	
+	#topMenu .featuredIn li.learnMore {
+		margin-left: 5px;
+		font-size: 8px;
+		width: 72px;
+	}
+	
+	#topMenu .menu li {
+		margin-right: 5px;
+	}
+	
 	#topMenu .menuMobile {
 		display: none;
 	}
@@ -1522,19 +1659,37 @@ and (max-width : 991px) {
 	
 	.search {
 		margin-left: 10px;
+		margin-top: 0;
 	}
 	
 	.search input {
 		width: 150px;
+		height: 30px;
+	}
+	
+	.search button {
+		height: 30px;
 	}
 	
 	.searchMobile {
 		display: none;
 	}
 	
+	header .logoContainer {
+		padding-right: 0;
+	}
+	
+	header .shoppingCart {
+		padding-top: 0;
+	}
+	
 	header .shoppingCart .description p {
 		line-height: 20px;
 		font-size: 12px;
+	}
+	
+	header .navMenu {
+		margin-top: 0;
 	}
 	
 	#content .sidebar {
