@@ -190,6 +190,25 @@ var checkoutSubmitHandler = function (ev)
 			{
 				//alert("Debes completar todos los campos correctamente para continuar.");
 			},
+			submitHandler: function(form)
+			{
+				var sending = false;
+				if(sending == false)
+	        	{
+					
+					sending = true;
+		        	$.ajax({
+			        	  url: 'tresepic_bopr_frontend_costumerForm_index',
+			        	  type:"POST",
+			        	  data: $(form).serialize(),
+			        	  success: function(data, textStatus, xhr) 
+			        	  {  
+			        		  alert("entro");
+			        		  sending = false;
+			              }
+			        });
+	        	}
+			}
     			
     	});
     });
