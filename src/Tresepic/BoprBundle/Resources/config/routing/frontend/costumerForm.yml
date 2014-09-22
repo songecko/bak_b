@@ -1,5 +1,0 @@
-tresepic_bopr_frontend_costumerForm_index:
-    pattern: /
-    methods: [GET]
-    defaults:
-        _controller: bopr.controller.costumerForm:indexAction

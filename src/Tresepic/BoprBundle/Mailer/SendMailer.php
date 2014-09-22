@@ -16,13 +16,11 @@ class SendMailer
 		$this->container = $container;
 	}
 
-	public function sendCostumerMail()
+	public function sendCostumerMail($costumer, $emailTo)
 	{
-		$fullname = $user->getFullName();
-		$email = $user->getMail();
 		$view = 'TresepicBoprBundle:Frontend/Mailer:Email.html.twig';
 		
-		$message = $this->getMessage($view, $email);
+		$message = $this->getMessage($view, $emailTo);
 		
 		$failures = $this->send($message);
 		
@@ -45,14 +43,19 @@ class SendMailer
 	}	
 	
 	
-	private function getMessage($view, $emailTo)
+	private function getMessage($view, $costumer, $emailTo)
 	{
+		$name = $costumer['name'];
+		$lastname = $costumer['lastname'];
+		$email = $costumer['email'];
+		$phone = $costumer['phone'];
+		$question = $costumer['question'];
 		return $this->message
 			->setSubject('Servicio al Cliente')
-			->setFrom(array('noreply@amigoslan.com' => 'Brands Of Puerto Rico'))
+			->setFrom(array($email => $name))
 			->setTo($emailTo)
 			->setBody(
-				$this->container->get('templating')->render($view),
+				$this->container->get('templating')->render($view, array('costumer' => $costumer)),
 				'text/html'
 			);
 	}

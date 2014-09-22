@@ -109,10 +109,10 @@ hwi_oauth:
             client_secret: %sylius.oauth.twitter.clientsecret%
 
 swiftmailer:
-    transport: %sylius.mailer.transport%
-    host:      %sylius.mailer.host%
-    username:  %sylius.mailer.user%
-    password:  %sylius.mailer.password%
+    transport: gmail
+    host:      ~
+    username:  odiseo.team@gmail.com
+    password:  enter.pppdd
 
 liip_doctrine_cache:
     namespaces:

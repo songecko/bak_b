@@ -198,12 +198,12 @@ var checkoutSubmitHandler = function (ev)
 					
 					sending = true;
 		        	$.ajax({
-			        	  url: 'tresepic_bopr_frontend_costumerForm_index',
+			        	  url: $(form).attr("action"),
 			        	  type:"POST",
 			        	  data: $(form).serialize(),
 			        	  success: function(data, textStatus, xhr) 
 			        	  {  
-			        		  alert("entro");
+			        		  alert(data['status']); alert(data.status); alert(textStatus);
 			        		  sending = false;
 			              }
 			        });

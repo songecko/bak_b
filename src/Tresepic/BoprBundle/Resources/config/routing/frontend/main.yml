@@ -1,0 +1,5 @@
+tresepic_bopr_costumerform:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: bopr.controller.costumer:indexAction
