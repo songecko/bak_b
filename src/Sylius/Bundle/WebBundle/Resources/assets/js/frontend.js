@@ -165,11 +165,13 @@ var checkoutSubmitHandler = function (ev)
 	        	});
         	} //cierra if
         });
+        
         //popup con el formulario de contacto
     	$('.costumerFormLink').magnificPopup({
   		  type:'inline',
   		  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
     	});
+    	var sendingCostumerForm = false;
     	$("#costumerFormPopup form").validate(
     	{
 			onkeyup: false,
@@ -191,20 +193,21 @@ var checkoutSubmitHandler = function (ev)
 				//alert("Debes completar todos los campos correctamente para continuar.");
 			},
 			submitHandler: function(form)
-			{
-				var sending = false;
-				if(sending == false)
+			{	
+				if(sendingCostumerForm == false)
 	        	{
-					
-					sending = true;
+					sendingCostumerForm = true;
 		        	$.ajax({
 			        	  url: $(form).attr("action"),
-			        	  type:"POST",
+			        	  type: "POST",
 			        	  data: $(form).serialize(),
 			        	  success: function(data, textStatus, xhr) 
 			        	  {  
-			        		  alert(data['status']); alert(data.status); alert(textStatus);
-			        		  sending = false;
+			        		  $('.contentCostumerForm form').html('<h4>Sended succesful</h4>');
+			              },
+			              complete: function(jqXHR,textStatus)
+			              {
+			            	  sendingCostumerForm = false;
 			              }
 			        });
 	        	}

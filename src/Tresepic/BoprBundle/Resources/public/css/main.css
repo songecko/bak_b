@@ -62,7 +62,7 @@ li {
 	padding-top: 3px;
 	margin-right: 15px;
 }
-
+/* se saco 23/09/2014
 #topMenu .featuredIn li.learnMore {
 	color: #FFFFFF;
 	width: 110px;
@@ -73,7 +73,7 @@ li {
 	margin-left: 20px;
 	margin-right: 0;
 }
-
+*/
 #topMenu .language {
 	color: #f3f1f0;
 	float: left;
@@ -1638,12 +1638,12 @@ and (max-width : 991px) {
 		display: inline;
 		width: 40px;
 	}
-	
+	/* se saco 23/09/14
 	#topMenu .featuredIn li.learnMore {
 		margin-left: 5px;
 		font-size: 8px;
 		width: 72px;
-	}
+	}*/
 	
 	#topMenu .menu li {
 		margin-right: 5px;

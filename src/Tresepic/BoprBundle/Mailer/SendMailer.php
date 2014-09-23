@@ -20,7 +20,7 @@ class SendMailer
 	{
 		$view = 'TresepicBoprBundle:Frontend/Mailer:Email.html.twig';
 		
-		$message = $this->getMessage($view, $emailTo);
+		$message = $this->getMessage($view, $costumer, $emailTo);
 		
 		$failures = $this->send($message);
 		
@@ -34,10 +34,10 @@ class SendMailer
 		$mailer = $this->container->get('mailer');
 		$mailer->send($message, $failures);
 		
-		// manually flush the queue (because using spool)
+	/*	// manually flush the queue (because using spool)
 		$spool = $mailer->getTransport()->getSpool();
 		$transport = $this->container->get('swiftmailer.transport.real');
-		$spool->flushQueue($transport);
+		$spool->flushQueue($transport);*/
 		
 		return $failures;
 	}	

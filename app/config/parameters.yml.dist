@@ -44,4 +44,4 @@ parameters:
     sylius.inventory.backorders_enabled: true
     sylius.inventory.tracking_enabled: true
     tresepic.paypal.fee: 0.90
-    tresepic.contact.mail: 'pablo.damico88@gmail.com'
+    tresepic.contact.mail: 'alant@tresepic.com'

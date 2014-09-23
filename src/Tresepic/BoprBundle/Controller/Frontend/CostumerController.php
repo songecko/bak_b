@@ -11,12 +11,12 @@ class CostumerController extends Controller
 {
 	public function indexAction(Request $request)
 	{		
-		return JsonResponse::create(array(
-				'status' => $emailTo
-		));
-		$contact = $request->get('contact'); var_dump($contact);
+		$contact = $request->get('contact');
 		$emailTo = $this->container->getParameter('tresepic.contact.mail');
-		$this->get('bopr.send.mailera')->sendCostumerMail($contact,$emailTo);
+		$this->get('bopr.send.mailer')->sendCostumerMail($contact,$emailTo);
+		return JsonResponse::create(array(
+				'status' => 'ok'
+		));
 	}
 		
 }
