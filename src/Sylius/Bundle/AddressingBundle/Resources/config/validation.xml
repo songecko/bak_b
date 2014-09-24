@@ -90,6 +90,12 @@
                 <option name="message">sylius.address.postcode.not_blank</option>
                 <option name="groups">sylius</option>
             </constraint>
+             <constraint name="Regex">
+             	<option name="pattern">"\d+"</option>
+             	<option name="match">true</option>
+                <option name="message">sylius.address.postcode.number</option>
+                <option name="groups">sylius</option>
+            </constraint>
             <constraint name="Length">
                 <option name="min">2</option>
                 <option name="max">5</option>
@@ -97,7 +103,7 @@
                 <option name="maxMessage">sylius.address.postcode.max_length</option>
                 <option name="groups">sylius</option>
             </constraint>
-        </property>
+       </property>
     </class>
 
     <class name="Sylius\Bundle\AddressingBundle\Model\Country">

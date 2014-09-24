@@ -165,6 +165,55 @@ var checkoutSubmitHandler = function (ev)
 	        	});
         	} //cierra if
         });
+        
+        //popup con el formulario de contacto
+    	$('.costumerFormLink').magnificPopup({
+  		  type:'inline',
+  		  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+    	});
+    	var sendingCostumerForm = false;
+    	$("#costumerFormPopup form").validate(
+    	{
+			onkeyup: false,
+			onclick: false,
+			onfocusout: false,
+			errorPlacement: function(error, element) 
+			{
+			},
+			highlight: function(element, errorClass, validClass) 
+			{
+			    $(element).addClass(errorClass).removeClass(validClass);
+			},
+			unhighlight: function(element, errorClass, validClass) 
+			{
+			    $(element).removeClass(errorClass).addClass(validClass);
+			},
+			invalidHandler: function(event, validator)
+			{
+				//alert("Debes completar todos los campos correctamente para continuar.");
+			},
+			submitHandler: function(form)
+			{	
+				if(sendingCostumerForm == false)
+	        	{
+					sendingCostumerForm = true;
+		        	$.ajax({
+			        	  url: $(form).attr("action"),
+			        	  type: "POST",
+			        	  data: $(form).serialize(),
+			        	  success: function(data, textStatus, xhr) 
+			        	  {  
+			        		  $('.contentCostumerForm form').html('<h4>Sended succesful</h4>');
+			              },
+			              complete: function(jqXHR,textStatus)
+			              {
+			            	  sendingCostumerForm = false;
+			              }
+			        });
+	        	}
+			}
+    			
+    	});
     });
 
 })( jQuery );

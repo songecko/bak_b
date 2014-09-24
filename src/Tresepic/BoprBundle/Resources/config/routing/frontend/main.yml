@@ -1,0 +1,5 @@
+tresepic_bopr_costumerform:
+    pattern: /costumer-contact-form
+    methods: [POST]
+    defaults:
+        _controller: TresepicBoprBundle:Frontend/Costumer:index

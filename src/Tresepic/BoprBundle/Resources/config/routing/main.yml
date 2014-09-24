@@ -1,0 +1,6 @@
+tresepic_bopr_backend:
+    resource: @TresepicBoprBundle/Resources/config/routing/backend/main.yml
+    prefix: /administration
+
+tresepic_bopr_frontend:
+    resource: @TresepicBoprBundle/Resources/config/routing/frontend/main.yml

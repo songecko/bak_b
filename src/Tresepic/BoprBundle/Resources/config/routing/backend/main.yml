@@ -1,0 +1,3 @@
+tresepic_bopr_backend:
+    resource: @TresepicBoprBundle/Resources/config/routing/backend/manufacturer.yml        
+    prefix: /manufacturer
