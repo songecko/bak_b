@@ -26,8 +26,9 @@
             <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" type="text/css" />
             <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" type="text/css" /> -->
             {% stylesheets output='css/frontend.css' filter='cssrewrite'
-                'bundles/tresepicbopr/css/main.css'
+           	    '@SyliusWebBundle/Resources/assets/css/magnific-popup.css'
                 'bundles/tresepicbopr/css/cookiecuttr.css'
+                'bundles/tresepicbopr/css/main.css'
             %}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
@@ -216,7 +217,7 @@
 						<div class="content">
 							<p><a href="mailto: info@brandsofpuertorico.com">Delivery</a></p>
 							<p><a href="mailto: info@brandsofpuertorico.com">{{ 'sylius.returns'|trans }}</a></p>
-							<p><a href="mailto: info@brandsofpuertorico.com">{{ 'sylius.customer_service'|trans }}</a></p>
+							<p><a href="#costumerFormPopup" class="costumerFormLink">{{ 'sylius.customer_service'|trans }}</a></p>
 						</div>
 					</div>
 					<div class="store col-md-4 col-xs-6">
@@ -239,7 +240,7 @@
 							{% endif %}
 							</p>
 							<p><a href="{{ path('sylius_cart_summary') }}">Shopping Cart</a></p>
-							<p><a href="mailto: info@brandsofpuertorico.com">Contact Us</a></p>
+							<p><a href="#costumerFormPopup" class="costumerFormLink">Contact Us</a></p>
 						</div>
 					</div>
 					<div class="store col-md-4 hidden-xs hidden-sm">
@@ -273,7 +274,7 @@
 					<ul class="menuFooter">
 						<li><a href="https://docs.google.com/forms/d/1pq-Q7zzSVltZZvSw9qnF5z7Iq_a1bxnsqvZyhpJoPLo/viewform" target="_blank">{{ 'sylius.brand_registration'|trans }}</a></li>
 						<li><a href="http://brandsofpuertorico.wordpress.com/2014/07/11/terms-and-conditions/" target="_blank">{{ 'sylius.terms_of_use'|trans }}</a></li>
-						<li><a href="mailto: info@brandsofpuertorico.com">{{ 'sylius.contact_us'|trans }}</a></li>
+						<li><a href="#costumerFormPopup" class="costumerFormLink">{{ 'sylius.contact_us'|trans }}</a></li>
 					</ul>
 					<div class="copyright">
 						<p>Copyright &copy;{{ 'now'|date('Y') }} <span>brandsofpuertorico.com</span> <span class="rights">All rights reserved</span><p>
@@ -282,14 +283,51 @@
 			</div>
 		</div>
 		</footer>
-		
 		<a href="#" class="back-to-top"><img src="{{ asset('bundles/tresepicbopr/images/back-to-top.png') }}" /></a>
         {% endblock %} {# EOF Footer #}
 
+        <div id="costumerFormPopup" class="costumer-popup mfp-hide">
+	        <div class="contentCostumerForm">
+		        <div class="costumerForm">
+		        	<h3>Contact Us</h3>
+		        	<form action="{{ path('tresepic_bopr_costumerform') }}" method="post" class="clearfix">
+		        		<div class="name field1">
+		        			<div class="customLabel"><label>First Name</label></div>
+			      	  		<div class="customInput">
+			      	  			<input type="text" name="contact[name]"
+			      	  				data-rule-required="true" >
+			      	  		</div>
+		        		</div>
+		        		<div class="lastname field2">
+		        		    <div class="customLabel"><label>Last Name</label></div> 
+			      	  		<div class="customInput"><input type="text" name="contact[lastname]" data-rule-required="true" ></div>  	     		
+		        		</div>
+		        		<div class="email field1">
+		        			<div class="customLabel"><label>Email	</label></div>
+			      	  		<div class="customInput"><input type="text" name="contact[email]" data-rule-required="true" data-rule-email="true"></div>
+		        		</div>
+		        		<div class="phonenumber field2">
+		        		    <div class="customLabel"><label>Phone Number</label></div> 
+			      	  		<div class="customInput"><input type="text" name="contact[phone]" data-rule-required="true" ></div>  	     		
+		        		</div>
+		        		<div class="question">
+		        			<div class="customLabel"><label>Question/Comment</label></div>
+							<textarea name="contact[question]" data-rule-required="true" ></textarea>	        			
+		        		</div>
+						<div class="submitContent">
+							<p>Please allow up to 48 hours for a response to your inquiry</p>
+							<div class="button"><button type="submit"><img src="{{ asset('bundles/tresepicbopr/images/customerSubmitButton.png') }}" class="img-responsive"></button></div>
+						</div>
+		        	</form>
+		        </div>
+			</div>
+		</div>
+		
         {# javascripts... #}
         {% block javascripts %}
             <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
             <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+            <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
         {% javascripts output='assets/compiled/frontend.js'
             '@SyliusWebBundle/Resources/assets/js/jquery.blueimp-gallery.min.js'
             '@SyliusWebBundle/Resources/assets/js/confirm-modal.js'
@@ -297,8 +335,10 @@
             'bundles/tresepicbopr/js/vendor/jquery.sticky.js'
             'bundles/tresepicbopr/js/vendor/jquery.cookie.js'
             'bundles/tresepicbopr/js/vendor/jquery.cookiecuttr.js'
-            '@SyliusWebBundle/Resources/assets/js/frontend.js'
             '@SyliusWebBundle/Resources/assets/js/spin.min.js'
+            '@SyliusWebBundle/Resources/assets/js/jquery.magnific-popup.js'
+            '@SyliusWebBundle/Resources/assets/js/jquery.validate.min.js'
+            '@SyliusWebBundle/Resources/assets/js/frontend.js'
         %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
