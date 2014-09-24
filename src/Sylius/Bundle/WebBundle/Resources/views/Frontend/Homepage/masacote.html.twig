@@ -33,6 +33,7 @@
 						<div class="fb-like" data-href="{{ path('sylius_product_show', {'slug': product.slug}) }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 						<a href="https://twitter.com/share" class="twitter-share-button" data-text="{{ product.name }}" data-lang="{{ app.request.locale }}">Tweet</a>
 						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+						<div class="pinterest"><a href="//es.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"  data-pin-color="white"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_white_20.png" /></a></div>
 					</div>
 				    {% if product.hasVariants %}
 				            {% if product.isVariantSelectionMethodChoice %}
@@ -131,8 +132,8 @@
 				<img alt="Masacote" class="mainPicture" src="{{ asset('bundles/tresepicbopr/images/masacote.png') }}">
 				<p>Todas las semanas, el comediante Chente Ydrach se sienta a hablar con algún exponente de la comedia en Puerto Rico para discutir su historia particular o simplemente para hablar acerca del estado de la comedia en el país. Todo esto se puede cambiar si la persona entrevistada no es un/a comediante o si no se habla de comedia. En fin, en el podcast escucharás a Chente hablando mielda con otra persona. Gracias, Bye!</p>
 				<div class="social">
-					<a href="buya.fm/category/masacote/"><img alt="Twitter" src="{{ asset('bundles/tresepicbopr/images/twitter_black.png') }}"></a>
-					<a href="https://twitter.com/chenteydrach"><img alt="Rss" src="{{ asset('bundles/tresepicbopr/images/rss_black.png') }}"></a>
+					<a href="http://buya.fm/category/masacote/" target="_blank"><img alt="Twitter" src="{{ asset('bundles/tresepicbopr/images/twitter_black.png') }}"></a>
+					<a href="https://twitter.com/chenteydrach" target="_blank"><img alt="Rss" src="{{ asset('bundles/tresepicbopr/images/rss_black.png') }}"></a>
 				</div>
 				<a href="#"><img alt="Subscribe to iTunes" src="{{ asset('bundles/tresepicbopr/images/itunes_subscribe.png') }}"></a>
 			</div>
