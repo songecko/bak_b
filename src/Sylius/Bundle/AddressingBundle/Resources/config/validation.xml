@@ -90,9 +90,8 @@
                 <option name="message">sylius.address.postcode.not_blank</option>
                 <option name="groups">sylius</option>
             </constraint>
-             <constraint name="Regex">
-             	<option name="pattern">"\d+"</option>
-             	<option name="match">true</option>
+             <constraint name="Type">
+             	<option name="type">integer</option>
                 <option name="message">sylius.address.postcode.number</option>
                 <option name="groups">sylius</option>
             </constraint>
