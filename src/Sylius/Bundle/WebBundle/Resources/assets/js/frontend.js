@@ -169,7 +169,10 @@ var checkoutSubmitHandler = function (ev)
         //popup con el formulario de contacto
     	$('.costumerFormLink').magnificPopup({
   		  type:'inline',
-  		  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+  		  items: {
+  			  src: '#costumerFormPopup',
+  			  type: 'inline'
+  		  }
     	});
     	var sendingCostumerForm = false;
     	$("#costumerFormPopup form").validate(
