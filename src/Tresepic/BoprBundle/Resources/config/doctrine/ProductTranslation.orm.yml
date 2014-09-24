@@ -9,7 +9,7 @@ Tresepic\BoprBundle\Entity\ProductTranslation:
                 strategy: AUTO
     fields:
         description:
-            type: string
+            type: text
         locale:
             type: string
     lifecycleCallbacks: {  }
