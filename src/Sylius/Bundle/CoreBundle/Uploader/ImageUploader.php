@@ -13,6 +13,7 @@ namespace Sylius\Bundle\CoreBundle\Uploader;
 
 use Gaufrette\Filesystem;
 use Sylius\Bundle\CoreBundle\Model\ImageInterface;
+use Gaufrette\Exception\FileNotFound;
 
 class ImageUploader implements ImageUploaderInterface
 {
@@ -48,7 +49,10 @@ class ImageUploader implements ImageUploaderInterface
 
     public function remove($path)
     {
-        return $this->filesystem->delete($path);
+    	try {
+	        return $this->filesystem->delete($path);
+    	}catch (FileNotFound $e)
+    	{}
     }
 
     private function expandPath($path)
