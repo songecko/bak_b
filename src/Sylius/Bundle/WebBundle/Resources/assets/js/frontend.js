@@ -168,6 +168,13 @@ var checkoutSubmitHandler = function (ev)
         
         //popup con el formulario de contacto
     	$('.costumerFormLink').magnificPopup({
+		  callbacks: {
+		    open: function() {
+		    	$('.contentCostumerForm form').show();
+		    	$('.contentCostumerForm .sended').hide();
+		    	$('.contentCostumerForm form')[0].reset();
+		    },
+		  },
   		  type:'inline',
   		  items: {
   			  src: '#costumerFormPopup',
@@ -206,7 +213,8 @@ var checkoutSubmitHandler = function (ev)
 			        	  data: $(form).serialize(),
 			        	  success: function(data, textStatus, xhr) 
 			        	  {  
-			        		  $('.contentCostumerForm form').html('<h4>Sended succesful</h4>');
+			        		  $('.contentCostumerForm form').hide();
+			        		  $('.contentCostumerForm .sended').show();
 			              },
 			              complete: function(jqXHR,textStatus)
 			              {
