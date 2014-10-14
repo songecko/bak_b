@@ -29,6 +29,13 @@ class FinalizeStep extends CheckoutStep
     public function displayAction(ProcessContextInterface $context)
     {
         $order = $this->getCurrentCart();
+        
+        //Shipping events
+        $this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_PRE_COMPLETE, $order);
+        $this->getManager()->persist($order);
+        $this->getManager()->flush();
+        $this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_COMPLETE, $order);
+        
         $this->dispatchCheckoutEvent(SyliusCheckoutEvents::FINALIZE_INITIALIZE, $order);
         
         return $this->renderStep($context, $order);
