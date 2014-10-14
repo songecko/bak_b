@@ -1,5 +1,12 @@
 {% block content %}
-<form id="formStep1" method="post" action="{{ path('sylius_checkout_forward', {'stepName': context.currentStep.name}) }}" class="form-horizontal" novalidate>
+
+{% javascripts output='assets/compiled/frontend_province.js'
+    '@SyliusWebBundle/Resources/assets/js/province-choices.js'
+%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<form id="formStep2" method="post" action="{{ path('sylius_checkout_forward', {'stepName': context.currentStep.name}) }}" class="form-horizontal" novalidate>
 
 {{ form_errors(form) }}
 

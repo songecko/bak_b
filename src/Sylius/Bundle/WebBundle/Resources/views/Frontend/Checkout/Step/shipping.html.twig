@@ -1,36 +1,58 @@
+{% extends 'SyliusWebBundle:Frontend:layout.html.twig' %}
+
+{% block javascripts %}
+{{ parent() }}
+{% javascripts output='assets/compiled/frontend_province.js'
+    '@SyliusWebBundle/Resources/assets/js/province-choices.js'
+%}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}
+
 {% block content %}
-
-{#{ form_errors(form) }#}
-
-<form id="formStep2" method="post" action="{{ path('sylius_checkout_forward', {'stepName': context.currentStep.name}) }}" class="form-horizontal" novalidate>
-
-<fieldset>
-{#% for shipment in order.shipments %}
-
-{% set shipmentForm = form.shipments[loop.index0] %}
-
-{{ form_row(shipmentForm.method) }}
-
-{% endfor %#}
-<div class="form-group">
-	<label class="control-label col-lg-2 required">Método de envío</label>
-	<div class="col-lg-10">
-		<div id="sylius_checkout_shipping_shipments_0_method">
-			<div>
-				<span class="pull-right text-muted">{{ app.request.session.get('priceCalculator')|sylius_price }}</span>
-				<label><img src="{{ asset('bundles/tresepicbopr/images/us_postal_service_logo.png') }}"></label>
-			</div>
-		</div>
-	</div>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+          1- {{ 'sylius.checkout.shipping.header'|trans|raw }}
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <div class="preloader">
+    	<img src="{{ asset('bundles/tresepicbopr/images/preload.gif') }}">
+      </div>
+      <div class="panel-body">
+	  	{% include 'SyliusWebBundle:Frontend/Checkout/Step/Content:shipping.html.twig' %}
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+          2- {{ 'sylius.checkout.addressing.header'|trans|raw }}
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="preloader">
+    	<img src="{{ asset('bundles/tresepicbopr/images/preload.gif') }}">
+      </div>
+      <div class="panel-body">
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+          3- {{ 'sylius.checkout.finalize.header'|trans|raw }}
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="preloader">
+    	<img src="{{ asset('bundles/tresepicbopr/images/preload.gif') }}">
+      </div>
+      <div class="panel-body">
+      </div>
+    </div>
+  </div>
 </div>
-</fieldset>
-
-{#{ form_widget(form._token) }#}
-
-<div class="form-actions">
-    {#}<a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="btn btn-lg"><i class="icon-chevron-left"></i> {{ 'sylius.checkout.back'|trans }}</a> &nbsp;{#}
-    <button type="submit" class="btn btn-primary btn-lg">{{ 'sylius.checkout.forward'|trans }} <i class="icon-chevron-right"></i></button>
-</div>
-
-</form>
 {% endblock %}

@@ -39,12 +39,11 @@ class FinalizeStep extends CheckoutStep
      */
     public function forwardAction(ProcessContextInterface $context)
     {
-    	$request = $this->getRequest();
+    	//$request = $this->getRequest();
     	
         $order = $this->getCurrentCart();
         $this->dispatchCheckoutEvent(SyliusCheckoutEvents::FINALIZE_INITIALIZE, $order);
-
-        $order->setTotal(($order->getTotal())+($request->getSession()->get('priceCalculator')));
+        //$order->setTotal(($order->getTotal())+($request->getSession()->get('priceCalculator')));
         
         $order->setUser($this->getUser());
 
@@ -55,7 +54,7 @@ class FinalizeStep extends CheckoutStep
 
     protected function renderStep(ProcessContextInterface $context, OrderInterface $order)
     {
-        return $this->render('SyliusWebBundle:Frontend/Checkout/Step:finalize.html.twig', array(
+    	return $this->renderCheckoutStep("finalize.html.twig", array(
             'context' => $context,
             'order'   => $order
         ));
@@ -70,7 +69,7 @@ class FinalizeStep extends CheckoutStep
     {
         $this->dispatchCheckoutEvent(SyliusOrderEvents::PRE_CREATE, $order);
         $this->dispatchCheckoutEvent(SyliusCheckoutEvents::FINALIZE_PRE_COMPLETE, $order);
-        
+
         $manager = $this->get('sylius.manager.order');
         $manager->persist($order);
         $manager->flush();

@@ -11,12 +11,18 @@ var step = 1;
 
 var checkoutSubmitHandler = function (ev) 
 {
+	$('#collapse'+step+' .preloader').css('display', 'inline');
+	
     $.ajax({
         type: $(this).attr('method'),
         url: $(this).attr('action'),
         data: $(this).serialize(),
-        success: function (data) 
+        complete: function()
         {
+        	$('#collapse'+step+' .preloader').hide();
+        },
+        success: function (data) 
+        {	
         	if(data.indexOf('has-error') <= 0)
         	{
         		$('#collapse'+step).collapse('hide');        		
@@ -30,22 +36,17 @@ var checkoutSubmitHandler = function (ev)
         	{
         		step = 2;
         	}
-        	else if(data.indexOf('formStep3') >=0)
+        	else
         	{
         		step = 3;
         	}
-        	else
-        	{
-        		step = 4;
-        	}
         	
         	$('#collapse'+step+' .panel-body').html(data);
-
+        	
         	if(data.indexOf('has-error') <= 0)
         	{
-        		$('#collapse'+step).collapse('show');       		
+        		$('#collapse'+step).collapse('show');
         	}
-        	
         	
         	$('#formStep'+step).submit(checkoutSubmitHandler);
         }

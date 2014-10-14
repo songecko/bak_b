@@ -1,0 +1,29 @@
+{% block content %}
+
+{{ form_errors(form) }}
+
+<form id="formStep1" method="post" action="{{ path('sylius_checkout_forward', {'stepName': context.currentStep.name}) }}" class="form-horizontal" novalidate>
+
+<fieldset class="{{ form.vars.valid?'':'has-error' }}">
+{% for shipment in order.shipments %}
+{% set shipmentForm = form.shipments[loop.index0] %}
+	{% for shipmentMethod in shipmentForm.method %}
+	{% set shipmentClass = shipmentMethod.vars.label=="Pick Me Up"?"pickmeup":"usps" %}
+	<div class="shippingMethod {{ shipmentClass }}">
+		{{ form_errors(shipmentMethod) }}
+		{{ form_widget(shipmentMethod) }}
+		{{ form_label(shipmentMethod, ' ') }}
+	</div>
+	{% endfor %}
+{% endfor %}
+</fieldset>
+
+{{ form_widget(form._token) }}
+
+<div class="form-actions">
+    {#}<a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="btn btn-lg"><i class="icon-chevron-left"></i> {{ 'sylius.checkout.back'|trans }}</a> &nbsp;{#}
+    <button type="submit" class="btn btn-primary btn-lg">{{ 'sylius.checkout.forward'|trans }} <i class="icon-chevron-right"></i></button>
+</div>
+
+</form>
+{% endblock %}

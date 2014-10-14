@@ -1,0 +1,121 @@
+{% block content %}
+
+{% if (order.shippingAddress is not defined) and (order.billingAddress is not defined) %}
+<div class="address clearfix">
+	{% if order.shippingAddress is not defined %}
+    <div class="col-md-6">
+        <h4>{{ 'sylius.checkout.finalize.order.shipping_address'|trans }}</h4>
+        {% include 'SyliusWebBundle:Common/Address:_show.html.twig' with { 'address': order.shippingAddress } %}
+    </div>
+    {% endif %}
+    {% if order.billingAddress is not defined %}
+    <div class="col-md-6">
+        <h4>{{ 'sylius.checkout.finalize.order.billing_address'|trans }}</h4>
+        {% include 'SyliusWebBundle:Common/Address:_show.html.twig' with { 'address': order.billingAddress } %}
+    </div>
+    {% endif %}
+</div>
+{% endif %}
+
+<table class="table table-striped table-bordered" style="width: 100%;">
+	{% if not(is_mobile()) %}
+    <thead>
+        <tr>
+            <th>#</th>
+            <th style="text-align: left;">{{ 'sylius.checkout.finalize.product.name'|trans }}</th>
+            <th style="text-align: left;">{{ 'sylius.checkout.finalize.order_item.quantity'|trans }}</th>
+            <th style="text-align: left;"><span class="pull-right">{{ 'sylius.checkout.finalize.order_item.unit_price'|trans }}</span></th>
+            <th style="text-align: left;"><span class="pull-right">Subtotal</span></th>
+        </tr>
+    </thead>
+    {% endif %}
+    <tbody>
+        {% for item in order.items %}
+            {% include 'SyliusWebBundle:Frontend/Checkout/Step/Finalize:_item.html.twig' %}
+        {% else %}
+        <tr>
+            <td colspan="5">
+                <hr />
+                <div class="alert alert-info">{{ 'sylius.checkout.finalize.order.no_items'|trans }}</div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+    	<tr>
+            <td colspan="5">
+                <span class="pull-right">
+                	<strong>Subtotal</strong>: {{ order.itemsTotal|sylius_money }}
+                </span>
+            </td>
+        </tr>
+        {% if order.taxAdjustments|length > 0 %}
+        <tr>
+            <td colspan="3">
+            	<p><strong>{{ 'sylius.checkout.finalize.order.taxes'|trans }}</strong></p>
+            <ul>
+            {% for taxAdjustment in order.taxAdjustments %}
+                <li>{{ taxAdjustment.description }} {{ taxAdjustment.amount|sylius_money }} </li>
+            {% else %}
+                <li><span class="label label-info">{{ 'sylius.checkout.finalize.order.no_taxes'|trans }}</span></li>
+            {% endfor %}
+            </ul>
+            </td>
+            <td colspan="2">
+                <span class="pull-right">
+               	 <strong>{{ 'sylius.checkout.finalize.order.tax_total'|trans }}</strong>: {{ order.taxTotal|sylius_money }}
+                </span>
+            </td>
+        </tr>
+        {% endif %}
+        <tr>
+            <td colspan="3">
+            	<p><strong>{{ 'sylius.checkout.finalize.order.shipping_charges'|trans }}</strong></p>
+	            <ul>
+	            {% for adjustment in order.shippingAdjustments %}
+	                <li>{{ adjustment.description }} {{ adjustment.amount|sylius_money }} </li>
+	            {% else %}
+	                <li><span class="label label-info">{{ 'sylius.checkout.finalize.order.no_shipping_charges'|trans }}</span></li>
+	            {% endfor %}
+	            </ul>
+            </td>
+            <td colspan="2">
+                <span class="pull-right">
+               		<strong>{{ 'sylius.checkout.finalize.order.shipping_total'|trans }}</strong>: {{ order.shippingTotal|sylius_money }}
+                </span>
+            </td>
+        </tr>
+        {% if order.promotionAdjustments|length > 0 %}
+            <tr>
+                <td colspan="3">
+	                <p><strong>{{ 'sylius.checkout.finalize.order.promotion_discount'|trans }}</strong></p>
+	                <ul>
+	                {% for adjustment in order.promotionAdjustments %}
+	                    <li>{{ adjustment.description }} {{ adjustment.amount|sylius_money }} </li>
+	                {% endfor %}
+	                </ul>
+                </td>
+                <td colspan="2">
+                    <span class="pull-right">
+                    	<strong>{{ 'sylius.checkout.finalize.order.promotion_total'|trans }}</strong>: {{ order.promotionTotal|sylius_money }}
+                    </span>
+                </td>
+            </tr>
+        {% endif %}
+        <tr style="background-color: #f1f1f1;">
+            <td colspan="5">
+                <span class="pull-right">
+                	<strong>Total</strong>: {{ order.total|sylius_money }}
+                </span>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<br>
+<div class="form-horizontal">
+    <div class="form-actions">
+        {#}<a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="btn btn-lg"><i class="icon-chevron-left"></i> {{ 'sylius.checkout.back'|trans }}</a> &nbsp;{#}
+        <a href="{{ path('sylius_checkout_forward', {'stepName': context.currentStep.name}) }}" class="btn btn-lg btn-success"><i class="icon-ok"></i>{{ 'sylius.checkout.finalize.place_order'|trans }}</a> &nbsp;
+    </div>
+</div>
+{% endblock %}

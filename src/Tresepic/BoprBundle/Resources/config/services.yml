@@ -1,5 +1,6 @@
 parameters:
     sylius.menu_builder.backend.class: Tresepic\BoprBundle\Menu\BackendMenuBuilder
+    sylius.shipping_calculator.usps.class: Tresepic\BoprBundle\Shipping\Calculator\USPSCalculator
 
 services:
     bopr.form.type.manufacturer:
@@ -16,3 +17,8 @@ services:
     bopr.send.mailer:
         class: Tresepic\BoprBundle\Mailer\SendMailer
         arguments: ["@service_container"]
+        
+    sylius.shipping_calculator.usps:
+        class: "%sylius.shipping_calculator.usps.class%"
+        tags:
+            - { name: "sylius.shipping_calculator", calculator: "usps", label: "USPS Calculator" }

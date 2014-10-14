@@ -17,7 +17,6 @@ use Sylius\Bundle\CoreBundle\Model\OrderInterface;
 use Sylius\Bundle\FlowBundle\Process\Context\ProcessContextInterface;
 use Symfony\Component\Form\FormInterface;
 
-require_once dirname(__FILE__).'/../../../../../Tresepic/BoprBundle/usps/PriceCalculator.php';
 
 /**
  * The shipping step of checkout.
@@ -32,7 +31,7 @@ class ShippingStep extends CheckoutStep
     /**
      * @var null|ZoneInterface
      */
-    private $zone;
+    //private $zone;
 
     /**
      * {@inheritdoc}
@@ -40,38 +39,15 @@ class ShippingStep extends CheckoutStep
     public function displayAction(ProcessContextInterface $context)
     {
         $order = $this->getCurrentCart();
-        //$this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_INITIALIZE, $order);
+        $this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_INITIALIZE, $order);
 
-        //$form = $this->createCheckoutShippingForm($order);
+        $form = $this->createCheckoutShippingForm($order);
 
         /*if (null === $this->zone) {
             return $this->proceed($context->getPreviousStep()->getName());
         }*/
-		
-        $country = $order->getShippingAddress()->getCountry()->getName();
-        $postCode = $order->getShippingAddress()->getPostcode();
         
-        $totalPounds = 0;
-        $totalWidth = 0;
-        $totalLength = 0;
-        $totalHeight = 0;
-        
-        foreach($order->getItems() as $item)
-        {
-        	$totalPounds += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getWeight());
-        	$totalWidth += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getWidth());
-        	$totalLength += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getDepth());
-        	$totalHeight += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getHeight());
-        }
-        
-        $totalOunces = $totalPounds*16;
-        
-        $priceCalculator = USPSParcelRate($totalPounds, $totalOunces, 'REGULAR', $postCode, $country, $totalWidth, $totalLength, $totalHeight);
-        
-        $session = $this->get('session');
-        $session->set('priceCalculator', $priceCalculator*100);
-        
-        return $this->renderStep($context, $order/*, $form*/);
+        return $this->renderStep($context, $order, $form);
     }
 
     /**
@@ -82,44 +58,57 @@ class ShippingStep extends CheckoutStep
         $request = $this->getRequest();
 
         $order = $this->getCurrentCart();
-        //$this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_INITIALIZE, $order);
+        $this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_INITIALIZE, $order);
 
-        //$form = $this->createCheckoutShippingForm($order);
+        $form = $this->createCheckoutShippingForm($order);
 
-        /*if ($request->isMethod('POST') && $form->submit($request)->isValid()) {
+        if ($request->isMethod('POST') && $form->submit($request)->isValid()) {
             $this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_PRE_COMPLETE, $order);
-  */
             
             $this->getManager()->persist($order);
             $this->getManager()->flush();
 
-    //        $this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_COMPLETE, $order);
-
+            $this->dispatchCheckoutEvent(SyliusCheckoutEvents::SHIPPING_COMPLETE, $order);
+            
+            //Payment events
+            $this->dispatchCheckoutEvent(SyliusCheckoutEvents::PAYMENT_INITIALIZE, $order);
+            $this->dispatchCheckoutEvent(SyliusCheckoutEvents::PAYMENT_PRE_COMPLETE, $order);
+            
+            $this->getManager()->persist($order);
+            $this->getManager()->flush();
+            
+            $this->dispatchCheckoutEvent(SyliusCheckoutEvents::PAYMENT_COMPLETE, $order);
+            
+            $shipment = $order->getShipments()->first();
+            if($shipment && $shipment->getMethod() == 'Pick Me Up')
+            {
+            	return $this->proceed('finalize');
+            }
             return $this->complete();
-      //  }
+        }
 
-        //return $this->renderStep($context, $order/*, $form*/);
+        return $this->renderStep($context, $order, $form);
     }
 
-    protected function renderStep(ProcessContextInterface $context, OrderInterface $order/*, FormInterface $form*/)
+    protected function renderStep(ProcessContextInterface $context, OrderInterface $order, FormInterface $form)
     {
-        return $this->render('SyliusWebBundle:Frontend/Checkout/Step:shipping.html.twig', array(
+    	return $this->renderCheckoutStep('shipping.html.twig', array(
             'order'   => $order,
-            //'form'    => $form->createView(),
+            'form'    => $form->createView(),
             'context' => $context,
         ));
     }
 
-    /*protected function createCheckoutShippingForm(OrderInterface $order)
+    protected function createCheckoutShippingForm(OrderInterface $order)
     {
-        $this->zone = $this->getZoneMatcher()->match($order->getShippingAddress());
+        /*$this->zone = $this->getZoneMatcher()->match($order->getShippingAddress());
 
         if (null === $this->zone) {
             $this->get('session')->getFlashBag()->add('error', 'sylius.checkout.shipping.error');
-        }
+        }*/
 
         return $this->createForm('sylius_checkout_shipping', $order, array(
-            'criteria' => array('zone' => $this->zone)
+            'criteria' => array()//array('zone' => $this->zone)
         ));
-    }*/
+    }
 }

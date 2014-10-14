@@ -65,7 +65,7 @@ class PaymentStep extends CheckoutStep
 
     protected function renderStep(ProcessContextInterface $context, OrderInterface $order/*, FormInterface $form*/)
     {
-        return $this->render('SyliusWebBundle:Frontend/Checkout/Step:payment.html.twig', array(
+    	return $this->renderCheckoutStep("payment.html.twig", array(
             'order'   => $order,
             //'form'    => $form->createView(),
             'context' => $context

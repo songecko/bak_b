@@ -227,16 +227,20 @@ function USPSParcelRate($pounds, $ounces, $pack_size, $dest_zip, $country, $widt
 		// echo '<!-- '. $data. ' -->'; // Uncomment to show XML in comments
 		/* Customized For getting Service name and Price as array*/
 		$new_xml = xml2array($data);
-		$Services = $new_xml['IntlRateV2Response']['Package']['Service'];
 		$rate = 0; $n=1;
-		foreach($Services as $service)
+		$packages =  $new_xml['IntlRateV2Response']['Package'];
+		if(isset($packages['Service']))
 		{
-			if(isset($service['Postage']))
+			$Services = $packages['Service'];
+			foreach($Services as $service)
 			{
-				if($n==1){$rate=$service['Postage']; $n++; continue;}
-		
-				if($rate>$service['Postage'])
-					$rate=$service['Postage'];
+				if(isset($service['Postage']))
+				{
+					if($n==1){$rate=$service['Postage']; $n++; continue;}
+			
+					if($rate>$service['Postage'])
+						$rate=$service['Postage'];
+				}
 			}
 		}
 	}

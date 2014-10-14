@@ -19,6 +19,8 @@ use Sylius\Bundle\FlowBundle\Process\Step\ControllerStep;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
+use Sylius\Bundle\FlowBundle\Process\Context\ProcessContextInterface;
+use Symfony\Component\Form\FormInterface;
 
 /**
  * Base class for checkout steps.
@@ -81,6 +83,18 @@ abstract class CheckoutStep extends ControllerStep
         }
     }
 
+    public function renderCheckoutStep($view, $viewParams)
+    {
+    	$baseView = "SyliusWebBundle:Frontend/Checkout/Step";
+    	
+    	if($this->getRequest()->isXmlHttpRequest())
+    	{
+    		$baseView .= "/Content";
+    	}
+    	 
+    	return $this->render($baseView.':'.$view, $viewParams);
+    }
+   	
     /**
      * Dispatch event.
      *

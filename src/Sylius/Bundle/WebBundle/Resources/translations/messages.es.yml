@@ -127,7 +127,7 @@ sylius:
     shipping_category:
       index: Categorías de envío
     shipping_method:
-      index: Métodos de envío
+      index: Método de envío
     tax_category:
       index: Categorías de impuestos
     tax_rate:

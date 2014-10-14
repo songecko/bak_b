@@ -331,6 +331,21 @@ header .navMenu li.custom {
 #content {
 }
 
+#content .collapse {
+	position: relative;
+}
+
+#content .collapse .preloader {
+	display: none;
+	width: 100%;
+	height: 100%;
+	line-height: 120px;
+	background: rgba(0, 0, 0, 0.2);
+	position: absolute;
+	text-align: center;
+	z-index: 999;
+}
+	
 #content .breadcrumb {
 	height: 20px;
 	background-color: #ffffff;
@@ -1379,6 +1394,53 @@ footer .info4 .copyright span {
 .vjs-error-display, .vjs-control-bar {
 	display:none;
 }
+
+
+/** Checkout **/
+#content form fieldset {
+	margin-bottom: 30px;
+}
+
+#content form fieldset .shippingMethod {
+	float: left;
+	margin-right: 30px;
+}
+
+#content form fieldset .shippingMethod input[type=radio] {
+    display:none;
+}
+
+#content form fieldset .shippingMethod input[type=radio] + label {
+    display:inline-block;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.45);
+	-moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.45);
+	box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.45);
+}
+
+#content form fieldset .shippingMethod.usps input[type=radio] + label {
+	background: url(../images/usps.jpg) no-repeat;
+	background-size: cover;
+	width: 230px;
+	height: 220px;
+}
+
+#content form fieldset .shippingMethod.pickmeup input[type=radio] + label {
+	background: url(../images/pickmeup.jpg) no-repeat;
+	background-size: cover;
+	width: 217px;
+	height: 220px;
+}
+
+#content form fieldset .shippingMethod input[type=radio]:checked + label {
+	-webkit-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+	box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
+}
+
+
 
 /*** MEDIA QUERYS ***/
 

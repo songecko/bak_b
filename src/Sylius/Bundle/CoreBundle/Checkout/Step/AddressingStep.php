@@ -32,16 +32,13 @@ class AddressingStep extends CheckoutStep
         $order = $this->getCurrentCart();
         $this->dispatchCheckoutEvent(SyliusCheckoutEvents::ADDRESSING_INITIALIZE, $order);
 
-
-        if (  $this->getUser()->getShippingAddress())
+        if ($this->getUser()->getShippingAddress())
        		$order->setShippingAddress( $this->getUser()->getShippingAddress());
-        if (  $this->getUser()->getBillingAddress())
+        if ($this->getUser()->getBillingAddress())
        		 $order->setBillingAddress( $this->getUser()->getBillingAddress());
         
         
         $form = $this->createCheckoutAddressingForm($order);
-      
-     
 
         return $this->renderStep($context, $order, $form);
     }
@@ -65,9 +62,7 @@ class AddressingStep extends CheckoutStep
      
             $this->getUser()->setShippingAddress($order->getShippingAddress());
             if ($order->getBillingAddress()) 
-            $this->getUser()->setBillingAddress($order->getBillingAddress());
-            
-
+            	$this->getUser()->setBillingAddress($order->getBillingAddress());            
        
             $this->getManager()->flush();
 		
@@ -81,16 +76,7 @@ class AddressingStep extends CheckoutStep
 
     protected function renderStep(ProcessContextInterface $context, OrderInterface $order, FormInterface $form)
     {
-    	if($this->getRequest()->isXmlHttpRequest())
-    	{
-    		return $this->render('SyliusWebBundle:Frontend/Checkout/Step:addressingAjax.html.twig', array(
-    				'order'   => $order,
-    				'form'    => $form->createView(),
-    				'context' => $context
-    		));
-    	}
-    	
-        return $this->render('SyliusWebBundle:Frontend/Checkout/Step:addressing.html.twig', array(
+    	return $this->renderCheckoutStep("addressing.html.twig", array(
             'order'   => $order,
             'form'    => $form->createView(),
             'context' => $context
