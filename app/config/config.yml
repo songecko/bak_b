@@ -60,6 +60,9 @@ doctrine:
                     softdeleteable:
                         class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
                         enabled: true
+                dql:
+                  numeric_functions:
+                        RAND: TresEpic\BoprBundle\DQL\Rand
 
 doctrine_phpcr:
     session:
