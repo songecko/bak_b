@@ -62,7 +62,7 @@ doctrine:
                         enabled: true
                 dql:
                   numeric_functions:
-                        RAND: TresEpic\BoprBundle\DQL\Rand
+                        RAND: Tresepic\BoprBundle\DQL\Rand
 
 doctrine_phpcr:
     session:

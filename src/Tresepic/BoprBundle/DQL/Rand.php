@@ -1,6 +1,6 @@
 <?php
 
-namespace TresEpic\BoprBundle\DQL;
+namespace Tresepic\BoprBundle\DQL;
 
 
 use Doctrine\ORM\Query\AST\Functions\FunctionNode;
