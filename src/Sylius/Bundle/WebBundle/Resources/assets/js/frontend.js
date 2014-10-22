@@ -111,10 +111,10 @@ var checkoutSubmitHandler = function (ev)
         $("#gallery img").click(function(){
             $('#mainImage').attr('src',$(this).data('mediumImg'));
             $('#mainImage').data('zoomImage', $(this).data('bigImg'));
-			//$("#mainImage").elevateZoom();
+			$("#mainImage").elevateZoom();
         });
         
-        //$("#mainImage").elevateZoom();
+        $("#mainImage").elevateZoom();
         
         $('.chentesDescription .chenteButton').click(function(e)
         {
