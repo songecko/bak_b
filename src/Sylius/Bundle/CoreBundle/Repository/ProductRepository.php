@@ -43,7 +43,7 @@ class ProductRepository extends VariableProductRepository
         ->innerJoin('product.taxons', 'taxon') 
         ->andWhere('taxon = :taxon')
         ->setParameter('taxon', $taxon)
-        ->orderBy('r')
+        ->orderBy('product.manufacturer, r')
         ;
         
         return $this->getPaginator($queryBuilder);
