@@ -41,7 +41,7 @@ parameters:
     sylius.oauth.google.clientid:       <google_client_id>
     sylius.oauth.google.clientsecret:   <google_client_secret>
 
-    sylius.inventory.backorders_enabled: true
+    sylius.inventory.backorders_enabled: false
     sylius.inventory.tracking_enabled: true
     tresepic.paypal.fee: 0.90
     tresepic.contact.mail: 'info@brandsofpuertorico.com'

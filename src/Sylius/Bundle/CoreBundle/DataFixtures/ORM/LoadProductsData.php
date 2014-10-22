@@ -127,7 +127,10 @@ class LoadProductsData extends DataFixture
         $product->addOption($this->getReference('Sylius.Option.T-Shirt size'));
         $product->addOption($this->getReference('Sylius.Option.T-Shirt color'));
 
+        
         $this->generateVariants($product);
+        $ManuRand = rand(1,5);
+        $product->setManufacturer($this->getReference('Sylius.Manufacturer-'.$ManuRand));
 
         $this->setReference('Sylius.Product-'.$i, $product);
 

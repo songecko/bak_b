@@ -33,15 +33,19 @@ class ProductRepository extends VariableProductRepository
      */
     public function createByTaxonPaginator(TaxonInterface $taxon)
     {
+    	
         $queryBuilder = $this->getCollectionQueryBuilder();
 
+        $queryBuilder = $this->getCollectionQueryBuilder();
+        
         $queryBuilder
-            ->innerJoin('product.taxons', 'taxon')
-            ->andWhere('taxon = :taxon')
-            ->setParameter('taxon', $taxon)
-            ->orderBy('product.position', 'ASC')
+        ->select($this->getAlias(), 'RAND() AS HIDDEN r')
+        ->innerJoin('product.taxons', 'taxon') 
+        ->andWhere('taxon = :taxon')
+        ->setParameter('taxon', $taxon)
+        ->orderBy('product.manufacturer, r')
         ;
-
+        
         return $this->getPaginator($queryBuilder);
     }
 
