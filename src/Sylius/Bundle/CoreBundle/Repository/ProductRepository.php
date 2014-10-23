@@ -15,6 +15,9 @@ use Sylius\Bundle\CoreBundle\Model\ProductInterface;
 use Sylius\Bundle\TaxonomiesBundle\Model\TaxonInterface;
 use Sylius\Bundle\VariableProductBundle\Doctrine\ORM\VariableProductRepository;
 use Proxies\__CG__\Tresepic\BoprBundle\Entity\Product;
+use Pagerfanta\Adapter\AdapterInterface;
+use Pagerfanta\Adapter\ArrayAdapter;
+use Pagerfanta\Pagerfanta;
 
 /**
  * Product repository.
@@ -34,7 +37,7 @@ class ProductRepository extends VariableProductRepository
     public function createByTaxonPaginator(TaxonInterface $taxon)
     {
     	
-        $queryBuilder = $this->getCollectionQueryBuilder();
+       /* $queryBuilder = $this->getCollectionQueryBuilder();
 
         $queryBuilder = $this->getCollectionQueryBuilder();
         
@@ -44,11 +47,77 @@ class ProductRepository extends VariableProductRepository
         ->andWhere('taxon = :taxon')
         ->setParameter('taxon', $taxon)
         ->orderBy('product.manufacturer, r')
-        ;
+        ;*/
+    	//return $this->getPaginator($queryBuilder);
+    	
+        $products = $this->createByTaxon($taxon);
         
-        return $this->getPaginator($queryBuilder);
+        return new Pagerfanta(new ArrayAdapter($products));
+        
     }
+    
+    public function createByTaxon(TaxonInterface $taxon)
+    {
+    	 
+    	$queryBuilder = $this->getCollectionQueryBuilder();
+    
+    	$queryBuilder = $this->getCollectionQueryBuilder();
+    
+    	$queryBuilder
+    	->innerJoin('product.taxons', 'taxon')
+    	->andWhere('taxon = :taxon')
+    	->setParameter('taxon', $taxon)
+    	;
+    	
+    	$products = $queryBuilder->getQuery()->getResult();
+    	$manufacturerArray = array();
+    	//recorro todos los productos creando un array de marcas de productos
+    	foreach($products as $product){  
+    		//si existe marca en producto 		
+			if($product->getManufacturer()){
+		    	//si la marca no está en el array, guardo nueva marca
+		    	if (!in_array($product->getManufacturer()->getId(), $manufacturerArray))
+		    	{
+		    		$manufacturerArray[] = $product->getManufacturer()->getId();
+		    	}
+			}else
+			{
+				if (!in_array('others', $manufacturerArray))
+				{
+					$manufacturerArray[] = 'others';
+				}
+			}
+    	}
+    	//mezclo array
+    	shuffle($manufacturerArray);
+    	//recorro el array de marcas y voy llenando el vector de productos
+    	$productsRandom = array();
+    	foreach($manufacturerArray as $manufactureId)
+    	{    	
+    		$productsRandomized = array();
+    		foreach($products as $product)
+    		{
+    			//si no productos sin marcas
+    			if($product->getManufacturer())
+    			{
+	    			if($manufactureId == $product->getManufacturer()->getId())
+	    			{
+	    				$productsRandomized[] = $product;
+	    			}
+    			}else
+    			{
+    				if($manufactureId == 'others')
+    				{
+    					$productsRandomized[] = $product;
+    				}
+    			}
+    		}// end for each products
+    		$productsRandom[$manufactureId] = $productsRandomized;
 
+    	}
+    //	ldd($productsRandom);
+    	return $productsRandom;
+    }
     /**
      * Create filter paginator.
      *

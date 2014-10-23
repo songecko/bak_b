@@ -36,7 +36,7 @@
 			</div>-->
 			<div class="row">
 				<div class="paginator col-md-12 col-xs-12">
-					{{ pagination(products) }}
+					{#{ pagination(productss) }#}
 					<!--<img src="{#{ asset('bundles/tresepicbopr/images/separator-page.png') }#}" / > -->
 					<!--  <div class="sortBy">
 						<p>Sort by: </p><select><option>Position</option></select>
@@ -58,11 +58,15 @@
 				</div>
 			</div>#}
 			<div class="products clearfix row">
+			{% for products in productss %}
+			<div class="page page1">
 				{{ list(products) }}
+			</div>
+			{% endfor %}
 			</div>
 			<div class="row">
 				<div class="paginatorFooter col-md-12 col-xs-12">
-					{{ pagination(products) }}
+					{#{ pagination(productss) }#}
 				</div>
 			</div>
 		</div>
