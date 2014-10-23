@@ -57,13 +57,11 @@
 					<p>Items 1 to {{ products.getCurrentPageResults|length }} of {{ taxon.getProducts|length }} total in the {{ taxon.name }} shop</p>
 				</div>
 			</div>#}
-			<div class="products clearfix row">
 			{% for products in productss %}
-			<div class="page page1">
-				{{ list(products) }}
+			<div class="page page{{loop.index}}">
+					{{ list(products) }}
 			</div>
 			{% endfor %}
-			</div>
 			<div class="row">
 				<div class="paginatorFooter col-md-12 col-xs-12">
 					{#{ pagination(productss) }#}

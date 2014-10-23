@@ -1440,6 +1440,8 @@ footer .info4 .copyright span {
 	box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.75);
 }
 
+#content .container .productList .page{ display:none}
+#content .container .productList .page.page1{ display:block;}
 
 
 /*** MEDIA QUERYS ***/

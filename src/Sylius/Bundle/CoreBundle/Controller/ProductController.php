@@ -46,23 +46,18 @@ class ProductController extends ResourceController
             ->getRepository()
             ->createByTaxonPaginator($taxon)
         ;
-       // $paginator->setMaxPerPage($this->config->getPaginationMaxPerPage());
+        $paginator->setMaxPerPage($this->config->getPaginationMaxPerPage());
         
-     /*   $products = array();
+        $products = array();
         for($i=0; $i<$paginator->getNbPages();$i++)
         {
         	$paginator->setCurrentPage($i+1);
         	$products[$i] = $paginator->getCurrentPageResults();
-        	ldd($products[$i]);
-        	 
         }
-        	 ldd($products);*/
-       // $paginator->setMaxPerPage($this->config->getPaginationMaxPerPage());
-       // $paginator->setCurrentPage($request->query->get('page', 1));
 
         return $this->render($this->config->getTemplate('indexByTaxon.html'), array(
             'taxon'    => $taxon,
-            'productss' => $paginator,
+            'productss' => $products,
         ));
     }
 
