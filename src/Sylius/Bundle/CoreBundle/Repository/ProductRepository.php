@@ -57,12 +57,14 @@ class ProductRepository extends VariableProductRepository
     public function createByTaxon(TaxonInterface $taxon)
     {
     	$queryBuilder = $this->_em->createQueryBuilder()
-    	->select('manufacturer')
-    	->from('Tresepic\BoprBundle\Entity\Manufacturer', 'manufacturer')
-    	->leftJoin('manufacturer.products','product')
-    	->innerJoin('product.taxons', 'taxon')
-    	->andWhere('taxon = :taxon')
-    	->setParameter('taxon', $taxon)
+	    	->select('manufacturer, product, taxon, variant, variantImage')
+	    	->from('Tresepic\BoprBundle\Entity\Manufacturer', 'manufacturer')
+	    	->leftJoin('manufacturer.products','product')
+	    	->innerJoin('product.taxons', 'taxon')
+	    	->leftJoin('product.variants','variant')
+	    	->leftJoin('variant.images','variantImage')
+	    	->andWhere('taxon = :taxon')
+	    	->setParameter('taxon', $taxon)
     	;
     	
     	$manufactures = $queryBuilder->getQuery()->getResult();

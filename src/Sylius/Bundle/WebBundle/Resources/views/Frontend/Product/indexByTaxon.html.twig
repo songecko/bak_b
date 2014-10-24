@@ -25,50 +25,15 @@
 		</ul>
 	</div>
 	{% endif %}
-	{#{ knp_menu_render('sylius.frontend.taxonomies', {'template': 'SyliusWebBundle:Frontend:menu.html.twig'}) }#}
 	{% endblock %}
 	
 	<div class="productList row">
 		<div class="col-md-12 col-xs-12">
-			<!-- <div class="row">
-				<div class="static1 col-md-12">
-				</div>
-			</div>-->
-			<div class="row">
-				<div class="paginator col-md-12 col-xs-12">
-					{#{ pagination(productss) }#}
-					<!--<img src="{#{ asset('bundles/tresepicbopr/images/separator-page.png') }#}" / > -->
-					<!--  <div class="sortBy">
-						<p>Sort by: </p><select><option>Position</option></select>
-					</div>
-					<div class="show">
-						<p>Show: </p><select><option>10</option></select><p>per page</p>
-					</div>
-					<div class="page">
-						<p>Page: </p>
-					</div>
-					<div class="view">
-						<p>View as: </p>
-					</div>-->
-				</div>
-			</div>
-			{#<div class="row">
-				<div class="items col-md-12 col-xs-12">
-					<p>Items 1 to {{ products.getCurrentPageResults|length }} of {{ taxon.getProducts|length }} total in the {{ taxon.name }} shop</p>
-				</div>
-			</div>#}
 			{% for products in productss %}
 			<div class="page page{{loop.index}}">
 					{{ list(products) }}
 			</div>
 			{% endfor %}
-			<div class="row">
-				<div class="paginatorFooter col-md-12 col-xs-12">
-					{#{ pagination(productss) }#}
-				</div>
-			</div>
 		</div>
 	</div>
-
-    {#{ 'sylius.product.index_by_taxon_header'|trans({'%taxon%': taxon.name})|raw }#}
 {% endblock %}

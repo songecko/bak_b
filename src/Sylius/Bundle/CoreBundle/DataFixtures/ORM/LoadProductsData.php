@@ -127,10 +127,9 @@ class LoadProductsData extends DataFixture
         $product->addOption($this->getReference('Sylius.Option.T-Shirt size'));
         $product->addOption($this->getReference('Sylius.Option.T-Shirt color'));
 
-        
         $this->generateVariants($product);
-        $ManuRand = rand(1,5);
-        $product->setManufacturer($this->getReference('Sylius.Manufacturer-'.$ManuRand));
+        
+        $this->addManufacturer($product);
 
         $this->setReference('Sylius.Product-'.$i, $product);
 
@@ -167,6 +166,8 @@ class LoadProductsData extends DataFixture
         $product->addOption($this->getReference('Sylius.Option.Sticker size'));
 
         $this->generateVariants($product);
+        
+        $this->addManufacturer($product);
 
         $this->setReference('Sylius.Product.'.$i, $product);
 
@@ -197,6 +198,8 @@ class LoadProductsData extends DataFixture
         $product->addOption($this->getReference('Sylius.Option.Mug type'));
 
         $this->generateVariants($product);
+        
+        $this->addManufacturer($product);
 
         $this->setReference('Sylius.Product.'.$i, $product);
 
@@ -228,11 +231,19 @@ class LoadProductsData extends DataFixture
         $this->addProperty($product, 'Book ISBN', $isbn);
         $this->addProperty($product, 'Book pages', $this->faker->randomNumber(3));
 
+        $this->addManufacturer($product);
+        
         $this->setReference('Sylius.Product.'.$i, $product);
 
         return $product;
     }
 
+    private function addManufacturer(ProductInterface $product)
+    {
+    	$manuRand = rand(1,5);
+    	$product->setManufacturer($this->getReference('Sylius.Manufacturer-'.$manuRand));
+    }
+    
     /**
      * Generates all possible variants with random prices.
      *

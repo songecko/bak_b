@@ -24,13 +24,13 @@ class LoadManufacturerData extends DataFixture
      * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
-    {     
-
-        for ($i = 1; $i <= 5; $i++) {
+    {
+        for ($i = 1; $i <= 5; $i++) 
+        {
 	        $manufacturer = $this->getManufacturerRepository()->createNew();
 
-	        $manufacturer->setName('brand '.$i);
-	        $manufacturer->setEmail('pepe@pepe.com');
+	        $manufacturer->setName('Brand '.$i);
+	        $manufacturer->setEmail('info@brand'.$i.'.com');
 
             $manager->persist($manufacturer);
 
@@ -39,11 +39,12 @@ class LoadManufacturerData extends DataFixture
 
         $manager->flush();
     }
+    
 	public function getManufacturerRepository()
-	{
-		
+	{	
 		return $this->get('bopr.repository.manufacturer');
 	}
+	
     /**
      * {@inheritdoc}
      */

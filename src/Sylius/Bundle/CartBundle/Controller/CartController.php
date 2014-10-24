@@ -37,6 +37,14 @@ class CartController extends Controller
     public function summaryAction()
     {
         $cart = $this->getCurrentCart();
+        
+        if(count($cart->getShippingAdjustments()) > 0)
+        {
+        	$cart->removeShippingAdjustments();
+        	$cart->calculateTotal();
+        	$this->getDoctrine()->getManager()->flush();
+        }
+        
         $form = $this->createForm('sylius_cart', $cart);
 
         return $this->render($this->config->getTemplate('summary.html'), array(
