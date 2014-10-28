@@ -85,6 +85,7 @@ class AppKernel extends Kernel
         	new FOS\ElasticaBundle\FOSElasticaBundle(),
         	new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
         	new Tresepic\BoprBundle\TresepicBoprBundle(),
+        	new Dizda\CloudBackupBundle\DizdaCloudBackupBundle(),
         );
 
         if ('dev' === $this->environment) {

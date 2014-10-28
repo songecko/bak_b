@@ -127,9 +127,16 @@ knp_gaufrette:
             local:
                 directory:  %kernel.root_dir%/../web/media/image
                 create:     true
+        cloud_backup:
+            local:
+                directory: %kernel.root_dir%/../web/backups
+                create:    true
     filesystems:
         sylius_image:
             adapter: sylius_image
+        cloud_backup:
+            adapter: cloud_backup     
+            alias:   backup_gaufrette
 
 liip_imagine:
     data_root: %kernel.root_dir%/../web/media/image
@@ -240,3 +247,25 @@ fos_elastica:
                         
 a2lix_translation_form:
     locales: [en, es]
+
+dizda_cloud_backup:
+    processor:
+        type: tar
+        options:
+            password: %dizda_cloud_archive_password%
+    folders: [ web/media ]
+    cloud_storages:
+         dropbox:
+           user:        %dizda_cloud_dropbox_user%
+           password:    %dizda_cloud_dropbox_password%
+         gaufrette:
+            service_name: backup_gaufrette # Gaufrette filesystem service name
+    
+    databases:
+        mysql:
+            all_databases: false # Only required when no database is set
+            database: %sylius.database.name%          # Required if all_databases is false
+            db_host: %sylius.database.host%   
+            db_port: %sylius.database.port%
+            db_user: %sylius.database.user%
+            db_password: %sylius.database.password%
