@@ -11,7 +11,11 @@ sylius_backend_index:
 sylius_backend_dashboard:
     pattern: /dashboard
     defaults: { _controller: sylius.controller.backend.dashboard:mainAction }
-
+    
+sylius_backend_download_backup:
+    pattern: /download-backup
+    defaults: { _controller: sylius.controller.backend.dashboard:downloadBackupAction }
+    
 sylius_backend_user:
     resource: @SyliusWebBundle/Resources/config/routing/backend/user.yml
     prefix: /users

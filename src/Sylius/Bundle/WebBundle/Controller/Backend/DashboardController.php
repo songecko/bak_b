@@ -13,7 +13,9 @@ namespace Sylius\Bundle\WebBundle\Controller\Backend;
 
 use Sylius\Bundle\OrderBundle\Model\OrderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 /**
  * Backend dashboard controller.
  *
@@ -37,5 +39,39 @@ class DashboardController extends Controller
             'sales'               => $orderRepository->revenueBetweenDates(new \DateTime('1 month ago'), new \DateTime()),
             'sales_confirmed'     => $orderRepository->revenueBetweenDates(new \DateTime('1 month ago'), new \DateTime(), OrderInterface::STATE_CONFIRMED),
         ));
+    }
+    
+    public function downloadBackupAction()
+    {
+    	$basePath = $this->get('kernel')->getRootDir() . '/../web/backups';
+
+    	$finder = new Finder();
+    	$finder->files()->in($basePath);
+    	$finder->sortByName();
+    	
+    	$file = null;
+    	foreach ($finder as $finderFile) {
+    		//recorre hasta agarrar el ultimo
+    		$file = $finderFile;
+    	} 
+    		
+    	if($file == null)
+    	{
+    		throw $this->createNotFoundException();
+    	}
+    	
+    	$fileName = $file->getFilename();
+    	$filePath = $basePath.'/'.$fileName;
+
+    	// prepare BinaryFileResponse
+    	$response = new BinaryFileResponse($filePath);
+    	$response->trustXSendfileTypeHeader();
+    	$response->setContentDisposition(
+    			ResponseHeaderBag::DISPOSITION_INLINE,
+    			$fileName,
+    			iconv('UTF-8', 'ASCII//TRANSLIT', $fileName)
+    	);
+    	
+    	return $response;
     }
 }
