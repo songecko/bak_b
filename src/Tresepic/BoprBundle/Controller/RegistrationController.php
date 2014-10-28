@@ -57,12 +57,12 @@ class RegistrationController extends BaseRegistrationController
 
         if($withoutLayout)
         {
-        	return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:registerForm.html.'.$this->getEngine(), array(
+        	return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:registerForm.html.twig', array(
         			'form' => $form->createView(),
         	));
         }
         
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register.html.'.$this->getEngine(), array(
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register.html.twig', array(
             'form' => $form->createView(),
         ));
     }
