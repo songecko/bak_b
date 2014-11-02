@@ -7,7 +7,7 @@ class Configuration
 		$config = array(
 				// values: 'sandbox' for testing
 				//		   'live' for production
-				"mode" => "sandbox"
+				"mode" => "live"
 
 				// These values are defaulted in SDK. If you want to override default values, uncomment it and add your value.
 				// "http.ConnectionTimeOut" => "5000",
