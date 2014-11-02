@@ -114,9 +114,19 @@
 <br>
 <div class="form-horizontal">
     <div class="form-actions">
-    	<p>{{ paypalPayKey }}</p>
         {#}<a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="btn btn-lg"><i class="icon-chevron-left"></i> {{ 'sylius.checkout.back'|trans }}</a> &nbsp;{#}
         <a href="{{ path('sylius_checkout_forward', {'stepName': context.currentStep.name}) }}" class="btn btn-lg btn-success"><i class="icon-ok"></i>{{ 'sylius.checkout.finalize.place_order'|trans }}</a> &nbsp;
+        
+        <form action="https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/pay" target="PPDGFrame" class="standard">
+			<label for="buy">Buy Now:</label>
+			<input type="image" id="submitBtn" value="Pay with PayPal" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif">
+			<input id="type" type="hidden" name="expType" value="light">
+			<input id="paykey" type="hidden" name="paykey" value="{{ paypalPayKey }}">
+		</form>
+
+		<script type="text/javascript" charset="utf-8">
+			var embeddedPPFlow = new PAYPAL.apps.DGFlow({trigger: 'submitBtn'});
+		</script>
     </div>
 </div>
 {% endblock %}

@@ -59,20 +59,6 @@ class PurchaseStep extends CheckoutStep
         	}
         }
         
-        /*foreach($order->getItems() as $item)
-        {
-        	if(in_array($item->getProduct()->getManufacturer()->getEmail(), $manufacturers))
-        	{
-        		$prices[$i] += $item->getProduct()->getPrice()/100;
-        	}
-        	else
-        	{
-        		$i++;
-        		$prices[$i] = $item->getProduct()->getPrice()/100;
-        		$manufacturers[$i] = $item->getProduct()->getManufacturer()->getEmail();
-        	}
-        }*/
-        
         $paypalPayKey = getPaypalPayKey($manufacturers, $fee, $total, $cancelUrl, $returnUrl);
         $payPalURL = getPaypalUrl($paypalPayKey);
         
@@ -107,7 +93,6 @@ class PurchaseStep extends CheckoutStep
     	$order = $this->getCurrentCart();
     	
     	$manufacturers = array();
-    	$i = 0;
     	
     	foreach($order->getItems() as $item)
     	{
