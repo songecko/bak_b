@@ -15,6 +15,7 @@ use Sylius\Bundle\CoreBundle\Checkout\SyliusCheckoutEvents;
 use Sylius\Bundle\CoreBundle\Model\OrderInterface;
 use Sylius\Bundle\FlowBundle\Process\Context\ProcessContextInterface;
 use Sylius\Bundle\OrderBundle\SyliusOrderEvents;
+use Sylius\Bundle\PaymentsBundle\Model\PaymentInterface;
 
 /**
  * Final checkout step.
@@ -38,7 +39,38 @@ class FinalizeStep extends CheckoutStep
         
         $this->dispatchCheckoutEvent(SyliusCheckoutEvents::FINALIZE_INITIALIZE, $order);
         
-        return $this->renderStep($context, $order);
+        //Finalize forward
+        $order->setUser($this->getUser());
+        $this->completeOrder($order);
+        
+        //Purchase display
+        $order->setState(PaymentInterface::STATE_NEW);
+        
+        $total = $order->getTotal()/100;
+        $cancelUrl = $this->generateUrl('sylius_cart_summary', array(), true);
+        $returnUrl = $this->generateUrl('sylius_checkout_forward', array('stepName' => 'purchase'), true);
+        $fee = $this->container->getParameter("tresepic.paypal.fee");
+        
+        $manufacturers = array();
+        
+        foreach($order->getItems() as $item)
+        {
+        	$manufacturerEmail = $item->getProduct()->getManufacturer()->getEmail();
+        	$itemPrice = $item->getTotal()/100;
+        	 
+        	if(!array_key_exists($manufacturerEmail, $manufacturers))
+        	{
+        		$manufacturers[$manufacturerEmail] = $itemPrice;
+        	}
+        	else
+        	{
+        		$manufacturers[$manufacturerEmail] += $itemPrice;
+        	}
+        }
+        
+        $paypalPayKey = getPaypalPayKey($manufacturers, $fee, $total, $cancelUrl, $returnUrl);
+        
+        return $this->renderStep($context, $order, $paypalPayKey);
     }
 
     /**
@@ -59,11 +91,12 @@ class FinalizeStep extends CheckoutStep
         return $this->complete();
     }
 
-    protected function renderStep(ProcessContextInterface $context, OrderInterface $order)
+    protected function renderStep(ProcessContextInterface $context, OrderInterface $order, $paypalPayKey)
     {
     	return $this->renderCheckoutStep("finalize.html.twig", array(
             'context' => $context,
-            'order'   => $order
+            'order'   => $order,
+    		'paypalPayKey' => $paypalPayKey
         ));
     }
 

@@ -4,7 +4,14 @@ require_once dirname(__FILE__).'/../PPBootStrap.php';
 require_once dirname(__FILE__).'/../Common/Constants.php';
 define("DEFAULT_SELECT", "- Select -");
 
-function getPaypalUrl($manufacturers, $fee, $total, $cancelUrl, $returnUrl)
+function getPaypalUrl($payKey)
+{
+	$payPalURL = PAYPAL_REDIRECT_URL . '_ap-payment&paykey=' . $payKey . '&senderOptions.referrerCode=' . BN_CODE;
+	
+	return $payPalURL;
+}
+
+function getPaypalPayKey($manufacturers, $fee, $total, $cancelUrl, $returnUrl)
 {
 	$receiver = array();
 	$receiver[0] = new Receiver();
@@ -18,7 +25,7 @@ function getPaypalUrl($manufacturers, $fee, $total, $cancelUrl, $returnUrl)
 		$receiver[$i] = new Receiver();
 		$receiver[$i]->amount = round($price*$fee, 2);
 		$receiver[$i]->email = $manufacturer;
-		$i++;		
+		$i++;
 	}
 	
 	$receiverList = new ReceiverList($receiver);
@@ -26,7 +33,7 @@ function getPaypalUrl($manufacturers, $fee, $total, $cancelUrl, $returnUrl)
 	$payRequest = new PayRequest();
 	
 	$payRequest->receiverList = $receiverList;
-
+	
 	$requestEnvelope = new RequestEnvelope("en_US");
 	$payRequest->requestEnvelope = $requestEnvelope;
 	$payRequest->actionType = "PAY";
@@ -34,23 +41,16 @@ function getPaypalUrl($manufacturers, $fee, $total, $cancelUrl, $returnUrl)
 	$payRequest->returnUrl = $returnUrl;
 	$payRequest->currencyCode = "USD";
 	//->ipnNotificationUrl = "http://replaceIpnUrl.com";
-
+	
 	$service = new AdaptivePaymentsService(Configuration::getSignatureConfig());
 	try {
 		/* wrap API method calls on the service object with a try catch */
 		$response = $service->Pay($payRequest);
+		ldd($response);
 	} catch(Exception $ex) {
 		require_once '../Common/Error.php';
 		exit;
 	}
 	
-	/*echo '<pre>';
-	print_r($response);
-	echo '</pre>';
-	die;*/
-	
-	$payKey = $response->payKey;
-	$payPalURL = PAYPAL_REDIRECT_URL . '_ap-payment&paykey=' . $payKey . '&senderOptions.referrerCode=' . BN_CODE;
-	
-	return $payPalURL;
+	return $response->payKey;
 }

@@ -114,6 +114,7 @@
 <br>
 <div class="form-horizontal">
     <div class="form-actions">
+    	<p>{{ paypalPayKey }}</p>
         {#}<a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="btn btn-lg"><i class="icon-chevron-left"></i> {{ 'sylius.checkout.back'|trans }}</a> &nbsp;{#}
         <a href="{{ path('sylius_checkout_forward', {'stepName': context.currentStep.name}) }}" class="btn btn-lg btn-success"><i class="icon-ok"></i>{{ 'sylius.checkout.finalize.place_order'|trans }}</a> &nbsp;
     </div>

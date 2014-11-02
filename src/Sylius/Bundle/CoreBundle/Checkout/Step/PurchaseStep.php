@@ -43,7 +43,6 @@ class PurchaseStep extends CheckoutStep
         $fee = $this->container->getParameter("tresepic.paypal.fee");
         
         $manufacturers = array();
-        $i = 0;
         
         foreach($order->getItems() as $item)
         {
@@ -74,7 +73,9 @@ class PurchaseStep extends CheckoutStep
         	}
         }*/
         
-        $payPalURL = getPaypalUrl($manufacturers, $fee, $total, $cancelUrl, $returnUrl);
+        $paypalPayKey = getPaypalPayKey($manufacturers, $fee, $total, $cancelUrl, $returnUrl);
+        $payPalURL = getPaypalUrl($paypalPayKey);
+        
         /*$captureToken = $this->getTokenFactory()->createCaptureToken(
             $order->getPayment()->getMethod()->getGateway(),
             $order,
