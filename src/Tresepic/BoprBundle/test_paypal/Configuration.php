@@ -7,7 +7,7 @@ class Configuration
 		$config = array(
 				// values: 'sandbox' for testing
 				//		   'live' for production
-				"mode" => "live"
+				"mode" => "sandbox"
 
 				// These values are defaulted in SDK. If you want to override default values, uncomment it and add your value.
 				// "http.ConnectionTimeOut" => "5000",
@@ -34,7 +34,7 @@ class Configuration
 				// "acct1.AppId" => "APP-80W284485P519543T"
 				);
 
-		return array_merge($config, self::getConfig());;
+		return array_merge($config, self::getConfig());
 	}
 	
 	public static function getSignatureConfig()
