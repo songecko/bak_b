@@ -1442,6 +1442,9 @@ footer .info4 .copyright span {
 #content .container .productList .page{ display:none}
 #content .container .productList .page.page1{ display:block;}
 
+#PPDGFrame .panel {
+	background: transparent;
+}
 
 /*** MEDIA QUERYS ***/
 
