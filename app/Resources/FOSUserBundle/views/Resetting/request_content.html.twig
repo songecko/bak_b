@@ -10,14 +10,14 @@
 		        {% if invalid_username is defined %}
 		            <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
 		        {% endif %}
-		        <label for="username" class="col-sm-4 control-label username">{{ 'resetting.request.username'|trans }}</label>
-		        <div class="col-sm-8">
+		        <label for="username" class="col-sm-2 control-label username">Email:</label>
+		        <div class="col-sm-10">
 		 	       <input type="text" id="username" name="username" required="required" class="form-control"/>
 		        </div>
 		    </div>
 		    </fieldset>
 			<div class="form-actions clearfix">
-			    <button type="submit" class="btn btn-primary btn-lg" style="float: right;" name="reestablecer">{{ 'resetting.request.submit'|trans }}</button>
+			    <button type="submit" class="btn btn-primary btn-lg" name="reestablecer">{{ 'resetting.request.submit'|trans }}</button>
 			</div>
 		</form>
 	</div>

@@ -1442,15 +1442,29 @@ footer .info4 .copyright span {
 #content .container .productList .page{ display:none}
 #content .container .productList .page.page1{ display:block;}
 
+/* login */
+#content .container .checkbox .forgot{
+	border-left: 1px solid #949494;
+	padding-left: 14px;
+	color: #333;
+}
+
 /* recovery form*/
 #content .container .fos_user_resetting_request .username{
 	text-align: left;
+}
+#content .container .fos_user_resetting_request .form-group input{
+	width:65%;
 }
 #content .container .fos_user_resetting_request p{
 	padding-left:13px;
 }
 #content .container .fos_user_resetting_request button{
 	margin-bottom: 20px;
+}
+
+#content .container .fos_user_resetting_reset button{
+	margin: 14px 9px;
 }
 #content .container .fos_user_resetting_reset input{
 	width:33%;
