@@ -96,6 +96,7 @@ class ProductRepository extends VariableProductRepository
         $queryBuilder = parent::getCollectionQueryBuilder()
             ->select('product, variant')
             ->leftJoin('product.variants', 'variant')
+            ->leftJoin('product.manufacturer', 'manufacturer')
         ;
 
         if (!empty($criteria['name'])) {
@@ -111,6 +112,22 @@ class ProductRepository extends VariableProductRepository
             ;
         }
 
+        if (!empty($criteria['manufacturer'])) {
+        	$queryBuilder
+        	->andWhere('manufacturer.name LIKE :manufacturer')
+        	->setParameter('manufacturer', '%'.$criteria['manufacturer'].'%')
+        	;
+        }
+        
+        $price = $criteria['price']*100;
+        //ldd($price);
+        if (!empty($price)) {
+        	$queryBuilder
+        	->andWhere('variant.price = :price')
+        	->setParameter('price', $price)
+        	;
+        }
+        
         if (empty($sorting)) {
             if (!is_array($sorting)) {
                 $sorting = array();

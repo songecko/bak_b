@@ -138,7 +138,7 @@ Brands of Puerto Rico Team
     	$finder = $this->container->get('fos_elastica.finder.website.product');
     	
     	$products = $finder->find($query, 100);
-
+    	
     	if(!$query)
     	{
     		$products = null;
