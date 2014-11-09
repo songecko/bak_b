@@ -245,7 +245,7 @@ fos_elastica:
                         name: ~
                         description: ~
                         manufacturer:
-                           type: "objet"
+                           type: objet
                            properties:
                               name: ~
                     persistence:
