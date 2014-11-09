@@ -233,7 +233,9 @@ mobile_detect:
     
 fos_elastica:
     clients:
-        default: { host: localhost, port: 9200 }
+        default: 
+            servers:
+                - { host: localhost, port: 9201 }
     indexes:
         website:
             client: default
@@ -242,12 +244,12 @@ fos_elastica:
                     mappings:
                         name: ~
                         description: ~
+                        manufacturer.name: ~
                     persistence:
                         driver: orm
                         model: Tresepic\BoprBundle\Entity\Product
                         provider: ~
                         finder: ~
-                        
 a2lix_translation_form:
     locales: [en, es]
 
