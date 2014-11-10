@@ -270,7 +270,7 @@ class Product extends BaseProduct implements ProductInterface
      * {@inheritdoc}
      */
     public function getImage()
-    {
+    {	
         return $this->getMasterVariant()->getImages()->first();
     }
 

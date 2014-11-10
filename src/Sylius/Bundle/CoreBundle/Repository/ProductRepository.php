@@ -119,12 +119,19 @@ class ProductRepository extends VariableProductRepository
         	;
         }
         
-        $price = $criteria['price']*100;
-        //ldd($price);
-        if (!empty($price)) {
+        $price_from = $criteria['price_from']*100;
+        $price_to = $criteria['price_to']*100;
+        
+        if (!empty($price_from)) {
         	$queryBuilder
-        	->andWhere('variant.price = :price')
-        	->setParameter('price', $price)
+        	->andWhere('variant.price >= :price_from')
+        	->setParameter('price_from', $price_from)
+        	;
+        }
+        if (!empty($price_to)) {
+        	$queryBuilder
+        	->andWhere('variant.price <= :price_to')
+        	->setParameter('price_to', $price_to)
         	;
         }
         

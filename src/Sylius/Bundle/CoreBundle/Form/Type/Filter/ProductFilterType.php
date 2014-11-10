@@ -49,11 +49,18 @@ class ProductFilterType extends AbstractType
                     'placeholder' => 'sylius.form.product_filter.manufacturer'
                 )
             ))
-            ->add('price', 'text', array(
+            ->add('price_from', 'number', array(
                 'required' => false,
-                'label'    => 'sylius.form.product_filter.price',
+                'label'    => 'Precio Desde',
                 'attr'     => array(
-                    'placeholder' => 'sylius.form.product_filter.price'
+                    'placeholder' => 'Precio Desde'
+                )
+            ))
+            ->add('price_to', 'number', array(
+                'required' => false,
+                'label'    => 'Precio Hasta',
+                'attr'     => array(
+                    'placeholder' => 'Precio Hasta'
                 )
             ))
         ;
