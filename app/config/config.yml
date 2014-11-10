@@ -235,7 +235,7 @@ fos_elastica:
     clients:
         default: 
             servers:
-                - { host: localhost, port: 9201 }
+                - { host: localhost, port: 9200 }
     indexes:
         website:
             client: default
@@ -244,6 +244,10 @@ fos_elastica:
                     mappings:
                         name: ~
                         description: ~
+                        manufacturer:
+                            type: "object"
+                            properties:
+                               name: ~
                     persistence:
                         driver: orm
                         model: Tresepic\BoprBundle\Entity\Product
