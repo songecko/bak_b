@@ -1,6 +1,5 @@
-{% if not(is_mobile()) %}
-<div class="article col-md-3">
-    <a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><img src="{{ product.image ? product.image.path|imagine_filter('sylius_250x250') : 'http://placehold.it/250x250' }}" alt="{{ product.name }}" /></a>
+<div class="article col-md-3 col-sm-3 col-xs-6">
+    <a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><img src="{{ product.image ? product.image.path|imagine_filter('sylius_250x250') : 'http://placehold.it/250x250' }}" alt="{{ product.name }}" class="img-responsive center-block" /></a>
     <p class="title">{{ product.name|truncate(18) }}</p>
     <p style="font-size: 12px;">{{ product.getManufacturer }}</p>
     <p><span>{{ product.price|sylius_price }}</span></p>
@@ -20,25 +19,3 @@
 	{% endif %}
     <a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p><button class="viewProduct">{{ 'sylius.view_product'|trans }}</button></p></a>
 </div>
-{% else %}
-<div class="articleMobile col-xs-6"">
-    <a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><img class="img-responsive" src="{{ product.image ? product.image.path|imagine_filter('sylius_250x250') : 'http://placehold.it/250x250' }}" alt="{{ product.name }}" /></a>
-    <p class="title">{{ product.name|truncate(18) }}</p>
-    <p style="font-size: 12px;">{{ product.getManufacturer }}</p>
-    <p><span>{{ product.price|sylius_price }}</span></p>
-    {% if(product.masterVariant.onHand > 0) %}
-	    {% if product.hasVariants %}
-	    	<a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p><button class="addToCart">{{ 'sylius.add_to_cart'|trans }}</button></p></a>
-	    {% else %}
-	    <form action="{{
-	     path('sylius_cart_item_add', {'id': product.id}) }}" class="formAddToCart" method="post">
-	    	<input type="hidden" id="sylius_cart_item_quantity" name="sylius_cart_item[quantity]" value="1">
-	    	<p><button type="submit" class="addToCart">{{ 'sylius.add_to_cart'|trans }}</button></p>
-	    </form>
-	    {% endif %}
-	{% else %}
-		<p><span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span></p>
-	{% endif %}
-    <a href="{{ path('sylius_product_show', {'slug': product.slug}) }}"><p><button class="viewProduct">{{ 'sylius.view_product'|trans }}</button></p></a>
-</div>
-{% endif %}

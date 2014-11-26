@@ -3,8 +3,8 @@
 {% import 'SyliusWebBundle:Backend/Macros:alerts.html.twig' as alerts %}
 <div class="products clearfix row">
 {% for product in products %}
-	{% include 'SyliusWebBundle:Frontend/Product:_single.html.twig' %}
-	{% if loop.index is divisible by(3) %}
+	{% include 'SyliusWebBundle:Frontend/Product:_singleBox.html.twig' %}
+	{% if loop.index is divisible by(4) %}
 	</div>
 	<div class="products clearfix row">
 	{% endif %}
@@ -40,12 +40,12 @@
 <div id="carouselProducts" class="carousel slide" data-ride="carousel">
 	<!-- Wrapper for slides -->
   	<div class="carousel-inner">
-  		<div class="item active">
+  		<div class="item row active">
 		{% for product in products %}
     		{% include 'SyliusWebBundle:Frontend/Product:_singleBox.html.twig' %}
     		{% if(loop.index%size == 0 and loop.index < products|length) %}
     		</div>
-    		<div class="item">
+    		<div class="item row">
     		{% endif %}
 		{% endfor %}
       	</div>
