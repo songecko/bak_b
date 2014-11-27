@@ -42,7 +42,7 @@ li {
 }
 
 #topMenu {
-	background-color: #81705a;
+	background-color: #31689B;
 	height: 51px;
 	padding: 7px 0;
 }
@@ -690,6 +690,7 @@ header .navMenu li.custom {
 #content .products .article {
 	float: left;
 	margin-bottom: 38px;
+	text-align: center;
 }
 
 #content .products .articleWithoutMargin {
@@ -699,22 +700,47 @@ header .navMenu li.custom {
 	width: 250px;
 }
 
-#content .products .article p {
-	margin-top: 15px;
-	text-align: center;
+#content .products .article .imageContainer {
+	display: block;
+	position: relative;
 }
 
-#content .products .article p.title {
+#content .products .article .imageContainer img.top {
+	position:absolute;
+	top: 0;
+  	left:0;
+	-webkit-transition: opacity 0.6s ease-in-out;
+  	-moz-transition: opacity 0.6s ease-in-out;
+  	-o-transition: opacity 0.6s ease-in-out;
+  	transition: opacity 0.6s ease-in-out;
+}
+
+#content .products .article .imageContainer img.top:hover {
+	opacity:0;
+}
+
+#content .products .article .title {
+	display: block;
+	font-family: 'Raleway', sans-serif;
+	margin: 22px 0 8px 0;
 	min-height: 44px;
+	color: #000000;
 }
 
-#content .products .article span {
-	color: #6d8eb2;
+#content .products .article .manufacturer {
+	font-family: 'Raleway', sans-serif;
+	font-size: 12px;
+	margin: 0 0 8px 0;
+}
+
+#content .products .article .price {
+	color: #30689b;
 	font-family: 'Lato', sans-serif;
 	font-weight: 700;
+	margin: 0 0 8px 0;
 }
 
-#content .products .article span.label-warning {
+#content .products .article .outStock {
 	line-height: 40px;
 }
 

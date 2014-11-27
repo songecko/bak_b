@@ -7,13 +7,19 @@
 {% block og_image %}<meta property="og:image" content="{{ app.request.getSchemeAndHttpHost() ~ (product.image ? product.image.path|imagine_filter('sylius_400x400') : asset('bundles/tresepicbopr/images/logo.png')) }}" />{% endblock %}
 		
 {% block content %}
-	{% block breadcrums %}
+{% block breadcrums %}
+<div class="row">
+	<div class="col-xs-12">
 		<ol class="breadcrumb">
 			<li><a href="{{ path('sylius_homepage') }}">Home</a></li>
 			{{ render(controller('SyliusWebBundle:Frontend/Component:breadcrumbProductShow', {'id': product.id})) }}
 			<li>{{ product.name }}</li>
 		</ol>
-	{% endblock %}
+	</div>
+</div>
+{% endblock %}
+
+	<!-- Falta refactorizar: -->
 	<div class="productShow clearfix">
 	    <div class="product col-md-9 col-xs-12">
 	    	<div id=gallery>

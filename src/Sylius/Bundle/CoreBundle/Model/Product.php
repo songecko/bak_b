@@ -273,6 +273,16 @@ class Product extends BaseProduct implements ProductInterface
     {	
         return $this->getMasterVariant()->getImages()->first();
     }
+    
+    public function hasImageByIndex($index)
+    {
+    	return $this->getMasterVariant()->getImages()->containsKey($index);
+    }
+    
+    public function getImageByIndex($index)
+    {
+    	return $this->getMasterVariant()->getImages()->get($index);
+    }
 
     /**
      * {@inheritdoc}
