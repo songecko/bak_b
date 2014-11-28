@@ -12,7 +12,19 @@ sylius_masacote:
 sylius_yoapoyoajulia:
     pattern: /yoapoyoajulia
     defaults: { _controller: sylius.controller.frontend.homepage:yoapoyoajuliaAction }
-        
+
+bopr_subscription:
+    pattern: /subscriptions
+    defaults: { _controller: sylius.controller.frontend.homepage:subscriptionAction }
+
+bopr_services:
+    pattern: /services
+    defaults: { _controller: sylius.controller.frontend.homepage:servicesAction }
+    
+bopr_services_send_mail:
+    pattern: /services/send-mail
+    defaults: { _controller: sylius.controller.frontend.homepage:servicesSendMailAction }
+                
 sylius_currency:
     resource: @SyliusWebBundle/Resources/config/routing/frontend/currency.yml
     prefix: /currency

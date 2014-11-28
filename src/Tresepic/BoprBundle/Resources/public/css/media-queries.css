@@ -170,6 +170,15 @@
 		margin-right: 5%;
 	}
 	
+	.subscription-popup .content.package {
+		padding: 30px 10px 10px 10px;
+	}
+	
+	.subscription-popup .packages > div:first-child {
+		border-right: none;
+		border-bottom: 1px solid #e3e3e3;
+	}
+	
 	#content #carouselBanner img {
 		width: 100%;
 	}

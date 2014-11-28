@@ -21,6 +21,22 @@ li {
 	padding: 0;
 }
 
+.boprButton {
+	display: inline-block;
+	background: #81705a;
+	color: #FFFFFF;
+	padding: 10px 40px;
+	font-size: 25px;
+	text-decoration: none;
+	border: none;
+	margin: 0 auto;
+}
+
+.boprButton:hover {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
 .shares {
 	margin-bottom: 15px;	
 }
@@ -406,6 +422,16 @@ header .navMenu li.custom {
 	display: block;
 	width: 100%;
 	height: 100%;
+	position: relative;
+}
+
+#content .boprBoxes > div > a > img {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 
 #content .boprBoxes > div.subscribe {
@@ -1318,10 +1344,146 @@ footer .info4 .copyright span.rights {
 	float:right;
 }
 
+.subscription-popup {
+	position: relative;
+  	background: #FFF;
+  	padding: 0;
+  	width: auto;
+  	max-width: 860px;
+  	margin: 20px auto;
+}
+
+.subscription-popup .mfp-close {
+	color: #FFFFFF;
+}
+
+.subscription-popup h1 {
+	margin: 0;
+    background: #31689b;
+    color: #FFFFFF;
+    padding: 15px 0 6px 0;
+    text-align: center;
+}
+
+.subscription-popup .content {
+	padding: 50px 50px 30px 50px;
+}
+
+.subscription-popup .intro {
+	margin-bottom: 50px;
+}
+
+.subscription-popup .buttonContainer {
+	text-align: center;
+}
+
+.subscription-popup .content.package {
+	padding: 30px 50px 10px 50px;	
+} 
+
+.subscription-popup .packages > div {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.subscription-popup .packages > div:first-child {
+	border-right: 1px solid #e3e3e3;
+}
+
+.subscription-popup .package .price {
+	font-size: 25px;
+	margin: 15px 0;
+}
+
+.subscription-popup .package .buttonContainer {
+	margin-top: 30px;
+}
+
+.subscription-popup .package .attributes {
+	margin-top: 20px;
+}
+
+.subscription-popup .package .attributes li:before {
+	content: "•";
+	font-size: 60px;
+	vertical-align: top;
+	line-height: 20px;
+	margin-right: 5px;
+}
+
+.subscription-popup .package .disclaimer {
+	font-size: 10px;
+	margin: 30px 0 0 0;
+}
+
+.services-popup {
+	position: relative;
+  	background: #336699;
+  	padding: 20px 0 10px 0;
+  	width: auto;
+  	max-width: 640px;
+  	margin: 20px auto;
+}
+
+.services-popup .mfp-close {
+	display: none;
+}
+
+.services-popup .title {
+	width: 100%;
+}
+
+.services-popup .price {
+	max-width: 30%;
+	margin: 30px auto;
+}
+
+.services-popup .intro {
+	width: 60%;
+	margin: 0 auto;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.services-popup form {
+	width: 60%;
+	margin: 20px auto;
+}
+
+.services-popup form label {
+	color: #FFFFFF;
+	font-weight: normal;
+}
+	
+.services-popup form .field input {
+	width: 60%;
+	border: none;
+	height: 28px;
+}
+
+.services-popup form .field button {
+	background: #ED1C24;
+	border: none;
+	color: #FFFFFF;
+	padding: 3px 10px;
+	margin-left: 10px;
+	-webkit-box-shadow: 3px 3px 3px 0px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 3px 3px 3px 0px rgba(50, 50, 50, 0.75);
+	box-shadow: 3px 3px 3px 0px rgba(50, 50, 50, 0.75);
+}
+
+.services-popup .thanks {
+	margin: 30px auto;
+}
+	
+.services-popup .icons {
+	max-width: 25%;
+	margin: 10px auto;
+}
+
 .vjs-error-display, .vjs-control-bar {
 	display:none;
 }
-
 
 /** Checkout **/
 #content form fieldset {

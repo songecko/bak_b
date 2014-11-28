@@ -16,6 +16,24 @@ class SendMailer
 		$this->container = $container;
 	}
 
+	public function sendBoprServicesMail($emailFrom)
+	{
+		$view = 'TresepicBoprBundle:Frontend/Mailer:BoprServicesEmail.html.twig';
+	
+		$message = $this->message
+			->setSubject('Services of Puerto Rico')
+			->setFrom(array($emailFrom))
+			->setTo($this->container->getParameter('tresepic.contact.mail'))
+			->setBody(
+				$this->container->get('templating')->render($view, array('emailFrom' => $emailFrom)),
+				'text/html'
+			);
+	
+		$failures = $this->send($message);
+	
+		return $failures;
+	}
+	
 	public function sendCostumerMail($costumer, $emailTo)
 	{
 		$view = 'TresepicBoprBundle:Frontend/Mailer:Email.html.twig';

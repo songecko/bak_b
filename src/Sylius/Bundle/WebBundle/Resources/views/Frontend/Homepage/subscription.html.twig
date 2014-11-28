@@ -1,0 +1,109 @@
+<div class="subscription-popup">
+	<h1>Subscription</h1>
+	<div class="content introduction">
+		<p class="intro">Lorem ipsum dolor sit amet, no mei reque movet vivendum. Ne nam sumo tritani consectetuer, atqui facete abhorreant mel te. Eos ut duis accusamus. Te urbanitas vituperata vis. Odio cetero adversarium usu te. Eos vidit velit ullamcorper ut. Sed ea deleniti facilisis expetendis, dicit suavitate sed ad. Pertinax convenire explicari vel ne, vim lorem vocibus explicari an. Eum aperiam minimum temporibus ex, sea error dicant singulis id. In vix nonumy ullamcorper, et vim dissentiet voluptatibus. Porro graeci scaevola ei nam, sed ad iudico expetendis.</p>
+		
+		<div class="buttonContainer">
+			<a href="#" class="boprButton changeContent" data-content="package">Continue</a>
+		</div>
+	</div>
+	
+	<div class="content package hide">
+		<div class="row packages">
+			{% for product in products %}
+			{% set form = sylius_cart_form({'product': product}) %}
+			<div class="col-sm-6 col-xs-12">
+				<div id="image">
+		    		<img class="img-responsive center-block" src="{{ product.image ? product.image.path|imagine_filter('sylius_250x250') : 'http://placehold.it/250x250' }}" alt="{{ product.name }}" />
+		    	</div>
+		    	<div class="description">
+				    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix form-horizontal">
+				    	{% if product.properties|length > 0 %}
+				        <ul class="attributes">
+							{% for property in product.properties %}
+							<li><strong>{{ property.name }}:</strong> {{ property.value }}</li>
+							{% endfor %}
+				        </ul>
+				        {% endif %}
+				    	<div class="price">{{ product.price|sylius_price }}</div>
+				    	{% if product.hasVariants %}
+						{%   if product.isVariantSelectionMethodChoice %}
+			            <table class="table table-condensed">
+			                <thead>
+			                    <tr>
+			                        <th></th>
+			                        <th>{{ 'sylius.variant.price'|trans }}</th>
+			                        <th></th>
+			                    </tr>
+			                </thead>
+			                <tbody>
+			                    {% for variant in product.variants if variant.available %}
+			                    <tr>
+			                        <td>
+			                            {% if variant.presentation is empty %}
+			                            <ul class="unstyled">
+			                                {% for option in variant.options %}
+			                                <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
+			                                {% endfor %}
+			                            </ul>
+			                            {% else %}
+			                                {{ variant.presentation }}
+			                            {% endif %}
+			                        </td>
+			                        <td>
+			                            <span class="label label-success">{{ variant.price|sylius_price }}</span>
+			                        </td>
+			                        <td>
+			                        {% if sylius_inventory_is_available(variant) %}
+			                            {{ form_widget(form.variant[loop.index0]) }}
+			                        {% else %}
+			                            <span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span>
+			                        {% endif %}
+			                        </td>
+			                    </tr>
+			                    {% endfor %}
+			                </tbody>
+			            </table>
+			            {%   else %}
+		                <div class="well clearfix">
+		                    {{ form_widget(form.variant) }}
+		                </div>
+			            {%   endif %}
+				    	{% endif %}
+			        	{% if not product.hasVariants and not sylius_inventory_is_available(product.masterVariant) %}
+		            	<span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span>
+			        	{% else %}
+			        	{%   if(product.masterVariant.onHand > 0) %}
+				        <div class="quantity row">
+				        	<div class="col-xs-8">
+				        		<label class="control-label required" for="sylius_cart_item_quantity">Meses de suscripción</label>
+				        	</div>
+				        	<div class="col-xs-4">
+				        		{{ form_widget(form.quantity) }}
+				        	</div>
+				        </div>
+						{%     if sylius_is_restricted(product) %}
+				        <button disabled="disabled" class="btn btn-success btn-lg btn-block">{{ 'sylius.product_not_available_in_zone'|trans }}</button>
+			            {%     else %}
+			            	<div class="buttonContainer">
+			                	<button type="submit" class="boprButton">Seleccionar</button>
+			                </div>
+			            {%     endif %}
+				    	{%   else %}
+				    		<p><span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span></p>
+				    	{%   endif %}
+			        	{% endif %}
+					</form>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<p class="disclaimer">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna al Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

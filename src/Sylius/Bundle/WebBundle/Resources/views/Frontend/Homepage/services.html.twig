@@ -1,0 +1,18 @@
+<div class="services-popup">
+	<img src="{{ asset('bundles/tresepicbopr/images/services-title.png') }}" class="title img-responsive">
+	<img src="{{ asset('bundles/tresepicbopr/images/services-price.png') }}" class="price img-responsive center-block">
+	<p class="intro">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmo tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio.
+	</p>
+	
+	<form action="{{ path('bopr_services_send_mail') }}" method="post">
+		<label for="services_email">Regístrate:</label>
+		<div class="field">
+			<input type="text" name="services[email]" id="services_email">
+			<button type="submit">Enviar</button>
+		</div>
+	</form>
+	<p class="intro thanks hide">Muchas gracias. Te avisaremos cuando este servicio esté en marcha.</p>
+	
+	<img src="{{ asset('bundles/tresepicbopr/images/services-icons.png') }}" class="icons img-responsive center-block">
+</div>
