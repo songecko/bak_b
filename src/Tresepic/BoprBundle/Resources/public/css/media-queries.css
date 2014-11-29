@@ -237,6 +237,14 @@
 		max-width: 60%;
 	}
 	
+	#content .products .article .title {
+		font-size: 12px;
+	}
+	
+	#content .products .article .addToCart {
+		font-size: 12px;
+	}
+	
 	#content .productShow .static1 {
 		display: none;
 	}

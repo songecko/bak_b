@@ -1,6 +1,6 @@
 {% set size = size is defined?size:3 %}
 {% set col = 12/size %}
-<div class="article col-md-{{ col }} col-sm-{{ col }} col-xs-6">
+<div class="article col-md-{{ col }} col-sm-{{ col }} col-xs-{{ size == 4?'6':col }}">
     <a href="{{ path('sylius_product_show', {'slug': product.slug}) }}" class="imageContainer">
     	<img src="{{ product.image ? product.image.path|imagine_filter('sylius_250x250') : 'http://placehold.it/250x250' }}" alt="{{ product.name }}" class="img-responsive center-block" />
     	{% if product.hasImageByIndex(1) %}
