@@ -23,7 +23,7 @@
 
 <div class="row">
 	{% block sidebar %}
-	{% if(taxon.level == 1) %}
+	{% if(taxon.getChildren.isEmpty == false) %}
 	<div class="col-sm-3 sidebar">
 		<img src="{{ asset('bundles/tresepicbopr/images/separator-menu.png') }}" class="img-responsive" />
 		<ul class="sideMenu">
@@ -33,7 +33,7 @@
 	{% endif %}
 	{% endblock %}
 
-	<div class="col-sm-9">
+	<div class="col-sm-{{ taxon.getChildren.isEmpty?'12':'9' }}">
 		<div class="productList">
 			{% for products in productss %}
 			<div class="page page{{loop.index}}">

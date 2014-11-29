@@ -468,6 +468,7 @@ header .navMenu li.custom {
 #content #carouselBanner .carousel-control.left {
 	width: 10%;
 	background: none;
+	color: #000000;
 }
 
 #content #carouselBanner .carousel-control .glyphicon-chevron-left {
@@ -735,6 +736,8 @@ header .navMenu li.custom {
 	position:absolute;
 	top: 0;
   	left:0;
+  	right: 0;
+	bottom: 0;
 	-webkit-transition: opacity 0.6s ease-in-out;
   	-moz-transition: opacity 0.6s ease-in-out;
   	-o-transition: opacity 0.6s ease-in-out;

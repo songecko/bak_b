@@ -4,7 +4,7 @@
 <div class="products clearfix row">
 {% for product in products %}
 	{% include 'SyliusWebBundle:Frontend/Product:_singleBox.html.twig' %}
-	{% if loop.index is divisible by(4) %}
+	{% if loop.index is divisible by(3) %}
 	</div>
 	<div class="products clearfix row">
 	{% endif %}
@@ -42,7 +42,7 @@
   	<div class="carousel-inner">
   		<div class="item row active">
 		{% for product in products %}
-    		{% include 'SyliusWebBundle:Frontend/Product:_singleBox.html.twig' %}
+    		{% include 'SyliusWebBundle:Frontend/Product:_singleBox.html.twig' with {'size': '4'} %}
     		{% if(loop.index%size == 0 and loop.index < products|length) %}
     		</div>
     		<div class="item row">
