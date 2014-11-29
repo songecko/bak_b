@@ -380,20 +380,17 @@ header .navMenu li.custom {
 
 #content .sidebar li {
 	border: 1px solid #dfdfdf;
-	height: 44px;
-	width: 260px;
+	width: 100%;
+	padding: 10px 0 10px 15px;
 }
 
 #content .sidebar li a {
 	color: #000000;
-	line-height: 44px;
-	margin-left: 15px;
 }
 
 #content .sidebar .children li {
 	border: 1px solid #dfdfdf;
-	height: 44px;
-	width: 260px;
+	width: 100%;
 }
 
 #content .sidebar .children li a {
