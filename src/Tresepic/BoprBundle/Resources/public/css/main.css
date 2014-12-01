@@ -1400,6 +1400,15 @@ footer .info4 .copyright span.rights {
 	margin-top: 30px;
 }
 
+.subscription-popup .packages #sylius_cart_item_variant .form-group:last-child > .col-lg-2 {
+	width: 66.66666667%;
+	text-align: left;
+}
+
+.subscription-popup .packages #sylius_cart_item_variant .form-group:last-child > .col-lg-10 {
+	width: 33.33333333%;
+}
+
 .subscription-popup .package .attributes {
 	margin-top: 20px;
 }

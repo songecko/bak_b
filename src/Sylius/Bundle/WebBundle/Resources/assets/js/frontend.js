@@ -228,6 +228,8 @@ var checkoutSubmitHandler = function (ev)
     	});
     	
     	//Subscription popup
+    	$('#sylius_cart_item_variant_cintura').closest('.form-group').hide();
+    	
     	$('.subscribe > a').magnificPopup({
     		type: 'ajax',
     		alignTop: true,
@@ -243,6 +245,16 @@ var checkoutSubmitHandler = function (ev)
 			    		$('.subscription-popup .content').addClass('hide');
 			    		$('.subscription-popup .'+nextContent).removeClass('hide');
 			    	});
+    				
+    				$('#sylius_cart_item_variant_sexo').change(function(e)
+    				{
+    					if($(this).val() == 1) //if is Mujer
+    					{
+    						$('#sylius_cart_item_variant_cintura').closest('.form-group').show();
+    					}else {
+    						$('#sylius_cart_item_variant_cintura').closest('.form-group').hide();	
+    					}
+    				});
     			}
     		}
     	});
