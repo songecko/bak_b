@@ -5,7 +5,7 @@
 	<div class="boprBoxes col-md-2 col-sm-2 col-xs-12">
 		<div class="subscribe">
 			<a href="{{ path('bopr_subscription') }}">
-				<img class="center-block img-responsive" style="width: 80%;" src="{{ asset('bundles/tresepicbopr/images/boprSubscriptions.jpg') }}">
+				<img class="center-block img-responsive" src="{{ asset('bundles/tresepicbopr/images/boprSubscriptions.jpg') }}">
 			</a>
 		</div>
 		<div class="experience">
@@ -30,25 +30,25 @@
 			</ol>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
-				<div class="item active">
+				<div class="item active subscribe">
+      				<a href="{{ path('bopr_subscription') }}">
+      					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/subscriptionbox_slideshow.jpg') }}">
+      				</a>
+    			</div>
+				<div class="item">
 					<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/apparel'}) }}">
 						<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/apparel.png') }}">
 					</a>
 				</div>
 				<div class="item">
-					<a href="{{ url('sylius_yoapoyoajulia') }}">
-						<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/yoapoyoajulia.png') }}">
-					</a>
-    			</div>
-    			<div class="item">
       				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/categories-accesories/http-brandsofpuertorico-com-t-categories-categories-accesories-rio-sunglasses'}) }}">
       					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/rio_newbanners.png') }}">
       				</a>
     			</div>
-    			<div class="item">
-      				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/apparel/krma-design'}) }}">
-      					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/krmabannerlogoblanco.png') }}">
-      				</a>
+				<div class="item">
+					<a href="{{ url('sylius_yoapoyoajulia') }}">
+						<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/yoapoyoajulia.png') }}">
+					</a>
     			</div>
   			</div>
   			<!-- Controls -->
