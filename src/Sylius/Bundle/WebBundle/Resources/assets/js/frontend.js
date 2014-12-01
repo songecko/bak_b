@@ -245,15 +245,15 @@ var checkoutSubmitHandler = function (ev)
 			    		$('.subscription-popup .'+nextContent).removeClass('hide');
 			    	});
     				
-    				$('#sylius_cart_item_variant_cintura').closest('.form-group').hide();
+    				$('select[name="sylius_cart_item[variant][cintura]"]').closest('.form-group').hide();
     				
-    				$('#sylius_cart_item_variant_sexo').change(function(e)
+    				$('select[name="sylius_cart_item[variant][sexo]"]').change(function(e)
     				{
     					if($(this).val() == 1) //if is Mujer
     					{
-    						$('#sylius_cart_item_variant_cintura').closest('.form-group').show();
+    						$('select[name="sylius_cart_item[variant][cintura]"]').closest('.form-group').show();
     					}else {
-    						$('#sylius_cart_item_variant_cintura').closest('.form-group').hide();	
+    						$('select[name="sylius_cart_item[variant][cintura]"]').closest('.form-group').hide();	
     					}
     				});
     			}
