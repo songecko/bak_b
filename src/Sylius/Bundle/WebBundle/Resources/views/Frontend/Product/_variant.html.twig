@@ -8,8 +8,10 @@
         <strong>{{ variant.presentation }}</strong>
     {% elseif product.hasOptions %}
         <ul class="list-unstyled">
+        	{% set hasSexFemale = false %}
             {% for option in variant.options %}
-                <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
+            	{% set hasSexFemale = (option.presentation == 'Sexo' and option.value == 'Mujer')?true:hasSexFemale %}
+                <li{{ (hasSexFemale and option.presentation == 'Cintura')?'':' class="hide"' }}><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
             {% endfor %}
         </ul>
     {% endif %}

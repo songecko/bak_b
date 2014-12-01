@@ -228,7 +228,6 @@ var checkoutSubmitHandler = function (ev)
     	});
     	
     	//Subscription popup
-    	$('#sylius_cart_item_variant_cintura').closest('.form-group').hide();
     	
     	$('.subscribe > a').magnificPopup({
     		type: 'ajax',
@@ -245,6 +244,8 @@ var checkoutSubmitHandler = function (ev)
 			    		$('.subscription-popup .content').addClass('hide');
 			    		$('.subscription-popup .'+nextContent).removeClass('hide');
 			    	});
+    				
+    				$('#sylius_cart_item_variant_cintura').closest('.form-group').hide();
     				
     				$('#sylius_cart_item_variant_sexo').change(function(e)
     				{
