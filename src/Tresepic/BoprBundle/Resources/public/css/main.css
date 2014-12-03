@@ -208,8 +208,8 @@ header {
 .search input {
 	display: inline;
 	float: left;
-	width: 70%;
-	height: 40px;
+	width: 63%;
+	height: 30px;
 	border: 1px solid #81705a;
 	font-size: 16px;
 	padding: 10px;
@@ -220,7 +220,7 @@ header {
 	display: inline;
 	float: left;
 	width: 40px;
-	height: 40px;
+	height: 30px;
 	background-color: #81705a;
 	border: 1px solid #81705a;
 }
@@ -1126,6 +1126,9 @@ footer .info4 .copyright span.rights {
 }
 
 .back-to-top {
+	width: 71px;
+	height: 71px;
+	background: url(../images/back-to-top.png) no-repeat;
     position: fixed;
     bottom: 2em;
     right: 0px;
@@ -1137,7 +1140,7 @@ footer .info4 .copyright span.rights {
 }
 
 .back-to-top:hover {    
-    background-color: rgba(135, 135, 135, 0.50);
+    background-position-y: -71px;
 }
 
 .navbar {

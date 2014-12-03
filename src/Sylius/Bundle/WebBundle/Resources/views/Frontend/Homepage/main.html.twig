@@ -29,10 +29,17 @@
 				<li data-target="#carouselBanner" data-slide-to="3"></li>
 				<li data-target="#carouselBanner" data-slide-to="4"></li>
 				<li data-target="#carouselBanner" data-slide-to="5"></li>
+				<li data-target="#carouselBanner" data-slide-to="6"></li>
+				<li data-target="#carouselBanner" data-slide-to="7"></li>
 			</ol>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
-				<div class="item active subscribe">
+				<div class="item active">
+      				<a href="#">
+      					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/cyberweek-banner.jpg') }}">
+      				</a>
+    			</div>
+				<div class="item subscribe">
       				<a href="{{ path('bopr_subscription') }}">
       					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/subscriptionbox_slideshow.jpg') }}">
       				</a>
@@ -40,6 +47,11 @@
 				<div class="item">
 					<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/apparel'}) }}">
 						<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/apparel.png') }}">
+					</a>
+				</div>
+				<div class="item">
+					<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/accessories'}) }}">
+						<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/accesories_slideshow.jpg') }}">
 					</a>
 				</div>
 				<div class="item">
