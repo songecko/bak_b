@@ -1003,7 +1003,8 @@ footer .info2 > div span {
 	color: #ffffff;
 }
 
-footer .info2 > div .title {
+footer .info2 > div .title,
+footer .info2 > div .title a {
 	color: #ffffff;
 	font-size: 16px;
 }
