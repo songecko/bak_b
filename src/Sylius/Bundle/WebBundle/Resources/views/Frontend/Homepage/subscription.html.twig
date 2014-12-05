@@ -29,7 +29,7 @@
 							{% endfor %}
 				        </ul>
 				        {% endif %}
-				    	<div class="price">{{ product.price|sylius_price }}</div>
+				    	<div class="price">{{ product.price|sylius_price }} <span style="font-size: 16px;">monthly</span></div>
 				    	{% if product.hasVariants %}
 						{%   if product.isVariantSelectionMethodChoice %}
 			            <table class="table table-condensed">
