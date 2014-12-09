@@ -34,12 +34,7 @@
 			</ol>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
-				<div class="item active">
-      				<a href="#">
-      					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/cyberweek-banner.jpg') }}">
-      				</a>
-    			</div>
-				<div class="item subscribe">
+				<div class="item active subscribe">
       				<a href="{{ path('bopr_subscription') }}">
       					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/subscriptionbox_slideshow.jpg') }}">
       				</a>
@@ -62,6 +57,11 @@
     			<div class="item">
       				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/art-literature'}) }}">
       					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/art_literature_slideshow.jpg') }}">
+      				</a>
+    			</div>
+    			<div class="item">
+      				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/gourmet'}) }}">
+      					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/gourmet_slideshow.jpg') }}">
       				</a>
     			</div>
     			<div class="item">
