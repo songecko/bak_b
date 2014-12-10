@@ -96,7 +96,7 @@ class TaxonSelectionType extends AbstractType
     			$newTaxons = array();
     			foreach ($taxons as $t)
     			{
-    				$newTaxons[$t->getName()] = $t;
+    				$newTaxons[$t->getId()] = $t;
     				
     				if($taxon->getParent()->getId() == $t->getId())
     				{
