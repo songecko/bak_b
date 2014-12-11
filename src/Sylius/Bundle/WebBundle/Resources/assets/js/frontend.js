@@ -166,7 +166,37 @@ var checkoutSubmitHandler = function (ev)
 	        	});
         	} //cierra if
         });
-        
+        $(".formAddToCartShow").submit(function(e)
+        {        	
+        	e.preventDefault();
+        	if(sending == false)
+        	{
+        		//Loading image (using spin.js)
+        		var opts = {
+        			lines: 11, length: 5, width: 4, radius: 3, corners: 1, rotate: 42, direction: 1, color: '#000', speed: 1.8,
+        			trail: 54, shadow: false, hwaccel: false, className: 'spinner', zIndex: 209, top: '94%', left: '42%' 
+        		};
+        		var target = $(this).find('p').get(0);
+    			var spinner = new Spinner(opts).spin(target);
+    			
+        		sending = true;
+        		
+        		//Send the ajax request
+	        	$.ajax({
+	        	  url: $(this).attr("action"),
+	        	  type:"POST",
+	        	  data: $(this).serialize(),
+	        	  success: function(data, textStatus, xhr) 
+	        	  {  
+	        		  $('.shoppingCart .description .totalProd .totalCant a').html('('+ data.cart.quantity + ')');
+	        		  $('.shoppingCart .description .totalProd .totalPrice a').html(data.cart.total);
+	        		  
+	        		  spinner.stop();
+	                  sending = false;
+	              }
+	        	});
+        	} //cierra if
+        });        
         //popup con el formulario de contacto
     	$('.costumerFormLink').magnificPopup({
 		  callbacks: {
