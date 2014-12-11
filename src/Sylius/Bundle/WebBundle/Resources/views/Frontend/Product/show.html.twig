@@ -26,7 +26,7 @@
 	    		<img id="mainImage" class="img-responsive col-md-6" src="{{ product.image ? product.image.path|imagine_filter('sylius_400x400') : 'http://placehold.it/400x400' }}" data-zoom-image="{{ product.image ? product.image.path|imagine_filter('sylius_gallery_big') : 'http://placehold.it/1200x1200' }}" alt="{{ product.name }}" />
 	    	</div>
 			<div class="description col-md-6">
-			    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix form-horizontal">
+			    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix form-horizontal formAddToCartShow">
 			    <div class="name">{{ product.name }}</div>
 			    <div class="manufacturer">{{ product.getManufacturer }}</div>
 			    <div class="price">{{ product.price|sylius_price }}</div>
@@ -92,7 +92,7 @@
 			            {% if sylius_is_restricted(product) %}
 			            <button disabled="disabled" class="btn btn-success btn-lg btn-block">{{ 'sylius.product_not_available_in_zone'|trans }}</button>
 			            {% else %}
-			                <button type="submit" class="addToCart">{{ 'sylius.add_to_cart'|trans }}</button>
+			                <p style="min-height: 44px"><button type="submit" class="addToCart">{{ 'sylius.add_to_cart'|trans }}</button></p>
 			            {% endif %}
 			    {% else %}
 			    	<p><span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span></p>
