@@ -83,7 +83,7 @@ class TaxonSelectionType extends AbstractType
     	{
     		if ($taxon->getLevel() == 1)
     		{
-    			$taxons[$taxon->getName()] =  $taxon;
+    			$taxons[$taxon->getId()] =  $taxon;
     		}
     	}
     	
@@ -96,18 +96,18 @@ class TaxonSelectionType extends AbstractType
     			$newTaxons = array();
     			foreach ($taxons as $t)
     			{
-    				$newTaxons[$t->getName()] = $t;
+    				$newTaxons[$t->getId()] = $t;
     				
     				if($taxon->getParent()->getId() == $t->getId())
     				{
-    					$newTaxons[$taxon->getName()] = $taxon;
+    					$newTaxons[$taxon->getId()] = $taxon;
     				}
     			}
     			
     			$taxons = $newTaxons;
     		}
     		else {
-    			$taxons[$taxon->getName()] = $taxon;
+    			$taxons[$taxon->getId()] = $taxon;
     		}
     	}
     	 
