@@ -18,6 +18,7 @@
 		
 		<link rel="shortcut icon" href="{{ asset('bundles/tresepicbopr/images/favicon.ico') }}" type="image/x-icon">
 		<link rel="icon" href="{{ asset('bundles/tresepicbopr/images/favicon.ico') }}" type="image/x-icon">
+		
         <link href='http://fonts.googleapis.com/css?family=Raleway:500,700,100,400' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 
@@ -29,6 +30,7 @@
            	    '@SyliusWebBundle/Resources/assets/css/magnific-popup.css'
                 'bundles/tresepicbopr/css/cookiecuttr.css'
                 'bundles/tresepicbopr/css/main.css'
+                'bundles/tresepicbopr/css/media-queries.css'
             %}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
@@ -85,7 +87,7 @@
 					</ul>
 				</div>
 			</nav>
-        	<a href="{{ path('sylius_homepage') }}" title="Brands of Puerto Rico"><img class="logoMobile" src="{{ asset('bundles/tresepicbopr/images/logo-mobile.png') }}" /></a>
+        	<a href="{{ path('sylius_homepage') }}" title="Brands of Puerto Rico" class="visible-xs"><img class="logoMobile" src="{{ asset('bundles/tresepicbopr/images/logo-mobile.png') }}" /></a>
         	
         	{{ render(controller('SyliusWebBundle:Frontend/Component:topMenu')) }}
 		</div>
@@ -134,7 +136,7 @@
             {% endfor %}
         {% endblock %}
         
-        <div class="searchMobile col-xs-12">
+        <div class="searchMobile col-xs-12 visible-xs">
 			{% include 'SyliusWebBundle:Frontend/Search:search.html.twig' %}
 		</div>
 		
@@ -149,9 +151,8 @@
         
         {% block footer %}
         <footer>
-        <div class="container">
-			<div class="containerFooter">
-				<div class="info1">
+	        <div class="container">
+	        	<div class="row">
 					<div class="newsletter col-md-12">
 						<form method="post" action="{{ path('sylius_newsletter') }}" class="clearfix">
 							<span>NEWSLETTER:</span> 
@@ -160,24 +161,15 @@
 						</form>
 					</div>
 				</div>
-				<div class="footerSeparador">
-				</div>
-				{% if (is_device('iPhone')) %}
-					<div class="info3Iphone">
-						<div class="connectedIphone">
-							<span>{{ 'sylius.get_connected'|trans }}:</span>
-							<div class="socialIphone">
-								<a href="http://instagram.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/instagram-icon.png') }}" /></a>
-								<a href="https://www.facebook.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" /></a>
-								<a href="https://twitter.com/BrandsofPR" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/twitter-icon.png') }}" /></a>
-								<a href="http://brandsofpuertorico.wordpress.com/" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/wordpress-icon.png') }}" /></a>
-								<a href="http://www.pinterest.com/bofpuertorico/" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/pinterest-icon.png') }}" /></a>
-							</div>
+				<div class="row">
+					<div class="col-md-6 col-xs-12 text-center">
+						<div class="registerYourBrand">
+							<span>Register your brand</span>
+							<a href="https://docs.google.com/forms/d/1pq-Q7zzSVltZZvSw9qnF5z7Iq_a1bxnsqvZyhpJoPLo/viewform" target="_blank">Here</a>
 						</div>
 					</div>
-				{% else %}
-					<div class="info3Mobile">
-						<div class="connected">
+					<div class="col-md-6 col-xs-12 text-center">
+						<div class="connected clearfix">
 							<span>{{ 'sylius.get_connected'|trans }}:</span>
 							<div class="social">
 								<a href="http://instagram.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/instagram-icon.png') }}" /></a>
@@ -188,29 +180,10 @@
 							</div>
 						</div>
 					</div>
-				{% endif %}
-				<div class="registerBrand">
-					<div class="clearfix">
-						<span>REGISTER YOUR BRAND</span>
-						<div class="here">
-							<a href="https://docs.google.com/forms/d/1pq-Q7zzSVltZZvSw9qnF5z7Iq_a1bxnsqvZyhpJoPLo/viewform" target="_blank"><button>HERE</button></a>
-						</div>
-					</div>
 				</div>
-				<div class="footerSeparador">
-				</div>
-				<div class="info2">
-					<div class="store col-md-6" style="display: none;">
-						<div class="title">
-							<p>SHOP BY</p>
-						</div>
-						<div class="content">
-							<p>Brands</p>
-							<p>Categories</p>
-							<p>Products</p>
-						</div>
-					</div>
-					<div class="store col-md-4 col-xs-6">
+				<div class="footerSeparador"></div>
+				<div class="info2 row">
+					<div class="col-md-4 col-sm-4 col-xs-6">
 						<div class="title">
 							<p style="text-transform: uppercase;">{{ 'sylius.customer_service'|trans }}</p>
 						</div>
@@ -220,7 +193,7 @@
 							<p><a href="mailto:info@brandsofpuertorico.com" class="costumerFormLink">{{ 'sylius.customer_service'|trans }}</a></p>
 						</div>
 					</div>
-					<div class="store col-md-4 col-xs-6">
+					<div class="store col-md-4 col-sm-4 col-xs-6">
 						<div class="title">
 							<p style="text-transform: uppercase;">{{ 'sylius.whats_in_store'|trans }}</p>
 						</div>
@@ -243,9 +216,9 @@
 							<p><a href="mailto:info@brandsofpuertorico.com" class="costumerFormLink">Contact Us</a></p>
 						</div>
 					</div>
-					<div class="store col-md-4 hidden-xs hidden-sm">
+					<div class="col-md-4 col-sm-4 hidden-xs">
 						<div class="title">
-							<p>HQ TRESEPIC</p>
+							<p><a href="http://www.tresepic.com" target="_blank">HQ TRESEPIC</a></p>
 						</div>
 						<div class="content">
 							<span>Brands of Puerto Rico</span>
@@ -254,22 +227,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="info3 row">
-					<div class="col-md-6 registerYourBrand">
-						<a href="https://docs.google.com/forms/d/1pq-Q7zzSVltZZvSw9qnF5z7Iq_a1bxnsqvZyhpJoPLo/viewform" target="_blank">Here</a>
-						<span>Register your brand</span>
-					</div>
-					<div class="col-md-6 connected">
-						<span>{{ 'sylius.get_connected'|trans }}:</span>
-						<div class="social">
-							<a href="http://instagram.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/instagram-icon.png') }}" /></a>
-							<a href="https://www.facebook.com/brandsofpuertorico" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/facebook-icon.png') }}" /></a>
-							<a href="https://twitter.com/BrandsofPR" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/twitter-icon.png') }}" /></a>
-							<a href="http://brandsofpuertorico.wordpress.com/" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/wordpress-icon.png') }}" /></a>
-							<a href="http://www.pinterest.com/bofpuertorico/" target="_blank"><img src="{{ asset ('bundles/tresepicbopr/images/pinterest-icon.png') }}" /></a>
-						</div>
-					</div>
-				</div>
+				<div class="footerSeparador"></div>
 				<div class="info4">
 					<ul class="menuFooter">
 						<li><a href="https://docs.google.com/forms/d/1pq-Q7zzSVltZZvSw9qnF5z7Iq_a1bxnsqvZyhpJoPLo/viewform" target="_blank">{{ 'sylius.brand_registration'|trans }}</a></li>
@@ -281,9 +239,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
 		</footer>
-		<a href="#" class="back-to-top"><img src="{{ asset('bundles/tresepicbopr/images/back-to-top.png') }}" /></a>
+		<a href="#" class="back-to-top"></a>
         {% endblock %} {# EOF Footer #}
 
         <div id="costumerFormPopup" class="costumer-popup mfp-hide">

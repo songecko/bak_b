@@ -45,6 +45,6 @@ parameters:
     sylius.inventory.tracking_enabled: true
     tresepic.paypal.fee: 0.90
     tresepic.contact.mail: 'info@brandsofpuertorico.com'
-    dizda_cloud_dropbox_user:     'odiseo.team@gmail.com'
-    dizda_cloud_dropbox_password: 'enter.pppdd'
+    dizda_cloud_dropbox_user:     'alant@tresepic.com'
+    dizda_cloud_dropbox_password: 'tresepic123'
     dizda_cloud_archive_password: 'bopr'

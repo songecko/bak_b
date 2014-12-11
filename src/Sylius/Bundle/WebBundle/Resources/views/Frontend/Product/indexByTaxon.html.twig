@@ -5,7 +5,9 @@
 {% from 'SyliusWebBundle:Frontend/Product:macros.html.twig' import list %}
 
 {% block content %}
-	{% block breadcrums %}
+{% block breadcrums %}
+<div class="row">
+	<div class="col-xs-12">
 		<ol class="breadcrumb">
 			<li><a href="{{ path('sylius_homepage') }}">Home</a></li>
 			{% if(taxon.parent.level != 0) %}
@@ -15,25 +17,30 @@
 			{% endif %}
 			<li>{{ taxon.name }}</li>
 		</ol>
-	{% endblock %}
+	</div>
+</div>
+{% endblock %}
+
+<div class="row">
 	{% block sidebar %}
-	{% if(taxon.level == 1) %}
-	<div class="sidebar">
-		<img src="{{ asset('bundles/tresepicbopr/images/separator-menu.png') }}" />
+	{% if(taxon.getChildren.isEmpty == false) %}
+	<div class="col-sm-3 sidebar">
+		<img src="{{ asset('bundles/tresepicbopr/images/separator-menu.png') }}" class="img-responsive" />
 		<ul class="sideMenu">
 			{{ render(controller('SyliusWebBundle:Frontend/Component:sideMenu', {'parent': taxon.id})) }}
 		</ul>
 	</div>
 	{% endif %}
 	{% endblock %}
-	
-	<div class="productList row">
-		<div class="col-md-12 col-xs-12">
+
+	<div class="col-sm-{{ taxon.getChildren.isEmpty?'12':'9' }}">
+		<div class="productList">
 			{% for products in productss %}
 			<div class="page page{{loop.index}}">
-					{{ list(products) }}
+				{{ list(products) }}
 			</div>
 			{% endfor %}
 		</div>
 	</div>
+</div>
 {% endblock %}

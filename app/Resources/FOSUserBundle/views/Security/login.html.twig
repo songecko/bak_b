@@ -7,7 +7,7 @@
 
 {% if error %}
     <div class="alert alert-danger">
-        {{ error }}
+		{{ error.messageKey|trans(error.messageData, 'security') }}
     </div>
 {% endif %}
 
@@ -46,7 +46,7 @@
 		                <label for="remember_me">
 		                    Remember me? &nbsp; <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
 		                </label>
-		                <a href=" {{ path('fos_user_resetting_request') }}" >Forgot Password?</a>
+		                <a href=" {{ path('fos_user_resetting_request') }}" class="forgot" >Forgot Password?</a>
 		            </div>
 		        </div>
 		    </div>

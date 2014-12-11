@@ -63,5 +63,4 @@ sylius_newsletter:
 sylius_search:
     pattern: /search
     defaults: { _controller: sylius.controller.frontend.homepage:searchAction }
-    methods:  [POST]
     

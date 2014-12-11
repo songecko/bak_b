@@ -42,6 +42,27 @@ class ProductFilterType extends AbstractType
                     'placeholder' => 'sylius.form.product_filter.sku'
                 )
             ))
+            ->add('manufacturer', 'text', array(
+                'required' => false,
+                'label'    => 'sylius.form.product_filter.manufacturer',
+                'attr'     => array(
+                    'placeholder' => 'sylius.form.product_filter.manufacturer'
+                )
+            ))
+            ->add('price_from', 'number', array(
+                'required' => false,
+                'label'    => 'Precio Desde',
+                'attr'     => array(
+                    'placeholder' => 'Precio Desde'
+                )
+            ))
+            ->add('price_to', 'number', array(
+                'required' => false,
+                'label'    => 'Precio Hasta',
+                'attr'     => array(
+                    'placeholder' => 'Precio Hasta'
+                )
+            ))
         ;
     }
 

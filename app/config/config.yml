@@ -89,6 +89,9 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: %sylius.model.user.class%
+    from_email:
+        address:        info@brandsofpuertorico.com
+        sender_name:    info@brandsofpuertorico.com
     group:
         group_class: Sylius\Bundle\CoreBundle\Model\Group
     profile:
@@ -230,7 +233,9 @@ mobile_detect:
     
 fos_elastica:
     clients:
-        default: { host: localhost, port: 9200 }
+        default: 
+            servers:
+                - { host: localhost, port: 9200 }
     indexes:
         website:
             client: default
@@ -239,12 +244,15 @@ fos_elastica:
                     mappings:
                         name: ~
                         description: ~
+                        manufacturer:
+                            type: "object"
+                            properties:
+                               name: ~
                     persistence:
                         driver: orm
                         model: Tresepic\BoprBundle\Entity\Product
                         provider: ~
                         finder: ~
-                        
 a2lix_translation_form:
     locales: [en, es]
 

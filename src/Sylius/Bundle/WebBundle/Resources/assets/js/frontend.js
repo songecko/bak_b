@@ -226,6 +226,78 @@ var checkoutSubmitHandler = function (ev)
 			}
     			
     	});
+    	
+    	//Subscription popup
+    	
+    	$('.subscribe > a').magnificPopup({
+    		type: 'ajax',
+    		alignTop: true,
+    		overflowY: 'scroll', // as we know that popup content is tall we set scroll overflow by default to avoid jump
+    		callbacks: {
+    			ajaxContentAdded: function()
+    			{
+    				$('.subscription-popup .changeContent').click(function(e)
+			    	{
+			    		e.preventDefault();
+			    		
+			    		var nextContent = $(this).data('content');
+			    		$('.subscription-popup .content').addClass('hide');
+			    		$('.subscription-popup .'+nextContent).removeClass('hide');
+			    	});
+    				
+    				$('select[name="sylius_cart_item[variant][cintura]"]').closest('.form-group').hide();
+    				
+    				$('select[name="sylius_cart_item[variant][sexo]"]').change(function(e)
+    				{
+    					if($(this).val() == 1) //if is Mujer
+    					{
+    						$('select[name="sylius_cart_item[variant][cintura]"]').closest('.form-group').show();
+    					}else {
+    						$('select[name="sylius_cart_item[variant][cintura]"]').closest('.form-group').hide();	
+    					}
+    				});
+    			}
+    		}
+    	});
+    	
+    	//Services popup
+    	$('.services > a').magnificPopup({
+    		type: 'ajax',
+    		alignTop: true,
+    		overflowY: 'scroll', // as we know that popup content is tall we set scroll overflow by default to avoid jump
+    		callbacks: {
+    			ajaxContentAdded: function()
+    			{
+    				var sendingServicesForm = false;
+    				$('.services-popup form').submit(function(e)
+    				{
+    					e.preventDefault();
+    					
+    					if(!sendingServicesForm)
+    					{
+	    					sendingServicesForm = true;
+	    					
+		    				$.ajax({
+					        	  url: $(this).attr("action"),
+					        	  type: "POST",
+					        	  data: $(this).serialize(),
+					        	  success: function(data, textStatus, xhr) 
+					        	  {  
+					        		  $('.services-popup form').hide();
+					        		  $('.services-popup .thanks').removeClass('hide');
+					              },
+					              complete: function(jqXHR,textStatus)
+					              {
+					            	  sendingServicesForm = false;
+					              }
+					        });
+    					}
+    				});
+    			}
+    		}
+    	});
+    	
+    	//Show new products pages
     	$(window).on("scroll", function() {
     		var footerHeight = $('footer').height() + 500;
     		var scrollHeight = $(document).height();

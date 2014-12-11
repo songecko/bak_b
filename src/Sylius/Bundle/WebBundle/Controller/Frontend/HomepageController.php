@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Drewm\MailChimp;
 use Symfony\Component\Validator\Constraints\Email as EmailConstraint;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Frontend homepage controller.
@@ -62,6 +63,37 @@ class HomepageController extends Controller
     	return $this->render('SyliusWebBundle:Frontend/Homepage:yoapoyoajulia.html.twig', array(
     			'products' => $products
     	));
+    }
+    
+    public function subscriptionAction(Request $request)
+    {
+    	$taxonRepository = $this->get('sylius.repository.taxon');
+    	
+    	$taxon = $taxonRepository->findOneByName('subscriptions');
+    	if(!$taxon)
+    		throw $this->createNotFoundException();
+    	
+    	$products = $taxon->getProducts();
+    	
+    	return $this->render('SyliusWebBundle:Frontend/Homepage:subscription.html.twig', array(
+    		'products' => $products
+    	));
+    }
+    
+    public function servicesAction(Request $request)
+    {	 
+    	return $this->render('SyliusWebBundle:Frontend/Homepage:services.html.twig', array(
+    	));
+    }
+    
+    public function servicesSendMailAction(Request $request)
+    {
+    	$services = $request->get('services');
+    	
+    	$sendMailer = $this->container->get('bopr.send.mailer');
+    	$sendMailer->sendBoprServicesMail($services['email']);
+    	
+    	return JsonResponse::create(array('status' => 'ok'));
     }
     
     public function newsletterAction()
@@ -138,7 +170,7 @@ Brands of Puerto Rico Team
     	$finder = $this->container->get('fos_elastica.finder.website.product');
     	
     	$products = $finder->find($query, 100);
-
+    	
     	if(!$query)
     	{
     		$products = null;

@@ -46,6 +46,8 @@ sylius:
         product_filter:
             name: Name
             sku: SKU
+            manufacturer: Manufacturer
+            price: Price
         settings:
             general:
                 currency: Default currency

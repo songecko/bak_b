@@ -1,0 +1,113 @@
+<div class="subscription-popup">
+	<h1>Subscription Boxes</h1>
+	<div class="content introduction">
+		<p class="intro">
+			Ahora con Brands of Puerto Rico podrás suscribirte a una de nuestras cajas sorpresa. Mensualmente estarás recibiendo una caja sorpresa con los mejores productos de nuestra familia de marcas locales. Escoge entre el "Coquí box" o "Yunque box" y disfruta del talento local mientras apoyas a la economía de Puerto Rico.
+			<br><br>
+			¡El costo de envió esta incluido!
+		</p>
+		
+		<div class="buttonContainer">
+			<a href="#" class="boprButton changeContent" data-content="package">Continue</a>
+		</div>
+	</div>
+	
+	<div class="content package hide">
+		<div class="row packages">
+			{% for product in products %}
+			{% set form = sylius_cart_form({'product': product}) %}
+			<div class="col-sm-6 col-xs-12">
+				<div id="image">
+		    		<img class="img-responsive center-block" src="{{ product.image ? product.image.path|imagine_filter('sylius_250x250') : 'http://placehold.it/250x250' }}" alt="{{ product.name }}" />
+		    	</div>
+		    	<div class="description">
+				    <form action="{{ path('sylius_cart_item_add', {'id': product.id}) }}" method="post" class="clearfix form-horizontal">
+				    	{% if product.properties|length > 0 %}
+				        <ul class="attributes">
+							{% for property in product.properties %}
+							<li><strong>{{ property.name }}:</strong> {{ property.value }}</li>
+							{% endfor %}
+				        </ul>
+				        {% endif %}
+				    	<div class="price">{{ product.price|sylius_price }} <span style="font-size: 16px;">monthly</span></div>
+				    	{% if product.hasVariants %}
+						{%   if product.isVariantSelectionMethodChoice %}
+			            <table class="table table-condensed">
+			                <thead>
+			                    <tr>
+			                        <th></th>
+			                        <th>{{ 'sylius.variant.price'|trans }}</th>
+			                        <th></th>
+			                    </tr>
+			                </thead>
+			                <tbody>
+			                    {% for variant in product.variants if variant.available %}
+			                    <tr>
+			                        <td>
+			                            {% if variant.presentation is empty %}
+			                            <ul class="unstyled">
+			                                {% for option in variant.options %}
+			                                <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
+			                                {% endfor %}
+			                            </ul>
+			                            {% else %}
+			                                {{ variant.presentation }}
+			                            {% endif %}
+			                        </td>
+			                        <td>
+			                            <span class="label label-success">{{ variant.price|sylius_price }}</span>
+			                        </td>
+			                        <td>
+			                        {% if sylius_inventory_is_available(variant) %}
+			                            {{ form_widget(form.variant[loop.index0]) }}
+			                        {% else %}
+			                            <span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span>
+			                        {% endif %}
+			                        </td>
+			                    </tr>
+			                    {% endfor %}
+			                </tbody>
+			            </table>
+			            {%   else %}
+		                <div class="well clearfix">
+		                    {{ form_widget(form.variant) }}
+		                </div>
+			            {%   endif %}
+				    	{% endif %}
+			        	{% if not product.hasVariants and not sylius_inventory_is_available(product.masterVariant) %}
+		            	<span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span>
+			        	{% else %}
+			        	{%   if(product.masterVariant.onHand > 0) %}
+				        <div class="quantity row hide">
+				        	<div class="col-xs-8">
+				        		<label class="control-label required" for="sylius_cart_item_quantity">Meses de suscripción</label>
+				        	</div>
+				        	<div class="col-xs-4">
+				        		{{ form_widget(form.quantity) }}
+				        	</div>
+				        </div>
+						{%     if sylius_is_restricted(product) %}
+				        <button disabled="disabled" class="btn btn-success btn-lg btn-block">{{ 'sylius.product_not_available_in_zone'|trans }}</button>
+			            {%     else %}
+			            	<div class="buttonContainer">
+			                	<button type="submit" class="boprButton">Seleccionar</button>
+			                </div>
+			            {%     endif %}
+				    	{%   else %}
+				    		<p><span class="label label-warning">{{ 'sylius.out_of_stock'|trans }}</span></p>
+				    	{%   endif %}
+			        	{% endif %}
+					</form>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<p class="disclaimer">
+					El servicio de cajas de suscripción conlleva un compromiso mínimo de 3 meses. Las cajas serán enviadas la tercera semana de cada mes, la misma tendrá un promedio de 5 a 7 días laborables de entrega.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+<div class="services-popup">
+	<img src="{{ asset('bundles/tresepicbopr/images/services-title.png') }}" class="title img-responsive">
+	<img src="{{ asset('bundles/tresepicbopr/images/services-price.png') }}" class="price img-responsive center-block">
+	<p class="intro">
+		Muy pronto podrás beneficiarte de una herramienta de mercadeo digital para promocionar tu empresa y sus servicios por tan solo $0.99 centavos al mes. Regístrate a nuestro newsletter para que te mantengas al tanto de lo nuevo de www.brandsofpuertorico.com, Services of Puerto Rico. 
+	</p>
+	
+	<form action="{{ path('bopr_services_send_mail') }}" method="post">
+		<label for="services_email">Regístrate:</label>
+		<div class="field">
+			<input type="text" name="services[email]" id="services_email">
+			<button type="submit">Enviar</button>
+		</div>
+	</form>
+	<p class="intro thanks hide">Muchas gracias. Te avisaremos cuando este servicio esté en marcha.</p>
+	
+	<img src="{{ asset('bundles/tresepicbopr/images/services-icons.png') }}" class="icons img-responsive center-block">
+</div>

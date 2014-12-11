@@ -1,270 +1,243 @@
 {% extends 'SyliusWebBundle:Frontend:layout.html.twig' %}
 
 {% block content %}
-	<div class="static1">
-		<div class="top row">
-		{% if not(is_mobile()) %}
-			<div class="left col-md-2">
-				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/categories-accesories/quero'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/banner/querobanner.png') }}"></a>
-			</div>
-			<div class="middle col-md-8">
-				<div id="carouselBanner" class="carousel slide" data-ride="carousel">
-	  				<!-- Indicators -->
-				  	<ol class="carousel-indicators">
-				    	<li data-target="#carouselBanner" data-slide-to="0" class="active"></li>
-				    	<li data-target="#carouselBanner" data-slide-to="1"></li>
-				    	<li data-target="#carouselBanner" data-slide-to="2"></li>
-				    	<li data-target="#carouselBanner" data-slide-to="3"></li>
-				  	</ol>
-  					<!-- Wrapper for slides -->
-  					<div class="carousel-inner">
-  						<div class="item active">
-      						<a href="{{ url('sylius_yoapoyoajulia') }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/banner/yoapoyoajulia.png') }}" style="height: 100%;"></a>
-    					</div>
-    					<div class="item">
-      						<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/apparel/noxiuz'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/banner/noxiuzbanner.png') }}" style="height: 100%;"></a>
-    					</div>
-    					<div class="item">
-      						<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/categories-accesories/http-brandsofpuertorico-com-t-categories-categories-accesories-rio-sunglasses'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/banner/rio_newbanners.png') }}" style="height: 100%;"></a>
-    					</div>
-    					<div class="item">
-      						<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/apparel/krma-design'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/banner/krmabannerlogoblanco.png') }}" style="height: 100%;"></a>
-    					</div>
-  					</div>
-  					<!-- Controls -->
-  					<a class="left carousel-control" href="#carouselBanner" data-slide="prev">
-    					<span class="glyphicon glyphicon-chevron-left"></span>
-  					</a>
-  					<a class="right carousel-control" href="#carouselBanner" data-slide="next">
-    					<span class="glyphicon glyphicon-chevron-right"></span>
-  					</a>
-				</div>
-			</div>
-			<div class="right col-md-2">
-				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/categories-jewelry/miramelinda-jewelry'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/banner/miramelinda.png') }}"></a>
-			</div>
-		{% else %}
-			<div class="col-xs-12">
-				<div id="carouselBanner" class="carousel mobile slide" data-ride="carousel">
-	  				<!-- Indicators -->
-				  	<ol class="carousel-indicators">
-				    	<li data-target="#carouselBanner" data-slide-to="0" class="active"></li>
-				    	<li data-target="#carouselBanner" data-slide-to="1"></li>
-				    	<li data-target="#carouselBanner" data-slide-to="2"></li>
-				    	<li data-target="#carouselBanner" data-slide-to="3"></li>
-				  	</ol>
-  					<!-- Wrapper for slides -->
-  					<div class="carousel-inner">
-  						<div class="item active">
-	  						<a href="{{ url('sylius_yoapoyoajulia') }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/banner/yoapoyoajulia.png') }}"></a>
-    					</div>
-    					<div class="item">
-      						<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/apparel/noxiuz'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/banner/noxiuzbanner.png') }}"></a>
-    					</div>
-    					<div class="item">
-      						<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/categories-accesories/http-brandsofpuertorico-com-t-categories-categories-accesories-rio-sunglasses'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/banner/rio_newbanners.png') }}"></a>
-    					</div>
-    					<div class="item">
-      						<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/apparel/krma-design'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/banner/krmabannerlogoblanco.png') }}"></a>
-    					</div>
-  					</div>
-  					<!-- Controls -->
-  					<a class="left carousel-control" href="#carouselBanner" data-slide="prev">
-    					<span class="glyphicon glyphicon-chevron-left"></span>
-  					</a>
-  					<a class="right carousel-control" href="#carouselBanner" data-slide="next">
-    					<span class="glyphicon glyphicon-chevron-right"></span>
-  					</a>
-				</div>
-			</div>
-		{% endif %}
+<div class="boxesAndBanner row">
+	<div class="boprBoxes col-md-2 col-sm-2 col-xs-12">
+		<div class="subscribe">
+			<a href="{{ path('bopr_subscription') }}">
+				<img class="center-block img-responsive" src="{{ asset('bundles/tresepicbopr/images/boprSubscriptions.jpg') }}">
+			</a>
 		</div>
-		<div class="bottom row">
-		{% if not(is_mobile()) %}
-			<div class="left col-md-4">
-				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/categories-jewelry/uvita-playera'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/banner/uvitabanner.png') }}"></a>
-			</div>
-			<div class="middle col-md-4">
-				<div class="top">
-					<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/gourmet/cookie-couture'}) }}"><img class="img-responsive static1BottomImg" src="{{ asset('bundles/tresepicbopr/images/banner/cookiecouture.png') }}"></a>
-				</div>
-				<div class="bottom">
-					<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/health-beauty/coqueterias-para-tu-cuerpo'}) }}"><img class="img-responsive static1BottomImg" src="{{ asset('bundles/tresepicbopr/images/banner/coqueterias.png') }}"></a>
-				</div>
-			</div>
-			<div class="right col-md-4">
-				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/gourmet/http-brandsofpuertorico-com-t-categories-gourmet-cafe-aromas-del-campo'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/banner/gourmetbanner.png') }}"></a>
-			</div>
-		{% else %}
-			<div class="col-xs-6">
-				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/gourmet/cookie-couture'}) }}"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/banner/cookiecouture.png') }}"></a>
-			</div>
-			<div class="col-xs-6">
-				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/health-beauty/coqueterias-para-tu-cuerpo'}) }}"><img class="img-responsive pull-right" src="{{ asset('bundles/tresepicbopr/images/banner/coqueterias.png') }}"></a>
-			</div>
-		{% endif %}
+		<div class="experience">
+			<a href="http://www.brandsofpuertorico.com/p/haz-tu-propio-queso-con-quesos-vaca-negra">
+				<img class="center-block img-responsive" src="{{ asset('bundles/tresepicbopr/images/boprExperience.jpg') }}">
+			</a>
+		</div>
+		<div class="services">
+			<a href="{{ path('bopr_services') }}">
+				<img class="center-block img-responsive" src="{{ asset('bundles/tresepicbopr/images/boprServices.jpg') }}">
+			</a>
 		</div>
 	</div>
-<!-- <div class="jumbotron">
-    <h1>-->{#{ 'hola'|trans }}</h1>
-    <p class="lead">{{ 'sylius.homepage.splash.subheadline'|trans }#}<!-- </p>
-</div>-->
-	<div class="featuredProducts">
-		<img class="separator img-responsive" src="{{ asset('bundles/tresepicbopr/images/featured-products.png') }}" />
-	</div>
-	<div class="products clearfix">
-		{% if not(is_mobile()) %}
-			{{ render(url('sylius_partial_product_random', {'limit': 12, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
-		{% else %}
-			{{ render(url('sylius_partial_product_random', {'limit': 6, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
-		{% endif %}
-		<img class="separator img-responsive container" style="margin-bottom: 25px;" src="{{ asset('bundles/tresepicbopr/images/separator.png') }}" />
-	</div>
-	<div class="static2 container-fluid">
-		{% if not(is_mobile()) %}
-		<div class="row">
-			<div class="left col-md-6">
-				<a href="http://www.brandsofpuertorico.com/p/new-time-deck"><img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/banner/newtimesk8.png') }}"></a>
-			</div>
-			<div class="right col-md-6">
-				<div class="row">
-					<div class="left col-md-4">
-						<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/categories-jewelry/chachi'}) }}"><img class="img-responsive static2Img" src="{{ asset('bundles/tresepicbopr/images/banner/chachi.png') }}"></a>
-					</div>
-					<div class="middle col-md-4">
-						<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/art-literature/postales-bien-cool'}) }}"><img class="img-responsive static2Img" src="{{ asset('bundles/tresepicbopr/images/banner/postalesbiencool.png') }}"></a>
-					</div>
-					<div class="right col-md-4">
-						<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/apparel/fabscreations'}) }}"><img class="img-responsive static2Img" src="{{ asset('bundles/tresepicbopr/images/banner/FABScreations.png') }}"></a>
-					</div>
+	<div class="carouselBannerContainer col-md-10  col-sm-10 col-xs-12">
+		<div id="carouselBanner" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#carouselBanner" data-slide-to="0" class="active"></li>
+				<li data-target="#carouselBanner" data-slide-to="1"></li>
+				<li data-target="#carouselBanner" data-slide-to="2"></li>
+				<li data-target="#carouselBanner" data-slide-to="3"></li>
+				<li data-target="#carouselBanner" data-slide-to="4"></li>
+				<li data-target="#carouselBanner" data-slide-to="5"></li>
+				<li data-target="#carouselBanner" data-slide-to="6"></li>
+				<li data-target="#carouselBanner" data-slide-to="7"></li>
+			</ol>
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+				<div class="item active subscribe">
+      				<a href="{{ path('bopr_subscription') }}">
+      					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/subscriptionbox_slideshow.jpg') }}">
+      				</a>
+    			</div>
+				<div class="item">
+					<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/apparel'}) }}">
+						<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/apparel.png') }}">
+					</a>
 				</div>
-			</div>
+				<div class="item">
+					<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/accessories'}) }}">
+						<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/accesories_slideshow.jpg') }}">
+					</a>
+				</div>
+				<div class="item">
+      				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/health-beauty'}) }}">
+      					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/health_beauty_slideshow.jpg') }}">
+      				</a>
+    			</div>
+    			<div class="item">
+      				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/art-literature'}) }}">
+      					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/art_literature_slideshow.jpg') }}">
+      				</a>
+    			</div>
+    			<div class="item">
+      				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/gourmet'}) }}">
+      					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/gourmet_slideshow.jpg') }}">
+      				</a>
+    			</div>
+    			<div class="item">
+      				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/categories-jewelry'}) }}">
+      					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/jewelry_slideshow.jpg') }}">
+      				</a>
+    			</div>
+				<div class="item">
+					<a href="{{ url('sylius_yoapoyoajulia') }}">
+						<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/yoapoyoajulia.png') }}">
+					</a>
+    			</div>
+  			</div>
+  			<!-- Controls -->
+  			<a class="left carousel-control" href="#carouselBanner" data-slide="prev">
+    			<span class="glyphicon glyphicon-chevron-left"></span>
+  			</a>
+			<a class="right carousel-control" href="#carouselBanner" data-slide="next">
+    			<span class="glyphicon glyphicon-chevron-right"></span>
+  			</a>
 		</div>
-		{% else %}
-		<div class="row">
-			<div class="col-xs-8 static2ColR">
-				<a href="http://www.brandsofpuertorico.com/p/new-time-deck"><img class="img-responsive static2ImgTop" src="{{ asset('bundles/tresepicbopr/images/banner/newtimesk8.png') }}"></a>
-			</div>
-			<div class="col-xs-4">
-				<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/categories-jewelry/chachi'}) }}"><img class="img-responsive static2Img" src="{{ asset('bundles/tresepicbopr/images/banner/chachi.png') }}"></a>
-			</div>
-		</div>
-		{#}
-		<div class="row" style="margin-top: 20px;">
-			<div class="col-xs-4">
-				<img class="img-responsive static2Img" src="{{ asset('bundles/tresepicbopr/images/uvitaplayera_lifestyle.png') }}">
-			</div>
-			<div class="col-xs-8 static2ColL">
-				<img class="img-responsive static2ImgTop" src="{{ asset('bundles/tresepicbopr/images/peelheel_3.png') }}">
-			</div>
-		</div>
-		{#}
-		{% endif %}
 	</div>
-	<div id="carouselBrands" class="carousel slide col-xs-12" data-ride="carousel">
+</div>
+
+<div class="featuredProducts">
+	<img class="separator img-responsive" src="{{ asset('bundles/tresepicbopr/images/featured-products.png') }}" />
+</div>
+<div class="products clearfix">
+	{{ render(url('sylius_partial_product_random', {'limit': 12, 'template': 'SyliusWebBundle:Frontend/Product:latest.html.twig'})) }}
+	<img class="separator img-responsive container" style="margin-bottom: 25px;" src="{{ asset('bundles/tresepicbopr/images/separator.png') }}" />
+</div>
+
+<div class="row video">
+	<div class="col-xs-12">
+		<iframe src="//player.vimeo.com/video/100530771?byline=0&amp;portrait=0" width="100%" height="380px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	</div>
+</div>
+
+<div id="carouselBrands" class="carousel slide col-xs-12" data-ride="carousel">
 	<!-- Wrapper for slides -->
   	<div class="carousel-inner">
   		<div class="item active">
 	  		<div class="col-xs-3">
-	  			<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/Angie-dennise-logo.png') }}">
+	  			<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/Angie-dennise-logo.png') }}">
 	  		</div>
 	  		<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/artonico-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/artonico-logo.png') }}">
   			</div>
   			<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/cafe-pomarrosa-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/cafe-pomarrosa-logo.png') }}">
   			</div>
   			<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/castener-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/castener-logo.png') }}">
   			</div>
     	</div>
     	<div class="item">
     		<div class="col-xs-3">
-	  			<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/CHACHI-logo.png') }}">
+	  			<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/CHACHI-logo.png') }}">
 	  		</div>
 	  		<div class="col-xs-3">
-	  			<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/chali-logo.png') }}">
+	  			<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/chali-logo.png') }}">
   			</div>
   			<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/coa-sungalsses-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/coa-sungalsses-logo.png') }}">
   			</div>
   			<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/cookie-couture-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/cookie-couture-logo.png') }}">
   			</div>
       	</div>
       	<div class="item">
     		<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/coqueterias-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/coqueterias-logo.png') }}">
 	  		</div>
 	  		<div class="col-xs-3">
-	  			<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/de-hojas-logo.png') }}">
+	  			<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/de-hojas-logo.png') }}">
   			</div>
   			<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/editorial-antillano-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/editorial-antillano-logo.png') }}">
   			</div>
   			<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/glutenfrei-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/glutenfrei-logo.png') }}">
   			</div>
       	</div>
       	<div class="item">
     		<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/heel-condoms-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/heel-condoms-logo.png') }}">
 	  		</div>
 	  		<div class="col-xs-3">
-	  			<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/impulse-logo.png') }}">
+	  			<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/impulse-logo.png') }}">
   			</div>
   			<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/KRMA-DESIGN-co-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/KRMA-DESIGN-co-logo.png') }}">
   			</div>
   			<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/lactitas-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/lactitas-logo.png') }}">
   			</div>
       	</div>
       	<div class="item">
     		<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/linda-mami-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/linda-mami-logo.png') }}">
 	  		</div>
 	  		<div class="col-xs-3">
-	  			<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/lollipop-cases-logo.png') }}">
+	  			<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/lollipop-cases-logo.png') }}">
   			</div>
   			<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/lulu-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/lulu-logo.png') }}">
   			</div>
   			<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/noxiuz-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/noxiuz-logo.png') }}">
   			</div>
       	</div>
       	<div class="item">
     		<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/origami-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/origami-logo.png') }}">
 	  		</div>
 	  		<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/PEELandHEEL-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/PEELandHEEL-logo.png') }}">
   			</div>
   			<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/postales-bien-cool-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/postales-bien-cool-logo.png') }}">
   			</div>
   			<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/purple-swan-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/purple-swan-logo.png') }}">
   			</div>
       	</div>
       	<div class="item">
     		<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/quero-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/quero-logo.png') }}">
 	  		</div>
 	  		<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/sotomayor-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/sotomayor-logo.png') }}">
   			</div>
   			<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/spasm-clo-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/spasm-clo-logo.png') }}">
   			</div>
   			<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/suxess-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/suxess-logo.png') }}">
   			</div>
       	</div>
       	<div class="item">
 	  		<div class="col-xs-3">
-  				<img class="img-responsive" src="{{ asset('bundles/tresepicbopr/images/uvita-playera-logo.png') }}">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/uvita-playera-logo.png') }}">
+  			</div>
+	  		<div class="col-xs-3">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/axon-logo.png') }}">
+  			</div>
+	  		<div class="col-xs-3">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/de-la-calle-logo.jpg') }}">
+  			</div>
+	  		<div class="col-xs-3">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/feather-logo.jpg') }}">
+  			</div>  			
+      	</div>
+       	<div class="item">
+	  		<div class="col-xs-3">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/fabs-creations-logo.jpg') }}">
+  			</div>
+	  		<div class="col-xs-3">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/local-beach-logo.png') }}">
+  			</div>
+	  		<div class="col-xs-3">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/rio-logo.jpg') }}">
+  			</div>
+	  		<div class="col-xs-3">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/saana-logo.png') }}">
+  			</div>  			
+      	</div>
+       	<div class="item">
+	  		<div class="col-xs-3">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/marrero-collection-logo.png') }}">
+  			</div>
+	  		<div class="col-xs-3">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/miramelinda-logo.png') }}">
+  			</div>
+	  		<div class="col-xs-3">
+  				<img class="img-responsive center-block" src="{{ asset('bundles/tresepicbopr/images/new-time-skateboards-logo.jpg') }}">
   			</div>
       	</div>
 	</div>
