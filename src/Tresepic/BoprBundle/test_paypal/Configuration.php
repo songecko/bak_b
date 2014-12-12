@@ -34,7 +34,7 @@ class Configuration
 				// "acct1.AppId" => "APP-80W284485P519543T"
 				);
 
-		return array_merge($config, self::getConfig());;
+		return array_merge($config, self::getConfig());
 	}
 	
 	public static function getSignatureConfig()

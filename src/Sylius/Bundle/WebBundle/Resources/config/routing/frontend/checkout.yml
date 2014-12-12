@@ -5,6 +5,14 @@ sylius_checkout_start:
     pattern: /
     defaults: { _controller: sylius.controller.process:startAction, scenarioAlias: 'sylius_checkout' }
 
+sylius_checkout_cancel_paypal_popup:
+    pattern: /cancel-paypal-popup
+    defaults: { _controller: sylius.controller.frontend.homepage:cancelPaypalPopupAction }
+
+sylius_checkout_return_paypal_popup:
+    pattern: /return-paypal-popup
+    defaults: { _controller: sylius.controller.frontend.homepage:returnPaypalPopupAction }
+        
 sylius_checkout_display:
     pattern: /{stepName}
     defaults: { _controller: sylius.controller.process:displayAction, scenarioAlias: 'sylius_checkout' }

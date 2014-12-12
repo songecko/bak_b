@@ -52,9 +52,10 @@
         </tr>
         <tr style="background-color: #f1f1f1;">
             <td colspan="6">
+            	<span class="pull-left paypalMessage">{{ 'sylius.checkout.finalize.paypalMessage' }}</span>
                 <span class="pull-right">
-                {% set total = order.total + app.request.session.get('priceCalculator') %}
-                <strong>Total</strong>: {{ total|sylius_price }}
+                	{% set total = order.total + app.request.session.get('priceCalculator') %}
+                	<strong>Total</strong>: {{ total|sylius_price }}
                 </span>
             </td>
         </tr>

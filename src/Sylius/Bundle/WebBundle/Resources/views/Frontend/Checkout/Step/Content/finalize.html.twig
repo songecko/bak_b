@@ -104,6 +104,7 @@
         {% endif %}
         <tr style="background-color: #f1f1f1;">
             <td colspan="5">
+            	<span class="pull-left paypalMessage">{{ 'sylius.checkout.finalize.paypalMessage'|trans }}</span>
                 <span class="pull-right">
                 	<strong>Total</strong>: {{ order.total|sylius_money }}
                 </span>
@@ -115,7 +116,17 @@
 <div class="form-horizontal">
     <div class="form-actions">
         {#}<a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="btn btn-lg"><i class="icon-chevron-left"></i> {{ 'sylius.checkout.back'|trans }}</a> &nbsp;{#}
-        <a href="{{ path('sylius_checkout_forward', {'stepName': context.currentStep.name}) }}" class="btn btn-lg btn-success"><i class="icon-ok"></i>{{ 'sylius.checkout.finalize.place_order'|trans }}</a> &nbsp;
+        {#<a href="{{ path('sylius_checkout_forward', {'stepName': context.currentStep.name}) }}" class="btn btn-lg btn-success"><i class="icon-ok"></i>{{ 'sylius.checkout.finalize.place_order'|trans }}</a>#}
+        
+        <form action="https://www.paypal.com/webapps/adaptivepayment/flow/pay" target="PPDGFrame" class="standard">
+			<input type="submit" id="submitBtn" value="{{ 'sylius.checkout.finalize.place_order'|trans }}" class="btn btn-lg btn-success">
+			<input id="type" type="hidden" name="expType" value="light">
+			<input id="paykey" type="hidden" name="paykey" value="{{ paypalPayKey }}">
+		</form>
+
+		<script type="text/javascript" charset="utf-8">
+			var embeddedPPFlow = new PAYPAL.apps.DGFlow({trigger: 'submitBtn'});
+		</script>
     </div>
 </div>
 {% endblock %}

@@ -21,6 +21,10 @@ li {
 	padding: 0;
 }
 
+#PPDGFrame .panel {
+	background: transparent;
+}
+
 .boprButton {
 	display: inline-block;
 	background: #81705a;
@@ -1124,6 +1128,12 @@ footer .info4 .copyright span.rights {
 #content .address > div {
 	float: left;
 	margin-right: 200px;
+}
+
+#content .paypalMessage {
+	font-size: 12px;
+    width: 45%;
+    font-weight: bold;	
 }
 
 .back-to-top {

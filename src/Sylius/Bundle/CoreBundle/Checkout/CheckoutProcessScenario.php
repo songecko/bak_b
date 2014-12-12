@@ -53,13 +53,13 @@ class CheckoutProcessScenario implements ProcessScenarioInterface
             ->add('addressing', 'sylius_checkout_addressing')
             //->add('payment', 'sylius_checkout_payment')
             ->add('finalize', 'sylius_checkout_finalize')
-            ->add('purchase', 'sylius_checkout_purchase')
+            //->add('purchase', 'sylius_checkout_purchase')
         ;
 
         $builder
             ->setDisplayRoute('sylius_checkout_display')
             ->setForwardRoute('sylius_checkout_forward')
-            ->setRedirect('sylius_homepage')
+            ->setRedirect('sylius_checkout_return_paypal_popup')
             ->validate(function () use ($cart) {
                 return !$cart->isEmpty();
             })
