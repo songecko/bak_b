@@ -104,7 +104,7 @@
         {% endif %}
         <tr style="background-color: #f1f1f1;">
             <td colspan="5">
-            	<span class="pull-left paypalMessage">{{ 'sylius.checkout.finalize.paypalMessage' }}</span>
+            	<span class="pull-left paypalMessage">{{ 'sylius.checkout.finalize.paypalMessage'|trans }}</span>
                 <span class="pull-right">
                 	<strong>Total</strong>: {{ order.total|sylius_money }}
                 </span>
