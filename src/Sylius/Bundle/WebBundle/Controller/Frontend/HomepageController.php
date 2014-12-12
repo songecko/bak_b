@@ -17,6 +17,7 @@ use Drewm\MailChimp;
 use Symfony\Component\Validator\Constraints\Email as EmailConstraint;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Frontend homepage controller.
@@ -94,6 +95,22 @@ class HomepageController extends Controller
     	$sendMailer->sendBoprServicesMail($services['email']);
     	
     	return JsonResponse::create(array('status' => 'ok'));
+    }
+    
+    public function cancelPaypalPopupAction(Request $request)
+    {
+    	return new Response('<script type="text/javascript" charset="utf-8">
+			embeddedPPFlow = top.embeddedPPFlow || top.opener.top.embeddedPPFlow;
+			embeddedPPFlow.closeFlow();
+			embeddedPPFlow.close();
+		</script>');
+    }
+    
+    public function returnPaypalPopupAction(Request $request)
+    {
+    	return new Response('<script type="text/javascript" charset="utf-8">
+			top.location = "'.$this->generateUrl('sylius_homepage', array(), UrlGeneratorInterface::ABSOLUTE_URL).'";
+		</script>');
     }
     
     public function newsletterAction()

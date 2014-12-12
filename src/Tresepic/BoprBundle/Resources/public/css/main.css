@@ -21,6 +21,10 @@ li {
 	padding: 0;
 }
 
+#PPDGFrame .panel {
+	background: transparent;
+}
+
 .boprButton {
 	display: inline-block;
 	background: #81705a;

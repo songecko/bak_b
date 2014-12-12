@@ -46,6 +46,7 @@ function getPaypalPayKey($manufacturers, $fee, $total, $cancelUrl, $returnUrl)
 	try {
 		/* wrap API method calls on the service object with a try catch */
 		$response = $service->Pay($payRequest);
+		//ldd($response->error);
 	} catch(Exception $ex) {
 		require_once '../Common/Error.php';
 		exit;
