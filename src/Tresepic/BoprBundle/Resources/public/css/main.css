@@ -909,42 +909,47 @@ header .navMenu li.custom {
 	margin: 30px 0;
 }
 
-#content #carouselBrands .carousel-control.left {
+#content .carousel .carousel-control.left {
 	background: none	
 }
 
-#content #carouselBrands .carousel-control.left,
-#content #carouselBrands .carousel-control.right {
+#content .carousel .carousel-control.left,
+#content .carousel .carousel-control.right {
 	background: none;
 	width: 50px;
 	color: #000000;
 	left: -10px;
 }
 
-#content #carouselBrands .carousel-control.right {
+#content .carousel .carousel-control.right {
 	left: auto;
 	right: -10px;	
 }
 
-#content #carouselBrands .carousel-control.left .glyphicon-chevron-left {
+#content .carousel .carousel-control.left .glyphicon-chevron-left {
 	left: 0;
 }
 
-#content #carouselBrands .carousel-control.right .glyphicon-chevron-right {
+#content .carousel .carousel-control.right .glyphicon-chevron-right {
 	right: 0;
-}
-
-#content #carouselImages .carousel-control.left,
-#content #carouselImages .carousel-control.right {
-	background: none;
-	width: 50px;
-	color: #000000;
-	left: -60px;
 }
 
 #content #carouselImages .carousel-control.right {
 	left: auto;
 	right: -20px;	
+}
+
+#content #carouselTestimonials blockquote {
+	border: 0;
+	text-align: right;
+	font-size: 16px;
+	font-weight: 500;
+	margin: 0;
+	padding: 40px 40px 40px 20px;
+}
+
+#content #carouselTestimonials blockquote p.quote {
+	font-style: oblique;
 }
 
 footer {
