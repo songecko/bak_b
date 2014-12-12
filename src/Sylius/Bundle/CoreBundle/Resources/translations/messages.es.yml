@@ -19,6 +19,8 @@ sylius:
       number: Número
       total_from: Desde
       total_to: Hasta
+      month: Mes
+      year: Año
     product:
       short_description: Breve descripción
       tax_category: Categoría del impuesto

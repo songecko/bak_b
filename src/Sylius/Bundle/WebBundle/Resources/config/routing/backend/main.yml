@@ -59,7 +59,11 @@ sylius_backend_taxon:
 sylius_backend_order:
     resource: @SyliusWebBundle/Resources/config/routing/backend/order.yml
     prefix: /orders
-
+    
+sylius_backend_order_history:
+    resource: @SyliusWebBundle/Resources/config/routing/backend/order_history.yml
+    prefix: /orders-history
+    
 sylius_backend_promotion:
     resource: @SyliusWebBundle/Resources/config/routing/backend/promotion.yml
     prefix: /promotions

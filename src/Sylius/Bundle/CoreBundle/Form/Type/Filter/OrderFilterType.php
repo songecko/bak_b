@@ -52,7 +52,21 @@ class OrderFilterType extends AbstractType
                 'label'    => 'sylius.form.order_filter.created_at_to',
                 'attr'     => array(
                     'placeholder' => 'sylius.form.order_filter.created_at_to'
-                )
+                )            
+            ))
+            ->add('month', 'text', array(
+            		'required' => false,
+            		'label'    => 'sylius.form.order_filter.month',
+            		'attr'     => array(
+            				'placeholder' => 'sylius.form.order_filter.month'
+            		)
+            ))
+            ->add('year', 'text', array(
+            		'required' => false,
+            		'label'    => 'sylius.form.order_filter.year',
+            		'attr'     => array(
+            				'placeholder' => 'sylius.form.order_filter.year'
+            		)
             ))
         ;
     }
