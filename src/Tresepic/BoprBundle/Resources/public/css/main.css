@@ -1132,7 +1132,8 @@ footer .info4 .copyright span.rights {
 
 #content .paypalMessage {
 	font-size: 12px;
-    width: 45%;	
+    width: 45%;
+    font-weight: bold;	
 }
 
 .back-to-top {
