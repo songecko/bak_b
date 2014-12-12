@@ -51,7 +51,7 @@ class FinalizeStep extends CheckoutStep
         
         $total = $order->getTotal()/100;
         $cancelUrl = $this->generateUrl('sylius_checkout_cancel_paypal_popup', array(), true);
-        $returnUrl = $cancelUrl = $this->generateUrl('sylius_checkout_forward', array('stepName' => 'finalize'), true);
+        $returnUrl = $this->generateUrl('sylius_checkout_forward', array('stepName' => 'finalize'), true);
         $fee = $this->container->getParameter("tresepic.paypal.fee");
         
         $manufacturers = array();
