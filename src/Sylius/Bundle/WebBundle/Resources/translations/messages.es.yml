@@ -159,6 +159,7 @@ sylius:
       header: Dirección de entrega
     back: Volver
     finalize:
+      paypalMessage: Después de darle click a REALIZAR PEDIDO si no tiene cuenta de PAYPAL dele click a COMPRE COMO INVITADO para pagar con tarjeta de crédito.
       address:
         city: Ciudad
         country: País
