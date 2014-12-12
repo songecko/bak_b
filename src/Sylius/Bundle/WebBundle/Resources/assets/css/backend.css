@@ -447,6 +447,11 @@ input[type="file"] {
 .col-md-6 #users .btn span {
     display: none;
 }
+.table-condensed .stadisticsComplete{
+	text-transform: lowercase;
+	color: #10AC8E !important;
+	margin-left: 15px;
+}
 
 /** Products. **/
 .sylius-products-table td {
@@ -575,4 +580,4 @@ input[type="file"] {
 
 #categorization select.form-control {
 	height: 250px;
-} 
+}

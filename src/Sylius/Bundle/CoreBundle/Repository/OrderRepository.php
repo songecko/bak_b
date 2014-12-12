@@ -153,6 +153,24 @@ class OrderRepository extends CartRepository
                 ->setParameter('createdAtTo', $criteria['createdAtTo'])
             ;
         }
+        $month = $criteria['month'];
+        $year = $criteria['year'];
+        if (!empty($criteria['year'])) {
+        	if (!empty($criteria['month'])) {
+        		$firstDay_date = $year.'-'.$month.'-'.'01';
+        		//ldd($a_date);
+        		//ldd(date("t", strtotime($a_date)));
+        		$lastDayMonth = date("t", strtotime($firstDay_date));
+        		
+        		$lastDay_date = $year.'-'.$month.'-'.$lastDayMonth;
+	            $queryBuilder
+		        	->andWhere('o.createdAt >= :firstDay_date')
+		        	->andWhere('o.createdAt <= :lastDay_date')
+		        	->setParameter('firstDay_date', $firstDay_date)
+		        	->setParameter('lastDay_date', $lastDay_date)
+	            ;
+        	}
+        }
 
         if (empty($sorting)) {
             if (!is_array($sorting)) {

@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+{% if orders|length > 0 %}
+	<table id="orders" class="table">
+	    <thead>
+	        <tr>
+	            <th>{{ 'sylius.order.user'|trans}}</th>            
+	            <th>{{ 'sylius.order.items'|trans }}</th>
+	            <th>{{ 'sylius.order.adress'|trans }}</th>
+	            <th>{{ 'sylius.order.buy_date'|trans }}</th>
+	            <th>{{ 'sylius.order.method_payment'|trans }}</th>
+	            <th>{{ 'sylius.order.send'|trans }}</th>
+	            <th>{{ 'sylius.order.total_sale'|trans }}</th>
+	            <th>{{ 'sylius.order.brands'|trans }}</th>
+	            <th>{{ 'sylius.order.bopr'|trans }}</th>
+	            <th>{{ 'sylius.order.shipping_cost'|trans }}</th>
+	            <th></th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        {% for order in orders %}
+	            <td>
+	                <p>{{ order.user.fullName }} <br><a href="{{ path('sylius_backend_user_show', {'id': order.user.id}) }}">{{ order.user.email }}</a></p>
+	            </td>
+	            <td>
+	            	<ul>
+	                {% for item in order.items %}
+	                    <li>{{ item.product.name }}</li>
+	                {% endfor %}
+	            	</ul>
+	            </td>
+	            <td>{{ order.shippingAddress.street }}</td>
+	            <td>{{ order.createdAt|date }}</td>
+	            <td>{{ order.payment.method }}</td>
+	            {% for shipment in order.shipments %}
+	            	<td>{{ shipment.method }}</td>
+	            {% endfor %}
+	            <td>{{ order.total|sylius_price(order.currency) }}</td>
+	            <td>{{ ((order.total-order.shippingTotal)*0.9)|sylius_price(order.currency) }}</td>
+	            <td>{{ ((order.total-order.shippingTotal)*0.1)|sylius_price(order.currency) }}</td>
+	            <td>{{ order.shippingTotal|sylius_price(order.currency) }}</td>
+	        </tr>
+	        {% endfor %}
+	    </tbody>
+	</table>
+</body>  
+</html>
+{% endif %}

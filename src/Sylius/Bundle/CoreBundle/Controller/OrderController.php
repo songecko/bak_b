@@ -67,7 +67,33 @@ class OrderController extends ResourceController
 
         return $this->redirectHandler->redirectToReferer();
     }
+    
+    public function downloadExcelAction(Request $request)
+    {
+    
+        $criteria = $this->config->getCriteria();
+        $sorting = $this->config->getSorting();
 
+        $repository = $this->getRepository();
+
+        $orders = $this->resourceResolver->getResource(
+                $repository,
+                'findBy',
+                array($criteria, $sorting, $this->config->getLimit())
+         );
+        $response = $this->render('SyliusWebBundle:Backend/Order:downloadExcel.html.twig', array(
+            'orders' => $orders
+        ));
+    
+    	//$response = new Response($view);
+    	$response->headers->set('Content-Type', 'application/octet-stream');
+    	$response->headers->set('Content-Disposition', 'attachment; filename=orderHistory.xls');
+    	$response->headers->set('Pragma', 'no-cache');
+    	$response->headers->set('Expires', '0');
+    
+    	return $response;
+    }
+    
     private function getFormFactory()
     {
         return $this->get('form.factory');

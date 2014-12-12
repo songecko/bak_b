@@ -7,21 +7,27 @@
 {% block topbar %}
 <ol class="breadcrumb">
     <li>{{ 'sylius.breadcrumb.sales'|trans }}</li>
-    <li>{{ 'sylius.breadcrumb.order.index'|trans }}</li>
+    <li>Historial de compras</li>
 </ol>
 {% endblock %}
 
 {% block content %}
 <div class="page-header">
     <div class="actions-menu">
-        {{ buttons.create(path('sylius_backend_order_create'), 'sylius.order.create'|trans) }}
-        {% if app.request.query.get('deleted') %}
-            <a href="{{ path('sylius_backend_order_index', {'deleted': false}) }}" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> {{ 'sylius.hide_deleted'|trans }}</a>
+    {% set criteria = app.request.query.get('criteria') %}
+    <a href="{{ path('backend_order_history_download_excel', {'criteria': criteria}) }}" class="btn btn-success "><i class="glyphicon glyphicon-floppy-save"></i>Exportar XLS</a>
+        {% if app.request.query.get('impago') %}
+            <a href="{{ path('sylius_backend_order_history_index', {'impago': false}) }}" class="btn btn-danger"><i class="glyphicon glyphicon-eye-close"></i> {{ 'Ocultar Impagos'|trans }}</a>
         {% else %}
-            <a href="{{ path('sylius_backend_order_index', {'deleted': true}) }}" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> {{ 'sylius.show_deleted'|trans }}</a>
+            <a href="{{ path('sylius_backend_order_history_index', {'impago': true}) }}" class="btn btn-danger"><i class="glyphicon glyphicon-eye-open"></i> {{ 'Mostar Impagos'|trans }}</a>
         {% endif %}
     </div>
-    <h1><i class="glyphicon glyphicon-shopping-cart"></i> {{ 'sylius.order.index_header'|trans|raw }}</h1>
+    <h1><i class="glyphicon glyphicon-shopping-cart"></i>
+    	Historial de compras
+    	{% if (criteria['year'] is defined) %}
+     		<small>del {{ criteria['month'] }} del {{ criteria['year'] }}</small>
+     	{% endif %}
+     </h1>
 </div>
 
 {% render(controller('sylius.controller.backend.form:filterAction', {'type': 'sylius_order_filter', 'template': 'SyliusWebBundle:Backend/Order:filterFormHistory.html.twig'})) %}
