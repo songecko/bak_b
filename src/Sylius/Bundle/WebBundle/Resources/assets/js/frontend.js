@@ -61,10 +61,6 @@ var checkoutSubmitHandler = function (ev)
     $(document).ready(function() 
     {	
     	$('#formStep1').submit(checkoutSubmitHandler);
-
-        $('.sylius-different-billing-address-trigger').click(function() {
-            $('#sylius-billing-address-container').toggleClass('hidden');
-        });
         
         jQuery.getScript('http://www.geoplugin.net/javascript.gp', function()
         {

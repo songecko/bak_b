@@ -188,6 +188,7 @@ sylius:
             header: Addressing step
         back: Back
         finalize:
+            paypalMessage: After clicking PLACE ORDER if you don't have a PAYPAL account click BUY AS A GUEST to pay with your credit card.
             address:
                 city: City
                 country: Country

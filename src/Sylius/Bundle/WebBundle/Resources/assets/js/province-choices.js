@@ -45,9 +45,10 @@
         var $billingAddressCheckbox  = $('input[type="checkbox"][name$="[differentBillingAddress]"]');
         var $billingAddressContainer = $('#sylius-billing-address-container');
         var toggleBillingAddress = function() {
-            $billingAddressContainer.toggle($billingAddressCheckbox.prop('checked'));
+        	$('#sylius-billing-address-container').toggleClass('hidden');
+            //$billingAddressContainer.toggle($billingAddressCheckbox.prop('checked'));
         };
-        toggleBillingAddress();
+        //toggleBillingAddress();
         $billingAddressCheckbox.on('change', toggleBillingAddress);
     });
 })( jQuery );
