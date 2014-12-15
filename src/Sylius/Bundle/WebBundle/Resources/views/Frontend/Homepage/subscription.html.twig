@@ -2,13 +2,13 @@
 	<h1>Subscription Boxes</h1>
 	<div class="content introduction">
 		<p class="intro">
-			Ahora con Brands of Puerto Rico podrás suscribirte a una de nuestras cajas sorpresa. Mensualmente estarás recibiendo una caja sorpresa con los mejores productos de nuestra familia de marcas locales. Escoge entre el "Coquí box" o "Yunque box" y disfruta del talento local mientras apoyas a la economía de Puerto Rico.
+			{{ 'subscription.welcome'|trans }}
 			<br><br>
-			¡El costo de envió esta incluido!
+			{{ 'subscription.welcome_free_shipping'|trans }}
 		</p>
 		
 		<div class="buttonContainer">
-			<a href="#" class="boprButton changeContent" data-content="package">Continue</a>
+			<a href="#" class="boprButton changeContent" data-content="package">{{ 'subscription.continue'|trans }}</a>
 		</div>
 	</div>
 	
@@ -29,7 +29,7 @@
 							{% endfor %}
 				        </ul>
 				        {% endif %}
-				    	<div class="price">{{ product.price|sylius_price }} <span style="font-size: 16px;">monthly</span></div>
+				    	<div class="price">{{ product.price|sylius_price }} <span style="font-size: 16px;">{{ 'subscription.monthly'|trans }}</span></div>
 				    	{% if product.hasVariants %}
 						{%   if product.isVariantSelectionMethodChoice %}
 			            <table class="table table-condensed">
@@ -47,7 +47,7 @@
 			                            {% if variant.presentation is empty %}
 			                            <ul class="unstyled">
 			                                {% for option in variant.options %}
-			                                <li><strong>{{ option.presentation }}</strong>: {{ option.value }}</li>
+			                                <li><strong>{{ 'subscription.'~option.name|trans }}</strong>: {{ option.value }}</li>
 			                                {% endfor %}
 			                            </ul>
 			                            {% else %}
@@ -90,7 +90,7 @@
 				        <button disabled="disabled" class="btn btn-success btn-lg btn-block">{{ 'sylius.product_not_available_in_zone'|trans }}</button>
 			            {%     else %}
 			            	<div class="buttonContainer">
-			                	<button type="submit" class="boprButton">Seleccionar</button>
+			                	<button type="submit" class="boprButton">{{ 'subscription.select'|trans }}</button>
 			                </div>
 			            {%     endif %}
 				    	{%   else %}
@@ -105,7 +105,7 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<p class="disclaimer">
-					El servicio de cajas de suscripción conlleva un compromiso mínimo de 3 meses. Las cajas serán enviadas la tercera semana de cada mes, la misma tendrá un promedio de 5 a 7 días laborables de entrega.
+					{{ 'subscription.disclaimer'|trans }}
 				</p>
 			</div>
 		</div>

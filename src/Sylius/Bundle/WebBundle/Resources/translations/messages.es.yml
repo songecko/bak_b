@@ -1,6 +1,18 @@
 # This file is part of the Sylius package.
 # (c) Paweł Jędrzejewski
 
+Sexo: Sexo
+Camisa: Camisa
+Cintura: Cintura
+"Meses de suscripción": Meses de suscripción
+subscription:
+  welcome: Ahora puedes suscribirte a una de nuestras cajas sorpresa en Brands of Puerto Rico. Mensualmente recibirás una caja sorpresa con los mejores productos de nuestra familia de marcas locales. Escoge entre la "Coquí Box" o "Yunque Box" y disfruta del talento local mientras apoyas la economía de Puerto Rico.
+  welcome_free_shipping: ¡El costo de envío es GRATIS!
+  continue: Continuar
+  monthly: mensuales
+  disclaimer: El servicio de cajas de suscripción conlleva un compromiso mínimo de 3 meses. Las cajas serán enviadas la tercera semana de cada mes, la misma tendrá un promedio de 5 a 7 días laborables de entrega.
+  select: Seleccionar
+  
 email:
   order_confirmation:
     subject: Sujeto

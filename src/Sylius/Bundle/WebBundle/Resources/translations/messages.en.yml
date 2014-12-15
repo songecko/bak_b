@@ -1,3 +1,16 @@
+Sexo: Sex
+Camisa: Shirt Size
+Cintura: Waist
+"Meses de suscripción": Months subscribing to
+
+subscription:
+  welcome: You can now subscribe to one of our two new mystery boxes! Brands of Puerto Rico is offering you the opportunity to receive a monthly box with the best products that our family of local brands has to offer. Choose between the “Coquí Box” and the “Yunque Box” to enjoy our local talent while you support Puerto Rico’s economy. 
+  welcome_free_shipping: Shipping is completely FREE!
+  continue: Continue
+  monthly: monthly
+  disclaimer: The subscription boxes entail a compromise of 3 months minimum. The boxes will be shipped on the third week of each month and will take approximately 5 to 7 business days to arrive.
+  select: Select
+    
 email:
     order_confirmation:
         subject: email.order_confirmation.subject
