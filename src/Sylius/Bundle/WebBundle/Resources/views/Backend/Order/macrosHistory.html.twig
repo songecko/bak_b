@@ -39,7 +39,7 @@
                 {% endfor %}
             	</ul>
             </td>
-            <td>{% if order.shippingAddress.street %}
+            <td>{% if order.shippingAddress %}
             		{{ order.shippingAddress.street }}
             	{% else %}
             		<span> -- </span>
