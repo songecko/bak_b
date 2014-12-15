@@ -158,8 +158,6 @@ class OrderRepository extends CartRepository
         if (!empty($criteria['year'])) {
         	if (!empty($criteria['month'])) {
         		$firstDay_date = $year.'-'.$month.'-'.'01';
-        		//ldd($a_date);
-        		//ldd(date("t", strtotime($a_date)));
         		$lastDayMonth = date("t", strtotime($firstDay_date));
         		
         		$lastDay_date = $year.'-'.$month.'-'.$lastDayMonth;

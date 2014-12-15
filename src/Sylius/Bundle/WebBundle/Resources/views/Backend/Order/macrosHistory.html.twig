@@ -54,7 +54,6 @@
             <td><strong>{{ ((order.total-order.shippingTotal)*0.9)|sylius_price(order.currency) }}</strong></td>
             <td><strong>{{ ((order.total-order.shippingTotal)*0.1)|sylius_price(order.currency) }}</strong></td>
             <td><strong>{{ order.shippingTotal|sylius_price(order.currency) }}</strong></td>
-            <td>{{ order.paymentState }}</td>
         </tr>
         {% endif %}
         {% endfor %}

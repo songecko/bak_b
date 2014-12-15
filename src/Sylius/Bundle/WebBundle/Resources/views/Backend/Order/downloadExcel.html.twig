@@ -32,7 +32,12 @@
 	                {% endfor %}
 	            	</ul>
 	            </td>
-	            <td>{{ order.shippingAddress.street }}</td>
+	            <td>{% if order.shippingAddress %}
+	            		{{ order.shippingAddress.street }}
+	            	{% else %}
+	            		<span> -- </span>
+	            	{% endif %}
+	            </td>
 	            <td>{{ order.createdAt|date }}</td>
 	            <td>{{ order.payment.method }}</td>
 	            {% for shipment in order.shipments %}

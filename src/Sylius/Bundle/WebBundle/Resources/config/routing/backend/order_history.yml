@@ -9,7 +9,7 @@ sylius_backend_order_history_index:
         _sylius:
             template: SyliusWebBundle:Backend/Order:history.html.twig
             method: createFilterPaginator
-            arguments: [$criteria, $sorting, $deleted]
+            arguments: [$criteria, $sorting, true]
             paginate: 20
 
 backend_order_history_download_excel:
@@ -18,5 +18,5 @@ backend_order_history_download_excel:
         _controller: sylius.controller.order:downloadExcelAction
         _sylius:
             method: createFilterPaginator
-            arguments: [$criteria, $sorting, $deleted]
-            paginate: 9999999999999
+            arguments: [$criteria, $sorting, true]
+            paginate: 99999999999999999999

@@ -76,11 +76,14 @@ class OrderController extends ResourceController
 
         $repository = $this->getRepository();
 
-        $orders = $this->resourceResolver->getResource(
+         $orders = $this->resourceResolver->getResource(
                 $repository,
-                'findBy',
-                array($criteria, $sorting, $this->config->getLimit())
-         );
+                'createPaginator',
+                array($criteria, $sorting)
+            );
+        $orders->setCurrentPage($request->get('page', 1), true, true);
+        $orders->setMaxPerPage($this->config->getPaginationMaxPerPage());
+        
         $response = $this->render('SyliusWebBundle:Backend/Order:downloadExcel.html.twig', array(
             'orders' => $orders
         ));
