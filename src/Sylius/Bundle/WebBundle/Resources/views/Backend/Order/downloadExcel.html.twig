@@ -40,9 +40,11 @@
 	            </td>
 	            <td>{{ order.createdAt|date }}</td>
 	            <td>{{ order.payment.method }}</td>
-	            {% for shipment in order.shipments %}
-	            	<td>{{ shipment.method }}</td>
-	            {% endfor %}
+	            {% if order.shipments.isEmpty %}
+	           	    <td>-</td>
+	           	    {% else %}
+	            	<td>{{ order.shipments.first.method }}</td>
+	            {% endif %}
 	            <td>{{ order.total|sylius_price(order.currency) }}</td>
 	            <td>{{ ((order.total-order.shippingTotal)*0.9)|sylius_price(order.currency) }}</td>
 	            <td>{{ ((order.total-order.shippingTotal)*0.1)|sylius_price(order.currency) }}</td>

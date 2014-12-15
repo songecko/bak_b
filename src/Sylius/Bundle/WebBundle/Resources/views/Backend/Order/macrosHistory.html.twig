@@ -42,14 +42,16 @@
             <td>{% if order.shippingAddress %}
             		{{ order.shippingAddress.street }}
             	{% else %}
-            		<span> -- </span>
+            		<span>-</span>
             	{% endif %}
             </td>
             <td>{{ order.createdAt|date }}</td>
             <td>{{ order.payment.method }}</td>
-            {% for shipment in order.shipments %}
-            	<td>{{ shipment.method }}</td>
-            {% endfor %}
+            {% if order.shipments.isEmpty %}
+           	    <td>-</td>
+           	    {% else %}
+            	<td>{{ order.shipments.first.method }}</td>
+            {% endif %}
             <td><strong>{{ order.total|sylius_price(order.currency) }}</strong></td>
             <td><strong>{{ ((order.total-order.shippingTotal)*0.9)|sylius_price(order.currency) }}</strong></td>
             <td><strong>{{ ((order.total-order.shippingTotal)*0.1)|sylius_price(order.currency) }}</strong></td>
