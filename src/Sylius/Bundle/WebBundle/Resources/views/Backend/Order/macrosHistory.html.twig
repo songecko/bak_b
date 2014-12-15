@@ -26,8 +26,8 @@
     </thead>
     <tbody>
         {% for order in orders %}
-        {% if order.completedAt or app.request.query.get('impago') == 1 %}
-        <tr id="{{ order.id }}" {% if order.completedAt is null %} class="danger"{% endif %}>
+        {% if order.paymentState == 'completed' or app.request.query.get('impago') == 1 %}
+        <tr id="{{ order.id }}" {% if order.paymentState != 'completed' %} class="danger"{% endif %}>
             <td class="center-text"><input type="checkbox" value="{{ order.id }}" /></td>
             <td>
                 <p>{{ order.user.fullName }} <br><a href="{{ path('sylius_backend_user_show', {'id': order.user.id}) }}">{{ order.user.email }}</a></p>
@@ -39,7 +39,12 @@
                 {% endfor %}
             	</ul>
             </td>
-            <td>{{ order.shippingAddress.street }}</td>
+            <td>{% if order.shippingAddress %}
+            		{{ order.shippingAddress.street }}
+            	{% else %}
+            		<span> -- </span>
+            	{% endif %}
+            </td>
             <td>{{ order.createdAt|date }}</td>
             <td>{{ order.payment.method }}</td>
             {% for shipment in order.shipments %}
@@ -49,6 +54,7 @@
             <td><strong>{{ ((order.total-order.shippingTotal)*0.9)|sylius_price(order.currency) }}</strong></td>
             <td><strong>{{ ((order.total-order.shippingTotal)*0.1)|sylius_price(order.currency) }}</strong></td>
             <td><strong>{{ order.shippingTotal|sylius_price(order.currency) }}</strong></td>
+            <td>{{ order.paymentState }}</td>
         </tr>
         {% endif %}
         {% endfor %}
