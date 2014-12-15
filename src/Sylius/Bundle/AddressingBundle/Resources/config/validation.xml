@@ -90,11 +90,6 @@
                 <option name="message">sylius.address.postcode.not_blank</option>
                 <option name="groups">sylius</option>
             </constraint>
-             <constraint name="Type">
-             	<option name="type">numeric</option>
-                <option name="message">sylius.address.postcode.number</option>
-                <option name="groups">sylius</option>
-            </constraint>
             <constraint name="Length">
                 <option name="min">2</option>
                 <option name="max">5</option>
