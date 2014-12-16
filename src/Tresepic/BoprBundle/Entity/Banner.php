@@ -12,8 +12,9 @@
 namespace Tresepic\BoprBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Sylius\Bundle\CoreBundle\Model\ImageInterface;
 
-class Banner
+class Banner implements ImageInterface
 {
     /**
      * Id
@@ -23,7 +24,7 @@ class Banner
     protected $id;
 	
     protected $name;
-    protected $order;
+    protected $priority;
     /**
      * File
      *
@@ -167,14 +168,14 @@ class Banner
     	return $this;
     }
     
-    public function getOrder()
+    public function getPriority()
     {
-    	return $this->order;
+    	return $this->priority;
     }
     
-    public function setOrder($order)
+    public function setPriority($priority)
     {
-    	$this->order = $order;
+    	$this->priority = $priority;
     
     	return $this;
     }

@@ -224,6 +224,14 @@ sylius_resource:
             classes:
                 model: Tresepic\BoprBundle\Entity\Manufacturer
                 controller: Tresepic\BoprBundle\Controller\Backend\ManufacturerController
+        bopr.testimonial:
+            driver: doctrine/orm
+            classes:
+                model: Tresepic\BoprBundle\Entity\Testimonial
+        bopr.banner:
+            driver: doctrine/orm
+            classes:
+                model: Tresepic\BoprBundle\Entity\Banner
                 
 mobile_detect:
     redirect:

@@ -11,8 +11,10 @@ Tresepic\BoprBundle\Entity\Banner:
         name:
             type: string
             length: 255
-        order:
+            nullable: true
+        priority:
             type: integer
+            nullable: true
         path:
             type: string
             length: 255
