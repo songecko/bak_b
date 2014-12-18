@@ -7,6 +7,7 @@ use Sylius\Bundle\ShippingBundle\Calculator\Calculator;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Sylius\Bundle\CoreBundle\Model\Shipment;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Sylius\Bundle\AddressingBundle\Model\Address;
 
 require_once dirname(__FILE__).'/../../usps/PriceCalculator.php';
 
@@ -26,32 +27,38 @@ class USPSCalculator extends Calculator
     	}
     	
     	$order = $subject->getOrder();
+    	
+    	return $this->calculateUspsAddress($order->getShippingAddress(), $order->getItems());
+    }
+    
+    public function calculateUspsAddress(Address $shippingAddress = null, $items = array())
+    {
     	$priceCalculator = 0;
     	
-    	if($shippingAddress = $order->getShippingAddress())
+    	if($shippingAddress)
     	{
-    		 $country = $shippingAddress->getCountry()->getName();
-    		 $postCode = $shippingAddress->getPostcode();
-    		
-    		 $totalPounds = 0;
-    		 $totalWidth = 0;
-    		 $totalLength = 0;
-    		 $totalHeight = 0;
-    		
-    		 foreach($order->getItems() as $item)
-    		 {
-	    		 $totalPounds += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getWeight());
-	    		 $totalWidth += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getWidth());
-	    		 $totalLength += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getDepth());
-	    		 $totalHeight += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getHeight());
-    		 }
-    		
-    		 $totalOunces = $totalPounds*16;
-    		
-    		 $priceCalculator = USPSParcelRate($totalPounds, $totalOunces, 'REGULAR', $postCode, $country, $totalWidth, $totalLength, $totalHeight);
+    		$country = $shippingAddress->getCountry()->getName();
+    		$postCode = $shippingAddress->getPostcode();
+    	
+    		$totalPounds = 0;
+    		$totalWidth = 0;
+    		$totalLength = 0;
+    		$totalHeight = 0;
+    	
+    		foreach($items as $item)
+    		{
+    			$totalPounds += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getWeight());
+    			$totalWidth += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getWidth());
+    			$totalLength += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getDepth());
+    			$totalHeight += ($item->getQuantity()) * ($item->getProduct()->getMasterVariant()->getHeight());
+    		}
+    	
+    		$totalOunces = $totalPounds*16;
+    	
+    		$priceCalculator = USPSParcelRate($totalPounds, $totalOunces, 'REGULAR', $postCode, $country, $totalWidth, $totalLength, $totalHeight);
     	}
     	
-        return $priceCalculator*100;
+    	return $priceCalculator*100;
     }
 
     /**

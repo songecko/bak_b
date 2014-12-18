@@ -22,3 +22,9 @@ services:
         class: "%sylius.shipping_calculator.usps.class%"
         tags:
             - { name: "sylius.shipping_calculator", calculator: "usps", label: "USPS Calculator" }
+            
+    bopr.validator.usps_address_validator:
+        class: Tresepic\BoprBundle\Validator\Constraints\USPSAddressValidator
+        arguments: [@sylius.shipping_calculator.usps]
+        tags:
+            - { name: validator.constraint_validator, alias: usps_address_validator }
