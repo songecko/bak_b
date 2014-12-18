@@ -106,6 +106,7 @@ sylius:
             users: Users
         statistics:
             0: This month's statistics
+            total: Total statistics
             complete: View complete statistics            
             orders_this_month: Total orders
             registrations_this_month: Total registrations

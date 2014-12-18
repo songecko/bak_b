@@ -32,12 +32,12 @@ class DashboardController extends Controller
         $userRepository  = $this->get('sylius.repository.user');
 
         return $this->render('SyliusWebBundle:Backend/Dashboard:main.html.twig', array(
-            'orders_count'        => $orderRepository->countBetweenDates(new \DateTime('1 month ago'), new \DateTime()),
+            'orders_count'        => $orderRepository->countBetweenDates(new \DateTime('2013-01-01'), new \DateTime()),
             'orders'              => $orderRepository->findBy(array(), array('updatedAt' => 'desc'), 5),
             'users'               => $userRepository->findBy(array(), array('id' => 'desc'), 5),
-            'registrations_count' => $userRepository->countBetweenDates(new \DateTime('1 month ago'), new \DateTime()),
-            'sales'               => $orderRepository->revenueBetweenDates(new \DateTime('1 month ago'), new \DateTime()),
-            'sales_confirmed'     => $orderRepository->revenueBetweenDates(new \DateTime('1 month ago'), new \DateTime(), OrderInterface::STATE_CONFIRMED),
+            'registrations_count' => $userRepository->countBetweenDates(new \DateTime('2013-01-01'), new \DateTime()),
+            'sales'               => $orderRepository->revenueBetweenDates(new \DateTime('2013-01-01'), new \DateTime()),
+            'sales_confirmed'     => $orderRepository->revenueBetweenDates(new \DateTime('2013-01-01'), new \DateTime(), OrderInterface::STATE_CONFIRMED),
         ));
     }
     

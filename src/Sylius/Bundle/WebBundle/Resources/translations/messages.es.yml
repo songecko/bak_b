@@ -96,6 +96,7 @@ sylius:
       users: Usuarios
     statistics:
       0: Estadísticas del mes
+      total: Estadisticas Totales
       complete: Ver estadisticas completas
       orders_this_month: Pedidos
       registrations_this_month: Usuarios
