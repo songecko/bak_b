@@ -11,7 +11,7 @@
             <th class="info">{{ sylius_resource_sort('name', 'bopr.backend.banner.name'|trans) }}</th>
             <th class="info">{{ sylius_resource_sort('priority', 'bopr.backend.banner.priority'|trans) }}</th>
             <th class="info">{{ sylius_resource_sort('link', 'bopr.backend.banner.link'|trans) }}</th>
-            <th class="info">{{ sylius_resource_sort('file', 'bopr.backend.banner.file'|trans) }}</th>
+            <th class="info">{{ sylius_resource_sort('imageFile', 'bopr.backend.banner.file'|trans) }}</th>
             <th></th>
         </tr>
     </thead>
@@ -31,7 +31,7 @@
             	{{ banner.link }}
             </td>
             <td class="info">
-				<img class="center-block" src="{{ banner.path|imagine_filter('sylius_848x500') }}">
+				<img class="center-block" src="{{ banner.imageName|imagine_filter('sylius_400x400') }}">
             </td>
             <td class="center-text">
                 {{ buttons.edit(path('tresepic_bopr_backend_banner_update', {'id': banner.id})) }}

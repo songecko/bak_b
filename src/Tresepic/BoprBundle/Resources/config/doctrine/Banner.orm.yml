@@ -15,7 +15,7 @@ Tresepic\BoprBundle\Entity\Banner:
         priority:
             type: integer
             nullable: true
-        path:
+        imageName:
             type: string
             length: 255
         link:

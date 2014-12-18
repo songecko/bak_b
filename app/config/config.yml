@@ -125,6 +125,8 @@ liip_doctrine_cache:
         sylius_settings: %sylius.cache%
 
 knp_gaufrette:
+    stream_wrapper: ~
+
     adapters:
         sylius_image:
             local:
@@ -296,11 +298,12 @@ dizda_cloud_backup:
 
 vich_uploader:
    db_driver: orm # or mongodb or propel or phpcr
+   storage:   gaufrette
 
    mappings:
         banner_images:
             uri_prefix:         /image
-            upload_destination: %kernel.root_dir%/../web/media/image
+            upload_destination: banner_image_fs
             inject_on_load:     false
             delete_on_update:   true
             delete_on_remove:   true

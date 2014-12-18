@@ -35,19 +35,11 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 			{% for banner in banners %}
-				{% if loop.index == 1 %}
-				<div class="item active subscribe">
-      				<a href="{{ path('bopr_subscription', {'permalink': 'categories/'~banner.link}) }}">
+				<div class="item{{ (loop.index == 1)? ' active subscribe':'' }}">
+      				<a href="{{ banner.link}) }}">
       					<img class="center-block" src="{{ banner.path|imagine_filter('sylius_848x500') }}">
       				</a>
     			</div>
-    			{% else %}
-				<div class="item">
-					<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/'~banner.link}) }}">
-						<img class="center-block" src="{{ banner.path|imagine_filter('sylius_848x500') }}">
-					</a>
-				</div>
-				{% endif %}
 			{% endfor %}
 				{# <div class="item">
 					<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/accessories'}) }}">

@@ -23,7 +23,7 @@ class BannerType extends AbstractType
         		'required' => true,
         		'label'    => 'Link'
         ))
-        ->add('file', 'file', array(
+        ->add('imageFile', 'file', array(
         		'required' => true,
         		'label'    => 'Imagen'
         ));
