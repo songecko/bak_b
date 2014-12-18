@@ -1,0 +1,26 @@
+{% extends 'SyliusWebBundle:Backend:layout.html.twig' %}
+
+{% import 'SyliusResourceBundle:Macros:buttons.html.twig' as buttons %}
+{% from 'SyliusWebBundle:Backend/Macros:misc.html.twig' import pagination %}
+{% from 'TresepicBoprBundle:Backend/Testimonial:macros.html.twig' import list %}
+
+{% block topbar %}
+<ol class="breadcrumb">
+    <li>{{ 'sylius.breadcrumb.assortment'|trans }}</li>
+    <li>{{ 'bopr.backend.breadcrumb.testimonial.index'|trans }}</a></li>
+</ol>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="actions-menu">
+        {{ buttons.create(path('tresepic_bopr_backend_testimonial_create'), 'bopr.backend.create'|trans) }}
+    </div>
+    <h1><i class="glyphicon glyphicon-th-list"></i> {{ 'bopr.backend.testimonial.index_header'|trans|raw }}</h1>
+</div>
+
+{{ pagination(testimonials) }}
+{{ list(testimonials) }}
+{{ pagination(testimonials) }}
+
+{% endblock %}

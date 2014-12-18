@@ -58,7 +58,8 @@
         "friendsofsymfony/elastica-bundle": "~2.0",
         "knplabs/doctrine-behaviors": "1.*",
         "a2lix/translation-form-bundle": "2.*",
-        "dizda/cloud-backup-bundle": "dev-master"
+        "dizda/cloud-backup-bundle": "dev-master",
+        "vich/uploader-bundle": "~0.14"
     },
     "require-dev": {
         "behat/behat": "2.4.*@stable",

@@ -25,6 +25,7 @@ class Banner implements ImageInterface
 	
     protected $name;
     protected $priority;
+    protected $link;
     /**
      * File
      *
@@ -176,6 +177,18 @@ class Banner implements ImageInterface
     public function setPriority($priority)
     {
     	$this->priority = $priority;
+    
+    	return $this;
+    }
+    
+    public function getLink()
+    {
+    	return $this->link;
+    }
+    
+    public function setLink($link)
+    {
+    	$this->link = $link;
     
     	return $this;
     }

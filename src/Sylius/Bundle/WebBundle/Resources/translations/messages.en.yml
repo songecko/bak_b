@@ -106,6 +106,7 @@ sylius:
             users: Users
         statistics:
             0: This month's statistics
+            complete: View complete statistics            
             orders_this_month: Total orders
             registrations_this_month: Total registrations
             sales_this_month: Sales
@@ -413,6 +414,15 @@ sylius:
         total: Total
         update_header: Editing order
         user: User
+        items: Products
+        adress: Adress
+        buy_date: Buy Date
+        method_payment: Manner of payment
+        send: Shipping
+        total_sale: Total Sale
+        brands: Brands
+        bopr: Bopr
+        shipping_cost: Shipping cost
     shipment:
         ship: Ship
         created_at: Created at

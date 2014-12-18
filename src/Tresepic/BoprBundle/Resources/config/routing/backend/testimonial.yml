@@ -1,0 +1,34 @@
+tresepic_bopr_backend_testimonial_index:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: bopr.controller.testimonial:indexAction
+        _sylius:
+            template: TresepicBoprBundle:Backend/Testimonial:index.html.twig
+            paginate: 100
+            
+tresepic_bopr_backend_testimonial_create:
+    pattern: /new
+    methods: [GET, POST]
+    defaults:
+        _controller: bopr.controller.testimonial:createAction
+        _sylius:
+            template: TresepicBoprBundle:Backend/Testimonial:create.html.twig
+            redirect: tresepic_bopr_backend_testimonial_update
+
+tresepic_bopr_backend_testimonial_update:
+    pattern: /{id}/edit
+    methods: [GET, PUT, POST]
+    defaults:
+        _controller: bopr.controller.testimonial:updateAction
+        _sylius:
+            template: TresepicBoprBundle:Backend/Testimonial:update.html.twig
+            redirect: tresepic_bopr_backend_testimonial_update
+
+tresepic_bopr_backend_testimonial_delete:
+    pattern: /{id}
+    methods: [DELETE]
+    defaults:
+        _controller: bopr.controller.testimonial:deleteAction
+        _sylius:
+            redirect: tresepic_bopr_backend_testimonial_index

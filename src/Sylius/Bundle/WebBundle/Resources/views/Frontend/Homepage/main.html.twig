@@ -34,17 +34,22 @@
 			</ol>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
+			{% for banner in banners %}
+				{% if loop.index == 1 %}
 				<div class="item active subscribe">
-      				<a href="{{ path('bopr_subscription') }}">
-      					<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/subscriptionbox_slideshow.jpg') }}">
+      				<a href="{{ path('bopr_subscription', {'permalink': 'categories/'~banner.link}) }}">
+      					<img class="center-block" src="{{ banner.path|imagine_filter('sylius_848x500') }}">
       				</a>
     			</div>
+    			{% else %}
 				<div class="item">
-					<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/apparel'}) }}">
-						<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/apparel.png') }}">
+					<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/'~banner.link}) }}">
+						<img class="center-block" src="{{ banner.path|imagine_filter('sylius_848x500') }}">
 					</a>
 				</div>
-				<div class="item">
+				{% endif %}
+			{% endfor %}
+				{# <div class="item">
 					<a href="{{ url('sylius_product_index_by_taxon', {'permalink': 'categories/accessories'}) }}">
 						<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/accesories_slideshow.jpg') }}">
 					</a>
@@ -73,7 +78,7 @@
 					<a href="{{ url('sylius_yoapoyoajulia') }}">
 						<img class="center-block" src="{{ asset('bundles/tresepicbopr/images/banner/yoapoyoajulia.png') }}">
 					</a>
-    			</div>
+    			</div>#}
   			</div>
   			<!-- Controls -->
   			<a class="left carousel-control" href="#carouselBanner" data-slide="prev">
@@ -256,18 +261,29 @@
 <div id="carouselTestimonials" class="carousel slide col-xs-12" data-ride="carousel">
 	<!-- Wrapper for slides -->
   	<div class="carousel-inner">
+	{% for testimonial in testimonials %}
+		{% if loop.index == 1 %}
   		<div class="item active">
 	  		<blockquote>
-	  			<p class="quote">Súper contenta con mi compra. El Café rico y el proceso para tenerlo fue accesible y rápido. Brands es una alternativa genial.</p>
-  				<p>Sarie Silva, San Juan</p>
+	  			<p class="quote">{{ testimonial.testimony }}</p>
+  				<p>{{ testimonial.author }}</p>
 			</blockquote>
     	</div>
+    	{% else %}
     	<div class="item">
+	  		<blockquote>
+	  			<p class="quote">{{ testimonial.testimony }}</p>
+  				<p>{{ testimonial.author }}</p>
+			</blockquote>
+    	</div>
+    	{% endif %}
+    {% endfor %}
+    	{#<div class="item">
 	  		<blockquote>
 	  			<p class="quote">¡¡Artículo recibido en 3 días!! Muy buen servicio, así que se lo recomiendo a todos. ¡Excelente iniciativa, muchachos!</p>
   				<p>Ramón L. Gascot - Lozada de Maryland, USA</p>
 			</blockquote>
-    	</div>
+    	</div>#}
 	</div>
 	<!-- Controls -->
   	<a class="left carousel-control" href="#carouselTestimonials" data-slide="prev">

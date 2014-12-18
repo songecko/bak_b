@@ -134,12 +134,17 @@ knp_gaufrette:
             local:
                 directory: %kernel.root_dir%/../web/backups
                 create:    true
+        banner_adapter:
+            local:
+                directory: %kernel.root_dir%/../web/media/image
     filesystems:
         sylius_image:
             adapter: sylius_image
         cloud_backup:
             adapter: cloud_backup     
             alias:   backup_gaufrette
+        banner_image_fs:
+            adapter:    banner_adapter
 
 liip_imagine:
     data_root: %kernel.root_dir%/../web/media/image
@@ -156,6 +161,9 @@ liip_imagine:
         sylius_400x400:
             filters:
                 thumbnail: { size: [400, 400], mode: outbound }
+        sylius_848x500:
+            filters:
+                thumbnail: { size: [848, 500], mode: outbound }
 
         sylius_262x255:
             filters:
@@ -285,3 +293,14 @@ dizda_cloud_backup:
             db_port: %sylius.database.port%
             db_user: %sylius.database.user%
             db_password: %sylius.database.password%
+
+vich_uploader:
+   db_driver: orm # or mongodb or propel or phpcr
+
+   mappings:
+        banner_images:
+            uri_prefix:         /image
+            upload_destination: %kernel.root_dir%/../web/media/image
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true

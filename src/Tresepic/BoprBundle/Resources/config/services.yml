@@ -7,6 +7,14 @@ services:
         class: Tresepic\BoprBundle\Form\Type\ManufacturerType
         tags:
             - { name: form.type, alias: bopr_manufacturer }
+    bopr.form.type.manufacturer:
+        class: Tresepic\BoprBundle\Form\Type\BannerType
+        tags:
+            - { name: form.type, alias: bopr_banner }
+    bopr.form.type.testimonial:
+        class: Tresepic\BoprBundle\Form\Type\TestimonialType
+        tags:
+            - { name: form.type, alias: bopr_testimonial }
             
     bopr.locale_listener:
         class: Tresepic\BoprBundle\EventListener\LocaleListener
