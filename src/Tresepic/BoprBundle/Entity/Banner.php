@@ -29,7 +29,7 @@ class Banner
     protected $link;
  	protected $imageFile;
     protected $imageName;
-    protected $isSuscription;
+    protected $isSubscription;
     protected $isEnabled;
 
     /**
@@ -166,14 +166,14 @@ class Banner
     	return $this;
     }
     
-    public function getIsSuscription()
+    public function getIsSubscription()
     {
-    	return $this->isSuscription;
+    	return $this->isSubscription;
     }
     
-    public function setIsSuscription($isSuscription)
+    public function setIsSubscription($isSubscription)
     {
-    	$this->isSuscription = $isSuscription;
+    	$this->isSubscription = $isSubscription;
     
     	return $this;
     }

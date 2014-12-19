@@ -22,7 +22,7 @@ Tresepic\BoprBundle\Entity\Banner:
             type: string
             lenght: 255
             nullable: true
-        isSuscription:
+        isSubscription:
             type: boolean
             nullable: true
         isEnabled:

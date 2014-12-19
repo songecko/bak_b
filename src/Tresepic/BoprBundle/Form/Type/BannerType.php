@@ -23,9 +23,9 @@ class BannerType extends AbstractType
         		'required' => true,
         		'label'    => 'Link'
         ))
-        ->add('isSuscription', 'checkbox', array(
+        ->add('isSubscription', 'checkbox', array(
         		'required' => false,
-        		'label'    => 'Suscription?'
+        		'label'    => 'Subscription?'
         ))
         ->add('isEnabled', 'checkbox', array(
         		'required' => false,

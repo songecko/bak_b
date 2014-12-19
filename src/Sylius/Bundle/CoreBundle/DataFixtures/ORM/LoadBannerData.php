@@ -35,6 +35,7 @@ class LoadBannerData extends DataFixture
         {
             $banner = new Banner();
             $banner->setPriority($i);
+            $banner->setIsEnabled(true);
             $banner->setImageFile(new UploadedFile($img->getRealPath(), $img->getFilename()));
 
             $manager->persist($banner);
