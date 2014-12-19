@@ -29,6 +29,8 @@ class Banner
     protected $link;
  	protected $imageFile;
     protected $imageName;
+    protected $isSuscription;
+    protected $isEnabled;
 
     /**
      * Creation date
@@ -160,6 +162,30 @@ class Banner
     public function setLink($link)
     {
     	$this->link = $link;
+    
+    	return $this;
+    }
+    
+    public function getIsSuscription()
+    {
+    	return $this->isSuscription;
+    }
+    
+    public function setIsSuscription($isSuscription)
+    {
+    	$this->isSuscription = $isSuscription;
+    
+    	return $this;
+    }
+    
+    public function getIsEnabled()
+    {
+    	return $this->isEnabled;
+    }
+    
+    public function setIsEnabled($isEnabled)
+    {
+    	$this->isEnabled = $isEnabled;
     
     	return $this;
     }

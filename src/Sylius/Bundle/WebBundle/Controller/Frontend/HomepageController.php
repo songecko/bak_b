@@ -36,7 +36,7 @@ class HomepageController extends Controller
     	$bannerRepository = $this->get('bopr.repository.banner');
     	$testimonialRepository = $this->get('bopr.repository.testimonial');
     	
-    	$banner = $bannerRepository->findBy(array(), array('priority' => 'ASC'));
+    	$banner = $bannerRepository->findBy(array('isEnabled' => true), array('priority' => 'ASC'));
     	$testimonial = $testimonialRepository->findAll();
     	
         return $this->render('SyliusWebBundle:Frontend/Homepage:main.html.twig', array(

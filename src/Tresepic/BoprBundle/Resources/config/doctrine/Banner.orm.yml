@@ -22,6 +22,12 @@ Tresepic\BoprBundle\Entity\Banner:
             type: string
             lenght: 255
             nullable: true
+        isSuscription:
+            type: boolean
+            nullable: true
+        isEnabled:
+            type: boolean
+            nullable: true
         createdAt:
             column: created_at
             type: datetime

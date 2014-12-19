@@ -35,9 +35,9 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner">
 			{% for banner in banners %}
-				<div class="item{{ (loop.index == 1)? ' active subscribe':'' }}">
-      				<a href="{{ banner.link}) }}">
-      					<img class="center-block" src="{{ banner.path|imagine_filter('sylius_848x500') }}">
+				<div class="item{{ (loop.index == 1)? ' active':''}}{{ (banner.isSuscription == 1)? ' subscribe':''}} ">
+      				<a href="{{ banner.link }}">
+      					<img class="center-block" src="{{ banner.imageName|imagine_filter('sylius_848x500') }}">
       				</a>
     			</div>
 			{% endfor %}
