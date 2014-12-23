@@ -7,7 +7,7 @@ services:
         class: Tresepic\BoprBundle\Form\Type\ManufacturerType
         tags:
             - { name: form.type, alias: bopr_manufacturer }
-    bopr.form.type.manufacturer:
+    bopr.form.type.banner:
         class: Tresepic\BoprBundle\Form\Type\BannerType
         tags:
             - { name: form.type, alias: bopr_banner }
