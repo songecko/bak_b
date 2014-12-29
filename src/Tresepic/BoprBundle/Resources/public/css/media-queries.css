@@ -88,6 +88,9 @@
 		margin-top: 0;
 	}
 	
+	header .navMenu li a{
+		font-size: 14px;
+	}	
 	.search {
 		margin-left: 10px;
 		margin-top: 0;
