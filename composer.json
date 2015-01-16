@@ -46,8 +46,8 @@
         "twig/extensions": "1.0.*",
         "white-october/pagerfanta-bundle": "1.0.*@dev",
         "pagerfanta/pagerfanta": "1.0.*@dev",
-        "payum/payum": "~0.13.0",
-        "payum/payum-bundle": "~0.13.0",
+        "payum/payum": "~0.7.2",
+        "payum/payum-bundle": "~0.7.3",
         "symfony-cmf/block-bundle": "1.0.*",
         "symfony-cmf/content-bundle": "1.0.*",
         "symfony-cmf/routing-bundle": "1.1.*",
@@ -59,10 +59,7 @@
         "knplabs/doctrine-behaviors": "1.*",
         "a2lix/translation-form-bundle": "2.*",
         "dizda/cloud-backup-bundle": "dev-master",
-        "vich/uploader-bundle": "~0.14",
-        "omnipay/omnipay": "~2.0",
-        "omnipay/paypal": "~2.0",
-        "payum/omnipay-bridge": "~0.13.0"
+        "vich/uploader-bundle": "~0.14"
     },
     "require-dev": {
         "behat/behat": "2.4.*@stable",
