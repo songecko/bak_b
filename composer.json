@@ -58,7 +58,8 @@
         "friendsofsymfony/elastica-bundle": "~2.0",
         "knplabs/doctrine-behaviors": "1.*",
         "a2lix/translation-form-bundle": "2.*",
-        "dizda/cloud-backup-bundle": "dev-master",
+        "hakre/dropbox-uploader": "1.1.*", 
+        "dizda/cloud-backup-bundle": "1.*",
         "vich/uploader-bundle": "~0.14"
     },
     "require-dev": {
