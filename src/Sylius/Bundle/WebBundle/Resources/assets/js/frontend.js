@@ -339,7 +339,8 @@ var checkoutSubmitHandler = function (ev)
     		}
     	});
     	// menu dropdown hover
-    	$('.navBar .navMenu .dropdown,#topMenu .dropdown').hover(function(){
+    	$('.navBar .navMenu .dropdown,#topMenu .dropdown').hover(function(e){
+    		e.preventDefault();
     		$(this).addClass('open');
     		}, function(){
     		$(this).removeClass('open');
