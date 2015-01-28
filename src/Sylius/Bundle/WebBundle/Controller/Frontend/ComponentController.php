@@ -17,7 +17,7 @@ class ComponentController extends Controller
 		));
 	}
 	
-    public function menuAction()
+    public function menuAction($isMobile = 0)
     {
     	$taxonomyRepository = $this->get('sylius.repository.taxonomy');
     	
@@ -28,7 +28,8 @@ class ComponentController extends Controller
     	$taxons = $taxonomy->getTaxons();
     	
         return $this->render('SyliusWebBundle:Frontend/Component:_menu.html.twig', array(
-        	'taxons' => $taxons
+        	'taxons' => $taxons,
+        	'isMobile' => $isMobile
         ));
     }
     
