@@ -339,11 +339,19 @@ var checkoutSubmitHandler = function (ev)
     		}
     	});
     	// menu dropdown hover
-    	$('.navBar .navMenu .dropdown').hover(function(){
+    	$('.navBar .navMenu .dropdown,#topMenu .dropdown').hover(function(){
     		$(this).addClass('open');
     		}, function(){
     		$(this).removeClass('open');
     	});
+
+    	/*$('#topMenu .dropdown').click(function(e)
+    	{
+    		e.preventDefault();
+        	if ($(window).width()<=767){
+        		$(this).addClass('open');
+    		}
+    	});*/
     });
 
 })( jQuery );
