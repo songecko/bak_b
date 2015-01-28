@@ -125,6 +125,10 @@
 /* Extra Small devices (XS) */
 @media screen and (max-width: 767px) 
 {
+	header.mobile
+	{
+		display:none !important;
+	}
 	#topMenu {
 		margin: 0;
 		padding: 0;
@@ -347,11 +351,20 @@
 	.static1Img {
 		width: 93%;
 	}
+	/*zoom in product*/
+	.zoomContainer
+	{
+		display:none;
+	}
 }
 
 /* IPHONE 4 */
 @media screen and (max-width:350px) 
 {
+	header.mobile
+	{
+		display:none !important;
+	}
 	#topMenu .menuMobile li a {
 		background: url(../images/checkout-icon.png) no-repeat 2px 1px;
 		padding: 0 0 0 20px;
@@ -390,5 +403,10 @@
 	
 	.cart .cartCheckout {
 		margin-top: 15px;	
+	}
+	/*zoom in product*/
+	.zoomContainer
+	{
+		display:none;
 	}
 }
