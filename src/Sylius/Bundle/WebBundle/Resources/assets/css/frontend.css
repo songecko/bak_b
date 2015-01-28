@@ -149,3 +149,6 @@ a.oauth-login {
 a.oauth-login:hover {
     text-decoration: none;
 }
+.dropdown:hover .dropdown-menu {
+    display: block;
+ }

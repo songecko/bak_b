@@ -1,3 +1,8 @@
 {% for taxon in taxons %}
-	<li><a href="{{ path('sylius_product_index_by_taxon', {'permalink': taxon.permalink }) }}">{{ taxon.name }}</a></li>
+	<li class="dropdown">
+		<a class="dropdown-toggle" role="button" aria-expanded="false" href="{{ path('sylius_product_index_by_taxon', {'permalink': taxon.permalink }) }}">{{ taxon.name }}</a>
+		<ul class="dropdown-menu" role="menu">
+			{{ render(controller('SyliusWebBundle:Frontend/Component:sideMenu', {'parent': taxon.id})) }}
+         </ul>
+	</li>
 {% endfor %}

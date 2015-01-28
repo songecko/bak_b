@@ -338,6 +338,12 @@ var checkoutSubmitHandler = function (ev)
     			});
     		}
     	});
+    	// menu dropdown hover
+    	$('.navBar .navMenu .dropdown').hover(function(){
+    		$(this).addClass('open');
+    		}, function(){
+    		$(this).removeClass('open');
+    	});
     });
 
 })( jQuery );
