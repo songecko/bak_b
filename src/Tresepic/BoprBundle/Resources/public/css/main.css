@@ -1608,3 +1608,6 @@ footer .info4 .copyright span.rights {
 .dropdown-menu {
 	margin:0;
 }
+.dropdown li{
+	border: 1px solid #dfdfdf;
+}
