@@ -143,11 +143,6 @@
 		margin-left: 10px;
 	}
 	
-	#topMenu .logoMobile {
-		display: block;
-		float: right;
-	}
-	
 	.headerStickyWrapper {
 		display: none;
 	}
@@ -356,6 +351,28 @@
 	{
 		display:none;
 	}
+	.dropdown-menu a{
+		color: #ffffff !important;
+	}
+	#topMenu .container {
+		float:left;
+	}
+	
+	#topMenu .navbar .navbar-collapse {
+		position: absolute;
+		right: 0;
+		background: #000000;
+		z-index: 999999;
+		min-width: 270px;
+		background-color: rgb(49, 104, 155);
+	}
+	.nav>li {
+		border-bottom: 1px solid #81705A;
+	}
+	.navbar-nav {
+		margin: 0 -15px;
+	}
+	
 }
 
 /* IPHONE 4 */

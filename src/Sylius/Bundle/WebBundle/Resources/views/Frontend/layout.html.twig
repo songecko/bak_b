@@ -71,6 +71,10 @@
 		
         {% block header %}
         <div id="topMenu">
+        	<a href="{{ path('sylius_homepage') }}" title="Brands of Puerto Rico" class="visible-xs"><img class="logoMobile" src="{{ asset('bundles/tresepicbopr/images/logo-mobile.png') }}" /></a>
+        	
+        	{{ render(controller('SyliusWebBundle:Frontend/Component:topMenu')) }}
+        	
 			<nav class="navbar visible-xs" role="navigation">
 				<div class="navbar-header">
     				<button type="button" class="navbar-toggle" 
@@ -87,9 +91,7 @@
 					</ul>
 				</div>
 			</nav>
-        	<a href="{{ path('sylius_homepage') }}" title="Brands of Puerto Rico" class="visible-xs"><img class="logoMobile" src="{{ asset('bundles/tresepicbopr/images/logo-mobile.png') }}" /></a>
         	
-        	{{ render(controller('SyliusWebBundle:Frontend/Component:topMenu')) }}
 		</div>
 		<header class="mobile">
 			<div class="container">

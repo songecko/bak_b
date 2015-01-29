@@ -1613,3 +1613,10 @@ footer .info4 .copyright span.rights {
 .dropdown li{
 	border-bottom: 1px solid #dfdfdf;
 }
+/**/
+#topMenu .navbar{
+	float:right;
+}
+#topMenu > a {
+	float:left;
+}
