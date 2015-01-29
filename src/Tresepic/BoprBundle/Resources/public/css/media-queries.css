@@ -363,14 +363,13 @@
 		right: 0;
 		background: #000000;
 		z-index: 999999;
-		min-width: 270px;
-		background-color: rgb(49, 104, 155);
-	}
-	.nav>li {
-		border-bottom: 1px solid #81705A;
+		min-width: 270px;	
 	}
 	.navbar-nav {
 		margin: 0 -15px;
+	}
+	.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+		background-color: #31689B;
 	}
 	
 }
