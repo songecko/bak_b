@@ -1,3 +1,11 @@
-tresepic_bopr_backend:
+tresepic_bopr_backend_manufacturer:
     resource: @TresepicBoprBundle/Resources/config/routing/backend/manufacturer.yml        
     prefix: /manufacturer
+
+tresepic_bopr_backend_banner:
+    resource: @TresepicBoprBundle/Resources/config/routing/backend/banner.yml        
+    prefix: /banner
+
+tresepic_bopr_backend_testimonial:
+    resource: @TresepicBoprBundle/Resources/config/routing/backend/testimonial.yml        
+    prefix: /testimonial

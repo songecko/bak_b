@@ -12,6 +12,8 @@ bopr.backend:
   
     breadcrumb:
         manufacturer.index:   "Marcas"
+        banner.index:   "Banners"
+        testimonial.index:   "Testimonios"
         
     manufacturer:
         label: "Marca"
@@ -19,7 +21,23 @@ bopr.backend:
         update_header: "Editar marca"
         create_header: "Nueva marca"
         name: "Nombre"
-        email: "Email Paypal"
+        email: "Email Paypal"        
+    banner:
+        label: "Banner"
+        index_header:  "Banners"
+        update_header: "Editar banner"
+        create_header: "Nuevo banner"
+        name: "Nombre"
+        priority: "Prioridad"
+        link: "Link"
+        file: "Imagen"         
+    testimonial:
+        label: "Testimonio"
+        index_header:  "Testmionios"
+        update_header: "Editar testimonio"
+        create_header: "Nuevo testimonio"
+        testimony: "Testimonio"
+        author: "Autor"
         
     position:
         label: "Orden"

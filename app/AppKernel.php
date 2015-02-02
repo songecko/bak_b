@@ -86,6 +86,7 @@ class AppKernel extends Kernel
         	new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
         	new Tresepic\BoprBundle\TresepicBoprBundle(),
         	new Dizda\CloudBackupBundle\DizdaCloudBackupBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
         );
 
         if ('dev' === $this->environment) {

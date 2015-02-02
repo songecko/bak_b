@@ -12,6 +12,8 @@
 namespace Tresepic\BoprBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 class Banner
 {
@@ -23,20 +25,12 @@ class Banner
     protected $id;
 	
     protected $name;
-    protected $order;
-    /**
-     * File
-     *
-     * @var \SplFileInfo
-     */
-    protected $file;
-
-    /**
-     * Path to file
-     *
-     * @var string
-     */
-    protected $path;
+    protected $priority;
+    protected $link;
+ 	protected $imageFile;
+    protected $imageName;
+    protected $isSubscription;
+    protected $isEnabled;
 
     /**
      * Creation date
@@ -66,59 +60,40 @@ class Banner
     {
         return $this->id;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hasFile()
+    public function setImageFile(File $image = null)
     {
-        return null !== $this->file;
+    	$this->imageFile = $image;
+    
+    	if ($image) {
+    		// It is required that at least one field changes if you are using doctrine
+    		// otherwise the event listeners won't be called and the file is lost
+    		$this->updatedAt = new \DateTime('now');
+    	}
     }
-
+    
     /**
-     * {@inheritdoc}
+     * @return File
      */
-    public function getFile()
+    public function getImageFile()
     {
-        return $this->file;
+    	return $this->imageFile;
     }
-
+    
     /**
-     * {@inheritdoc}
+     * @param string $imageName
      */
-    public function setFile(\SplFileInfo $file)
+    public function setImageName($imageName)
     {
-        $this->file = $file;
-
-        return $this;
+    	$this->imageName = $imageName;
     }
-
+    
     /**
-     * {@inheritdoc}
+     * @return string
      */
-    public function hasPath()
+    public function getImageName()
     {
-        return null !== $this->path;
+    	return $this->imageName;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getPath()
-    {
-        return $this->path;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setPath($path)
-    {
-        $this->path = $path;
-
-        return $this;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -167,14 +142,50 @@ class Banner
     	return $this;
     }
     
-    public function getOrder()
+    public function getPriority()
     {
-    	return $this->order;
+    	return $this->priority;
     }
     
-    public function setOrder($order)
+    public function setPriority($priority)
     {
-    	$this->order = $order;
+    	$this->priority = $priority;
+    
+    	return $this;
+    }
+    
+    public function getLink()
+    {
+    	return $this->link;
+    }
+    
+    public function setLink($link)
+    {
+    	$this->link = $link;
+    
+    	return $this;
+    }
+    
+    public function getIsSubscription()
+    {
+    	return $this->isSubscription;
+    }
+    
+    public function setIsSubscription($isSubscription)
+    {
+    	$this->isSubscription = $isSubscription;
+    
+    	return $this;
+    }
+    
+    public function getIsEnabled()
+    {
+    	return $this->isEnabled;
+    }
+    
+    public function setIsEnabled($isEnabled)
+    {
+    	$this->isEnabled = $isEnabled;
     
     	return $this;
     }

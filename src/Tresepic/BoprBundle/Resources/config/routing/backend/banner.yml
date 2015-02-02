@@ -1,0 +1,34 @@
+tresepic_bopr_backend_banner_index:
+    pattern: /
+    methods: [GET]
+    defaults:
+        _controller: bopr.controller.banner:indexAction
+        _sylius:
+            template: TresepicBoprBundle:Backend/Banner:index.html.twig
+            paginate: 100
+            
+tresepic_bopr_backend_banner_create:
+    pattern: /new
+    methods: [GET, POST]
+    defaults:
+        _controller: bopr.controller.banner:createAction
+        _sylius:
+            template: TresepicBoprBundle:Backend/Banner:create.html.twig
+            redirect: tresepic_bopr_backend_banner_update
+
+tresepic_bopr_backend_banner_update:
+    pattern: /{id}/edit
+    methods: [GET, PUT, POST]
+    defaults:
+        _controller: bopr.controller.banner:updateAction
+        _sylius:
+            template: TresepicBoprBundle:Backend/Banner:update.html.twig
+            redirect: tresepic_bopr_backend_banner_update
+
+tresepic_bopr_backend_banner_delete:
+    pattern: /{id}
+    methods: [DELETE]
+    defaults:
+        _controller: bopr.controller.banner:deleteAction
+        _sylius:
+            redirect: tresepic_bopr_backend_banner_index

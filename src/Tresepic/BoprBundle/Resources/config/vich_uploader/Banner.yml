@@ -1,0 +1,4 @@
+Tresepic\BoprBundle\Entity\Banner:
+    imageFile:
+        mapping:           banner_images
+        filename_property: image_name

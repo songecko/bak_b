@@ -11,11 +11,23 @@ Tresepic\BoprBundle\Entity\Banner:
         name:
             type: string
             length: 255
-        order:
+            nullable: true
+        priority:
             type: integer
-        path:
+            nullable: true
+        imageName:
             type: string
             length: 255
+        link:
+            type: string
+            lenght: 255
+            nullable: true
+        isSubscription:
+            type: boolean
+            nullable: true
+        isEnabled:
+            type: boolean
+            nullable: true
         createdAt:
             column: created_at
             type: datetime

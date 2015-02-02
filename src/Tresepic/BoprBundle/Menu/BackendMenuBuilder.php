@@ -15,5 +15,15 @@ class BackendMenuBuilder extends Menu
 				'route' => 'tresepic_bopr_backend_manufacturer_index',
 				'labelAttributes' => array('icon' => 'glyphicon glyphicon-folder-close'),
 		))->setLabel('Marcas');
+		
+		$menu->addChild('banner', array(
+				'route' => 'tresepic_bopr_backend_banner_index',
+				'labelAttributes' => array('icon' => 'glyphicon glyphicon-folder-close'),
+		))->setLabel('Banners');
+		
+		$menu->addChild('testimonial', array(
+				'route' => 'tresepic_bopr_backend_testimonial_index',
+				'labelAttributes' => array('icon' => 'glyphicon glyphicon-folder-close'),
+		))->setLabel('Testimonios');
 	}
 }

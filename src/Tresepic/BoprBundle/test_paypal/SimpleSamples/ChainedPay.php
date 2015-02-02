@@ -48,6 +48,7 @@ function getPaypalPayKey($manufacturers, $fee, $total, $cancelUrl, $returnUrl)
 		$response = $service->Pay($payRequest);
 		//ldd($response->error);
 	} catch(Exception $ex) {
+		ldd($ex);
 		require_once '../Common/Error.php';
 		exit;
 	}

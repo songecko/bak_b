@@ -33,7 +33,16 @@ class HomepageController extends Controller
      */
     public function mainAction(Request $request)
     {
-        return $this->render('SyliusWebBundle:Frontend/Homepage:main.html.twig');
+    	$bannerRepository = $this->get('bopr.repository.banner');
+    	$testimonialRepository = $this->get('bopr.repository.testimonial');
+    	
+    	$banner = $bannerRepository->findBy(array('isEnabled' => true), array('priority' => 'ASC'));
+    	$testimonial = $testimonialRepository->findAll();
+    	
+        return $this->render('SyliusWebBundle:Frontend/Homepage:main.html.twig', array(
+    		'banners' => $banner,
+        	'testimonials' => $testimonial
+    	));
     }
     
     public function masacoteAction(Request $request)

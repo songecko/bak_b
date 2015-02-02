@@ -60,6 +60,8 @@ var checkoutSubmitHandler = function (ev)
 
     $(document).ready(function() 
     {	
+    	$('#topMenu .dropdown .dropdown-toggle').data("toggle", 'dropdown' );
+    	
     	$('#formStep1').submit(checkoutSubmitHandler);
         
         jQuery.getScript('http://www.geoplugin.net/javascript.gp', function()
@@ -337,6 +339,13 @@ var checkoutSubmitHandler = function (ev)
     				}
     			});
     		}
+    	});
+    	// menu dropdown hover
+    	$('.navBar .navMenu .dropdown').hover(function(e){
+    		e.preventDefault();
+    		$(this).addClass('open');
+    		}, function(){
+    		$(this).removeClass('open');
     	});
     });
 
