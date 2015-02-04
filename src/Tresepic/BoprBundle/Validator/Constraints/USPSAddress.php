@@ -6,7 +6,7 @@ use Symfony\Component\Validator\Constraint;
 
 class USPSAddress extends Constraint
 {
-	public $message = 'The Postcode "%string%" does not exist.';
+	public $message = 'The address does not exist.';
 	
 	public function validatedBy()
 	{

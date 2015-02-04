@@ -23,17 +23,16 @@ class USPSAddressValidator extends ConstraintValidator
 			->addViolation();
 */
 		// If you're using the old 2.4 validation API
-		$uspsPrice = $this->shippingCalculator->calculateUspsAddress($protocol, array());
+		$propertyPath = $this->context->getPropertyPath();
 		
-		//ldd($uspsPrice);
-		if($uspsPrice && !($uspsPrice > 0))
+		if($propertyPath == 'children[shippingAddress].data')
 		{
-			$this->context->addViolationAt(
-				'postcode',
-				$constraint->message,
-				array('%string%' => $protocol->getPostcode()),
-				null
-			);
+			$uspsPrice = $this->shippingCalculator->calculateUspsAddress($protocol, array());
+			
+			if($uspsPrice !== null && !($uspsPrice > 0))
+			{
+				$this->context->addViolation($constraint->message);
+			}
 		}
 	}
 }

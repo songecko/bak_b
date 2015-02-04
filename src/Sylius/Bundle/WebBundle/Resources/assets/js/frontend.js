@@ -23,7 +23,7 @@ var checkoutSubmitHandler = function (ev)
         },
         success: function (data) 
         {	
-        	if(data.indexOf('has-error') <= 0)
+        	if(data.indexOf('has-error') <= 0 && data.indexOf('alert-danger') <= 0)
         	{
         		$('#collapse'+step).collapse('hide');        		
         	}
@@ -43,7 +43,7 @@ var checkoutSubmitHandler = function (ev)
         	
         	$('#collapse'+step+' .panel-body').html(data);
         	
-        	if(data.indexOf('has-error') <= 0)
+        	if(data.indexOf('has-error') <= 0 && data.indexOf('alert-danger') <= 0)
         	{
         		$('#collapse'+step).collapse('show');
         	}

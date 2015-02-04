@@ -20,7 +20,9 @@
         <constraint name="Sylius\Bundle\AddressingBundle\Validator\Constraints\ShippableAddressConstraint">
             <option name="groups">shippable</option>
         </constraint>
-        <constraint name="Tresepic\BoprBundle\Validator\Constraints\USPSAddress" />
+        <constraint name="Tresepic\BoprBundle\Validator\Constraints\USPSAddress">
+        	<option name="groups">shippable</option>
+        </constraint>
         <property name="firstName">
             <constraint name="NotBlank">
                 <option name="message">sylius.address.first_name.not_blank</option>
