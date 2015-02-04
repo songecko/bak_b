@@ -33,6 +33,6 @@ services:
             
     bopr.validator.usps_address_validator:
         class: Tresepic\BoprBundle\Validator\Constraints\USPSAddressValidator
-        arguments: [@sylius.shipping_calculator.usps]
+        arguments: [@sylius.shipping_calculator.usps, @sylius.cart_provider]
         tags:
             - { name: validator.constraint_validator, alias: usps_address_validator }

@@ -5,14 +5,17 @@ namespace Tresepic\BoprBundle\Validator\Constraints;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Tresepic\BoprBundle\Shipping\Calculator\USPSCalculator;
+use Sylius\Bundle\CartBundle\Provider\CartProviderInterface;
 
 class USPSAddressValidator extends ConstraintValidator
 {
 	private $shippingCalculator;
+	private $cartProvider;
 	
-	public function __construct(USPSCalculator $shippingCalculator)
+	public function __construct(USPSCalculator $shippingCalculator, CartProviderInterface $cartProvider)
 	{
-		$this->shippingCalculator = $shippingCalculator;	
+		$this->shippingCalculator = $shippingCalculator;
+		$this->cartProvider = $cartProvider;
 	}
 	
 	public function validate($protocol, Constraint $constraint)
@@ -27,7 +30,7 @@ class USPSAddressValidator extends ConstraintValidator
 		
 		if($propertyPath == 'children[shippingAddress].data')
 		{
-			$uspsPrice = $this->shippingCalculator->calculateUspsAddress($protocol, array());
+			$uspsPrice = $this->shippingCalculator->calculateUspsAddress($protocol, $this->cartProvider->getCart()->getItems());
 			
 			if($uspsPrice !== null && !($uspsPrice > 0))
 			{
