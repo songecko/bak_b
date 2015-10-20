@@ -347,6 +347,9 @@ var checkoutSubmitHandler = function (ev)
     		}, function(){
     		$(this).removeClass('open');
     	});
+
+		//menu doubletaptogo
+		$('nav li:has(ul)').doubleTapToGo();
     });
 
 })( jQuery );
